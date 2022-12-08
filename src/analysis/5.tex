@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{5}{Типы числовых множеств. Верхняя и нижняя грани множества.}
+
+\define{типов числовых множеств}
+\begin{enumerate}
+	\item Отрезок (сегмент): $[a;b] := \{x\in\R\;|\;a\leq x\leq b\}$
+	\item Интервал (открытый промежуток): $(a;b) := \{x\in\R\;|\;a<x<b\}$
+	\item Окрестность ($\varepsilon$-окрестность) $a\in\R$: $(a-\varepsilon,a+\varepsilon)$
+	\item Числовая прямая: $(-\infty;+\infty)$
+	\item Полупрямая (луч): $[a;+\infty)$; $(-\infty;a]$
+	\item Полуотрезок: $[a;b)$; $(a;b]$
+	\item Открытая полупрямая (луч): $(a;+\infty)$; $(-\infty;a)$
+	\item Расширенная числовая прямая: $\overline{\R}:=\R\cup\{-\infty,+\infty\}$
+\end{enumerate}
+
+\define{ограниченного множества}
+
+$A\subset\R$ ограничено сверху, если $\exists M:\forall a\in A\;a<M$
+
+$A\subset\R$ ограничено снизу, если $\exists M:\forall a\in A\;a>M$
+
+$A\subset\R$ ограничено, если оно ограничено и сверху, и снизу
+
+\define{точной верхней и нижней граней множества}
+
+$M$ --- верхняя грань $A\subset\R$, если $\forall a\in A\;a\leq M$
+
+$M$ --- нижняя грань $A\subset\R$, если $\forall a\in A\;a\geq M$
+
+Наименьшая (наибольшая) из всех верхних (нижних) граней множества $A\subset\R$,
+называется точной верхней (нижней) гранью.
+
+Точная верхняя грань --- $\sup A$ (супремум)
+
+Точная нижняя грань --- $\inf A$ (инфенум)
+
+\theorem
+\begin{align*}
+	 & \exists M:\forall a\in A\;a<M \land A\neq\varnothing \Rarr \exists \sup A \\
+	 & \exists M:\forall a\in A\;a>M \land A\neq\varnothing \Rarr \exists \inf A \\
+\end{align*}
+
+\end{document}
