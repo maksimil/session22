@@ -1,6 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{defines}[2022/11/24 Defines]
 
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+
 \newcommand{\hd}[1]{
 	\vspace{3mm}
 	{\bf #1}
@@ -32,3 +35,6 @@
 \newcommand{\Rarr}{\Rightarrow}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\eset}{\varnothing}
+\newcommand{\setdef}[2]{\{#1\;|\;#2\}}
+\newcomand{\eps}{\varepsilon}
