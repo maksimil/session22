@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{12}{Принцип выбора Больцано-Вейерштрасса}
+
+\theorem
+
+Любая ограниченная последовательность содержит сходящуюся подпоследовательность
+
+\proof
+\begin{align*}
+	 & \{a_n\} \text{ --- ограничена }                                                  \\
+	 & \exists M>0: \forall n\in\N\;|a_n|<M                                             \\
+	 & Z := \{x\in\R | x < a_n \text{ для $\infty$ количества чисел $n$ }\}             \\
+	 & -M\in Z \Rarr Z \neq \varnothing                                                 \\
+	 & Z\neq\varnothing \land \forall z\in Z\; z < M \Rarr \exists \sup Z =: g          \\
+	 & \forall \varepsilon > 0 \;\exists x \in Z:g-\varepsilon<x
+	\Rarr g-\varepsilon\in Z                                                            \\
+	 & g-\varepsilon \in Z \land g+\varepsilon \notin Z
+	\Rarr \text{ для $\infty$ количества $n$: } g-\varepsilon<a_n<g+\varepsilon         \\
+	 & \sqsupset \varepsilon = 1\Rarr \exists m_1: |a_{m_1}-g|<1                        \\
+	 & \sqsupset \varepsilon = \frac{1}{2}\Rarr\exists m_2>m_1: |a_{m_2}-g|<\frac{1}{2} \\
+	 & \text{ Такой $m_2$ существует, тк подходящих индексов бесконечное количество, }  \\
+	 & \text{ а индексов $\leq m_1$ конечное количество }                               \\
+	 & \Rarr \forall n\in\N \; |a_{m_n}-g|<\frac{1}{n}
+	\Rarr\slim{n\to\infty}a_{m_n}=g\;\square.                                           \\
+\end{align*}
+
+\end{document}

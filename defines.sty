@@ -1,0 +1,34 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{defines}[2022/11/24 Defines]
+
+\newcommand{\hd}[1]{
+	\vspace{3mm}
+	{\bf #1}
+	\vspace{1mm}
+}
+
+\newcommand{\define}[1]{\hd{Определение #1}}
+
+\newcommand{\theorem}{\hd{Теорема}}
+
+\newcommand{\proof}{\hd{Доказательство}}
+
+\newcommand{\onlyif}{\hd{Необходимость}}
+
+\newcommand{\enough}{\hd{Достаточность}}
+
+\newcommand{\assume}{Пусть }
+
+\newcommand{\tickettitle}[2]{
+	\begin{center}
+		{\bf Билет #1}
+
+		#2
+	\end{center}}
+
+\newcommand{\slim}{\lim\limits_}
+\newcommand{\sliminf}{\varliminf\limits_}
+\newcommand{\slimsup}{\varlimsup\limits_}
+\newcommand{\Rarr}{\Rightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
