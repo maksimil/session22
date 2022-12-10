@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{49}{Локальные экстремумы функции}
+
+\define{экстремума}
+
+$f$ имеет в $x_0$ максимум, если $\exists\delta:(\forall x\in\R)\;|x-x_0|<\delta\Rarr f(x)\leq f(x_0)$
+
+$f$ имеет в $x_0$ минимум, если $\exists\delta:(\forall x\in\R)\;|x-x_0|<\delta\Rarr f(x)\geq f(x_0)$
+
+Точки минимума и максимума --- точки экстремума
+
+\theorem
+
+$f$ имеет в $x_0$ экстремум и $f$ дифференцируема в $x_0$ $\Rarr f'(x_0)=0$
+
+\proof
+\begin{enumerate}
+	\item$f$ имеет в $x_0$ минимум
+	\begin{align*}
+		 & \exists\delta: (\forall x\in\R)\;|x-x_0|<\delta\Rarr f(x)\geq f(x_0) \\
+		\sqsupset |h| < \delta
+		 & \Rarr f(x_0+h)\geq f(x_0) \Rarr f(x_0+h)-f(x_0) \geq 0\Rarr          \\
+		 & \Rarr\begin{cases}
+			        \slim{h\to0+}\frac{f(x_0+h)-f(x_0)}{h}\geq0 \\
+			        \slim{h\to0-}\frac{f(x_0+h)-f(x_0)}{h}\leq0 \\
+			        \exists\slim{h\to0}\frac{f(x_0+h)-f(x_0)}{h}=:f'(x_0)
+		        \end{cases} \Rarr f'(x_0)=0\;\square.
+	\end{align*}
+	\item$f$ имеет в $x_0$ максимум
+	\begin{align*}
+		 & \exists\delta: (\forall x\in\R)\;|x-x_0|<\delta\Rarr f(x)\leq f(x_0) \\
+		\sqsupset |h| < \delta
+		 & \Rarr f(x_0+h)\leq f(x_0) \Rarr f(x_0+h)-f(x_0) \leq 0\Rarr          \\
+		 & \Rarr\begin{cases}
+			        \slim{h\to0+}\frac{f(x_0+h)-f(x_0)}{h}\leq0 \\
+			        \slim{h\to0-}\frac{f(x_0+h)-f(x_0)}{h}\geq0 \\
+			        \exists\slim{h\to0}\frac{f(x_0+h)-f(x_0)}{h}=:f'(x_0)
+		        \end{cases} \Rarr f'(x_0)=0\;\square.
+	\end{align*}
+\end{enumerate}
+
+\end{document}
