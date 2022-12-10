@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{50}{Теорема Ролля}
+
+\theorem
+
+$f$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$
+\begin{align*}
+	f(a)=f(b) \Rarr \exists \gamma\in(a;b):f'(\gamma)=0
+\end{align*}
+
+\proof
+
+По теореме Вейерштрасса $f$ ограничена на $[a;b]$ и она достигает своих максимума и минимума:
+\begin{align*}
+	M & :=\sup f([a;b]) \\
+	m & :=\inf f([a;b])
+\end{align*}
+\begin{enumerate}
+	\item$M=m$
+
+	Тогда $f(x)=const \Rarr (\forall\gamma\in(a;b))f'(\gamma)=0$
+
+	\item$M\neq m$
+
+	Оба значения достигаются функцией на $[a;b]$.
+
+	$f(a)=f(b) \Rarr$ хотя бы одно из них достигается на $(a;b)$, там будет точка экстремума $f$:
+	\begin{align*}
+		\exists\gamma\in(a;b):\gamma\text{ --- точка экстремума $f$} \Rarr f'(\gamma)=0\;\square.
+	\end{align*}
+\end{enumerate}
+
+\end{document}
