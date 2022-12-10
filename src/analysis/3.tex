@@ -38,8 +38,8 @@ $B\subset A \Rarr B \text{ --- конечно или счётно}$
 
 \proof
 \begin{align*}
-	 & A=\setdef{a_i}{i\in\N} \Rarr B=\{a_{n_i}\} \land (n_{i+1}>n_i)                       \\
-	 & \exists \text{наибольшее }n_i\Rarr B \text{ --- конечно, иначе --- счётно}\;\square.
+	 & A=\setdef{a_i}{i\in\N} \Rarr B=\{a_{n_i}\} \land (n_{i+1}>n_i)                 \\
+	 & \exists \text{наибольшее }n_i\Rarr B \text{ --- конечно, иначе --- счётно}\qed
 \end{align*}
 
 \theorem
@@ -54,7 +54,7 @@ $B\subset A \Rarr B \text{ --- конечно или счётно}$
 	 & ...
 \end{align*}
 
-Нумеруя $\bigcup_i A_i$ по диагонали мы получаем $f:\bigcup_i A_i\leftrightarrow\N\;\square.$
+Нумеруя $\bigcup_i A_i$ по диагонали мы получаем $f:\bigcup_i A_i\leftrightarrow\N\qed$
 
 \begin{tikzpicture}[remember picture, overlay]
 	\draw [-latex] ($(pic cs:a11)+(0,0.3em)$) -- ($(pic cs:a12)+(-1.5em,0.3em)$);
@@ -74,7 +74,7 @@ $\forall$ бесконечное множество $M$ содержит счё�
 	\sqsupset a_1                 & \in M                                           \\
 	\exists a_2                   & \in M:a_2\neq a_1                               \\
 	(\forall n\in\N)\;\exists a_n & \in M: a_n \neq a_i\;\forall i=\overline{1,n-1} \\
-	A:=\setdef{a_i}{i\in\N}       & \subset M\;\square.                             \\
+	A:=\setdef{a_i}{i\in\N}       & \subset M\qed                                   \\
 \end{align*}
 
 
