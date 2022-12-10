@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{enumitem}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing, tikzmark, calc}
+
+\begin{document}
+
+\tickettitle{2}{$\R$. Аксиомы $\R$}
+
+\define{Абелевой группы}
+
+Множество $X$ и оператор $\odot$ образуют абелеву группу, если:
+
+\begin{enumerate}[label=\Roman*.]
+	\item$(\forall a, b\in X)\;a\odot b\in X$
+	\item$(\forall a,b,c\in X)\;(a\odot b)\odot c=a\odot(b\odot c)$
+	\item$\exists e\in X:(\forall a\in X)\;a\odot e=a$
+	\item$(\forall a\in X)\;\exists a^{-1}\in X:a\odot a^{-1}=e$
+	\item$(\forall a, b\in X)\;a\odot b=b\odot a$
+\end{enumerate}
+
+\define{Дедекиндова сечения}
+
+\newcommand{\Xbottom}{X_\triangle}
+\newcommand{\Xtop}{X^\bigtriangledown}
+Сечение $X$ на $\Xbottom$ и $\Xtop$:
+
+\begin{enumerate}[label=\Roman*.]
+	\item$\Xbottom\cup \Xtop=X$
+	\item$\Xbottom\cap \Xtop=\eset$
+	\item$(\forall x\in \Xbottom)(\forall y\in \Xtop)\;x<y$
+\end{enumerate}
+
+Сечение называется дедкиндовым, если $(\exists\max\Xtop\land\nexists\min\Xbottom)\lor(\nexists\max\Xtop\land\exists\min\Xbottom)$
+
+\define{$\R$}
+
+Аксиомы $\R$:
+
+\begin{enumerate}[label=\Roman*.]
+	\item\tikzmark{ax1}$(\forall a, b\in\R)\;a+b\in\R$
+	\item$(\forall a,b,c\in\R)\;(a+b)+c=a+(b+c)$
+	\item$\exists 0\in\R:(\forall a\in\R)\;a+0=a$
+	\item$(\forall a\in\R)\;\exists (-a)\in\R:a+(-a)=0$
+	\item\tikzmark{ax5}$(\forall a, b\in\R)\;a+b=b+a$
+	\item\tikzmark{ax6}$(\forall a, b\in X)\;a\cdot b\in X$
+	\item$(\forall a,b,c\in X)\;(a\cdot b)\cdot c=a\cdot(b\cdot c)$
+	\item$\exists e\in X:(\forall a\in X)\;a\cdot e=a$
+	\item$(\forall a\in X)\;\exists a^{-1}\in X:a\cdot a^{-1}=e$
+	\item\tikzmark{ax10}$(\forall a, b\in X)\;a\cdot b=b\cdot a$
+	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- дистрибутивность $\cdot$ на $+$
+	\item\tikzmark{ax12}$(\forall a,b\in\R)\;(a>b)\lor (a<b)\lor (a=b)$
+	\item$(\forall a,b,c\in\R)\;(a>b)\land(b>c)\Rarr (a>c)$
+	\item$(\forall a,b,c\in\R)\;a>b\Rarr a+c>b+c$
+	\item\tikzmark{ax15}$(\forall a,b,c\in\R \land c>0)\;a>b\Rarr a\cdot c>b\cdot c$
+	\item$(\forall a\in\R)\;\exists n\in\N:n>a$ --- Аксиома Архимеда
+	\item$\forall$ сечение $\R$ --- дедекиндово
+\end{enumerate}
+
+\newcommand{\markax}[3]{
+	\draw [decorate, decoration={brace}] ($({pic cs:#1}) + (19em, 1em)$) -- ($({pic cs:#2}) + (19em,0)$)
+	node [midway, right] {#3};
+}
+\begin{tikzpicture}[remember picture, overlay]
+	\markax{ax1}{ax5}{$\R$ образует с $+$ абелеву группу}
+	\markax{ax6}{ax10}{$\R$ образует с $\cdot$ абелеву группу}
+	\markax{ax12}{ax15}{$\R$ строго упорядочено}
+\end{tikzpicture}
+
+\end{document}
