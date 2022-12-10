@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{defines}
+\usepackage{mathtools}
 
 \usepackage{fullpage}
 
@@ -97,5 +98,20 @@ $A$ --- ограничено снизу $\Rarr \exists \inf A$
 
 	\item$A$ --- ограничено снизу: аналогично
 \end{enumerate}
+
+\theorem
+\begin{align*}
+	y_0=\sup A\Lrarr
+	\begin{cases}
+		x\leq y_0\;\forall x\in A                & (i)  \\
+		\forall\eps>0\;\exists x\in A:x>y_0-\eps & (ii)
+	\end{cases}
+\end{align*}
+
+\proof
+\begin{align*}
+	(i)  & \Rarr y_0 \text{ --- верхняя грань }                      \\
+	(ii) & \Rarr y_0 \text{ --- наименьшая верхняя грань }\;\square. \\
+\end{align*}
 
 \end{document}
