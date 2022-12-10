@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{51}{Теорема Лагранжа}
+
+\theorem
+
+$f$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$
+\begin{align*}
+	\exists \gamma\in(a;b):f'(\gamma)(b-a)=f(b)-f(a)
+\end{align*}
+
+\proof
+\begin{align*}
+	 & F(x):=f(x)-\lambda x \land F(a)=F(b)                                                                   \\
+	 & F(a)=F(b) \Rarr f(a)-\lambda a=f(b)-\lambda b\Rarr \lambda=\frac{f(b)-f(a)}{b-a}                       \\
+	 & F(x) \text{ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$} \Rarr                                  \\
+	 & \Rarr \exists\gamma\in(a;b):F'(\gamma)=0 \Rarr f'(\gamma)-\lambda=0\Rarr f'(\gamma)(b-a)=f(b)-f(a)\qed
+\end{align*}
+
+\end{document}
