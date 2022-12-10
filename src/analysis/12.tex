@@ -17,20 +17,19 @@
 
 \proof
 \begin{align*}
-	 & \{a_n\} \text{ --- ограничена }                                                 \\
-	 & \exists M>0: \forall n\in\N\;|a_n|<M                                            \\
+	 & \{a_n\} \text{ --- ограничена } \Lrarr \exists M>0: \forall n\in\N\;|a_n|<M     \\
 	 & Z := \setdef{x\in\R}{x < a_n \text{ для $\infty$ количества чисел $n$}}         \\
-	 & \forall n\in\N\;a_n>-M\Rarr -M\in Z \Rarr Z \neq \varnothing                    \\
-	 & Z\neq\varnothing \land \forall z\in Z\; z < M \Rarr \exists \sup Z =: g         \\
+	 & (\forall n\in\N)\;a_n>-M\Rarr -M\in Z \Rarr Z \neq \varnothing                  \\
+	 & (Z\neq\varnothing) \land (z < M\;\forall z\in Z) \Rarr \exists \sup Z =: g      \\
 	 & \forall \eps > 0 \;\exists x \in Z:g-\eps<x
 	\Rarr g-\eps\in Z                                                                  \\
-	 & g-\eps \in Z \land g+\eps\notin Z
+	 & (g-\eps \in Z) \land (g+\eps\notin Z)
 	\Rarr \text{ для $\infty$ количества $n$: } g-\eps<a_n<g+\eps                      \\
 	 & \sqsupset \eps = 1\Rarr \exists m_1: |a_{m_1}-g|<1                              \\
 	 & \sqsupset \eps = \frac{1}{2}\Rarr\exists m_2>m_1:|a_{m_2}-g|<\frac{1}{2}        \\
 	 & \text{ Такой $m_2$ существует, тк подходящих индексов бесконечное количество, } \\
 	 & \text{ а индексов $\leq m_1$ конечное количество }                              \\
-	 & \Rarr \forall n\in\N \; |a_{m_n}-g|<\frac{1}{n}
+	 & \Rarr (\forall n\in\N) \; |a_{m_n}-g|<\frac{1}{n}
 	\Rarr\slim{n\to\infty}a_{m_n}=g\;\square.                                          \\
 \end{align*}
 
