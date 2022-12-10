@@ -48,33 +48,54 @@ $M$ --- нижняя грань $A\subset\R$, если $\forall a\in A\;a\geq M$
 \pagebreak
 
 \theorem
-\begin{align*}
-	 & \exists M\in\R:\forall a\in A\;a<M \land A\neq\eset \Rarr \exists \sup A \\
-	% & \exists M:\forall a\in A\;a>M \land A\neq\eset \Rarr \exists \inf A \\
-\end{align*}
+
+$A$ --- ограничено сверху $\Rarr \exists \sup A$
+
+$A$ --- ограничено снизу $\Rarr \exists \inf A$
 
 \proof
 \begin{enumerate}
 	\item$A$ --- ограничено сверху
+
+	Рассмотрим $B:=\setdef{x\in\R}{x>a\;\forall a\in A}$.
+
+	Заметим, что $B$ --- не множество всех верхних граней $A$.
+	\begin{align}
+		 & B:=\setdef{x\in\R}{x>a\;\forall a\in A}\notag                                       \\
+		 & B':=\R\setminus B\Rarr (B'\cup B=\R) \land (B'\cap B=\eset)\label{sepB}             \\
+		 & (\forall a \in A)\;(a\notin B)\land(a\in\R) \Rarr a\in B'\notag                     \\
+		 & (\forall b\in B)(\forall x\in\R)\;x>b\Rarr(\forall a\in A)\;x>b>a\Rarr x\in B\notag \\
+		 & x\in B'\Rarr x\in\R\land x\notin B\Rarr (\forall b\in B)\;x\leq b\notag             \\
+		 & (\forall b\in B)(\forall b'\in B')\;b'\leq b\label{diffB}
+	\end{align}
+	По 17й аксиоме $\R$, сформулированной через Дедекиндовы сечения:
+	\begin{align}
+		\eqref{sepB}\land\eqref{diffB}\Rarr \exists c\in\R:
+		(\forall b\in B)(\forall b'\in B')\;b'\leq c\leq b\Rarr
+		(\forall b\in B)(\forall a\in A)\;a\leq c\leq b\label{defc}
+	\end{align}
+
+	Рассмотрим $U:=\setdef{x\in\R}{x\geq a\;\forall a\in A}$.
+
+	$U$ --- множество всех верхних граней $A$. Если $\exists\min U$, то $\sup A:=\min U$.
+
+	Рассмотрим теперь $U\setminus B$, пусть $U\setminus B\neq\eset$:
+	\begin{align}
+		m\in(U\setminus B)
+		 & \Rarr m\in U\land m\notin B \Rarr (m\geq a\;\forall a \in A)\land(\exists a\in A:m\leq a)\Rarr\notag \\
+		 & \Rarr(m\geq a\;\forall a \in A)\land(m\in A)\notag                                                   \\
+		x\in B
+		 & \Lrarr x>a\;\forall a\in A\Lrarr x>m\geq a\;\forall a\in A\Lrarr x>m\label{Bdef}
+	\end{align}
+	Из $\eqref{Bdef}$ следует, что $B=(m;+\infty)\land B'=(-\infty;m] \Rarr m=c$
+
+	Таким образом, если $U\setminus B\neq \eset$, то $U\setminus B=\{c\}\Rarr U\setminus B\subset \{c\}$
 	\begin{align*}
-		 & B:=\setdef{u\in\R}{\forall a\in A\; a < u}                               \\
-		 & M\in B \Rarr B \neq\eset                                                 \\
-		 & B' := \R \setminus B                                                     \\
-		 & \forall a\in A:a\notin B\Rarr A\subset B'                                \\
-		 & B \cap B'=\eset \land B\cup B'=\R
-		\Rarr \exists c: \forall b\in B, b'\in B':
-		b'\leq c\leq b \land (c\in B \lor c\in B')                                  \\
-		 & \Rarr \forall b\in B, a\in A:
-		a\leq c\leq b                                                               \\
-		 & U:= \setdef{u\in\R}{\forall a\in A\; a\leq u}                            \\
-		 & \sqsupset m \in (U \setminus B) \iff \forall a\in A\; a\leq m
-		\land \exists a\in A:a\geq m \iff m \in A\land \forall a\in A \; a\leq m    \\
-		 & b > m \iff \forall a \in A\;b>m\geq a\iff \forall a\in A\;b>a\iff b\in B \\
-		 & \Rarr B=(m;+\infty) \land B'=(-\infty;m]\Rarr m=c                        \\
-		 & (m\in (U\setminus B)\Rarr m=c)\land(\forall b\in B\; c\leq b)
-		\Rarr \forall u\in U\; c\leq u                                              \\
-		 & \forall u\in U\; c\leq u \land c \in U \Rarr c=\min U\Rarr c=\sup A      \\
+		 & (U\setminus B \subset \{c\}) \land (c\in U \text{ следует из $\eqref{defc}$}) \Rarr U=B\cup \{c\} \\
+		 & (c\leq u\;\forall u\in U)\land (c\in U) \Rarr \min U=c\Rarr \sup A=c\;\square.
 	\end{align*}
+
+	\item$A$ --- ограничено снизу: аналогично
 \end{enumerate}
 
 \end{document}
