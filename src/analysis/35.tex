@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{35}{Теорема Вейерштрасса}
+
+\theorem
+
+$f$ --- непрерывна на $[a;b]$ $\Rarr$ $f$ --- ограничена на $[a;b]$ и достигает
+своих минимума и максимума
+
+\proof
+
+\begin{enumerate}
+	\item$f$ --- ограничена на $[a;b]$, если она непрерывна на $[a;b]$
+
+	$f$ равномерно непрерывна на $[a;b]$ (по т. Кантора):
+	\begin{align*}
+		 & \llet\eps=1\;\exists\delta>0:(\forall x,x'\in X:(|x-x'|<\delta))\;|f(x)-f(x')|<1
+	\end{align*}
+
+	Разделим $[a;b]$ на $n$ частей: $\frac{b-a}{n}<\delta$
+	\begin{align*}
+		a_0 & :=a & a_{i+1}-a_i & =\frac{b-a}{n} \\
+		a_n & :=b & a_{i+1}-a_i & <\delta
+	\end{align*}
+	\begin{align*}
+		 & |a_{i+1}-a_i|<\delta  \Rarr |f(x)-f(a_i)|<1\;\forall x\in[a_{i-1};a_i]
+		\Rarr |f(x)|<1+|f(a_i)|\;\forall x\in[a_{i-1};a_i]                                 \\
+		 & A:=\max\setdef{1+|f(a_i)|}{i=\overline{1,n}} \Rarr |f(x)|<A\;\forall x\in [a;b]
+		\Rarr f\text{ --- ограничена на $[a;b]$}
+	\end{align*}
+
+	\item$f$ достигает своих минимума и максимума
+
+	$f$ --- ограничена на $[a;b]$ $\Rarr$ $\exists M:=\sup f([a;b])$, $\exists m:=\inf f([a;b])$
+	\begin{align*}
+		 & \llet (\forall x\in[a;b])\;f(x)<M\Rarr g(x):=\frac{1}{M-f(x)}\text{ --- непрерывна на $[a;b]$}\Rarr \\
+		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr     \\
+		 & \Rarr \frac{1}{M-f(x)}<L\Rarr f(x)<M-\frac{1}{L}\text{, но $M=\sup f([a;b])$}\qed
+	\end{align*}
+	\begin{align*}
+		 & \llet (\forall x\in[a;b])\;f(x)>m\Rarr g(x):=\frac{1}{f(x)-m}\text{ --- непрерывна на $[a;b]$}\Rarr \\
+		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr     \\
+		 & \Rarr \frac{1}{f(x)-m}<L\Rarr f(x)>m+\frac{1}{L}\text{, но $m=\inf f([a;b])$}\qed
+	\end{align*}
+\end{enumerate}
+
+\end{document}
