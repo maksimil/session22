@@ -30,7 +30,6 @@
 $A\subset\R$ ограничено сверху, если $\exists M:\forall a\in A\;a<M$
 
 $A\subset\R$ ограничено снизу, если $\exists M:\forall a\in A\;a>M$
-
 $A\subset\R$ ограничено, если оно ограничено и сверху, и снизу
 
 \define{точной верхней и нижней граней множества}
@@ -58,60 +57,61 @@ $A$ --- ограничено снизу $\Rarr \exists \inf A$
 \begin{enumerate}
 	\item$A$ --- ограничено сверху
 
-	Рассмотрим $B:=\setdef{x\in\R}{x>a\;\forall a\in A}$.
-
-	Заметим, что $B$ --- не множество всех верхних граней $A$.
-	\begin{align}
-		 & B:=\setdef{x\in\R}{x>a\;\forall a\in A}\notag                                       \\
-		 & B':=\R\setminus B\Rarr (B'\cup B=\R) \land (B'\cap B=\eset)\label{sepB}             \\
-		 & (\forall a \in A)\;(a\notin B)\land(a\in\R) \Rarr a\in B'\notag                     \\
-		 & (\forall b\in B)(\forall x\in\R)\;x>b\Rarr(\forall a\in A)\;x>b>a\Rarr x\in B\notag \\
-		 & x\in B'\Rarr x\in\R\land x\notin B\Rarr (\forall b\in B)\;x\leq b\notag             \\
-		 & (\forall b\in B)(\forall b'\in B')\;b'\leq b\label{diffB}
-	\end{align}
-	По 17й аксиоме $\R$, сформулированной через Дедекиндовы сечения:
-	\begin{align}
-		\eqref{sepB}\land\eqref{diffB}\Rarr \exists c\in\R:
-		(\forall b\in B)(\forall b'\in B')\;b'\leq c\leq b\Rarr
-		(\forall b\in B)(\forall a\in A)\;a\leq c\leq b\label{defc}
-	\end{align}
-
-	Рассмотрим $U:=\setdef{x\in\R}{x\geq a\;\forall a\in A}$.
-
-	$U$ --- множество всех верхних граней $A$. Если $\exists\min U$, то $\sup A:=\min U$.
-
-	Рассмотрим теперь $U\setminus B$, пусть $U\setminus B\neq\eset$:
-	\begin{align}
-		m\in(U\setminus B)
-		 & \Rarr m\in U\land m\notin B \Rarr (m\geq a\;\forall a \in A)\land(\exists a\in A:m\leq a)\Rarr\notag \\
-		 & \Rarr(m\geq a\;\forall a \in A)\land(m\in A)\notag                                                   \\
-		x\in B
-		 & \Lrarr x>a\;\forall a\in A\Lrarr x>m\geq a\;\forall a\in A\Lrarr x>m\label{Bdef}
-	\end{align}
-	Из $\eqref{Bdef}$ следует, что $B=(m;+\infty)\land B'=(-\infty;m] \Rarr m=c$
-
-	Таким образом, если $U\setminus B\neq \eset$, то $U\setminus B=\{c\}\Rarr U\setminus B\subset \{c\}$
+	Рассмотрим $U:=\setdef{u\in\R}{a\leq u\;\forall a\in A}$ --- множество
+	всех верхних граней $A$.
 	\begin{align*}
-		 & (U\setminus B \subset \{c\}) \land (c\in U \text{ следует из $\eqref{defc}$}) \Rarr U=B\cup \{c\} \\
-		 & (c\leq u\;\forall u\in U)\land (c\in U) \Rarr \min U=c\Rarr \sup A=c\qed
+		 & \exists M\in\R: a<M\;\forall a\in A	\Rarr M\in U\Rarr U\neq\eset
+	\end{align*}
+	Если $\exists\min U$, то $\exists\sup A$ (по определению $\sup A$)
+
+	По аксиоме полноты:
+	\begin{align*}
+		 & a\leq u\;\forall a\in A,u\in U\Rarr\exists m\in\R:
+		a\leq m\leq u\;\forall a\in A,u\in U                    \\
+		 & a\leq m\;\forall a\in A\Rarr m\in U                  \\
+		 & (m\leq u\;\forall u\in U)\land(m\in U)\Rarr m=\min U
+		\Rarr m=\sup A\qed
 	\end{align*}
 
-	\item$A$ --- ограничено снизу: аналогично
+	\item$A$ --- ограничено снизу
+
+	Рассмотрим $V:=\setdef{v\in\R}{v\leq a\;\forall a\in A}$ --- множество
+	всех нижних граней $A$.
+	\begin{align*}
+		 & \exists M\in\R: M<a\;\forall a\in A\Rarr M\in V\Rarr V\neq\eset
+	\end{align*}
+	Если $\exists\max V$, то $\exists\inf A$ (по определению $\inf A$)
+
+	По аксиоме полноты:
+	\begin{align*}
+		 & v\leq a\;\forall a\in A,v\in V\Rarr\exists m\in\R:
+		v\leq m\leq a\;\forall a\in A,v\in V                    \\
+		 & m\leq a\;\forall a\in A\Rarr m\in V                  \\
+		 & (v\leq m\;\forall v\in V)\land(m\in V)\Rarr m=\max V
+		\Rarr m=\inf A\qed
+	\end{align*}
 \end{enumerate}
 
 \theorem
 \begin{align*}
-	y_0=\sup A\Lrarr
+	 & u=\sup A\Lrarr
 	\begin{cases}
-		x\leq y_0\;\forall x\in A                & (i)  \\
-		\forall\eps>0\;\exists x\in A:x>y_0-\eps & (ii)
+		x\leq u\;\forall x\in A                & (i)  \\
+		\forall\eps>0\;\exists x\in A:x>u-\eps & (ii)
+	\end{cases} \\
+	 & v=\inf A\Lrarr
+	\begin{cases}
+		x\geq v\;\forall x\in A                & (iii) \\
+		\forall\eps>0\;\exists x\in A:x<v+\eps & (iv)
 	\end{cases}
 \end{align*}
 
 \proof
 \begin{align*}
-	(i)  & \Rarr y_0 \text{ --- верхняя грань }                \\
-	(ii) & \Rarr y_0 \text{ --- наименьшая верхняя грань }\qed \\
+	(i)   & \Rarr u \text{ --- верхняя грань }                \\
+	(ii)  & \Rarr u \text{ --- наименьшая верхняя грань }\qed \\
+	(iii) & \Rarr v \text{ --- нижняя грань }                 \\
+	(iv)  & \Rarr v \text{ --- наибольшая нижняя грань }\qed
 \end{align*}
 
 \end{document}

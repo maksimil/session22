@@ -27,20 +27,6 @@
 	\item$(\forall a, b\in X)\;a\odot b=b\odot a$
 \end{enumerate}
 
-\define{Дедекиндова сечения}
-
-\newcommand{\Xbottom}{X_\triangle}
-\newcommand{\Xtop}{X^\bigtriangledown}
-Сечение $X$ на $\Xbottom$ и $\Xtop$:
-
-\begin{enumerate}[label=\Roman*.]
-	\item$\Xbottom\cup \Xtop=X$
-	\item$\Xbottom\cap \Xtop=\eset$
-	\item$(\forall x\in \Xbottom)(\forall y\in \Xtop)\;x<y$
-\end{enumerate}
-
-Сечение называется дедкиндовым, если $(\exists\max\Xtop\land\nexists\min\Xbottom)\lor(\nexists\max\Xtop\land\exists\min\Xbottom)$
-
 \define{$\R$}
 
 Аксиомы $\R$:
@@ -56,13 +42,14 @@
 	\item$\exists e\in X:(\forall a\in X)\;a\cdot e=a$
 	\item$(\forall a\in X)\;\exists a^{-1}\in X:a\cdot a^{-1}=e$
 	\item\tikzmark{ax10}$(\forall a, b\in X)\;a\cdot b=b\cdot a$
-	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- дистрибутивность $\cdot$ на $+$
+	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- Дистрибутивность $\cdot$ на $+$
 	\item\tikzmark{ax12}$(\forall a,b\in\R)\;(a>b)\lor (a<b)\lor (a=b)$
 	\item$(\forall a,b,c\in\R)\;(a>b)\land(b>c)\Rarr (a>c)$
 	\item$(\forall a,b,c\in\R)\;a>b\Rarr a+c>b+c$
 	\item\tikzmark{ax15}$(\forall a,b,c\in\R \land c>0)\;a>b\Rarr a\cdot c>b\cdot c$
 	\item$(\forall a\in\R)\;\exists n\in\N:n>a$ --- Аксиома Архимеда
-	\item$\forall$ сечение $\R$ --- дедекиндово
+	\item$(\forall X,Y\subset\R:(x\leq y\;\forall x\in X,y\in Y))\;
+		\exists a\in\R: x\leq a\leq y\;\forall x\in X,y\in Y$ --- Аксиома полноты
 \end{enumerate}
 
 \newcommand{\markax}[3]{
@@ -72,7 +59,7 @@
 \begin{tikzpicture}[remember picture, overlay]
 	\markax{ax1}{ax5}{$\R$ образует с $+$ абелеву группу}
 	\markax{ax6}{ax10}{$\R$ образует с $\cdot$ абелеву группу}
-	\markax{ax12}{ax15}{$\R$ строго упорядочено}
+	\markax{ax12}{ax15}{Упорядоченность $\R$}
 \end{tikzpicture}
 
 \end{document}
