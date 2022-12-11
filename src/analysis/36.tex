@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{36}{Теорема Дарбу и следствия}
+
+\theorem
+
+$f$ --- непрерывна на $[a;b]$
+\begin{align*}
+	(f(a)<y<f(b))\lor(f(b)<y<f(a))\Rarr \exists c\in[a;b]:f(c)=y
+\end{align*}
+
+\proof
+\begin{align}
+	 & \llet f(x)\neq y\;\forall x\in[a;b] \Rarr h(x):=\frac{1}{|f(x)-y|} \text{ --- определена и непрерывна на $[a;b]$ }\Rarr\notag \\
+	 & \Rarr \exists M: (\forall x\in[a;b])\;h(x)<M\text{(по т. Вейерштрасса)}\Rarr |f(x)-y|>\frac{1}{M}\label{eq_1}
+\end{align}
+
+$f$ --- равномерно непрерывна на $[a;b]$ (по т. Кантора):
+\begin{align*}
+	\llet\eps=\frac{1}{M}\;\exists\delta>0: (\forall x,x'\in[a;b]:|x-x'|<\delta)\;|f(x)-f(x')|<\frac{1}{M}
+\end{align*}
+
+Разделим $[a;b]$ на $n$ частей: $\frac{b-a}{n}<\delta$
+\begin{align*}
+	a_0 & :=a & a_{i+1}-a_i & =\frac{b-a}{n} \\
+	a_n & :=b & a_{i+1}-a_i & <\delta
+\end{align*}
+\begin{align*}
+	 & (\forall m=\overline{1,n})\;|a_m-a_{m-1}|<\delta\Rarr|f(a_m)-f(a_{m-1})|<\frac{1}{M}             \\
+	 & \llet f(a)<y<f(b)\Rarr f(a_0)<y<f(a_n)\Rarr\exists\text{наименьший }m:y\leq f(a_m)\Rarr          \\
+	 & \Rarr f(a_{m-1})\leq y\leq f(a_m)\Rarr 0\leq y-f(a_{m-1})\leq f(a_m)-f(a_{m-1})<\frac{1}{M}\Rarr \\
+	 & \Rarr |y-f(a_{m-1})|<\frac{1}{M}\text{, что противоречит $\eqref{eq_1}$}
+\end{align*}
+
+\result
+
+$f$ --- непрерывна на $[a;b]$ $\Rarr$ $f([a;b])=[m;M]$, где $m=\inf f([a;b])$, $M=\sup f([a;b])$
+
+\result
+
+$f$ --- непрерывна на $[a;b]$ и знаки $f(a)$ и $f(b)$ не совпадают $\Rarr$
+$\exists c\in[a;b]:f(c)=0$
+
+\end{document}
