@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\raggedright
+\begin{document}
+
+\tickettitle{37}{Взаимно-однозначная функция. Обратная функция. Теорема о непрерывности обратной функции}
+
+\define{взаимно-однозначной и обратной функций}
+
+$f:X\to Y$ --- взаимно-однозначная, если $\forall y\in Y\;\exists!x\in X:y=f(x)$, тогда $f^{-1}(y):=x$,\\
+где $f^{-1}(y)$ --- обратная функция
+
+\theorem
+
+$f$ --- непрерывная и взаимно-однозначная на $[a;b]$ $\Rarr$ $f^{-1}$ --- непрерывная на $f([a;b])$
+
+\proof
+
+По теореме Дарбу: $f([a;b])=[m;M]$, где $m:=\inf f([a;b])$, а $M:=\sup f([a;b])$
+
+Возьмём сходящуюся последовательность $\{y_n\}$:
+\begin{align*}
+	 & \slimty y_n=c & (\forall n\in\N)\;y_n\in[m;M] \\
+	 & d:=f^{-1}(c)  & x_n:=f^{-1}(y_n)
+\end{align*}
+
+Докажем, что $x_n\to d$:
+
+$x_n\in[a;b]\;\forall n\in\N\Rarr$ $\{x_n\}$ --- ограничена $\Rarr$\\
+$\Rarr\exists$ сходящаяся подпоследовательность $\{x_{k_n}\}$ (по принципу выбора Коши-Больцано).\\
+Докажем теперь, что $x_{k_n}\to d$:
+\begin{align*}
+	\llet\slimty x_{k_n}=d'\neq d & \Rarr \slimty f(x_{k_n})=f(d') \text{ (по непрерывности)}\Rarr\slimty y_{k_n}=f(d')\Rarr     \\
+	                              & \Rarr c=f(d)=\slimty y_n=\slimty y_{k_n}=f(d') \text{ (по свойству последовательности)}\Rarr \\
+	                              & \Rarr f(d)=f(d')\Rarr d=d'\text{ (по взаимно-однозначности), но $d\neq d'$}
+\end{align*}
+
+Таким образом, любая сходящаяся подпоследовательность $\{x_n\}$ cходится к $d$\\
+и $\{x_n\}$ ограничена. Тогда $\slimty x_n=d$.
+
+Поняв, что $\{y_n\}$ и $c$ --- любые можно прийти к выводу, что:
+\begin{align*}
+	(\forall \{y_n\}:(y_n\to c\land y_n\neq c\;\forall n\in\N))\;\slimty f^{-1}(y_n)=f^{-1}(c) \Rarr \slim{y\to c}f^{-1}(y)=f^{-1}(c)\qed
+\end{align*}
+
+\end{document}
