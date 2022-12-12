@@ -22,19 +22,19 @@ $f$ непрерывна на $[a;b]$ и дифференцируема на $(a
 
 По теореме Вейерштрасса $f$ ограничена на $[a;b]$ и она достигает своих максимума и минимума:
 \begin{align*}
-	M & :=\sup f([a;b]) \\
-	m & :=\inf f([a;b])
+	M & :=\sup f([a;b]) & \exists x_M\in[a;b] & :f(x_M)=M \\
+	m & :=\inf f([a;b]) & \exists x_m\in[a;b] & :f(x_m)=m
 \end{align*}
 \begin{enumerate}
 	\item$M=m$
 
-	Тогда $f(x)=const \Rarr (\forall\gamma\in(a;b))f'(\gamma)=0$
+	Тогда $f(x)=const \Rarr (\forall\gamma\in(a;b))\;f'(\gamma)=0\qed$
 
 	\item$M\neq m$
 
-	Оба значения достигаются функцией на $[a;b]$.
+	И минимум, и максимум достигаются функцией на $[a;b]$.
 
-	$f(a)=f(b) \Rarr$ хотя бы одно из них достигается на $(a;b)$, там будет точка экстремума $f$:
+	$f(a)=f(b) \Rarr$ хотя бы один из них достигается на $(a;b)$, там будет точка экстремума $f$:
 	\begin{align*}
 		\exists\gamma\in(a;b):\gamma\text{ --- точка экстремума $f$} \Rarr f'(\gamma)=0\qed
 	\end{align*}
