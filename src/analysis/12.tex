@@ -16,21 +16,40 @@
 Любая ограниченная последовательность содержит сходящуюся подпоследовательность
 
 \proof
+
+Рассмотрим $Z := \setdef{x\in\R}{x < a_n \text{ для $\infty$ количества чисел $n$}}$
 \begin{align*}
-	 & \{a_n\} \text{ --- ограничена } \Lrarr \exists M>0: \forall n\in\N\;|a_n|<M     \\
-	 & Z := \setdef{x\in\R}{x < a_n \text{ для $\infty$ количества чисел $n$}}         \\
-	 & (\forall n\in\N)\;a_n>-M\Rarr -M\in Z \Rarr Z \neq \eset                        \\
-	 & (Z\neq\eset) \land (z < M\;\forall z\in Z) \Rarr \exists \sup Z =: g            \\
-	 & \forall \eps > 0 \;\exists x \in Z:g-\eps<x
-	\Rarr g-\eps\in Z                                                                  \\
-	 & (g-\eps \in Z) \land (g+\eps\notin Z)
-	\Rarr \text{ для $\infty$ количества $n$: } g-\eps<a_n<g+\eps                      \\
-	 & \sqsupset \eps = 1\Rarr \exists m_1: |a_{m_1}-g|<1                              \\
-	 & \sqsupset \eps = \frac{1}{2}\Rarr\exists m_2>m_1:|a_{m_2}-g|<\frac{1}{2}        \\
-	 & \text{ Такой $m_2$ существует, тк подходящих индексов бесконечное количество, } \\
-	 & \text{ а индексов $\leq m_1$ конечное количество }                              \\
-	 & \Rarr (\forall n\in\N) \; |a_{m_n}-g|<\frac{1}{n}
-	\Rarr\slim{n\to\infty}a_{m_n}=g\qed
+	\{a_n\} \text{ --- ограничена } \Lrarr \exists M>0: & (\forall n\in\N)\;|a_n|<M
+	\Rarr a_n>-M\Rarr -M\in Z \Rarr Z \neq \eset                                    \\
+	                                                    & (\forall n\in\N)\;|a_n|<M
+	\Rarr a_n<M\Rarr z<M\;\forall z\in Z
 \end{align*}
+\begin{align*}
+	(Z\neq\eset) \land (z < M\;\forall z\in Z) \Rarr \exists \sup Z =: g
+\end{align*}
+
+Покажем, что любая $\eps$-окрестность $g$ содержит бесконечное количество элементов $a_n$
+\begin{align*}
+	 & g=\sup Z\Rarr  \forall \eps > 0 \;\exists x \in Z:g-\eps<x
+	\Rarr g-\eps\in Z\text{ (по построению $Z$)}                  \\
+	 & g=\sup Z\Rarr  \forall \eps>0\; g+\eps\notin Z             \\
+	 & \forall \eps>0\;(g-\eps \in Z) \land (g+\eps\notin Z)
+	\Rarr \text{ для $\infty$ количества $n$: } g-\eps<a_n<g+\eps\Lrarr|a_n-g|<\eps
+\end{align*}
+
+Построим теперь подпоследовательность $\{a_n\}$, сходящуюся к $g$
+\begin{align*}
+	 & \sqsupset \eps = 1\Rarr \exists m_1: |a_{m_1}-g|<1                          \\
+	 & \sqsupset \eps = \frac{1}{2}\Rarr\exists m_2>m_1:|a_{m_2}-g|<\frac{1}{2}    \\
+	 & ...                                                                         \\
+	 & \sqsupset \eps =\frac{1}{n}\Rarr\exists m_n>m_{n-1}:|a_{m_n}-g|<\frac{1}{n} \\
+	 & ...
+\end{align*}
+
+Такие $m_n$ существуют, тк подходящих индексов бесконечное количество,
+
+а индексов $\leq m_{n-1}$ --- конечное.
+
+Таким образом: $(\forall n\in\N)\;|a_{m_n}-g|<\frac{1}{n}\Rarr\slim{n\to\infty}a_{m_n}=g\qed$
 
 \end{document}
