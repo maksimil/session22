@@ -37,11 +37,11 @@
 	\item$\exists 0\in\R:(\forall a\in\R)\;a+0=a$
 	\item$(\forall a\in\R)\;\exists (-a)\in\R:a+(-a)=0$
 	\item\tikzmark{ax5}$(\forall a, b\in\R)\;a+b=b+a$
-	\item\tikzmark{ax6}$(\forall a, b\in X)\;a\cdot b\in X$
-	\item$(\forall a,b,c\in X)\;(a\cdot b)\cdot c=a\cdot(b\cdot c)$
-	\item$\exists e\in X:(\forall a\in X)\;a\cdot e=a$
-	\item$(\forall a\in X)\;\exists a^{-1}\in X:a\cdot a^{-1}=e$
-	\item\tikzmark{ax10}$(\forall a, b\in X)\;a\cdot b=b\cdot a$
+	\item\tikzmark{ax6}$(\forall a, b\in \R)\;a\cdot b\in \R$
+	\item$(\forall a,b,c\in \R)\;(a\cdot b)\cdot c=a\cdot(b\cdot c)$
+	\item$\exists 1\in \R:(\forall a\in \R)\;a\cdot 1=a$
+	\item$(\forall a\in \R:a\neq 0)\;\exists a^{-1}\in \R:a\cdot a^{-1}=1$
+	\item\tikzmark{ax10}$(\forall a, b\in \R)\;a\cdot b=b\cdot a$
 	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- Дистрибутивность $\cdot$ на $+$
 	\item\tikzmark{ax12}$(\forall a,b\in\R)\;(a>b)\lor (a<b)\lor (a=b)$
 	\item$(\forall a,b,c\in\R)\;(a>b)\land(b>c)\Rarr (a>c)$
@@ -51,6 +51,7 @@
 	\item$(\forall X,Y\subset\R:(x\leq y\;\forall x\in X,y\in Y))\;
 		\exists a\in\R: x\leq a\leq y\;\forall x\in X,y\in Y$ --- Аксиома полноты
 \end{enumerate}
+Непустое множество, соответствующее 17 аксиомам называется множеством действительных чисел
 
 \newcommand{\markax}[3]{
 	\draw [decorate, decoration={brace}] ($({pic cs:#1}) + (19em, 1em)$) -- ($({pic cs:#2}) + (19em,0)$)
@@ -58,7 +59,7 @@
 }
 \begin{tikzpicture}[remember picture, overlay]
 	\markax{ax1}{ax5}{$\R$ образует с $+$ абелеву группу}
-	\markax{ax6}{ax10}{$\R$ образует с $\cdot$ абелеву группу}
+	\markax{ax6}{ax10}{$\R\setminus\{0\}$ образует с $\cdot$ абелеву группу}
 	\markax{ax12}{ax15}{Упорядоченность $\R$}
 \end{tikzpicture}
 
