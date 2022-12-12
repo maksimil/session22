@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{defines}
+
+\usepackage{fullpage}
+
+\begin{document}
+
+\tickettitle{38}{Теорема о строгой монотонности непрерывной взаимнооднозначной функции}
+
+\theorem
+
+$f$ --- непрерывна и взаимнооднозначна на $[a;b]$ $\Rarr$ $f$ --- строго монотонна на $[a;b]$
+
+\proof
+
+$f$ --- взаимнооднозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
+
+\begin{enumerate}
+	\item$f(a)<f(b)$
+
+	Докажем, что если $f$ непрерывна и взаимнооднозначна на $[a;b]$, то $(\forall x\in[a;b])\;f(x)\in[f(a);f(b)]$.\\
+	Пусть $x\in[a;b]$.
+	\begin{align}
+		 & \llet f(x)<f(a)<f(b)\Rarr \exists x'\in(x;b):f(x')=f(a)\Rarr x'=a\text{, но }a\leq x<x'<b\label{nleft}   \\
+		 & \llet f(a)<f(b)<f(x)\Rarr \exists x'\in(a;x):f(x')=f(b)\Rarr x'=b\text{, но }a< x'<x\leq b\label{nright}
+	\end{align}
+	\begin{align*}
+		\eqref{nleft}\land\eqref{nright}\Rarr f(x)\in[f(a);f(b)]
+	\end{align*}
+
+	$f$ --- непрерывна и взаимнооднозначна на $(\forall x\in[a;b])\;[x;b]\subset[a;b]$.\\
+	Тогда из доказанного следует:
+	\begin{align}
+		 & (\forall x\in[a;b],x'\in[x;b])\;f(x')\in[f(x);f(b)]\notag   \\
+		 & (\forall x,x'\in[a;b]:x\leq x')\;f(x)\leq f(x')\label{nstr} \\
+		 & (\forall x,x'\in[a;b]:x\neq x')\;f(x)\neq f(x')\label{neq}
+	\end{align}
+	\begin{align*}
+		\eqref{nstr}\land\eqref{neq}  \Rarr
+		(\forall x,x'\in[a;b]:x<x')\;f(x)<f(x')\qed\notag
+	\end{align*}
+
+	\item$f(a)>f(b)$
+
+	Рассмотрим $g(x):=-f(x)$:
+	\begin{align*}
+		f(a)>f(b)\Rarr -f(a)<-f(b)\Rarr g(a)<g(b)
+	\end{align*}
+
+	Таким образом, $g$ --- непрерывна и взаимнооднозначна на $[a;b]$ $\land$ $g(a)<g(b)$.
+	Тогда из п.1 следует:
+	\begin{align*}
+		(\forall x,x'\in[a;b])\;g(x)<g(x')\Rarr-f(x)<-f(x')\Rarr f(x)>f(x')\qed
+	\end{align*}
+
+
+\end{enumerate}
+
+\end{document}
