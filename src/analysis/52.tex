@@ -7,6 +7,7 @@
 
 \usepackage{fullpage}
 
+\raggedright
 \begin{document}
 
 \tickettitle{52}{Теорема Коши}
@@ -16,7 +17,7 @@
 \begin{enumerate}
 	\item$f$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$
 	\item$g$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$
-	\item$g(x)\neq0\;\forall x\in (a;b)$
+	\item$g'(x)\neq0\;\forall x\in (a;b)$
 \end{enumerate}
 \begin{align*}
 	\exists \gamma\in(a;b):\frac{f'(\gamma)}{g'(\gamma)}=\frac{f(b)-f(a)}{g(b)-g(a)}
@@ -24,10 +25,14 @@
 
 \proof
 \begin{align*}
-	 & F(x):=f(x)-\lambda g(x) \land F(a)=F(b)                                                      \\
-	 & F(a)=F(b) \Rarr f(a)-\lambda g(a)=f(b)-\lambda g(b)\Rarr \lambda=\frac{f(b)-f(a)}{g(b)-g(a)} \\
-	 & F(x) \text{ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$} \Rarr                        \\
-	 & \Rarr \exists\gamma\in(a;b):F'(\gamma)=0 \Rarr f'(\gamma)-\lambda g'(\gamma)=0
+	 & F(x):=f(x)-\lambda g(x) \land F(a)=F(b)             \\
+	 & F(a)=F(b) \Rarr f(a)-\lambda g(a)=f(b)-\lambda g(b)
+	\Rarr\lambda=\frac{f(b)-f(a)}{g(b)-g(a)}
+\end{align*}
+
+$F$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$, тк $f$ и $g$ непрерывны на $[a;b]$ и дифференцируемы на $(a;b)$. Тогда, по теореме Ролля:
+\begin{align*}
+	\exists\gamma\in(a;b):F'(\gamma)=0 \Rarr f'(\gamma)-\lambda g'(\gamma)=0
 	\Rarr \frac{f'(\gamma)}{g'(\gamma)}=\frac{f(b)-f(a)}{g(b)-g(a)}\qed
 \end{align*}
 
