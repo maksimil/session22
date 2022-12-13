@@ -15,7 +15,7 @@
 
 \theorem
 
-$f$ --- монотонна (монотонно возрастающая) на промежутке $X$
+$f$ --- монотонна на промежутке $X$
 \begin{align*}
 	f(X)=Y\text{, где $Y$ --- промежуток}\Rarr f\text{ --- непрерывна на $X$ }
 \end{align*}
@@ -24,72 +24,64 @@ $f$ --- монотонна (монотонно возрастающая) на п
 
 \proof
 
+\newcommand\Xcut{\widetilde{X}}
+\newcommand\Xleft{\Xcut_L}
+\newcommand\Xright{\Xcut_R}
+
 Без ограничения общности пусть $f$ --- монотонно возрастающая.
+Докажем, что $f$ --- непрерывна слева в
+$\Xcut:=\setdef{x\in X}{\exists x'\in X:x'<x}=X\setminus\setdef{x\in X}{\forall x'\in X:x\leq x'}$.
+
+$\Xcut=X\setminus\{\min X\}$, если $\exists\min X$. $\Xcut=X$, если его не существует.
+
+Иными словами:
+
+\begin{table}[htpb]
+	\centering
+	\begin{tabular}{c|c}
+		$X$     & $\Xcut$ \\
+		\hline            \\[-0.8em]
+		$(a;b)$ & $(a;b)$ \\[0.3em]
+		$(a;b]$ & $(a;b]$ \\[0.3em]
+		$[a;b)$ & $(a;b)$ \\[0.3em]
+		$[a;b]$ & $(a;b]$
+	\end{tabular}
+\end{table}
+
+Докажем, что $f$ --- непрерывна слева в $\forall x_0\in\Xcut$:
+
+Для этого будем рассматривать $f$ на $\Xleft:=\setdef{x\in\hat{X}}{x<x_0}$ и
+$\Xright:=\setdef{x\in\hat{X}}{x_0\geq x}$
 
 \begin{enumerate}
-	\item{}Докажем для начала теорему для внутренних точек $X$
-
-	Докажем, что $(\forall(a;b)\subset X, x_0\in(a;b))$ $f$ --- непрерывна слева в $x_0$:
-
-	\begin{enumerate}
-		\item{}Найдём $\slim{x\to x_0-0}f(x)$:
-		\begin{align*}
-			 & (\forall x\in(a;x_0))\;f(x)\leq f(x_0)\Rarr \exists\sup f((a;x_0))        \\
-			 & g:=\sup f((a;x_0))
-			\Rarr \forall\eps>0\;\exists\delta>0:f(x_0-\delta)>g-\eps\Rarr               \\
-			 & \Rarr (\forall x\in(x_0-\delta;x_0))\;g-\eps<f(x_0-\delta)\leq f(x)\leq g
-			\Rarr g-\eps<f(x)\leq g\Rarr \slim{x\to x_0-0}f(x)=g
-		\end{align*}
-
-		\item{}Докажем, что $f(x_0)=g$
-		\begin{align}
-			\llet f(x_0)<g & \Rarr \llet\eps=g-f(x_0)>0\;\exists x\in(a;x_0):g-\eps<f(x)\Rarr f(x_0)<f(x)\text{, но } x<x_0\label{flg} \\
-			\llet f(x_0)>g & ,\; (f(x)\leq g\;\forall x\in(a;x_0))\land(f(x_0)\leq f(x)\;\forall x\in[x_0;b))\Rarr\notag               \\
-			               & \Rarr (g;f(x_0))\not\subset Y\text{, но $Y$ --- промежуток}\label{fgg}
-		\end{align}
-		\begin{align*}
-			\eqref{flg}\land\eqref{fgg}\Rarr f(x_0)=g
-		\end{align*}
-	\end{enumerate}
-
-	Аналогично доказывается непрерывность справа.
-
-	Таким образом:
-	\begin{align}
-		 & (\forall x_0\in(a;b))\;\slim{x\to x_0-0}f(x)=f(x_0)\label{leftcont}  \\
-		 & (\forall x_0\in(a;b))\;\slim{x\to x_0+0}f(x)=f(x_0)\label{rightcont}
-	\end{align}
+	\item{}Найдём $\slim{x\to x_0-0}f(x)$:
 	\begin{align*}
-		\eqref{leftcont}\land\eqref{rightcont}\Rarr (\forall x_0\in(a;b))\;\slim{x\to x_0}f(x)=f(x_0)\qed
+		 & (\forall x\in\Xleft)\;f(x)\leq f(x_0)\Rarr \exists\sup f(\Xleft)          \\
+		 & g:=\sup f(\Xleft)
+		\Rarr \forall\eps>0\;\exists\delta>0:f(x_0-\delta)>g-\eps\Rarr               \\
+		 & \Rarr (\forall x\in(x_0-\delta;x_0))\;g-\eps<f(x_0-\delta)\leq f(x)\leq g
+		\Rarr g-\eps<f(x)\leq g\Rarr \slim{x\to x_0-0}f(x)=g
 	\end{align*}
 
-	\pagebreak
-	\item{}Докажем теперь теорему для крайних точек $X$, если таковы есть
-
-	Докажем, что $f$ --- непрерывна слева в $b:=\max X$
-
-	\begin{enumerate}
-		\item{}Найдём $\slim{x\to b-0}f(x)$:
-		\begin{align*}
-			 & (\forall a\in X, x\in(a;b))\;f(x)\leq f(b)\Rarr \exists\sup f((a;b)) \\
-			 & g:=\sup f((a;b))
-			\Rarr \forall\eps>0\;\exists\delta>0:f(b-\delta)>g-\eps\Rarr            \\
-			 & \Rarr (\forall x\in(b-\delta;b))\;g-\eps<f(b-\delta)\leq f(x)\leq g
-			\Rarr g-\eps<f(x)\leq g\Rarr \slim{x\to b-0}f(x)=g
-		\end{align*}
-
-		\item{}Докажем, что $f(b)=g$
-		\begin{align}
-			\llet f(b)<g & \Rarr \llet\eps=g-f(b)>0\;\exists x\in(a;b):g-\eps<f(x)\Rarr f(b)<f(x)\text{, но } x<b\label{flgb}      \\
-			\llet f(b)>g & ,\;(f(x)\leq g\;\forall x\in(a;b))\Rarr (g;f(b))\not\subset Y\text{, но $Y$ --- промежуток}\label{fggb}
-		\end{align}
-		\begin{align*}
-			\eqref{flgb}\land\eqref{fggb}\Rarr f(b)=g\Rarr \slim{x\to b-0}f(x)=f(b)\qed
-		\end{align*}
-
-	\end{enumerate}
-
-	Аналогично доказывается непрерывность справа для $\min X$
+	\item{}Докажем, что $f(x_0)=g$
+	\begin{align}
+		\llet f(x_0)<g & \Rarr \llet\eps=g-f(x_0)>0\;\exists x\in\Xleft:g-\eps<f(x)\Rarr f(x_0)<f(x)\text{, но } x<x_0\label{flg} \\
+		\llet f(x_0)>g & ,\; (f(x)\leq g\;\forall x\in\Xleft)\land(f(x_0)\leq f(x)\;\forall x\in\Xright)\Rarr\notag               \\
+		               & \Rarr (g;f(x_0))\not\subset Y\text{, но $Y$ --- промежуток}\label{fgg}
+	\end{align}
+	\begin{align*}
+		\eqref{flg}\land\eqref{fgg}\Rarr f(x_0)=g
+	\end{align*}
 \end{enumerate}
+
+Таким образом, была доказана непрерывность слева для внутренних точек $X$ и $\max X$, если он существует.
+Аналогично доказывается непрерывность справа для внутренних точек $X$ и $\min X$, если он существует.
+
+Таким образом для любой внутренней точки $x_0$ промежутка $X$:
+\begin{align*}
+	\slim{x\to x_0-0}f(x)=f(x_0)\land\slim{x\to x_0+0}f(x)=f(x_0)\Rarr\slim{x\to x_0}f(x)=f(x_0)
+\end{align*}
+
+Таким образом, $f$ --- непрерывна на $X$
 
 \end{document}
