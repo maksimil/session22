@@ -1,9 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{defines}[2022/11/24 Defines]
 
+% language packages
+\usepackage[T2A, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% symbol packages
 \usepackage{amsmath, amsfonts}
 \usepackage{amssymb}
 
+% text structure
 \newcommand{\hd}[1]{
 	\vspace{3mm}
 	{\bf #1}
@@ -24,6 +31,7 @@
 		#2
 	\end{center}}
 
+% custom shorthands 
 \newcommand{\slim}{\lim\limits_}
 \newcommand{\slimty}{\slim{n\to\infty}}
 \newcommand{\sliminf}{\varliminf\limits_}
@@ -38,5 +46,6 @@
 \newcommand{\qed}{\;\square.}
 \newcommand{\llet}{\sqsupset}
 
+% page styling
 \usepackage{fullpage}
 \raggedright
