@@ -29,6 +29,7 @@ else
 	SIZEOPT=cp
 endif
 
+.PHONY: clean
 clean:
 	rm -rf obj out
 """.format(default_previewer=pdf_previewer)
@@ -46,13 +47,26 @@ $(OUT_DIR)/{0}/{1}.pdf: ./src/{0}/{1}.tex
 """
 
 subject_all_target="""
-{subject}-all: {ticket_list} $(OBJ_DIR)/{subject}/book.pdf
+{subject}-all: {ticket_list} $(OUT_DIR)/{subject}/book.pdf
 """
 
 book_target="""
-$(OBJ_DIR)/{subject}/book.pdf: {ticket_list} $(OBJ_DIR)/{subject}/book-list.tex
+$(OUT_DIR)/{subject}/book.pdf: $(OBJ_DIR)/{subject}/book-list.tex
+	@echo "\\e[32m--- Building {subject}-book ---\\e[0m"
+	cp $(OBJ_DIR)/{subject}/book-list.tex $(OBJ_DIR)/book-list.tex
+	$(LATEX) -outdir=$(OBJ_DIR)/{subject}/book ./src/book.tex
+	mkdir -p $(OUT_DIR)/{subject}
+	$(SIZEOPT) $(OBJ_DIR)/{subject}/book/book.pdf $(OUT_DIR)/{subject}/book.pdf
+	rm -rf $(OBJ_DIR)/book-list.tex
 
-$(OBJ_DIR)/{subject}/book-list.tex:
+.PHONY: {subject}-book-watch
+{subject}-book-watch: $(OBJ_DIR)/{subject}/book-list.tex
+	cp $(OBJ_DIR)/{subject}/book-list.tex $(OBJ_DIR)/book-list.tex
+	$(LATEX_WATCH) -outdir=$(OBJ_DIR)/{subject}/book ./src/book.tex
+	rm -rf $(OBJ_DIR)/book-list.tex
+
+$(OBJ_DIR)/{subject}/book-list.tex: {ticket_list}
+	mkdir -p $(OBJ_DIR)/{subject}
 	python ./scripts/gen-book-list.py {subject} $(OBJ_DIR)/{subject}/book-list.tex
 """
 

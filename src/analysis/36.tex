@@ -16,7 +16,7 @@ $f$ --- непрерывна на $[a;b]$
 \proof
 \begin{align}
 	 & \llet f(x)\neq y\;\forall x\in[a;b] \Rarr h(x):=\frac{1}{|f(x)-y|} \text{ --- определена и непрерывна на $[a;b]$ }\Rarr\notag \\
-	 & \Rarr \exists M: (\forall x\in[a;b])\;h(x)<M\text{(по т. Вейерштрасса)}\Rarr |f(x)-y|>\frac{1}{M}\label{eq_1}
+	 & \Rarr \exists M: (\forall x\in[a;b])\;h(x)<M\text{(по т. Вейерштрасса)}\Rarr |f(x)-y|>\frac{1}{M}\label{36:eq_1}
 \end{align}
 
 $f$ --- равномерно непрерывна на $[a;b]$ (по т. Кантора):
@@ -33,7 +33,7 @@ $f$ --- равномерно непрерывна на $[a;b]$ (по т. Кан�
 	 & (\forall m=\overline{1,n})\;|a_m-a_{m-1}|<\delta\Rarr|f(a_m)-f(a_{m-1})|<\frac{1}{M}             \\
 	 & \llet f(a)<y<f(b)\Rarr f(a_0)<y<f(a_n)\Rarr\exists\text{наименьший }m:y\leq f(a_m)\Rarr          \\
 	 & \Rarr f(a_{m-1})\leq y\leq f(a_m)\Rarr 0\leq y-f(a_{m-1})\leq f(a_m)-f(a_{m-1})<\frac{1}{M}\Rarr \\
-	 & \Rarr |y-f(a_{m-1})|<\frac{1}{M}\text{, что противоречит $\eqref{eq_1}$}
+	 & \Rarr |y-f(a_{m-1})|<\frac{1}{M}\text{, что противоречит $\eqref{36:eq_1}$}
 \end{align*}
 
 \result

@@ -20,22 +20,22 @@ $f$ --- взаимнооднозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
 	Докажем, что если $f$ непрерывна и взаимнооднозначна на $[a;b]$, то $(\forall x\in[a;b])\;f(x)\in[f(a);f(b)]$.\\
 	Пусть $x\in[a;b]$.
 	\begin{align}
-		 & \llet f(x)<f(a)<f(b)\Rarr \exists x'\in(x;b):f(x')=f(a)\Rarr x'=a\text{, но }a\leq x<x'<b\label{nleft}   \\
-		 & \llet f(a)<f(b)<f(x)\Rarr \exists x'\in(a;x):f(x')=f(b)\Rarr x'=b\text{, но }a< x'<x\leq b\label{nright}
+		 & \llet f(x)<f(a)<f(b)\Rarr \exists x'\in(x;b):f(x')=f(a)\Rarr x'=a\text{, но }a\leq x<x'<b\label{38:nleft}   \\
+		 & \llet f(a)<f(b)<f(x)\Rarr \exists x'\in(a;x):f(x')=f(b)\Rarr x'=b\text{, но }a< x'<x\leq b\label{38:nright}
 	\end{align}
 	\begin{align*}
-		\eqref{nleft}\land\eqref{nright}\Rarr f(x)\in[f(a);f(b)]
+		\eqref{38:nleft}\land\eqref{38:nright}\Rarr f(x)\in[f(a);f(b)]
 	\end{align*}
 
 	$f$ --- непрерывна и взаимнооднозначна на $(\forall x\in[a;b])\;[x;b]\subset[a;b]$.\\
 	Тогда из доказанного следует:
 	\begin{align}
-		 & (\forall x\in[a;b],x'\in[x;b])\;f(x')\in[f(x);f(b)]\notag   \\
-		 & (\forall x,x'\in[a;b]:x\leq x')\;f(x)\leq f(x')\label{nstr} \\
-		 & (\forall x,x'\in[a;b]:x\neq x')\;f(x)\neq f(x')\label{neq}
+		 & (\forall x\in[a;b],x'\in[x;b])\;f(x')\in[f(x);f(b)]\notag      \\
+		 & (\forall x,x'\in[a;b]:x\leq x')\;f(x)\leq f(x')\label{38:nstr} \\
+		 & (\forall x,x'\in[a;b]:x\neq x')\;f(x)\neq f(x')\label{38:neq}
 	\end{align}
 	\begin{align*}
-		\eqref{nstr}\land\eqref{neq}  \Rarr
+		\eqref{38:nstr}\land\eqref{38:neq}  \Rarr
 		(\forall x,x'\in[a;b]:x<x')\;f(x)<f(x')\qed\notag
 	\end{align*}
 
