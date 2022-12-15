@@ -9,10 +9,18 @@
 
 \begin{document}
 
-
 \begin{center}
 	{\bf \subjectname}
 \end{center}
+
+\foreach \ticknum\ticktitle in \ticketlist
+{
+	{\bf Билет \ticknum{} }\dotfill\pageref{\ticknum}
+
+	\ticktitle{}
+
+	\vspace{1em}
+}
 
 \pagebreak
 \contents

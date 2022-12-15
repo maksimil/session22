@@ -51,7 +51,7 @@ subject_all_target="""
 """
 
 book_target="""
-$(OUT_DIR)/{subject}/book.pdf: $(OBJ_DIR)/{subject}/book-list.tex
+$(OUT_DIR)/{subject}/book.pdf: src/book.tex $(OBJ_DIR)/{subject}/book-list.tex
 	@echo "\\e[32m--- Building {subject}-book ---\\e[0m"
 	cp $(OBJ_DIR)/{subject}/book-list.tex $(OBJ_DIR)/book-list.tex
 	$(LATEX) -outdir=$(OBJ_DIR)/{subject}/book ./src/book.tex
