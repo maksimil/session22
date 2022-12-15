@@ -34,19 +34,29 @@ clean:
 """.format(default_previewer=pdf_previewer)
 
 texfile_target="""
-{0}-{1}: ./src/{0}/{1}.tex
+$(OUT_DIR)/{0}/{1}.pdf: ./src/{0}/{1}.tex
 	@echo "\\e[32m--- Building {0}-{1} ---\\e[0m"
 	$(LATEX) -outdir=$(OBJ_DIR)/{0}/{1} ./src/{0}/{1}.tex
 	mkdir -p $(OUT_DIR)/{0}
 	$(SIZEOPT) $(OBJ_DIR)/{0}/{1}/{1}.pdf $(OUT_DIR)/{0}/{1}.pdf
 
+.PHONY: {0}-{1}-watch
 {0}-{1}-watch:
 	$(LATEX_WATCH) -outdir=$(OBJ_DIR)/{0}/{1} ./src/{0}/{1}.tex
 """
 
-subject_all="""
-{0}-all: {1}
+subject_all_target="""
+{subject}-all: {ticket_list} $(OBJ_DIR)/{subject}/book.pdf
 """
+
+book_target="""
+$(OBJ_DIR)/{subject}/book.pdf: {ticket_list} $(OBJ_DIR)/{subject}/book-list.tex
+
+$(OBJ_DIR)/{subject}/book-list.tex:
+	python ./scripts/gen-book-list.py {subject} $(OBJ_DIR)/{subject}/book-list.tex
+"""
+
+subject_target=subject_all_target+book_target
 
 all_all="""
 all: {0}
@@ -65,16 +75,19 @@ for subject in texfiles.keys():
 
 makefile=""
 
+#  print(texfiles)
+
 #  defining variables
 makefile += preamble
 
+#  file targets 
 for subject in texfiles.keys():
     for file in texfiles[subject]:
         makefile += texfile_target.format(subject, file)
 
-#  generating targets
+# subject targets
 for subject in texfiles.keys():
-    makefile +=subject_all.format(subject, " ".join(map(lambda ticket:f"{subject}-{ticket}",texfiles[subject])))
+    makefile +=subject_target.format(subject=subject, ticket_list=" ".join(map(lambda ticket:f"$(OUT_DIR)/{subject}/{ticket}.pdf",texfiles[subject])))
 
 makefile += all_all.format(" ".join(map(lambda subject: f"{subject}-all", texfiles.keys())))
 

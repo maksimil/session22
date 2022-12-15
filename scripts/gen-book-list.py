@@ -4,11 +4,19 @@ import os
 import sys
 
 args = sys.argv
-if len(args) != 2:
-    print("Usage: gen-book-list.py [folder]")
+if len(args) != 3:
+    print("Usage: gen-book-list.py [subject] [outfile]")
     exit()
 
-folder = args[1]
+subject = args[1]
+outfile = args[2]
+
+subject_name, folder = {
+    "algebra": ["Алгебра", "src/algebra"],
+    "analysis":["Анализ", "src/analysis"],
+    "geometry":["Геометрия", "src/geometry"],
+}[subject]
+
 
 files = []
 
@@ -26,6 +34,14 @@ for file in files:
     fullpath=os.path.join(folder, f"{file}.tex")
     booklist.append(f"\\input{{{fullpath}}}")
 
-booklist_file = open(os.path.join(folder, "book-list.tex"), "w")
-booklist_file.write("\n\\pagebreak\n".join(booklist))
+booklist_data="""
+\\newcommand\\subjectname{{{subject_name}}}
+
+\\newcommand\\contents{{
+{contents}
+}}
+""".format(subject_name=subject_name, contents="\n\\pagebreak\n".join(booklist))
+
+booklist_file = open(outfile, "w")
+booklist_file.write(booklist_data)
 booklist_file.close()
