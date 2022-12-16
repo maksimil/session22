@@ -26,10 +26,10 @@
 
 \newcommand{\tickettitle}[2]{
 	\begin{center}
+		\phantomsection\label{#1}
 		{\bf Билет #1}
 
 		#2
-		\phantomsection\label{#1}
 	\end{center}
 }
 
@@ -52,4 +52,4 @@
 \usepackage{standalone}
 \usepackage{fullpage}
 \raggedright
-\usepackage{hyperref}
+\usepackage[implicit=false]{hyperref}
