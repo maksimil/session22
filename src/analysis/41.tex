@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{41}{Теорема о стабилизации знака функции}
+
+\theorem
+
+$f$ --- непрерывна в $x_0$
+\begin{align*}
+	 & f(x_0)>0\Rarr\exists\delta>0:(\forall x:|x-x_0|<\delta)\;f(x)>0 \\
+	 & f(x_0)<0\Rarr\exists\delta>0:(\forall x:|x-x_0|<\delta)\;f(x)<0
+\end{align*}
+
+\proof
+
+\begin{enumerate}
+	\item{}$f(x_0)>0$
+	\begin{align*}
+		 & \llet\eps=\frac{f(x_0)}{2}>0\;\exists\delta>0:(\forall x:|x-x_0|<\delta)\;|f(x)-f(x_0)|<\eps=\frac{f(x_0)}{2}\Rarr \\
+		 & \Rarr -\frac{f(x_0)}{2}<f(x)-f(x_0)<\frac{f(x_0)}{2}\Rarr \frac{f(x_0)}{2}<f(x)<\frac{3f(x_0)}{2}\Rarr f(x)>0\qed
+	\end{align*}
+	\item{}$f(x_0)<0$
+	\begin{align*}
+		 & \llet\eps=-\frac{f(x_0)}{2}>0\;\exists\delta>0:(\forall x:|x-x_0|<\delta)\;|f(x)-f(x_0)|<\eps=-\frac{f(x_0)}{2}\Rarr \\
+		 & \Rarr \frac{f(x_0)}{2}<f(x)-f(x_0)<-\frac{f(x_0)}{2}\Rarr \frac{3f(x_0)}{2}<f(x)<\frac{f(x_0)}{2}\Rarr f(x)<0\qed
+	\end{align*}
+\end{enumerate}
+
+\end{document}
