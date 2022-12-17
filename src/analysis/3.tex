@@ -15,10 +15,13 @@
 \begin{align*}
 	\exists n\in\N:\exists f:M\leftrightarrow\setdef{x\in\N}{x\leq n}
 \end{align*}
+$\setdef{x\in\N}{x\leq n}$ --- отрезок натурального ряда
 
 $\eset$ --- конечное множество.
 
 Если множество не конечно, то оно бесконечно.
+
+$\N$ --- простейшее бесконечное множество.
 
 \define{счётного множества}
 
@@ -50,18 +53,16 @@ $B\subset A \Rarr B \text{ --- конечно или счётно}$
 	 & A_2: a_{21}\tikzmark{a21},\;\;a_{22}\tikzmark{a22},\;\;...                          \\[1.2ex]
 	 & A_3: a_{31}\tikzmark{a31},\;\;...                                                   \\
 	 & ...
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw [-latex] ($(pic cs:a11)+(0,0.3em)$) -- ($(pic cs:a12)+(-1.5em,0.3em)$);
+		\draw [-latex] ($(pic cs:a12)+(-1.5em,0.1em)$) -- ($(pic cs:a21)+(-0.7em,0.5em)$);
+		\draw [-latex] ($(pic cs:a21)+(-1em,-0.1em)$) -- ($(pic cs:a31)+(-1em,0.6em)$);
+		\draw [-latex] ($(pic cs:a31)+(-0.7em,0.5em)$) -- ($(pic cs:a22)+(-1.5em,0.1em)$);
+		\draw [-latex] ($(pic cs:a22)+(-0.7em,0.5em)$) -- ($(pic cs:a13)+(-1.5em,0.1em)$);
+		\draw [-latex] ($(pic cs:a13)+(0,0.3em)$) -- ($(pic cs:a13)+(1em,0.3em)$);
+	\end{tikzpicture}
 \end{align*}
-
 Нумеруя $\bigcup_i A_i$ по диагонали мы получаем $f:\bigcup_i A_i\leftrightarrow\N\qed$
-
-\begin{tikzpicture}[remember picture, overlay]
-	\draw [-latex] ($(pic cs:a11)+(0,0.3em)$) -- ($(pic cs:a12)+(-1.5em,0.3em)$);
-	\draw [-latex] ($(pic cs:a12)+(-1.5em,0.1em)$) -- ($(pic cs:a21)+(-0.7em,0.5em)$);
-	\draw [-latex] ($(pic cs:a21)+(-1em,-0.1em)$) -- ($(pic cs:a31)+(-1em,0.6em)$);
-	\draw [-latex] ($(pic cs:a31)+(-0.7em,0.5em)$) -- ($(pic cs:a22)+(-1.5em,0.1em)$);
-	\draw [-latex] ($(pic cs:a22)+(-0.7em,0.5em)$) -- ($(pic cs:a13)+(-1.5em,0.1em)$);
-	\draw [-latex] ($(pic cs:a13)+(0,0.3em)$) -- ($(pic cs:a13)+(1em,0.3em)$);
-\end{tikzpicture}
 
 \theorem
 
@@ -74,6 +75,5 @@ $\forall$ бесконечное множество $M$ содержит счё�
 	(\forall n\in\N)\;\exists a_n & \in M: a_n \neq a_i\;\forall i=\overline{1,n-1} \\
 	A:=\setdef{a_i}{i\in\N}       & \subset M\qed                                   \\
 \end{align*}
-
 
 \end{document}

@@ -11,18 +11,17 @@
 \usepackage{amssymb}
 
 % text structure
-\newcommand{\hd}[1]{
-	\vspace{3mm}
+\newcommand{\hd}[1]{ \vspace{3mm}
 	{\bf #1}
 	\vspace{1mm}
 }
 
 \newcommand{\define}[1]{\hd{Определение #1}}
-\newcommand{\theorem}{\hd{Теорема}}
+\newcommand{\theorem}[1][]{\hd{Теорема}}
 \newcommand{\proof}{\hd{Доказательство}}
 \newcommand{\onlyif}{\hd{Необходимость}}
 \newcommand{\enough}{\hd{Достаточность}}
-\newcommand{\result}{\hd{Следствие}}
+\newcommand{\result}[1][]{\hd{Следствие #1}}
 
 \newcommand{\tickettitle}[2]{
 	\begin{center}
@@ -42,6 +41,7 @@
 \newcommand{\Lrarr}{\Leftrightarrow}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\eset}{\varnothing}
 \newcommand{\setdef}[2]{\{#1\;|\;#2\}}
 \newcommand{\eps}{\varepsilon}

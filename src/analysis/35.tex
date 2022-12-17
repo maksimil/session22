@@ -18,7 +18,7 @@ $f$ --- непрерывна на $[a;b]$ $\Rarr$ $f$ --- ограничена �
 
 	$f$ равномерно непрерывна на $[a;b]$ (по т. Кантора):
 	\begin{align*}
-		 & \llet\eps=1\;\exists\delta>0:(\forall x,x'\in X:(|x-x'|<\delta))\;|f(x)-f(x')|<1
+		 & \llet\eps=1\;\exists\delta>0:(\forall x,x'\in [a;b]:(|x-x'|<\delta))\;|f(x)-f(x')|<1
 	\end{align*}
 
 	Разделим $[a;b]$ на $n$ частей: $\frac{b-a}{n}<\delta$
@@ -36,14 +36,16 @@ $f$ --- непрерывна на $[a;b]$ $\Rarr$ $f$ --- ограничена �
 	\item$f$ достигает своих минимума и максимума
 
 	$f$ --- ограничена на $[a;b]$ $\Rarr$ $\exists M:=\sup f([a;b])$, $\exists m:=\inf f([a;b])$
+
+	Покажем, что $M$ и $m$ достигаются на $[a;b]$. Пойдем от противного, пусть это не так, тогда:
 	\begin{align*}
-		 & \llet (\forall x\in[a;b])\;f(x)<M\Rarr g(x):=\frac{1}{M-f(x)}\text{ --- непрерывна на $[a;b]$}\Rarr \\
-		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr     \\
+		 & \llet (\forall x\in[a;b])\;f(x)<M\Rarr\llet g(x):=\frac{1}{M-f(x)}\text{ --- непрерывна на $[a;b]$}\Rarr \\
+		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr          \\
 		 & \Rarr \frac{1}{M-f(x)}<L\Rarr f(x)<M-\frac{1}{L}\text{, но $M=\sup f([a;b])$}\qed
 	\end{align*}
 	\begin{align*}
-		 & \llet (\forall x\in[a;b])\;f(x)>m\Rarr g(x):=\frac{1}{f(x)-m}\text{ --- непрерывна на $[a;b]$}\Rarr \\
-		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr     \\
+		 & \llet (\forall x\in[a;b])\;f(x)>m\Rarr\llet g(x):=\frac{1}{f(x)-m}\text{ --- непрерывна на $[a;b]$}\Rarr \\
+		 & \Rarr g(x) \text{ --- ограничена на $[a;b]$ } \Rarr (\forall x\in [a;b])\;\exists L:g(x)<L\Rarr          \\
 		 & \Rarr \frac{1}{f(x)-m}<L\Rarr f(x)>m+\frac{1}{L}\text{, но $m=\inf f([a;b])$}\qed
 	\end{align*}
 \end{enumerate}

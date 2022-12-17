@@ -4,21 +4,25 @@
 
 \begin{document}
 
-\tickettitle{38}{Теорема о строгой монотонности непрерывной взаимнооднозначной функции}
+\tickettitle{38}{Теорема о строгой монотонности непрерывной взаимно однозначной функции}
 
 \theorem
 
-$f$ --- непрерывна и взаимнооднозначна на $[a;b]$ $\Rarr$ $f$ --- строго монотонна на $[a;b]$
+$f$ --- непрерывна и взаимно однозначна на $[a;b]$ $\Rarr$ $f$ --- строго монотонна на $[a;b]$
 
 \proof
 
-$f$ --- взаимнооднозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
+$f$ --- взаимно однозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
 
 \begin{enumerate}
 	\item$f(a)<f(b)$
 
-	Докажем, что если $f$ непрерывна и взаимнооднозначна на $[a;b]$, то $(\forall x\in[a;b])\;f(x)\in[f(a);f(b)]$.\\
-	Пусть $x\in[a;b]$.
+	Докажем, что если $f$ --- непрерывна и взаимно однозначна на $[a;b]$, то
+	\begin{align*}
+		(\forall x\in[a;b])\;f(x)\in[f(a);f(b)]
+	\end{align*}
+
+	Пойдем от противного. Пусть $x\in[a;b]$ и $f(x)<f(a)$ $\eqref{38:nleft}$ или $f(b)<f(x)$ $\eqref{38:nright}$:
 	\begin{align}
 		 & \llet f(x)<f(a)<f(b)\Rarr \exists x'\in(x;b):f(x')=f(a)\Rarr x'=a\text{, но }a\leq x<x'<b\label{38:nleft}   \\
 		 & \llet f(a)<f(b)<f(x)\Rarr \exists x'\in(a;x):f(x')=f(b)\Rarr x'=b\text{, но }a< x'<x\leq b\label{38:nright}
@@ -27,7 +31,8 @@ $f$ --- взаимнооднозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
 		\eqref{38:nleft}\land\eqref{38:nright}\Rarr f(x)\in[f(a);f(b)]
 	\end{align*}
 
-	$f$ --- непрерывна и взаимнооднозначна на $(\forall x\in[a;b])\;[x;b]\subset[a;b]$.\\
+	$f$ --- непрерывна и взаимно однозначна на $(\forall x\in[a;b])\;[x;b]\subset[a;b]$.
+
 	Тогда из доказанного следует:
 	\begin{align}
 		 & (\forall x\in[a;b],x'\in[x;b])\;f(x')\in[f(x);f(b)]\notag      \\
@@ -46,7 +51,8 @@ $f$ --- взаимнооднозначна на $[a;b]$ $\Rarr f(a)\neq f(b)$
 		f(a)>f(b)\Rarr -f(a)<-f(b)\Rarr g(a)<g(b)
 	\end{align*}
 
-	Таким образом, $g$ --- непрерывна и взаимнооднозначна на $[a;b]$ $\land$ $g(a)<g(b)$.\\
+	Таким образом, $g$ --- непрерывна и взаимно однозначна на $[a;b]$ $\land$ $g(a)<g(b)$.
+
 	Тогда из п.1 следует:
 	\begin{align*}
 		(\forall x,x'\in[a;b])\;g(x)<g(x')\Rarr-f(x)<-f(x')\Rarr f(x)>f(x')\qed

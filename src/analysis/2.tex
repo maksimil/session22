@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\tickettitle{2}{$\R$. Аксиомы $\R$}
+\tickettitle{2}{Множество вещественных чисел, аксиомы вещественных чисел.}
 
 \define{Абелевой группы}
 
@@ -23,7 +23,7 @@
 	\item$(\forall a, b\in X)\;a\odot b=b\odot a$
 \end{enumerate}
 
-\define{$\R$}
+\define{множества вещественных чисел 1}
 
 Аксиомы $\R$:
 
@@ -38,7 +38,7 @@
 	\item$\exists 1\in \R:(\forall a\in \R)\;a\cdot 1=a$
 	\item$(\forall a\in \R:a\neq 0)\;\exists a^{-1}\in \R:a\cdot a^{-1}=1$
 	\item\tikzmark{ax10}$(\forall a, b\in \R)\;a\cdot b=b\cdot a$
-	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- Дистрибутивность $\cdot$ на $+$
+	\item$(\forall a,b,c\in\R)\;(a+b)\cdot c=a\cdot c+b\cdot c$ --- Дистрибутивность $"\cdot"$ на $"+"$
 	\item\tikzmark{ax12}$(\forall a,b\in\R)\;(a>b)\lor (a<b)\lor (a=b)$
 	\item$(\forall a,b,c\in\R)\;(a>b)\land(b>c)\Rarr (a>c)$
 	\item$(\forall a,b,c\in\R)\;a>b\Rarr a+c>b+c$
@@ -47,15 +47,21 @@
 	\item$(\forall X,Y\subset\R:(x\leq y\;\forall x\in X,y\in Y))\;
 		\exists a\in\R: x\leq a\leq y\;\forall x\in X,y\in Y$ --- Аксиома полноты
 \end{enumerate}
-Непустое множество, соответствующее 17 аксиомам называется множеством действительных чисел
+
+Непустое множество, соответствующее 17 аксиомам называется множеством действительных чисел.
+
+\define{множества вещественных чисел 2}
+
+Непустое множество, состоящее из рациональных чисел вида $\cfrac{p}{q}$, где $p,q\in\mathbb{Q}$,
+и иррациональных чисел~---~чисел, представимых в виде бесконечных непериодических десятичных дробей.
 
 \newcommand{\markax}[3]{
 	\draw [decorate, decoration={brace}] ($({pic cs:#1}) + (19em, 1em)$) -- ($({pic cs:#2}) + (19em,0)$)
 	node [midway, right] {#3};
 }
 \begin{tikzpicture}[remember picture, overlay]
-	\markax{ax1}{ax5}{$\R$ образует с $+$ абелеву группу}
-	\markax{ax6}{ax10}{$\R\setminus\{0\}$ образует с $\cdot$ абелеву группу}
+	\markax{ax1}{ax5}{$\R$ образует с $"+"$ абелеву группу}
+	\markax{ax6}{ax10}{$\R\setminus\{0\}$ образует с $"\cdot"$ абелеву группу}
 	\markax{ax12}{ax15}{Упорядоченность $\R$}
 \end{tikzpicture}
 
