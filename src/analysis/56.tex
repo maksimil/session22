@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{mathtools, ulem}
+
+\begin{document}
+
+\tickettitle{56}{Теорема Тейлора, остаточные члены разложения функции в формах Лагранжа, Коши и Пеано.}
+
+\theorem{Тейлора}
+
+$f$ --- $n$ раз дифференцируема на $[a;b]$
+\begin{align*}
+	 & f(b)=f(a)+\sum_{k=1}^{n-1}\frac{(b-a)^{k}}{k!}f^{(k)}(a)+R_n
+\end{align*}
+\begin{align*}
+	 & h:=b-a                                                                                                                  \\
+	 & R_n=\frac{h^n}{n!}f^{(n)}(a+\theta h),\;\theta\in(0;1)\text{ --- остаточный член в форме Лагранжа }                     \\
+	 & R_n=\frac{h^{n}(1-\theta')^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h),\;\theta'\in(0;1)\text{ --- остаточный член в форме Коши } \\
+	 & R_n=\frac{h^{n}}{n!}f^{(n)}(a)+o(h^{n})\text{ при $b\to a$ --- остаточный член в форме Пеано }
+\end{align*}
+
+\proof
+
+Обозначим функцию $g_n$:
+\begin{align*}
+	g_n(x):=f(b)-f(x)-\sum_{k=1}^{n-1}\frac{(b-x)^{k}}{k!}f^{(k)}(x)
+\end{align*}
+\begin{align*}
+	g_n'(x)
+	 & =-f'(x)-\sum_{k=1}^{n-1}\left[-\frac{(b-x)^{k-1}}{(k-1)!}f^{(k)}(x)+\frac{(b-x)^{k}}{k!}f^{(k+1)}(x)\right]=                                                                                                                          \\
+	 & =-f'(x)+\sum_{k=1}^{n-1}\left[\frac{(b-x)^{k-1}}{(k-1)!}f^{(k)}(x)-\frac{(b-x)^{k}}{k!}f^{(k+1)}(x)\right]=                                                                                                                           \\
+	 & =
+	\begin{aligned}[t]
+		\underline{-f'(x)} & +\left[\underline{f'(x)}-\uwave{\frac{b-x}{1!}f^{(2)}(x)}\right]+\left[\uwave{\frac{b-x}{1!}f^{(2)}(x)}-\frac{(b-x)^{2}}{2!}f^{(3)}(x)\right]+... \\
+		...                & +\left[\frac{(b-x)^{n-2}}{(n-2)!}f^{(n-1)}(x)-\frac{(b-x)^{n-1}}{(n-1)!}f^{(n)}(x)\right]
+	\end{aligned} \\
+	g_n'(x)
+	 & =-\frac{(b-x)^{n-1}}{(n-1)!}f^{(n)}(x)
+\end{align*}
+
+Заметим: $R_n=g_n(a)\land g_n(b)=0$. Тогда по т. Лагранжа:
+\begin{align*}
+	 & \frac{g_n(b)-g_n(a)}{b-a}=g_n'(a+\theta'h),\;\theta'\in(0;1)\Rarr \frac{-R_n}{b-a}=g_n'(a+\theta'h)=-\frac{(b-a-\theta'h)^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)\Rarr \\
+	 & \Rarr \frac{R_n}{h}=\frac{(h-\theta'h)^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)=\frac{h^{n-1}(1-\theta')^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)\Rarr                         \\
+	 & \Rarr R_n=\frac{h^{n}(1-\theta')^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)\text{ (форма Коши)}\qed
+\end{align*}
+
+\pagebreak
+
+Докажем теперь форму Лагранжа с помощью т. Коши:
+
+Пусть $u_n(x):=(b-x)^{n}$
+\begin{align*}
+	 & u_n(a)=h^{n} & u_n(b)=0 &  & u_n'(x)=-n(b-x)^{n-1}\neq 0\;\forall x\in (a;b)
+\end{align*}
+
+Тогда по т. Коши:
+\begin{align*}
+	 & \frac{g_n(b)-g_n(a)}{u_n(b)-u_n(a)}=\frac{g_n'(a+\theta h)}{u_n'(a+\theta h)},\;\theta\in(0;1)
+	\Rarr\frac{-R_n}{-h^{n}}=-\frac{(b-a-\theta h)^{n-1}}{(n-1)!}f^{(n)}(a+\theta h)\frac{1}{-n(b-a-\theta h)^{n-1}}=\frac{f^{(n)}(a+\theta h)}{n!}\Rarr \\
+	 & \Rarr R_n=\frac{h^{n}}{n!}f^{(n)}(a+\theta h)\text{ (форма Лагранжа)}\qed
+\end{align*}
+
+Докажем теперь форму Пеано с помощью формы Лагранжа:
+\begin{align*}
+	 & c:=a+\theta h                                                     \\
+	 & R_n=\frac{f^{(n)}(a)+\left[f^{(n)}(c)-f^{(n)}(a)\right]}{n!}h^{n} \\
+	 & \alpha:=f^{(n)}(c)-f^{(n)}(a)                                     \\
+	 & R_n=\frac{f^{(n)}(a)}{n!}h^{n}+\frac{\alpha}{n!}h^{n}             \\
+	 & r:=\frac{\alpha}{n!}h^{n}                                         \\
+	 & R_n=\frac{f^{(n)}(a)}{n!}h^{n}+r
+\end{align*}
+
+Таким образом, осталось доказать, что $r=o(h^{n})$ при $b\to a$:
+\begin{align*}
+	\slim{b\to a}\frac{r}{h^{n}}=\slim{b\to a}\frac{\alpha}{n!}\cdot\frac{h^{n}}{h^{n}}=\frac{1}{n!}\slim{b\to a}\alpha=0\Rarr r=o(h^{n})
+	\Rarr R_n=\frac{f^{(n)}(a)}{n!}h^{n}+o(h^{n})\text{ (форма Пеано)}\qed
+\end{align*}
+
+\end{document}
