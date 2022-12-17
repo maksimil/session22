@@ -29,9 +29,15 @@ else
 	SIZEOPT=cp
 endif
 
+default: all
+
 .PHONY: clean
 clean:
 	rm -rf obj out
+
+.PHONY: reload
+reload:
+	python ./scripts/gen-makefile.py "{default_previewer}"
 """.format(default_previewer=pdf_previewer)
 
 texfile_target="""
@@ -74,8 +80,6 @@ subject_target=subject_all_target+book_target
 
 all_all="""
 all: {0}
-
-default: all
 """
 
 texfiles = {"analysis":[], "geometry":[], "algebra":[]}

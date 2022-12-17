@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{4}{Эквивалентность множеств. Несчётность множества вещественных чисел. Понятие~мощности~множества.}
+
+\define{эквивалентности множеств}
+
+Множества $A$ и $B$	эквивалентны, если $\exists f:A\leftrightarrow B$.
+
+$A\sim B$ означает, что множества эквивалентны.
+
+\theorem
+
+$\R$ несчётно
+
+\proof
+\begin{enumerate}
+	\item{}$\R\sim(0;1)$, тк $\exists f:(0;1)\leftrightarrow\R$ при $f(x)=\tg(\frac{x\pi}{2})$. Значит, из $(0;1)\nsim\N$ будет следовать $\R\nsim\N$.
+	\item{}Докажем $(0;1)\nsim\N$.
+
+	Пусть существует перечень $S=\setdef{a_n}{\forall n\in\N}$:
+	\begin{align*}
+		 & a_1=0,a_{11}a_{12}a_{13}a_{14}... \\
+		 & a_2=0,a_{21}a_{22}a_{23}a_{24}... \\
+		 & ...
+	\end{align*}
+
+	Построим тогда $\beta\in(0;1)\land\beta\notin S$:
+	\begin{align*}
+		 & \beta=0,\beta_1\beta_2\beta_3\beta_4\beta_5...                               \\
+		 & \beta_n\neq a_{nn}\land \beta_n\neq 9\land\beta_n\neq 0\;\forall n\in\N\Rarr \\
+		 & \Rarr \beta\neq a_n\;\forall n\in\N\land 0<\beta<1\Rarr                      \\
+		 & \Rarr \beta\notin S\land \beta\in(0;1)
+	\end{align*}
+
+	В $(0;1)$ существуют числа вида $\frac{q}{10^{n}}\;(q\in\N,n\in\N)$, представимые двумя способами:
+	$0,5=0,5(0)=0,4(9)$, поэтому в построении $\beta$ нельзя использовать $0$ и $9$.
+
+	Таким образом, для любого перечня $(0;1)$ существует элемент в $(0;1)$, который не содержится в перечне $\Rarr(0;1)\nsim\N\Rarr\R\nsim\N\qed$
+
+\end{enumerate}
+
+\theorem
+\begin{align*}
+	(\exists\text{инъекция }f:A\to B',\;B'\subset B)\land(\exists\text{инъекция }g:B\to A',\;A'\subset A)\Rarr A\sim B
+\end{align*}
+
+\define{мощности множества}
+
+Мощности множеств $A$ и $B$ равны, если $A\sim B$.
+
+Мощность --- то общее, что есть у эквивалентных множеств.
+
+$m(A)$ --- кардинальное число множества $A$.
+$m(A)=m(B)$ означает, что мощности $A$ и $B$ равны.
+
+\define{сравнения мощностей множеств}
+
+$f$ и $g$ --- инъекции
+\begin{enumerate}
+	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\exists g:B\to A,\;A'\subset A)\Rarr m(A)=m(B)$
+	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr m(A)<m(B)$
+	\item{}$(\nexists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr$ $m(A)$ и $m(B)$ несравнимы
+\end{enumerate}
+
+
+\end{document}
