@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{53}{Теорема о производной константы. Теорема о производной монотонной и строго~монотонной~функции. Достаточный признак монотонности функции.}
+
+\theorem
+\begin{align*}
+	f(x)=\const\Rarr f'(x)=0
+\end{align*}
+
+\proof
+\begin{align*}
+	f(x)=c\Rarr\slim{h\to 0}\frac{f(x+h)-f(x)}{h}=\slim{h\to 0}\frac{c-c}{h}=\slim{h\to 0}\frac{0}{h}=0\Rarr f'(x)=0\qed
+\end{align*}
+
+\theorem
+
+$f$ --- дифференцируема на $(a;b)$
+
+$(\forall x\in(a;b))\;f'(x)\geq 0$ $\Lrarr$ $f$ --- монотонно возрастающая на $(a;b)$
+
+$(\forall x\in(a;b))\;f'(x)\leq 0$ $\Lrarr$ $f$ --- монотонно убывающая на $(a;b)$
+
+
+\onlyif
+
+Без ограничения общности пусть $f'(x)\geq 0$
+
+Возьмём $x_1,x_2\in(a;b)$:
+\begin{align*}
+	\llet a<x_1<x_2<b\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)\geq 0\Rarr f(x_2)\geq f(x_1)\qed
+\end{align*}
+
+\enough
+
+Без ограничения общности пусть $f$ --- монотонно возрастающая на $(a;b)$
+\begin{align*}
+	 & (f(x+h)\geq f(x)\text{ при $h>0$})\land (f(x+h)\leq f(x)\text{ при $h<0$})\Rarr \frac{f(x+h)-f(x)}{h}\geq 0\Rarr \\
+	 & \Rarr f'(x)=\slim{h\to 0}\frac{f(x+h)-f(x)}{h}\geq 0\qed
+\end{align*}
+
+\theorem
+
+$f$ --- дифференцируема на $(a;b)$
+
+$(\forall x\in(a;b))\;f'(x)>0$ $\Rarr$ $f$ --- строго монотонно возрастающая на $(a;b)$
+
+$(\forall x\in(a;b))\;f'(x)<0$ $\Rarr$ $f$ --- строго монотонно убывающая на $(a;b)$
+
+\proof
+
+Без ограничения общности пусть $f'(x)> 0$
+
+Возьмём $x_1,x_2\in(a;b)$:
+\begin{align*}
+	\llet a<x_1<x_2<b\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)> 0\Rarr f(x_2)> f(x_1)\qed
+\end{align*}
+
+
+
+\end{document}
