@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{55}{Производные высших порядков, их свойства, формула Лейбница.}
+
+\define{производных высших порядков}
+
+Пусть $f$ имеет на $P$ производные $f'(x),f''(x),...,f^{(n-1)}(x)$.
+
+Если в $x_0\in P$ $\exists f^{(n)}(x_0)$, то её называют производной $n$-го порядка в $x_0$
+\begin{align*}
+	 & f^{(n)}(x):=(f^{(n-1)}(x))' & f^{(0)}(x):=f(x)
+\end{align*}
+
+\define{$n$ раз дифференцируемой функции}
+
+Если $(\forall x\in X)\;\exists f^{(m)}(x)\;\forall m\leq n$, то $f$ --- $n$ раз дифференцируема на $X$.
+
+Если $(\forall x\in X, n\in\N)\;\exists f^{(n)}(x)$, то $f$ --- бесконечно дифференцируема на $X$.
+
+\props{производных высших порядков}
+
+Из определения следует:
+\begin{align*}
+	 & (cf(x))^{(n)}=cf^{(n)}(x)\text{, где c=\const} \\
+	 & (f(x)+g(x))^{(n)}=f^{(n)}(x)+g^{(n)}(x)
+\end{align*}
+
+\theorem[(формула Лейбница)]
+\begin{align*}
+	(uv)^{(n)}=\sum_{k=0}^{n}C_n^{k}u^{(k)}v^{(n-k)}
+\end{align*}
+
+\proof
+
+Докажем по индукции ($P(n)$ --- верность формулы Лейбница для $n$):
+\begin{enumerate}
+	\item{}$P(1)$
+	\begin{align*}
+		(uv)'=uv'+u'v=C_1^{0}uv'+C_1^{1}u'v=\sum_{k=0}^{1}C_1^{k}u^{(k)}v^{(1-k)}
+	\end{align*}
+
+	\item{}$P(n-1)\Rarr P(n)$
+	\begin{align*}
+		(uv)^{(n)}
+		 & =((uv)^{(n-1)})'=\left(\sum_{k=0}^{n-1}C_{n-1}^{k}u^{(k)}v^{(n-1-k)}\right)'
+		=\sum_{k=0}^{n-1}C_{n-1}^{k}u^{(k+1)}v^{(n-1-k)}+\sum_{k=0}^{n-1}C_{n-1}^{k}u^{(k)}v^{(n-k)}=                                                        \\
+		 & =\sum_{k=1}^{n}C_{n-1}^{k-1}u^{(k)}v^{(n-k)}+\sum_{k=0}^{n-1}C_{n-1}^{k}u^{(k)}v^{(n-k)}=                                                         \\
+		 & =C_{n-1}^{n-1}u^{(n)}v^{(0)}+\sum_{k=1}^{n-1}C_{n-1}^{k-1}u^{(k)}v^{(n-k)}+\sum_{k=1}^{n-1}C_{n-1}^{k}u^{(k)}v^{(n-k)}+C_{n-1}^{0}u^{(0)}v^{(n)}= \\
+		 & =C_{n}^{0}u^{(0)}v^{(n)}+\sum_{k=1}^{n-1}(C_{n-1}^{k-1}+C_{n-1}^{k})u^{(k)}v^{(n-k)}+C_{n}^{n}u^{(n)}v^{(0)}=                                     \\
+		 & =C_{n}^{0}u^{(0)}v^{(n)}+\sum_{k=1}^{n-1}C_n^{k}u^{(k)}v^{(n-k)}+C_{n}^{n}u^{(n)}v^{(0)}=\sum_{k=0}^{n}C_n^{k}u^{(k)}v^{(n-k)}\qed
+	\end{align*}
+\end{enumerate}
+
+\end{document}
