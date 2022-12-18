@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{61}{Исследования на экстремум функции, $n$ раз дифференцируемой в стационарной точке.}
+
+\define{стационарной точки}
+
+$c$ --- стационарная точка $f$ означает $f'(c)=0$
+
+\theorem
+
+$f$ --- $n$ раз дифференцируема в окрестности $a$, и $f^{(n)}$ --- непрерывна в этой окрестности
+\begin{align*}
+	(\forall m=\overline{1,n-1})\;f^{(m)}(a)=0 \land f^{(n)}(a)\neq 0\Rarr
+	\text{$c$ --- локальный экстремум $f$, если $n$ --- чётно}
+\end{align*}
+
+\proof
+
+По теореме о стабилизации знака функции:
+\begin{align*}
+	f^{(n)}(c)\neq 0\Rarr \exists\eps>0:(\forall h\in(-\eps;\eps))\;f^{(n)}(c+h)\neq 0\land f^{(n)}(c+h)\text{ имеет тот же знак, что и $f^{(n)}(c)$}
+\end{align*}
+
+По формуле Тейлора:
+\begin{align*}
+	 & (\forall h\in(-\eps;\eps))\; f(c+h)=f(c)+\sum_{k=1}^{n-1}\frac{h^{k}}{k!}f^{(k)}(c)+\frac{h^{n}}{n!}f^{(n)}(c+\theta h),\;\theta\in(0;1)\Rarr \\
+	 & \Rarr f(c+h)=f(c)+\frac{h^{n}}{n!}f^{(n)}(c+\theta h)
+\end{align*}
+
+$n=2m,\;m\in\N$
+\begin{enumerate}
+	\item{}$f^{(n)}(c)>0$
+	\begin{align*}
+		 & \begin{cases}
+			   n=2m         & \Rarr h^{n}>0               \\
+			   f^{(n)}(c)>0 & \Rarr f^{(n)}(c+\theta h)>0
+		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)>0\Rarr     \\
+		 & \Rarr f(c+h)>f(c)\Rarr c \text{ --- точка локального минимума }
+	\end{align*}
+	\item{}$f^{(n)}(c)<0$
+	\begin{align*}
+		 & \begin{cases}
+			   n=2m         & \Rarr h^{n}>0               \\
+			   f^{(n)}(c)<0 & \Rarr f^{(n)}(c+\theta h)<0
+		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)<0\Rarr      \\
+		 & \Rarr f(c+h)<f(c)\Rarr c \text{ --- точка локального максимума }
+	\end{align*}
+\end{enumerate}
+
+\end{document}
