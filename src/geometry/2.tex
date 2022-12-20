@@ -101,17 +101,90 @@
 
 Тогда получим линейную комбинацию:
 \begin{align*}
-	 & \sum_{i=1}^{n}\ap_{i}v_{i}=0 &  & \sum_{i=1}^{n}\ap_{i}^{2}\neq 0
+	 & \sum_{i=1}^{n}\ap_{i}v_{i}=\sum_{i=1}^{k}a_{i}v_{i}+\sum_{i=k+1}^{n}0\cdot v_{i}=0 &  & \sum_{i=1}^{n}\ap_{i}^{2}\neq 0
 \end{align*}
 
-Из её существования следует, что $\setdef{v_{i}\in L}{i=\overline{1,n}}$ --- лз система.
+Из её существования следует, что $\setdef{v_{i}\in L}{i=\overline{1,n}}$ --- лз система$\qed$
 
 \result[1]
 
 Если среди $v_{i}$ есть $0$ то система лз, тк $\{0\}$ --- лз система.
 
+\pagebreak
+
 \result[2]
 
 Любая подсистема лнз системы тоже лнз, тк $(\exists \text{лз подсистемы} \Rarr \text{система лз})$ означает $(\text{система лнз} \Rarr \forall\text{подсистема лнз})$.
+
+\theorem
+\begin{align*}
+	\{v_1,v_2,...,v_n\}\text{ --- лз}\Lrarr\exists v_{i}\text{, который можно выразить через остальные}
+\end{align*}
+
+\onlyif
+\begin{align*}
+	\sum_{i=1}^{n}\lambda_{i}v_{i}=0\land\exists i:\lambda_{i}\neq 0
+\end{align*}
+
+Без ограничения общности пусть $\lambda_{1}\neq 0$, тогда:
+\begin{align*}
+	\sum_{i=1}^{n}\lambda_{i}v_{i}=\lambda_1v_1+\sum_{i=2}^{n}\lambda_{i}v_{i}=0\Rarr\lambda_1v_1=-\sum_{i=2}^{n}\lambda_{i}v_{i}\Rarr
+	v_1=\sum_{i=2}^{n}\left(-\frac{\lambda_{i}}{\lambda_1}\right)v_{i}\qed
+\end{align*}
+
+\enough
+
+Без ограничения общности пусть $v_1$ можно выразить через остальные, тогда:
+\begin{align*}
+	v_1=\sum_{i=2}^{n}\lambda_{i}v_{i}
+\end{align*}
+
+\newcommand\lp{\widetilde{\lambda}}
+Определим $\lp_{i}$:
+\begin{align*}
+	 & \lp_1=-1 &  & \lp_{i}=\lambda_{i},\quad i=\overline{2,n}
+\end{align*}
+\begin{align*}
+	\sum_{i=1}^{n}\lp_{i}^{2}=1+\sum_{i=2}^{n}\lp_{i}^{2}\neq0
+\end{align*}
+
+Тогда получим линейную комбинацию:
+\begin{align*}
+	 & \sum_{i=1}^{n}\lp_{i}v_{i}=-v_1+\sum_{i=2}^{n}\lambda_{i}v_{i}=0 &  &
+	\sum_{i=1}^{n}\lp_{i}^{2}\neq0
+\end{align*}
+
+Из её существования следует, что $\{v_1,v_2,...,v_n\}$ --- лз$\qed$
+
+\pagebreak
+
+\theorem
+\begin{align*}
+	\begin{cases}
+		\{v_1,v_2,...,v_{n-1}\} & \text{ --- лнз} \\
+		\{v_1,v_2,...,v_{n}\}   & \text{ --- лз}
+	\end{cases}\Rarr\exists\alpha_{i}\in\R:v_{n}=\sum_{i=1}^{n-1}\alpha_{i}v_{i}
+\end{align*}
+
+\proof
+\begin{align*}
+	\{v_1,v_2,...,v_{n}\}\text{ --- лз}\Rarr\exists\alpha_{i}\in\R:\sum_{i=1}^{n}\alpha_{i}v_{i}=0\land\sum_{i=1}^{n}\alpha_{i}^{2}\neq 0
+\end{align*}
+
+Допустим, что $\alpha_{n}=0$:
+\begin{align*}
+	\begin{cases}
+		\displaystyle
+		\sum_{i=1}^{n}\alpha_{i}v_{i}=\sum_{i=1}^{n-1}\alpha_{i}v_{i}+0\cdot v_{n}=\sum_{i=1}^{n-1}\alpha_{i}v_{i}=0 \\[1.5em]
+		\displaystyle
+		\sum_{i=1}^{n}\alpha_{i}^{2}=\sum_{i=1}^{n-1}\alpha_{i}^{2}+0^{2}=\sum_{i=1}^{n-1}\alpha_{i}^{2}\neq 0
+	\end{cases}\Rarr\{v_1,v_2,...,v_{n-1}\}\text{ --- лз}\text{, что противоречит условию}
+\end{align*}
+
+Учитывая, что $\alpha_{n}\neq 0$:
+\begin{align*}
+	\sum_{i=1}^{n}\alpha_{i}v_{i}=0\Rarr\sum_{i=1}^{n-1}\alpha_{i}v_{i}+\alpha_{n}v_{n}=0\Rarr\alpha_{n}v_{n}=-\sum_{i=1}^{n-1}\alpha_{i}v_{i}
+	\Rarr v_{n}=\sum_{i=1}^{n-1}\left(-\frac{\alpha_{i}}{\alpha_{n}}\right)v_{i}\qed
+\end{align*}
 
 \end{document}
