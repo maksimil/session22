@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+\tickettitle{2}{Понятие линейного пространства. Линейная зависимость и независимость векторов. Теорема~о~линейной~зависимости. Теорема о нулевом векторе и линейной зависимости.}
+
+\define{линейного пространства (линеала)}
+
+Линеал --- множество $L$ обладающее следущими свойствами:
+\begin{enumerate}
+	\item{}Аддитивность
+
+	Задано правило ($+$): $(\forall x,y\in L)\;x+y\in L$
+
+	\item{}Произведение на число
+
+	Задано правило ($\cdot$): $(\forall x\in L,\lambda\in\R)\;\lambda\cdot x\in L$
+
+	\item{}Аксиомы:
+	\begin{enumerate}[label=\Roman*.]
+		\item{}$(\forall x,y\in L)\;x+y=y+x$
+		\item{}$(\forall x,y,z\in L)\;(x+y)+z=x+(y+z)$
+		\item{}$\exists 0\in L:(\forall x\in L)\;x+0=x$
+		\item{}$(\forall x\in L)\;\exists y\in L:x+y=0$
+		\item{}$(\forall x\in L,\lambda, \mu\in\R)\;\lambda(\mu x)=(\lambda\mu)x$
+		\item{}$(\forall x\in L,\lambda,\mu\in\R)\;(\lambda+\mu)x=\lambda x+\mu x$
+		\item{}$(\forall x,y\in L,\lambda\in\R)\;\lambda(x+y)=\lambda x+\lambda y$
+		\item{}$(\forall x\in L)\;1\cdot x=x$
+	\end{enumerate}
+\end{enumerate}
+
+Примеры линеалов:
+\begin{enumerate}
+	\item{}$V^{1}$ --- множество всех свободных векторов на прямой
+	\item{}$V^{2}$ --- множество всех свободных векторов на плоскости
+	\item{}$V^{3}$ --- множество всех свободных векторов в пространстве
+	\item{}$\{0\}$ --- простейший линеал
+	\item{}$\R^{n}$ --- множество всех упорядоченных множеств из $n$ чисел:
+	\begin{enumerate}
+		\item{}$(a_1,a_2,...,a_n)+(b_1,b_2,...,b_n)=(a_1+b_1,a_2+b_2,...,a_n+b_n)$
+		\item{}$\lambda(a_1,a_2,...,a_n)=(\lambda a_1,\lambda a_2,...,\lambda a_n)$
+	\end{enumerate}
+\end{enumerate}
+
+\define{линейной комбинации}
+\begin{align}
+	\label{2:lincomb}
+	\sum_{i=1}^{n}a_iv_i,\;a_i\in\R,v_i\in L,i=\overline{1,n}
+\end{align}
+
+Выражение вида $\eqref{2:lincomb}$ называется линейной комбинацией элементов $v_i$,\\
+а $a_i$ --- коэфицентами комбинации.
+
+Тривиальная линейная комбинация: $a_i=0,\;i=\overline{1,n}$
+
+\pagebreak
+
+\define{разложения}
+
+Разложением $p\in L$ по $e_i\in L$ называется линейная комбинация $e_i\in L$:
+\begin{align*}
+	p=\sum_{i=1}^{n}a_ie_i,\;a_i\in\R,i=\overline{1,n}
+\end{align*}
+
+\define{линейной зависимости}
+
+Элементы $v_i\in L$ линейно зависимы, если $\exists a_i\in\R$:
+\begin{align*}
+	 & \sum_{i=1}^{n}a_iv_i=0 &  & \land &  & \sum_{i=1}^{n}a_i^{2}\neq 0
+\end{align*}
+
+Элементы $v_i\in L$ линейно независимы, если они не линейно зависимы.
+
+лз --- линейно зависимы, лнз --- линейно независимы.
+
+\theorem
+
+Если среди $\setdef{v_i\in L}{i=\overline{1,n}}$ существует лз подсистема, то вся система лз.
+
+Система --- синоним слова множество.
+
+\proof
+
+Упорядочим $v_i$ таким образом, чтобы лз подсистема была на первых $k$ местах:
+\begin{align*}
+	 & \exists a_i\in\R:(\sum_{i=1}^{k}a_iv_i=0)\land(\sum_{i=1}^{k}a_i^{2}\neq 0)
+\end{align*}
+
+\newcommand\ap{\widetilde{a}}
+Определим $\ap_{i}$:
+\begin{align*}
+	 & \ap_{i}=a_{i},\quad i=\overline{1,k} &  & \ap_{i}=0,\quad i=\overline{k+1,n}
+\end{align*}
+\begin{align*}
+	\sum_{i=1}^{n}\ap_{i}^{2}=\sum_{i=1}^{k}a_{i}^{2}+\sum_{i=k+1}^{n}0^{2}=\sum_{i=1}^{k}a_{i}\neq 0
+\end{align*}
+
+Тогда получим линейную комбинацию:
+\begin{align*}
+	 & \sum_{i=1}^{n}\ap_{i}v_{i}=0 &  & \sum_{i=1}^{n}\ap_{i}^{2}\neq 0
+\end{align*}
+
+Из её существования следует, что $\setdef{v_{i}\in L}{i=\overline{1,n}}$ --- лз система.
+
+\result[1]
+
+Если среди $v_{i}$ есть $0$ то система лз, тк $\{0\}$ --- лз система.
+
+\result[2]
+
+Любая подсистема лнз системы тоже лнз, тк $(\exists \text{лз подсистемы} \Rarr \text{система лз})$ означает $(\text{система лнз} \Rarr \forall\text{подсистема лнз})$.
+
+\end{document}
