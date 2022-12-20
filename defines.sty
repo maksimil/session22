@@ -8,19 +8,24 @@
 
 % symbol packages
 \usepackage{amsmath, amsfonts}
-\usepackage{amssymb}
+\usepackage{amssymb, mathabx, amsthm}
 
 % text structure
-\newcommand{\hd}[1]{ \vspace{3mm}
+\newcommand{\hd}[1]{\vspace{3mm}
 	{\bf #1}
-	\vspace{1mm}
+	% \vspace{1mm}
 }
 
+\newcommand{\sectitle}[1]{
+	\begin{center}
+		\it #1
+	\end{center}
+}
 \newcommand{\define}[1]{\hd{Определение #1}}
 \newcommand{\props}[1]{\hd{Свойства #1}}
 \newcommand{\theorem}[1][]{\hd{Теорема #1}}
 \newcommand{\result}[1][]{\hd{Следствие #1}}
-\newcommand{\proof}{\hd{Доказательство}}
+\renewcommand{\proof}{\hd{Доказательство}}
 \newcommand{\onlyif}{\hd{Необходимость}}
 \newcommand{\enough}{\hd{Достаточность}}
 
@@ -33,7 +38,11 @@
 	\end{center}
 }
 
+\setlength{\parskip}{\medskipamount}
+\newcommand{\@minipagerestore}{\setlength{\parskip}{\medskipamount}\raggedright}
+
 % custom shorthands 
+\newcommand{\figref}[1]{Рис.~\ref{#1}}
 \newcommand{\slim}{\lim\limits_}
 \newcommand{\slimty}{\slim{n\to\infty}}
 \newcommand{\sliminf}{\varliminf\limits_}
@@ -45,14 +54,17 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\const}{\text{const}}
 \newcommand{\sgn}{\text{sgn}}
+\newcommand{\ort}{\text{орт }}
 \newcommand{\eset}{\varnothing}
 \newcommand{\setdef}[2]{\{#1\;|\;#2\}}
 \newcommand{\eps}{\varepsilon}
-\newcommand{\qed}{\;\square.}
+\renewcommand{\qed}{\;\openbox.}
 \newcommand{\llet}{\sqsupset}
+\newcommand{\lvec}{\overrightarrow}
 
 % page styling
 \usepackage{standalone}
 \usepackage{fullpage}
+\usepackage{parskip}
 \raggedright
 \usepackage[implicit=false]{hyperref}
