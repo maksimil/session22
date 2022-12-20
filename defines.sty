@@ -8,15 +8,25 @@
 
 % symbol packages
 \usepackage{amsmath, amsfonts}
-\usepackage{amssymb, mathabx, amsthm}
+\usepackage{amssymb, amsthm}
+
+% mathabx symbols
+\DeclareFontFamily{U}{mathb}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathb}{m}{n}{
+	<5> <6> <7> <8> <9> <10> gen * mathb
+	<10.95> mathb10 <12> <14.4> <17.28> <20.74> <24.88> mathb12
+}{}
+\DeclareSymbolFont{mathb}{U}{mathb}{m}{n}
+\DeclareMathSymbol{\upuparrows}{3}{mathb}{"D2}
+\DeclareMathSymbol{\updownarrows}{3}{mathb}{"D6}
 
 % text structure
 \newcommand{\hd}[1]{\vspace{3mm}
 	{\bf #1}
-	% \vspace{1mm}
 }
 
 \newcommand{\sectitle}[1]{
+	\vspace{3mm}
 	\begin{center}
 		\it #1
 	\end{center}
@@ -58,7 +68,7 @@
 \newcommand{\eset}{\varnothing}
 \newcommand{\setdef}[2]{\{#1\;|\;#2\}}
 \newcommand{\eps}{\varepsilon}
-\renewcommand{\qed}{\;\openbox.}
+\renewcommand{\qed}{\;\square.}
 \newcommand{\llet}{\sqsupset}
 \newcommand{\lvec}{\overrightarrow}
 
