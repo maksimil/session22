@@ -4,7 +4,7 @@
 
 \usepackage{enumitem}
 
-\usepackage{tikz}
+\usepackage{tikz, caption}
 \usetikzlibrary{decorations.pathreplacing, tikzmark, calc}
 
 \begin{document}
@@ -50,6 +50,28 @@ $\dim\A:=\dim L=n$, $\A=\A^{n}$
 
 $\vec{r}_A=\lvec{OA}$ --- радиус-вектор точки $A$
 
+\vspace{2em}
+\begin{minipage}{0.5\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\draw [-latex] (0,0)--(2,0) node[above] {$\vec{e}_{1}$};
+		\draw [-latex] (0,0)--(1,2) node[left] {$\vec{e}_{2}$};
+		\draw [-latex] (1.5,0) arc (0:63:1.5);
+	\end{tikzpicture}
+	\captionof{figure}{Правая система координат}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\draw [-latex] (0,0)--(2,0) node[above] {$\vec{e}_{2}$};
+		\draw [-latex] (0,0)--(1,2) node[left] {$\vec{e}_{1}$};
+		\draw [latex-] (1.5,0) arc (0:63:1.5);
+	\end{tikzpicture}
+	\captionof{figure}{Левая система координат}
+\end{minipage}
+
+\pagebreak
+
 \define{аффинных координат}
 
 Аффинные координаты $A\in\A$ в системе $O\vec{e}_1\vec{e}_2...\vec{e}_{n}$ --- координаты её радиус-вектора.
@@ -60,8 +82,6 @@ $\vec{r}_A=\lvec{OA}$ --- радиус-вектор точки $A$
 
 Прямой в аффинном пространстве, проходящей через $A_0\in\A$ в направлении $\vec{v}\in L,\;\vec{v}\neq \vec{0}$\\
 называется $\setdef{P\in\A}{\exists\lambda\in\R:\lvec{AP}=\lambda\vec{v}}$.
-
-\pagebreak
 
 \define{ортонормированного базиса}
 
