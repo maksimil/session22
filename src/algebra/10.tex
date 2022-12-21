@@ -1,0 +1,155 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{10}{Геометрическое определение поля комплексных чисел}
+
+\define{Комплексные числа в декартовом произведении}
+
+Возьмём множество действительных чисел $\R$ и рассмотрим $\R \times \R$. Элементы $(a,b)$ из этого произведения называются комплексными числами, если:
+
+\begin{enumerate}
+	\item{}$(a,b)=(c,d)\Lrarr a=c\land b=d$
+	\item{}$(a,b)+(c,d):=(a+c,b+d)$
+	\item{}$(a,b)\cdot(c,d):=(ac-bd,ad+bc)$
+\end{enumerate}
+
+Множество комплексных чисел обозначается как $\Cx$.
+
+\theorem
+
+$\Cx$ образует поле во всем декартовом произведении.
+
+\proof
+
+Покажем вначале, что комлексные числа образуют абелеву группу относительно сложения:
+\begin{enumerate}
+	\item{}Коммутативность: $\forall (a,b),(c,d)\in\Cx$
+	\begin{align*}
+		(a,b) + (c,d) & = (c,d) + (a,b) \\
+		(a+c,b+d)     & =(c+a,d+b)
+	\end{align*}
+
+	\item{}Ассоциативность: $\forall (a,b),(c,d),(e,f)\in\Cx$
+	\begin{align*}
+		((a,b) + (c,d)) + (e,f) & = (a,b) + ((c,d) + (e,f)) \\
+		((a+c)+e,(b+d)+f)       & =(a+(c+e),b+(d+f))
+	\end{align*}
+
+	\item{}Существование нейтрального элемента: $\forall (a,b)\in\Cx$
+	\begin{align*}
+		(a,b) + (0,0) = (a,b).
+	\end{align*}
+
+	\item{}Существование обратного элемента: $\forall (a,b)\in\Cx$
+	\begin{align*}
+		(a,b)+(-a,-b)=(0,0)
+	\end{align*}
+\end{enumerate}
+
+Покажем теперь групповые свойства умножения
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item{}Коммутативность:
+	\begin{align*}
+		(a,b)(c,d)    & =(c,d)(a,b)    \\
+		(ac-bd,ad+bc) & =(ca-db,cb+da)
+	\end{align*}
+
+	\pagebreak
+
+	\item{}Ассоциативность: $\forall (a,b),(c,d),(e,f)\in\Cx$
+	\begin{align*}
+		((a,b)(c,d))(e,f)=(a,b)((c,d)(e,f))
+	\end{align*}
+	\begin{align*}
+		\text{Левая часть: }(ac-bd, ad+bc)(e,f)      & = ((ac-bd)e - (ad+bc)f, (ac-bd)f + (ad+bc)e) =         \\
+		                                             & = (ace - bde - adf - bcf, acf - bdf + ade + bce)       \\
+		\text{Правая часть: }(a,b)(ce - df, cf + de) & = (a(ce - df) - b(cf + de), b(ce - df) + a(cf + de)) = \\
+		                                             & = (ace - adf - bcf - bde, bce - bdf + acf + ade)
+	\end{align*}
+
+	\item{}Существование нейтрального элемента: $\forall (a,b)\in\Cx$
+	\begin{align*}
+		(a,b)(1,0)=(a\cdot 1-b\cdot 0,a\cdot 0+b\cdot 1)=(a,b);
+	\end{align*}
+
+	\item{}Существование обратного элемента: $\forall (a,b)\in\Cx:(a,b)\neq(0,0)$
+	\begin{align*}
+		(a,b)(x,y)=(1,0)
+	\end{align*}
+	\begin{enumerate}
+		\item{}$a\neq 0$
+		\begin{align}
+			\notag
+			\begin{cases}
+				ax-by=1 \\
+				bx+ay=0
+			\end{cases}
+			 & \Lrarr
+			\begin{cases}
+				x-\frac{b}{a}y=\frac{1}{a} \\
+				\frac{b}{a}x+y=0
+			\end{cases}
+			\Lrarr
+			\begin{cases}
+				x=\frac{b}{a}y+\frac{1}{a} \\
+				\frac{b^{2}}{a^{2}}y+\frac{b}{a^{2}}+y=0
+			\end{cases}
+			\Lrarr
+			\begin{cases}
+				x=\frac{b}{a}y+\frac{1}{a} \\
+				b^{2}y+b+a^{2}y=0
+			\end{cases}
+			\Lrarr    \\
+			 & \Lrarr
+			\begin{cases}
+				x=\frac{1}{a}(by+1) \\
+				y=\frac{-b}{a^{2}+b^{2}}
+			\end{cases}
+			\Lrarr
+			\begin{cases}
+				x=\frac{1}{a}\frac{-b^{2}+a^{2}+b^{2}}{a^{2}+b^{2}} \\
+				y=\frac{-b}{a^{2}+b^{2}}
+			\end{cases}
+			\Lrarr
+			\begin{cases}
+				x=\frac{a}{a^{2}+b^{2}} \\
+				y=\frac{-b}{a^{2}+b^{2}}
+			\end{cases}\label{10:inv}
+		\end{align}
+		\item{}$b\neq 0$
+
+		Подставим решение $\eqref{10:inv}$:
+		\begin{align*}
+			 & ax-by=a\frac{a}{a^{2}+b^{2}}-b\frac{-b}{a^{2}+b^{2}}=1 &  & ay+bx=a\frac{-b}{a^{2}+b^{2}}+b\frac{a}{a^{2}+b^{2}}=0
+		\end{align*}
+	\end{enumerate}
+
+	\item{}Дистрибутивность умножения относительно сложения: $\forall (a,b),(c,d),(e,f)\in\Cx$
+	\begin{align*}
+		(a,b)((c,d)+(e,f))=(a,b)(c,d)+(a,b)(e,f)
+	\end{align*}
+	\begin{align*}
+		\text{Левая часть: }(a,b)((c,d)+(e,f))     & = (a,b)(c+e,d+f) = (a(c+e)-b(d+f),a(d+f)+b(c+e))= \\
+		                                           & = (ac+ae-bd-bf,ad+af+bc+be)                       \\
+		\text{Правая часть: }(a,b)(c,d)+(a,b)(e,f) & = (ac-bd,ad+bc)+(ae-bf,af+be) =                   \\
+		                                           & = (ac-bd+ae-bf,ad+bc+af+be)
+	\end{align*}
+\end{enumerate}
+
+Таким образом, $\Cx$ вместе с $"+"$ и $"\cdot"$ образует поле$\qed$
+
+\define{модуля комплексного числа}
+
+Модулем комплексного числа $z = (a,b)$ называется число $\sqrt{a^2 + b^2}$, которое обозначается как $|z|$.
+
+\define{комплексного сопряжённого}
+
+Сопряженным числом к $z = (a,b)$ называется число $(a,-b)$, которое обозначается как $\bar{z}$.\\
+$z^{-1}=\bar{z}/|z|^{2}$ (по $\eqref{10:inv}$)
+
+\end{document}
+
