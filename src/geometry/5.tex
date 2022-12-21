@@ -2,8 +2,156 @@
 
 \usepackage{defines}
 
+\usepackage{mathtools}
+
 \begin{document}
 
 \tickettitle{5}{Размерность линеала. Теорема о размерности. Изоморфизм линеалов. Теорема о изоморфизме линеалов одной размерности. Теорема о размерности изоморфных линеалов.}
+
+\define{размерности линеала}
+
+Линеал $L$ называют $n$-мерным, если в нём есть базис из $n$ элементов.
+
+Размерность определяется однозначно, тк любые два базиса одного линеала имеют одно число~элементов (см. билет 4).
+
+\begin{tabular}{lll}
+	$\dim L=n$     & $L=L^{n}$      & $\dim\R^{n}=n$ (доказательство ниже) \\
+	$\dim V^{1}=1$ & $\dim V^{2}=2$ & $\dim V^{3}=3$
+\end{tabular}
+
+Линеал $L$ называют бесконечномерным, если в нём не существует базиса с конечным числом~элементов.
+Далее будут рассматриваться только конечномерные линеалы.
+
+Множество непрерывных функций на $[0;1]$ --- бесконечномерный линеал.
+
+\theorem
+
+Линеал $L$ $n$-мерен $\Lrarr$ $\exists$ система из $n$ лнз элементов $\land$ $\forall$ система из $n+1$ элементов лз.
+
+\onlyif
+
+Линеал $L$ $n$-мерен $\Rarr$ $\exists$ базис из $n$ элементов $\Rarr$ $\exists$ система из $n$ лнз элементов.
+
+Через базис можно представить любой элемент $\Rarr$ каждый из векторов из $\forall$ системы из $n+1$
+элементов представим с помощью $n$ лнз элементов $\Rarr$ $\forall$ система из $n+1$ элементов лз$\qed$
+
+\enough
+
+Обозначим $n$ лнз элементов как $(e_1,e_2,...,e_{n})$.
+
+Рассмотрим $x\in L$ и систему из $n+1$ элементов $\{x,e_1,e_2,...,e_{n}\}$.
+
+Она лз, тк любая система из $n+1$ элементов лз:
+\begin{align*}
+	\begin{cases}
+		\{e_1,e_2,...,e_{n}\}   & \text{--- лнз} \\
+		\{e_1,e_2,...,e_{n},x\} & \text{--- лз}  \\
+	\end{cases}\xRightarrow{\text{см. билет 2}}\exists\alpha_{i}\in\R:x=\sum_{i=1}^{n}\alpha_{i}e_{i}
+\end{align*}
+
+Таким образом, $(e_1,e_2,...,e_{n})$ --- упорядоченный набор лнз элементов, через которые можно представить
+любой элемент линеала $\Rarr$ $(e_{i})$ --- базис из $n$ элементов $\Rarr$ $\dim L=n\qed$
+
+\pagebreak
+
+\theorem
+
+Линеал $\R^{n}$ конечномерен и $\dim\R^{n}=n$.
+
+\proof
+
+Рассмотрим упорядоченный набор $(e_{i})$:
+\begin{align*}
+	 & e_1=(1,0,...,0) &  & e_2=(0,1,...,0) &  & ... &  & e_{n}=(0,0,...,1)
+\end{align*}
+
+Докажем, что $(e_{i})$ --- лнз:
+\begin{align*}
+	\sum_{i=1}^{n}\alpha_{i}e_{i}=0\Rarr(\alpha_1,\alpha_2,....,\alpha_{n})=0\Rarr\forall\alpha_{i}=0
+\end{align*}
+
+Выразим через них $\forall y\in\R^{n}$:
+\begin{align*}
+	 & y=(\beta_1,\beta_2,...,\beta_{n})=\sum_{i=1}^{n}\beta_{i}e_{i}
+\end{align*}
+
+Таким образом, $(e_{i})$ --- базис из $n$ элементов $\Rarr$ $\dim\R^{n}=n\qed$
+
+\define{взаимно однозначного соответствия}
+
+$\varphi:L\to M$ называется взаимно однозначным ($\varphi:L\leftrightarrow M$), если $(\forall m\in M)\;\exists!l\in L:m=\varphi(l)$.
+
+\define{изоморфных линеалов}
+
+Линеалы $L$ и $M$ изоморфны ($L\approx M$), если $\exists\varphi:L\leftrightarrow M$:
+\begin{enumerate}
+	\item{}$(\forall \lambda\in\R,x\in L)\;\varphi(\lambda x)=\lambda\varphi(x)$
+	\item{}$(\forall x,y\in L)\;\varphi(x+y)=\varphi(x)+\varphi(y)$
+\end{enumerate}
+
+$\varphi$ --- изоморфизм.
+
+\theorem
+\begin{align*}
+	\dim L=\dim M\Lrarr L\approx M
+\end{align*}
+
+\onlyif
+\begin{align*}
+	 & n:=\dim M=\dim L &  & (a_1,a_2,...,a_{n})\text{ --- базис $M$} &  & (b_1,b_2,...,b_{n})\text{ --- базис $L$}
+\end{align*}
+
+Определим взаимнооднозначное соответствие:
+\begin{align*}
+	 & x=\sum_{i=1}^{n}\alpha_{i}a_{i}\in M &  & \varphi(x)=\sum_{i=1}^{n}\alpha_{i}b_{i}\in L
+\end{align*}
+
+Покажем, что $\varphi$ --- изоморфизм:
+\begin{align*}
+	 & \varphi(\lambda x)=\sum_{i=1}^{n}\lambda\alpha_{i}b_{i}=\lambda\sum_{i=1}^{n}\alpha_{i}b_{i}=\lambda\varphi(x)                              \\
+	 & \varphi(x+y)=\sum_{i=1}^{n}(\alpha_{i}+\beta_{i})b_{i}=\sum_{i=1}^{n}\alpha_{i}b_{i}+\sum_{i=1}^{n}\beta_{i}b_{i}=\varphi(x)+\varphi(y)\qed
+\end{align*}
+
+\pagebreak
+
+\enough
+
+$\varphi:L\to M$ --- изоморфизм.
+
+Покажем, что $\varphi(0_L)$ --- нулевой элемент $M$:
+\begin{align*}
+	(\forall y\in M)\;y+\varphi(0_L)=\varphi(\varphi^{-1}(y))+\varphi(0_L)=\varphi(\varphi^{-1}(y)+0_L)=\varphi(\varphi^{-1}(y))=y\Rarr 0_M=\varphi(0_L)
+\end{align*}
+
+Найдём в $M$ лнз систему из $n$ элементов:
+\begin{align*}
+	 & n:=\dim L                                                                                                          \\
+	 & (e_1,e_2,...,e_{n})\text{ --- базис $L$}                                                                           \\
+	 & \sum_{i=1}^{n}\alpha_{i}\varphi(e_{i})=0_M\Rarr\varphi\left(\sum_{i=1}^{n}\alpha_{i}e_{i}\right)=\varphi(0_L)\Rarr
+	\sum_{i=1}^{n}\alpha_{i}e_{i}=0_L\Rarr \forall\alpha_{i}=0\text{ (тк $\{e_{i}\}$ --- лнз)}
+\end{align*}
+
+Таким образом, $\{\varphi(e_{i})\}$ --- лнз система из $n$ элементов $\Rarr$ $\dim M\geq n$
+
+Пусть $\dim M>n$.
+
+Рассуждая аналогично для $\varphi^{-1}:M\to L$:
+\begin{align*}
+	\dim L\geq \dim M>n\text{, но }\dim L=n
+\end{align*}
+
+Таким образом, $\dim M=n=\dim L\qed$
+
+\result[1]
+
+$L^{n}\approx\R^{n}$
+
+\result[2]
+
+Конечномерные линеалы разных размерностей не изоморфны.
+
+\result[3]
+
+Бесконечномерные линеалы не изоморфны конечномерным.
 
 \end{document}
