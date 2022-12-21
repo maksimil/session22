@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{tikz, caption}
+
+\begin{document}
+
+\tickettitle{7}{Теорема о геометрическом смысле декартовых координат на плоскости. Теорема об алгебраических проекциях суммы векторов и произведения вектора на число. Теорема об алгебраической проекции через косинус угла.}
+
+\define{геометрической проекции (меры) в $\A^{2}$}
+
+\begin{minipage}{0.6\linewidth}
+	\begin{enumerate}
+		\item{}$A,B\in\A^{2}$
+		\item{}$O\vec{e}_{1}\vec{e}_{2}$ --- аффинная система координат
+		\item{}$A_{x}:=A\vec{e}_{2}\cap O\vec{e}_{1}$
+		\item{}$A_{y}:=A\vec{e}_{1}\cap O\vec{e}_{2}$
+		\item{}$B_{x}:=B\vec{e}_{2}\cap O\vec{e}_{1}$
+		\item{}$B_{y}:=B\vec{e}_{1}\cap O\vec{e}_{2}$
+	\end{enumerate}
+	\begin{align*}
+		 & \Proj_{\vec{e}_{1}}\lvec{AB}:=\lvec{A_{x}B_{x}} &  & \Proj_{\vec{e}_{2}}\lvec{AB}:=\lvec{A_{y}B_{y}}
+	\end{align*}
+	\begin{align*}
+		\lvec{AB}=\lvec{A_{x}B_{x}}+\lvec{A_{y}B_{y}}=\Proj_{\vec{e}_{1}}\lvec{AB}+\Proj_{\vec{e}_{2}}\lvec{AB}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\filldraw (0,0) node[anchor=east, yshift=0.6em, xshift=0.5em] {$O$};
+		\filldraw (4,2) node[anchor=east, yshift=0.6em, xshift=0.5em] {$A$};
+		\filldraw (6,3) node[anchor=east, yshift=0.6em, xshift=0.5em] {$B$};
+		\filldraw (3,0) node[anchor=east, yshift=0.6em, xshift=0.4em] {$A_{x}$};
+		\filldraw (4.5,0) node[anchor=east, yshift=0.6em, xshift=0.4em] {$B_{x}$};
+		\filldraw (1,2) node[anchor=east, yshift=0.6em, xshift=0.4em] {$A_{y}$};
+		\filldraw (1.5,3) node[anchor=east, yshift=0.6em, xshift=0.4em] {$B_{y}$};
+		\draw [-latex] (0,0)--(1.5,0) node[above left] {$\vec{e}_{1}$};
+		\draw [-latex] (0,0)--(0.5,1) node[left] {$\vec{e}_{2}$};
+		\draw [-latex] (4,2)--(6,3);
+		\draw [-latex] (3,0)--(4.5,0);
+		\draw [-latex] (1,2)--(1.5,3);
+		\draw [dashed] (-0.25,-0.5)--(2,4);
+		\draw [dashed] (2.75,-0.5)--(5,4);
+		\draw [dashed] (4.25,-0.5)--(6.5,4);
+		\draw [dashed] (-0.5,0)--(6,0);
+		\draw [dashed] (0.5,2)--(7,2);
+		\draw [dashed] (0.75,3)--(7.5,3);
+	\end{tikzpicture}
+	\captionof{figure}{Геометрическая проекция}\label{7:gproj}
+\end{minipage}
+
+
+\define{алгебраической проекции}
+
+$\Apr_{\vec{e}_{i}}\vec{a}:=\mes_{\vec{e}_{i}}\Proj_{\vec{e}_{i}}\vec{a}$
+
+$\Apr_{\vec{e}_{i}}\vec{a}$ --- алгебраическая проекция $\vec{a}$ на ось $O\vec{e}_{i}$
+
+\theorem
+
+Координаты $\lvec{AB}$ в аффинной системе координат $O\vec{e}_{1}\vec{e}_{2}$ --- $\left(\Apr_{\vec{e}_{1}}\lvec{AB},\Apr_{\vec{e}_{2}}\lvec{AB}\right)$
+
+\proof
+\begin{align*}
+	\lvec{AB}=\Proj_{\vec{e}_{1}}\lvec{AB}+\Proj_{\vec{e}_{2}}\lvec{AB}=\left(\Apr_{\vec{e}_{1}}\lvec{AB}\right)\vec{e}_{1}+\left(\Apr_{\vec{e}_{2}}\lvec{AB}\right)\vec{e}_{2}
+	\Rarr \left(\Apr_{\vec{e}_{1}}\lvec{AB},\Apr_{\vec{e}_{2}}\lvec{AB}\right)\text{ --- координаты $\lvec{AB}$}\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	 & \Apr_{\vec{e}}(\vec{a}+\vec{b})=\Apr_{\vec{e}}\vec{a}+\Apr_{\vec{e}}\vec{b} &  & \Apr_{\vec{e}}(\lambda\vec{a})=\lambda\Apr_{\vec{e}}\vec{a}
+\end{align*}
+
+\proof
+
+$\Apr_{\vec{e}}\vec{v}$ --- коэфицент перед $\vec{e}$ при разложении $\vec{v}$ по базисным векторам
+$\Rarr$ свойства следуют из аналогичных свойств для разложений вектора по базису (билет 4)$\qed$
+
+\pagebreak
+
+\theorem
+
+$O\vec{e}_{1}\vec{e}_{2}...\vec{e}_{n}$ --- ДПСК
+\begin{align*}
+	\Apr_{\vec{e}_{i}}\vec{a}=|\vec{a}|\cos\angle(\vec{e}_{i},\vec{a})
+\end{align*}
+
+\proof
+\begin{minipage}{0.6\linewidth}
+	\begin{enumerate}
+		\item{}$A:\lvec{OA}=\vec{a}$
+		\item{}$A':A'\in O\vec{e}_{i}\land AA'\perp O\vec{e}_{i}$
+		\item{}$\alpha:=\angle AOA'=\angle(\vec{e}_{i},\vec{a})$
+		\item{}$AA'\perp OA'\Rarr OA'=OA\cos\alpha=|\vec{a}|\cos\alpha$
+	\end{enumerate}
+	\begin{align*}
+		\Apr_{\vec{e}_{i}}\vec{a}=OA'=|\vec{a}|\cos\angle(\vec{e}_{i},\vec{a})\qed
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\filldraw (0,0) node[anchor=east, yshift=0.6em, xshift=0.5em] {$O$};
+		\filldraw (3,2) node[anchor=east, yshift=0.6em] {$A$};
+		\filldraw (3,0) node[anchor=east, yshift=0.6em] {$A'$};
+		\draw [-latex] (0,0)--(3,2) node[midway, above, rotate=30] {$\vec{a}$};
+		\draw [-latex] (0,0)--(1.5,0) node[above] {$\vec{e}_{i}$};
+		\draw [dashed] (-0.5,0)--(4.5,0);
+		\draw [dashed] (3,2.5)--(3,-0.5);
+	\end{tikzpicture}
+	\captionof{figure}{Apr через косинус}
+\end{minipage}
+
+\end{document}
