@@ -31,6 +31,17 @@ endif
 
 default: all
 
+all: analysis-all geometry-all algebra-all
+
+.PHONY: all-parallel
+all-parallel:
+	@echo "\\e[34m--- Building analysis-parallel ---\\e[0m"
+	make analysis-all -j
+	@echo "\\e[34m--- Building geometry-parallel ---\\e[0m"
+	make geometry-all -j
+	@echo "\\e[34m--- Building algebra-parallel ---\\e[0m"
+	make algebra-all -j
+
 .PHONY: clean
 clean:
 	rm -rf obj out
@@ -78,10 +89,6 @@ $(OBJ_DIR)/{subject}/book-list.tex: {ticket_list}
 
 subject_target=subject_all_target+book_target
 
-all_all="""
-all: {0}
-"""
-
 texfiles = {"analysis":[], "geometry":[], "algebra":[]}
 
 for subject in texfiles.keys():
@@ -106,8 +113,6 @@ for subject in texfiles.keys():
 # subject targets
 for subject in texfiles.keys():
     makefile +=subject_target.format(subject=subject, ticket_list=" ".join(map(lambda ticket:f"$(OUT_DIR)/{subject}/{ticket}.pdf",texfiles[subject])))
-
-makefile += all_all.format(" ".join(map(lambda subject: f"{subject}-all", texfiles.keys())))
 
 makefile_file = open("Makefile", "w")
 makefile_file.write(makefile)
