@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{12}{Понятие Евклидового пространства. Теорема о неравенстве Коши-Буняковского. Теорема о нормированном пространстве.}
+
+\define{евклидого пространства}
+
+Линеал $\E^{n}$ называется евклидовым, если на нём задана функция $(\cdot):\E\times\E\to\R$ (скалярное произведение), причём выполняются аксиомы:
+\begin{enumerate}[label=\Roman*.]
+	\item{}\tikzmark{12:ax_1}$(\forall \vec{a},\vec{b}\in \E)\;\vec{a}+\vec{b}=\vec{b}+\vec{a}$
+	\item{}$(\forall \vec{a},\vec{b},\vec{c}\in \E)\;(\vec{a}+\vec{b})+\vec{c}=\vec{a}+(\vec{b}+\vec{c})$
+	\item{}$\exists \vec{0}\in \E:(\forall \vec{a}\in\E)\;\vec{a}+\vec{0}=\vec{a}$
+	\item{}$(\forall \vec{a}\in \E)\;\exists \vec{b}\in\E:\vec{a}+\vec{b}=\vec{0}$
+	\item{}$(\forall \vec{a}\in \E,\lambda, \mu\in\R)\;\lambda(\mu\vec{a})=(\lambda\mu)\vec{a}$
+	\item{}$(\forall \vec{a}\in \E,\lambda,\mu\in\R)\;(\lambda+\mu)\vec{a}=\lambda\vec{a}+\mu\vec{a}$
+	\item{}$(\forall \vec{a},\vec{b}\in \E,\lambda\in\R)\;\lambda(\vec{a}+\vec{b})=\lambda\vec{a}+\lambda\vec{b}$
+	\item{}\tikzmark{12:ax_8}$(\forall \vec{a}\in \E)\;1\cdot\vec{a}=\vec{a}$
+
+	\item{}\tikzmark{12:ax_9}$\E$ --- конечномерен
+	\item{}$(\forall A\in\A,\vec{v}\in \E)\;\exists B\in\A:\lvec{AB}=\vec{v}$
+	\item{}\tikzmark{12:ax_11}$(\forall A,B,C\in\A)\;\lvec{AB}+\lvec{BC}=\lvec{AC}$
+
+	\item{}\tikzmark{12:ax_12}$(\forall \vec{a},\vec{b}\in\E)\;(\vec{a},\vec{b})=(\vec{b},\vec{a})$
+	\item{}$(\forall \lambda\in\R,\vec{a},\vec{b}\in\E)\;(\lambda\vec{a},\vec{b})=\lambda(\vec{a},\vec{b})$
+	\item{}$(\forall \vec{a},\vec{b},\vec{c}\in\E)\;(\vec{a},\vec{b}+\vec{c})=(\vec{a},\vec{b})+(\vec{a},\vec{c})$
+	\item{}\tikzmark{12:ax_15}$(\forall \vec{a}\in\E)\;(\vec{a},\vec{a})>0\text{, если }\vec{a}\neq \vec{0}\land(\vec{a},\vec{a})=0\text{, если }\vec{a}=\vec{0}$
+\end{enumerate}
+
+\begin{tikzpicture}[remember picture, overlay]
+	\def\offset{18em}
+	\draw [decorate, decoration={brace}] ($({pic cs:12:ax_1}) + (\offset, 1em)$) -- ($({pic cs:12:ax_8}) + (\offset,0)$)
+	node [midway, right] {Акисомы линеала $\E$};
+	\draw [decorate, decoration={brace}] ($({pic cs:12:ax_9}) + (\offset, 1em)$) -- ($({pic cs:12:ax_11}) + (\offset,0)$)
+	node [midway, right] {Акисомы аффинного пространства $\A$};
+	\def\scaloffset{25em}
+	\draw [decorate, decoration={brace}] ($({pic cs:12:ax_12}) + (\scaloffset, 1em)$) -- ($({pic cs:12:ax_15}) + (\scaloffset,0)$)
+	node [midway, right] {Акисомы скалярного произведения};
+\end{tikzpicture}
+
+\end{document}
