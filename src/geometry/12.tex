@@ -40,4 +40,76 @@
 	node [midway, right] {Акисомы скалярного произведения};
 \end{tikzpicture}
 
+\theorem[(неравенство Коши-Буняковского)]
+\begin{align*}
+	(\vec{a},\vec{b})^{2}\leq (\vec{a},\vec{a})(\vec{b},\vec{b})
+\end{align*}
+
+\proof
+
+Рассмотрим вектор $\lambda\vec{a}+\vec{b}$. По 15й аксиоме:
+\begin{align}
+	\label{12:deg_2}
+	(\lambda\vec{a}+\vec{b},\lambda\vec{a}+\vec{b})\geq 0\Rarr(\vec{a},\vec{a})\lambda^{2}+2(\vec{a},\vec{b})\lambda+(\vec{b},\vec{b})\geq 0\;\forall\lambda\in\R
+\end{align}
+
+\begin{enumerate}
+	\item{}$\vec{a}=\vec{0}$
+	\begin{align*}
+		(0,\vec{b})^{2}=(\vec{0},\vec{0})(\vec{b},\vec{b})\qed
+	\end{align*}
+	\item{}$\vec{a}\neq \vec{0}\Rarr(\vec{a},\vec{a})>0$
+
+	Тогда $\eqref{12:deg_2}$ выполняется для $\forall\lambda\in\R$ при $D\leq 0$:
+	\begin{align*}
+		D=4(\vec{a},\vec{b})^{2}-4(\vec{a},\vec{a})(\vec{b},\vec{b})\leq 0\Rarr(\vec{a},\vec{b})^{2}\leq(\vec{a},\vec{a})(\vec{b},\vec{b})\qed
+	\end{align*}
+\end{enumerate}
+
+\pagebreak
+
+\define{нормированного пространства}
+
+Линеал $L^{n}$ называется нормированным, если задано правило $x\mapsto||x||:L\to\R$, называемое нормой и выполняются аксиомы:
+\begin{enumerate}[label=\Roman*.]
+	\item{}$(\forall x\in L)\;||x||>0\text{, если } x>0;\;||x||=0\text{, если }x=0$
+	\item{}$(\forall \lambda\in\R,x\in L)\;||\lambda x||=|\lambda|\cdot||x||$
+	\item{}$(\forall x,y\in L)\;||x+y||\leq ||x||+||y||$
+\end{enumerate}
+
+\theorem
+
+Всякое евклидово пространство $\E$ можно рассматривать как нормированное, определив норму:
+\begin{align*}
+	||\vec{a}||=\sqrt{(\vec{a},\vec{a})}
+\end{align*}
+
+\proof
+
+Проверим аксиомы нормы:
+\begin{enumerate}[label=\Roman*.]
+	\item{}$(\forall x\in L)\;||x||>0\text{, если } x>0;\;||x||=0\text{, если }x=0$
+	\begin{align*}
+		 & \vec{a}=\vec{0}\Rarr (\vec{a},\vec{a})=0\Rarr||\vec{a}||=0 \\
+		 & \vec{a}\neq 0\Rarr (\vec{a},\vec{a})>0\Rarr ||\vec{a}||>0
+	\end{align*}
+	\item{}$(\forall \lambda\in\R,x\in L)\;||\lambda x||=|\lambda|\cdot||x||$
+	\begin{align*}
+		||\lambda\vec{a}||=\sqrt{(\lambda\vec{a},\lambda\vec{a})}=\sqrt{\lambda^{2}(\vec{a},\vec{a})}=|\lambda|\sqrt{(\vec{a},\vec{a})}=|\lambda|\cdot||\vec{a}||
+	\end{align*}
+	\item{}$(\forall x,y\in L)\;||x+y||\leq ||x||+||y||$
+
+	По неравенству Коши-Буняковского:
+	\begin{align*}
+		 & (\vec{a},\vec{b})^{2}\leq(\vec{a},\vec{a})(\vec{b},\vec{b})\Lrarr (\vec{a},\vec{b})\leq\sqrt{(\vec{a},\vec{a})(\vec{b},\vec{b})}
+	\end{align*}
+	\begin{align*}
+		||\vec{a}+\vec{b}||
+		 & =\sqrt{(\vec{a}+\vec{b},\vec{a}+\vec{b})}=
+		\sqrt{(\vec{a},\vec{a})+2(\vec{a},\vec{b})+(\vec{b},\vec{b})}\leq
+		\sqrt{\sqrt{(\vec{a},\vec{a})}^{2}+2\sqrt{(\vec{a},\vec{a})}\sqrt{(\vec{b},\vec{b})}+\sqrt{(\vec{b},\vec{b})}^{2}}            \\
+		 & =\sqrt{||\vec{a}||^{2}+2||\vec{a}||\cdot||\vec{b}||+||\vec{b}||^{2}}=|||\vec{a}||+||\vec{b}|||=||\vec{a}||+||\vec{b}||\qed
+	\end{align*}
+\end{enumerate}
+
 \end{document}
