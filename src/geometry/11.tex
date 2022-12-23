@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{11}{Понятие скалярного произведения векторов. Теорема об ортогональности. Теорема о координатах вектора в ДПСК. Теорема о направляющих косинусах.}
+
+\define{скалярного произведения векторов}
+
+см. билет 10
+
+\define{ортогональных векторов}
+
+Ненулевые векторы $\vec{a}$ и $\vec{b}$ ортогональны, если $(\vec{a},\vec{b})=0$
+
+\theorem
+
+$\vec{a}\neq \vec{0}$, $\vec{b}\neq \vec{0}$
+\begin{align*}
+	(\vec{a},\vec{b})=0\Lrarr \vec{a}\perp\vec{b}
+\end{align*}
+
+\proof
+\begin{align*}
+	(\vec{a},\vec{b})=0\Lrarr |\vec{a}||\vec{b}|\cos\angle(\vec{a},\vec{b})=0\Lrarr \cos\angle(\vec{a},\vec{b})=0\Lrarr \angle(\vec{a},\vec{b})=\frac{\pi}{2}\Lrarr \vec{a}\perp\vec{b}\qed
+\end{align*}
+
+\theorem
+
+$O\vec{e}_{1}\vec{e}_{2}...\vec{e}_{n}$ --- ДПСК $\Rarr$ $(\vec{a},\vec{e}_{i})$ --- $i$-я координата вектора $\vec{a}$
+
+\proof
+
+Разложим $\vec{a}$ по базису:
+\begin{align*}
+	 & \vec{a}=\sum_{j=1}^{n}\alpha_{j}\vec{e}_{j}                                                       \\
+	 & (\vec{a},\vec{e}_{i})=\left(\sum_{j=1}^{n}\alpha_{j}\vec{e}_{j},\vec{e}_{i}\right)=\alpha_{i}\qed
+\end{align*}
+
+\define{направляющих векторов}
+
+Направляющие косинусы вектора $\vec{a}$ --- $\cos\angle(\vec{a},\vec{i})$, $\cos\angle(\vec{a},\vec{j})$, $\cos\angle(\vec{a},\vec{k})$
+
+\theorem[о направляющих косинусах]
+
+Направляющие косинусы $\vec{a}$ --- координаты орта $\vec{a}$ в ДПСК
+
+\proof
+
+Найдём координаты орта $\vec{a}$:
+\begin{align*}
+	 & (\ort\vec{a})_x=(\ort\vec{a},\vec{i})=|\ort\vec{a}||\vec{i}|\cos\angle(\ort\vec{a},\vec{i})=\cos\angle(\vec{a},\vec{i})
+\end{align*}
+\begin{align*}
+	 & (\ort\vec{a})_y=\cos\angle(\vec{a},\vec{j}) &  & (\ort\vec{a})_z=\cos\angle(\vec{a},\vec{j})\qed
+\end{align*}
+
+\end{document}
