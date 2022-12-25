@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{setspace}
+
+\usepackage{latexsym}
+
+\usepackage{amsfonts}
+
+\begin{document}
+
+\tickettitle{11}{Подпоследовательность; предел подпоследовательности сходящейся последовательности}
+
+\define
+
+Пусть $\{a_n\}^{\infty}_{n=1}$  - посл-ть вещественных чисел и $\{m_1, m_2, m_3,...\}$ - строго возрастающая посл-ть номеров. Посл-ть $\{b_n\}$ при условии, что $b_1=a_{m_1}$, $b_2=a_{m_2}$, $b_3=a_{m_3}$,... называется \textbf{подпоследовательностью} посл-ти $\{a_n\}^{\infty}_{n=1}$.
+
+Обозначается: $\{a_{m_n}\}$.
+
+П: $\{a_2, a_4, a_6,...\}$ - подпосл-ть;
+
+\ \ \ \ $\{a_1, a_1, a_2, a_2, a_3, a_3,...\}$ - не является подпосл-тью.
+
+\begin{doublespace}
+
+\end{doublespace}
+$\{a_n\}$ сама себе подпоследовательность, и вообще подпоследовательность образуется отбрасываем некоторого числа элементов. Это число конечное, бесконечное или равно нулю.
+
+Если $\{a_{m_{k_n}}\}$ является подпоследовательностью $\{a_{m_n}\}$, то $\{a_{m_{k_n}}\}$ является и подпосл-тью $\{a_n\}$.
+
+\begin{doublespace}
+
+\end{doublespace}
+\textbf{Лемма}
+
+Пусть $\{a_{m_n}\}^{\infty}_{n=1}$ подпоследовательность посл-ти $\{a_n\}^{\infty}_{n=1}$, тогда \forall $n:$ \ $m_n\geq n$.
+
+\proof (ММИ)
+
+
+
+\theorem
+
+Любая подпоследовательность $\{a_{m_n}\}$ сходящей последовательности $\{a_n\}$ сходится к тому же пределу, т. е. если \exists $\lim\limits_{n\to\infty}{a_n}=g$, то \forall \ $\{a_{m_n}\}:$ \ $\lim\limits_{n\to\infty}{a_{m_n}}=g$.
+
+\proof
+
+Пусть \exists \ $g=\lim\limits_{n\to\infty}{a_n}$, тогда \forall $\varepsilon>0$ $\exists$ k, \forall $n>k: |a_n-g|<\varepsilon$.
+
+По лемме \forall $n:$ \ $m_n\geq n$ \implies \ \forall $\varepsilon>0$ $\exists$ k, \ \forall $m_n>k \ (m_n\geq n>k): |a_{m_n}-g|<\varepsilon$ \implies \ $\lim\limits_{n\to\infty}{a_{m_n}}=g$.
+
+
+\end{document}

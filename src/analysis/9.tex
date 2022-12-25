@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{latexsym}
+
+\usepackage{amsfonts}
+
+\begin{document}
+
+\tickettitle{9}{Арифметические свойства пределов последовательностей, изменение конечного числа членов числовой последовательности}
+
+\textbf{Арифметические свойства:}
+
+Пусть \exist $\lim\limits_{n\to\infty}{a_n}=g$ и \exist $\lim\limits_{n\to\infty}{b_n}=h$.
+\begin{enumerate}
+
+\item $\lim\limits_{n\to\infty}{(a_n+b_n)}=g+h$
+
+\item $\lim\limits_{n\to\infty}{(a_n*b_n)}=g*h$
+
+\item $\lim\limits_{n\to\infty}{\frac{a_n}{b_n}}=\frac{g}{h}$ при h \neq 0
+
+\end{enumerate}
+
+\begin{enumerate}
+
+\item \proof
+
+\forall $\varepsilon>0$ $\exists$ k так, что \forall $n>k: |a_n-g|<\frac{\varepsilon}{2}$ \bigwedge \ $|b_n-g|<\frac{\varepsilon}{2}$.
+
+Рассмотрим $|(a_n+b_n)-(g+h)|=|(a_n-g)+(b_n-h)|\leq |a_n-g|+|b_n-h|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$
+
+Следовательно, \forall $\varepsilon>0$ $\exists$ k так, что \forall $n>k: |(a_n+b_n)-(g+h)|<\varepsilon$ \Rightarrow $\lim\limits_{n\to\infty}{(a_n+b_n)}=g+h$ \qed
+
+\item \proof
+
+\forall $\eta>0$ $\exists$ k так, что \forall $n>k: |a_n-g|<\eta$ \bigwedge \ $|b_n-g|<\eta$.
+
+Так как ${a_n}$ сходится, то она ограничена (по Т. о сходящейся посл-ти) \Rightarrow\ $\exists M>0 \ | \ \forall n: |a_n|< M$.
+
+Рассмотрим $|a_nb_n-gh(\pm a_nh)|=|a_n(b_n-h)+h(a_n-g)|\leq |a_n||b_n-h|+|h||a_n-g|<$
+
+$<M|b_n-h|+|h||a_n-g|<M\eta + |h|\eta =\eta (M+|h|)$.
+
+Пусть $\eta = \frac{\varepsilon}{M+|h|}$ \Rightarrow \ \forall $\varepsilon>0$ $\exists$ k так, что \forall $n>k: |(a_nb_n)-(gh)|<\varepsilon$ \Rightarrow $\lim\limits_{n\to\infty}{(a_nb_n)}=gh$ \qed 
+
+\item \proof
+
+1) Сначала докажем, что $\lim\limits_{n\to\infty}{\frac{1}{b_n}}=\frac{1}{h}$ при $h \neq 0$
+
+Пусть $\varepsilon=\frac{|h|}{2}>0$ \Rightarrow \ $\exists\ k_1 так, что \forall n>k_1: |b_n-h|<\frac{|h|}{2}$
+
+$|h|-|b_n|\leq |h-b_n|=|b_n-h|<\frac{|h|}{2}$ \Rightarrow \ $\forall n>k_1$: $|b_n|>\frac{|b_n|}{2}$
+
+Т. к. $\{b_n\}$ сходится, то \forall $\eta>0$ $\exists\ k_2 так, что \forall n>k_2: |b_n-h|<\eta$.
+
+Пусть $k=mas\{k_1, k_2\}$ \Rightarrow\ $\forall n>k: |b_n-h|<\eta$ \bigwedge\ $|b_n|>\frac{|b_n|}{2}$.
+
+Рассмотрим $|\frac{1}{b_n}-\frac{1}{h}|=\frac{|h-b_n|}{|b_n||h|}<\frac{2}{|h|}\frac{|h-b_n|}{|h|}<\frac{2\eta}{|h||h|}=\frac{2\eta}{h^2}$
+ 
+Пусть $\eta=\frac{h^2}{2}*\varepsilon$ \Rightarrow \ \forall $\varepsilon>0$ $\exists$ k так, что $\forall n>k: 
+|\frac{1}{b_n}$-$\frac{1}{h}|$$<\varepsilon$ \Rightarrow\ $\lim\limits_{n\to\infty}{\frac{1}{b_n}}=\frac{1}{h}$.
+
+2) $\lim\limits_{n\to\infty}{\frac{a_n}{b_n}}=\lim\limits_{n\to\infty}{a_n}*\lim\limits_{n\to\infty}{\frac{1}{b_n}}=g*\frac{1}{h}=\frac{g}{h}$ при $h \neq 0$
+
+\end{enumerate}
+
+
+
+\textbf{Следствия:}
+
+Пусть \exists $\lim\limits_{n\to\infty}{a_n}$,  \exists $\lim\limits_{n\to\infty}{b_n}$ и $c=const$
+
+\begin{enumerate}
+
+\item $\lim\limits_{n\to\infty}{(c+a_n)}=\lim\limits_{n\to\infty}{c}+\lim\limits_{n\to\infty}{a_n}=c+\lim\limits_{n\to\infty}{a_n}$
+
+\item $\lim\limits_{n\to\infty}{(c*a_n)}=\lim\limits_{n\to\infty}{c}*\lim\limits_{n\to\infty}{a_n}=c*\lim\limits_{n\to\infty}{a_n}$
+
+\item $\lim\limits_{n\to\infty}{(a_n-b_n)}=\lim\limits_{n\to\infty}{(a_n+(-1)b_n)}=\lim\limits_{n\to\infty}{a_n}+\lim\limits_{n\to\infty}{((-1)b_n)}=\lim\limits_{n\to\infty}{a_n}-\lim\limits_{n\to\infty}{b_n}$
+
+\end{enumerate}
+
+Изменение или добавление.отбрасывание конечного числа элементов последовательности не влияет на сходимость этой последовательности и величину предела.
+
+\end{document}

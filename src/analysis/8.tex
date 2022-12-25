@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{latexsym}
+
+\usepackage{amsfonts}
+
+\begin{document}
+
+\tickettitle{8}{Предел числовой последовательности, его единственность. Ограниченность числовой последовательности.}
+
+\define{предела числовой послевательности}
+
+1. Число $g \in \mathbb{R}$ называется пределом $\{a_n\}^{\infty}_{n=1}$, если для \forall $\varepsilon>0$ ($\varepsilon \in \mathbb{R}$) $\exists$ номер k так, что \forall $n>k: |a_n-g|<\varepsilon$.
+
+Обозначение: $g=\lim\limits_{n\to\infty}{a_n}$ или $a_n \rightarrow {g}$ при $n \rightarrow {\infty}$
+
+1'. Число $g=\lim\limits_{n\to\infty}{a_n}$, если \forall $\varepsilon>0$ \linespread{1} $|a_n-g|<\varepsilon$ выполняется при достаточно больших n.
+
+1''. Число $g \in \mathbb{R}$ называется пределом $\{a_n\}^{\infty}_{n=1}$, если для \forall $\varepsilon>0$ все элементы последовательности \in \linespread{1} $(g-\varepsilon, g+\varepsilon)$.
+
+\define{сходящейся (расходящейся) числовой послевательности}
+
+Если последовательность имеет предел (не имеет предела), то она сходится (расходится).
+
+\theorem
+
+Если последовательность имеет придел, то он единственный.
+
+\proof (от противного)
+
+\begin {enumerate}
+
+\item  Пусть у последовательности $\{a_n\}^{\infty}_{n=1}$ \exists \ $g=\lim\limits_{n\to\infty}{a_n}$ и $g'=\lim\limits_{n\to\infty}{a_n}$, причем $g \neq g'$.
+
+\item Пусть $\varepsilon=\frac{|g-g'|}{2}>0$, тогда по опред. 1 для такого $\varepsilon\ \exists\ k|$ \linespread{1} \forall $n>k: |a_n-g|<\varepsilon$ и $\exists\ k'|$ \linespread{1} \forall $n>k': |a_n-g'|<\varepsilon$
+
+Пусть $m=max\{k, k'\}$, тогда $\forall n>m: |a_n-g|<\varepsilon$ и $|a_n-g'|<\varepsilon$ \Rightarrow\  $\forall n>m: |a_n-g|+|a_n-g'|<2\varepsilon$.
+
+\item $2\varepsilon=|g-g'|=|(g-a_n)+(a_n-g')|\leq|g-a_n|+|a_n-g'|=|a_n-g|+|a_n-g'|<2\varepsilon$ - противоречие \qed
+
+\end{enumerate}
+
+Последовательность называется ограниченной сверху(снизу), если множество ее значений ограничено сверху(снизу).
+
+Последовательность называется ограниченной, если она ограничена и сверху, и снизу, т. е. $$\exists M>0\in \mathbb{R}\ | \ \forall n: |a_n|\leq M$$.
+
+\theorem
+
+Если последовательность имеет предел, то она ограничена.
+
+\proof
+
+\begin{enumerate}
+
+	\item Пусть $g=\lim\limits_{n\to\infty}{a_n}$ и для  $\varepsilon=1>0$ \exist $k$| $\forall n>k$: $g-1<a_n<g+1$ (1)
+
+	\item Рассмотрим $$\{g-1, a_1, a_2,.., a_k\}$$
+	      $$\{g+1, a_1, a_2,.., a_k\}$$
+
+	      Пусть $m=min\{g-1, a_1, a_2,.., a_k\}$ (2), тогда \forall $n\leq k$: $a_n \geq m$.
+
+	      Пусть $M=max\{g+1, a_1, a_2,.., a_k\}$ (3), тогда \forall $n\leq k$: $a_n \leq M$.
+
+	\item Из (1), (2), (3) следует, что \forall $n>k$:\
+	      $m\leq g-1<a_n<g+1\leq M$.
+
+	\item Получаем систему:
+
+	      \begin{equation*}
+		      \begin{cases}
+			      m\leq a_n\leq M  \ \ \forall n\leq k
+			      \\
+			      m < a_n < M \ \ \forall n>k
+		      \end{cases}
+	      \end{equation*}
+
+	      Тогда $$\forall n: m\leq a_n\leq M$$ $\Rightarrow$ последовательность ограничена \qed
+
+\end{enumerate}
+
+Из ограниченности последовательность не следует ее сходимость.
+
+Пример: $(x_n)=(-1)^n$ ограничена, но не сходится.
+
+\end{document}
+
