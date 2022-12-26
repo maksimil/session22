@@ -2,42 +2,38 @@
 
 \usepackage{defines}
 
-\usepackage{setspace}
-
-\usepackage{latexsym}
-
-\usepackage{amsfonts}
-
-\usepackage{enumerate}
-
 \begin{document}
 
 \tickettitle{15}{Предел ограниченной последовательности, все подпоследовательности которой сходятся}
 
 \theorem
 
-Если все сходящиеся подпоследовательности ограниченной последовательности $\{a_n\}$ сходятся к одному и тому же пределу g, то $\lim\limits_{n\to\infty}{a_n}=g$.
+Если все сходящиеся подпоследовательности ограниченной последовательности $\{a_n\}$ сходятся к одному и тому же пределу $g$, то $\lim\limits_{n\to\infty}{a_n}=g$.
 
-\proof (от противного)
+\proof
 
-Пусть \exists $\lim\limits_{n\to\infty}{a_n}\neq g$ \Leftrightarrow \exists \ $\varepsilon >0$ \ \forall $k \in \mathbb{N}$ | \exists \ $n>k:$ \ $|a_n-g|\geq \varepsilon$.
+Пусть $\lnot\left(\slimty a_{n}=g\right)$:
+\begin{align*}
+	\lnot\left[\forall\eps>0\;\exists k:(\forall n>k)\;|a_{n}-g|<\eps\right]\Lrarr
+	\exists\eps>0:\forall k\in\N\;\exists n>k:|a_{n}-g|\geq\eps
+\end{align*}
 
-Покажем, что для этого $\varepsilon$ \ $\exists$ подпоследовательность такая, что $\forall \ n$ \ $|a_{m_n}-g|\geq \varepsilon$:
+Составим тогда подпоследовательность $\{a_{m_{n}}\}$, которая не сходится к $g$:
+\begin{align*}
+	 & \llet k=1\;\exists m_1>1: |a_{m_1}-g|\geq\eps    \\
+	 & \llet k=m_1\;\exists m_2>m_1:|a_{m_2}-g|\geq\eps \\
+	 & ...\\
+	 &(\forall n\in\N)\;m_{n+1}>m_{n}\Rarr \{a_{m_{n}}\}\text{ --- подпоследовательность $\{a_{n}\}$ }
+\end{align*}
 
-пусть $k=1$, тогда \exists \ $m_1>1:$ \ $|a_{m_1}-g|\geq \varepsilon$;
+$\{a_{m_{n}}\}\subset\{a_{n}\}\land\{a_{n}\}\text{ --- ограничена}\Rarr\{a_{m_{n}}\}\text{ --- ограничена}\Rarr$\\
+$\Rarr$ (по принципу выбора Больцано-Вейерштрасса) из $a_{m_{n}}$ можно выделить\\
+сходящуюся подпоследовательность $a_{m_{r_{n}}}$
 
-пусть $k=m_1$, тогда \exists \ $m_2>m_1:$ \ $|a_{m_2}-g|\geq \varepsilon$;
+$\{a_{m_{r_n}}\}$ --- сходящаяся подпоследовательность $\{a_n\}$ и по условию $\lim\limits_{n\to\infty}{a_{m_{r_n}}}=g$.
 
-пусть $k=m_2$, тогда \exists \ $m_3>m_2:$ \ $|a_{m_3}-g|\geq \varepsilon$;
+Но $\{a_{m_{r_n}}\} \subset \{a_{m_n}\}\Rarr(\forall n\in\N)\;|a_{m_{r_n}}-g|\geq \varepsilon\Rarr\lnot\left(\lim\limits_{n\to\infty}{a_{m_{r_n}}}=g\right)$
 
-\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \........
-
-$m_1<m_2<...<m_n$ \implies \ $\{a_{m_1}, a_{m_2},.. a_{m_n}\}$ - подпосл-ть $\{a_n\}$, где $\forall \ n$ \ $|a_{m_n}-g|\geq \varepsilon$. (1) 
-
-$\{a_{m_1}, a_{m_2},.. a_{m_n}\}$ - ограниченная (т. к. по условию $\{a_n\}$ огран.) $\implies$ по принципу выбора Больцано-Вейерштрасса из $\{a_{m_n}\}$ можно выделить сходящуюся подпосл-ть $\{a_{m_{r_n}}\}$. 
-
-Тогда $\{a_{m_{r_n}}\}$ - подпосл-ть $\{a_n\}$ и по условию $\lim\limits_{n\to\infty}{a_{m_{r_n}}}=g$. 
-
-С другой стороны, $\{a_{m_{r_n}}\}$ \subset $\{a_{m_n}\}$ $\implies$ \ $\forall \ n$ \ $|a_{m_{r_n}}-g|\geq \varepsilon$ \ $\implies$ $\lim\limits_{n\to\infty}{a_{m_{r_n}}}\neq g$ - противоречие. 
+Пришли к противоречию, значит $\slimty a_{n}=g\qed$
 
 \end{document}

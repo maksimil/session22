@@ -2,76 +2,83 @@
 
 \usepackage{defines}
 
-\usepackage{setspace}
-
-\usepackage{latexsym}
-
-\usepackage{amsfonts}
-
-\usepackage{enumerate}
-
 \begin{document}
 
-\tickettitle{14}{Число "e" как предел числовой последовательности}
+\tickettitle{14}{Число $"e"$ как предел числовой последовательности}
 
-\theorem 
+\theorem
 
 Последовательность $a_n=\left(1+\frac{1}{n}\right)^n$ сходится.
 
 \proof
 
 \begin{enumerate}
-    \item Докажем, что $\{a_n\}$ возрастает.
+	\item{}Докажем, что $\{a_n\}$ возрастает.
 
-    По биному Ньютона:
-    \begin{align*}
-       & a_n=\sum\limits_{j=0}^n 1^{n-j}*\left(\frac{1}{n}\right)^j*C^j_n \text{, где  } C^j_n=\frac{n!}{(n-j)!j!} \\  
-        & a_n=1+1+1*\left(\frac{1}{n}\right)^2\frac{n!}{(n-2)!2!}+1*\left(\frac{1}{n}\right)^3\frac{n!}{(n-3)!3!}+...+1*\left(\frac{1}{n}\right)^n\frac{n!}{(n-n)!n!}
-        \\
-        & \frac{n!}{2!(n-2)!}\left(\frac{1}{n}\right)^2=\frac{1}{2!}\left(\frac{n-1}{n}\right)=\frac{1}{2!}\left(1-\frac{1}{n}\right)
-        \\
-        & \frac{n!}{3!(n-3)!}\left(\frac{1}{n}\right)^3=\frac{1}{3!}\left(\frac{n-1}{n}\right)\left(\frac{n-2}{n}\right)=\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)
-        \\ 
-        \text{...}
-        \\
-        & \frac{n!}{n!(n-n)!}\left(\frac{1}{n}\right)^n=\frac{1}{n!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right) \text{...} \left(1-\frac{n-1}{n}\right)
-        \\
-        & a_n=1+1+\frac{1}{2!}\left(1-\frac{1}{n}\right)+\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)+\text{...}+\frac{1}{n!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right) \text{...} \left(1-\frac{n-1}{n}\right)
-        \\
-        & a_{n+1}=1+1+\frac{1}{2!}\left(1-\frac{1}{n+1}\right)+\frac{1}{3!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right)+\text{...} \\
-        & \text{...}+\frac{1}{n!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right) \text{...} \left(1-\frac{n-1}{n+1}\right)+\frac{1}{(n+1)!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right) \text{...} \left(1-\frac{n}{n+1}\right)
-        \\
-        \\
-        & \frac{1}{2!}\left(1-\frac{1}{n}\right)<\frac{1}{2!}\left(1-\frac{1}{n+1}\right), \ \frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)<\frac{1}{3!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right), \text{...}
-        \\
-        & \implies \forall n: a_n\leq a_{n+1} \ \implies \ \{a_n\} \text{ возрастает}
-    \end{align*}
-    \item Докажем, что $\{a_n\}$ ограничена сверху:
-    
-    \text{Т. к. } $1-\frac{s}{n}<1$, $s=\overline{1, n-1}, n=2, 3.. $ \text{, то } $a_n<2+\frac{1}{2!}+\frac{1}{3!}+ ... +\frac{1}{n!}$
-    \\
-    \text{Т. к. } $\frac{1}{n!}\leq \frac{1}{2^{n-1}}, n=1, 2,.. , \text{ то }$
-    \\
-    \begin{align*}
-        & a_n<2+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!}\leq 2+\frac{1}{!}+\frac{1}{2^2}+...+\frac{1}{2^{n-1}}=2+\frac{1}{2}\left(\frac{1-\left(\frac{1}{2}\right)^{n-1}}{1-\frac{1}{2}}\right)<3
-    \end{align*}
-    $\implies \forall n: 2\leq a_n<3$ \ $\implies$ \ $\{a_n\}$ ограничена.
-    \item $\{a_n\}$ возрастает и ограничена $\implies$ $\{a_n\}$ сходится.
-    
+	Разложим $\left(1+\frac{1}{n}\right)^{n}$ по биному Ньютона:
+	\begin{align*}
+		 & C^j_n=\frac{n!}{(n-j)!j!}                                                                               \\
+		 & a_n=\sum\limits_{j=0}^n 1^{n-j}\cdot\left(\frac{1}{n}\right)^j\cdot C^j_n
+		=\sum_{j=0}^{n}\left(\frac{1}{n}\right)^{j}\cdot C_{n}^{j}                                                 \\
+		 & a_n=1+1+\left(\frac{1}{n}\right)^2\frac{n!}{(n-2)!2!}+\left(\frac{1}{n}\right)^3\frac{n!}{(n-3)!3!}+...
+		+\left(\frac{1}{n}\right)^n\frac{n!}{(n-n)!n!}
+	\end{align*}
+
+	Рассмотрим члены $a_{n}$:
+	\begin{align*}
+		 & \frac{n!}{2!(n-2)!}\left(\frac{1}{n}\right)^2=\frac{1}{2!}\left(\frac{n-1}{n}\right)=\frac{1}{2!}\left(1-\frac{1}{n}\right)                            \\
+		 & \frac{n!}{3!(n-3)!}\left(\frac{1}{n}\right)^3=\frac{1}{3!}\left(\frac{n-1}{n}\right)\left(\frac{n-2}{n}\right)
+		=\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)                                                                                         \\
+		 & ...                                                                                                                                                    \\
+		 & \frac{n!}{n!(n-n)!}\left(\frac{1}{n}\right)^n=\frac{1}{n!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right) \text{...} \left(1-\frac{n-1}{n}\right)
+	\end{align*}
+
+	Сравним $a_{n}$ и $a_{n+1}$:
+	\begin{align*}
+		 & a_n=1+1+\underline{\frac{1}{2!}\left(1-\frac{1}{n}\right)}+\uwave{\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)}+...
+		+\dashuline{\frac{1}{n!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)...\left(1-\frac{n-1}{n}\right)}                                         \\
+		 & a_{n+1}=1+1+\underline{\frac{1}{2!}\left(1-\frac{1}{n+1}\right)}+\uwave{\frac{1}{3!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right)}+... \\
+		 & ...+\dashuline{\frac{1}{n!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right)...\left(1-\frac{n-1}{n+1}\right)}
+		+\frac{1}{(n+1)!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right)...\left(1-\frac{n}{n+1}\right)
+	\end{align*}
+	\begin{align*}
+		 & \left[\frac{1}{2!}\left(1-\frac{1}{n}\right)<\frac{1}{2!}\left(1-\frac{1}{n+1}\right)\right]\land
+		\left[\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)<\frac{1}{3!}\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right)\right]\land...\Rarr \\
+		 & \Rarr (\forall n\in\N)\; a_n\leq a_{n+1}  \Rarr  \{a_n\} \text{ возрастает}
+	\end{align*}
+
+	\pagebreak
+
+	\item{}Докажем, что $\{a_n\}$ ограничена сверху:
+	\begin{align*}
+		 & a_{n}=1+1+\frac{1}{2!}\left(1-\frac{1}{n}\right)+\frac{1}{3!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)+...
+		+\frac{1}{n!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)...\left(1-\frac{n-1}{n}\right)                             \\
+		 & 1-\frac{s}{n}<1,\;s=\overline{1,n-1}\Rarr a_{n}<2+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!}=2+\sum_{m=2}^{n}\frac{1}{m!} \\
+		 & 2^{n-1}\leq n!\Rarr \frac{1}{n!}\leq\frac{1}{2^{n-1}}\Rarr a_{n}<2+\sum_{m=2}^{n}\frac{1}{2^{m-1}}
+		=2+\frac{1}{2}\left(\frac{1-\left(\frac{1}{2}\right)^{n-1}}{1-\frac{1}{2}}\right)<3
+	\end{align*}
+
+	\item{}Таким образом, $\{a_n\}$ возрастает и ограничена сверху $\Rarr$ $\{a_n\}$ сходится$\qed$
+
 \end{enumerate}
 
-По определению $$\lim\limits_{n\to\infty}{\left(1+\frac{1}{n}\right)^n}=e$$, где $e=2,71828182...$
+\define{числа $e$}
+\begin{align*}
+	 & e:=\slimty\left(1+\frac{1}{n}\right)^{n} &  & e=2,718281828...
+\end{align*}
 
 \theorem
+\begin{align*}
+	\lim\limits_{n\to\infty}{\left(1-\frac{1}{n}\right)^n}=\frac{1}{e}
+\end{align*}
 
-$\lim\limits_{n\to\infty}{\left(1-\frac{1}{n}\right)^n}=\frac{1}{e}$
-
-\proof 
+\proof
 
 \begin{align*}
-    & \left(1-\frac{1}{n}\right)^n=\left(\frac{n-1}{n}\right)^n=\frac{1}{\left(\frac{n}{n-1}\right)^n}=\frac{1}{\left(1+\frac{1}{n-1}\right)^n} 
-    \\
-    & \lim\limits_{n\to\infty}{\left(1-\frac{1}{n}\right)^n}=\lim\limits_{n\to\infty}{\frac{1}{\left(1+\frac{1}{n-1}\right)^n}}=\frac{1}{\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)^n}}=\frac{1}{\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)^{n-1}}\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)^n}}=\frac{1}{e}
+	 & \left(1-\frac{1}{n}\right)^n=\left(\frac{n-1}{n}\right)^n=\frac{1}{\left(\frac{n}{n-1}\right)^n}=\frac{1}{\left(1+\frac{1}{n-1}\right)^n} \\
+	 & \lim\limits_{n\to\infty}{\left(1-\frac{1}{n}\right)^n}=\lim\limits_{n\to\infty}{\frac{1}{\left(1+\frac{1}{n-1}\right)^n}}
+	=\frac{1}{\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)^n}}
+	=\frac{1}{\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)^{n-1}}\lim\limits_{n\to\infty}{\left(1+\frac{1}{n-1}\right)}}=\frac{1}{e}\qed
 \end{align*}
 
 \end{document}

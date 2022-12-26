@@ -12,9 +12,11 @@
 
 \foreach \ticknum\ticktitle in \ticketlist
 {
-	{\bf Билет \ticknum{} }\dotfill\pageref{\ticknum}
+	\begin{minipage}{\linewidth}
+		{\bf Билет \ticknum{} }\dotfill\pageref{\ticknum}
 
-	\ticktitle{}
+		\ticktitle{}
+	\end{minipage}
 	\vspace{1em}
 
 }

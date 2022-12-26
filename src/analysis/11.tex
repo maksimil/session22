@@ -2,53 +2,52 @@
 
 \usepackage{defines}
 
-\usepackage{setspace}
-
-\usepackage{latexsym}
-
-\usepackage{amsfonts}
-
 \begin{document}
 
-\tickettitle{11}{Подпоследовательность; предел подпоследовательности сходящейся последовательности}
+\tickettitle{11}{Подпоследовательность. Предел подпоследовательности сходящейся последовательности}
 
-\define
+\define{подпоследовательности}
 
-Пусть $\{a_n\}^{\infty}_{n=1}$  - посл-ть вещественных чисел и $\{m_1, m_2, m_3,...\}$ - строго возрастающая посл-ть номеров. Посл-ть $\{b_n\}$ при условии, что $b_1=a_{m_1}$, $b_2=a_{m_2}$, $b_3=a_{m_3}$,... называется \textbf{подпоследовательностью} посл-ти $\{a_n\}^{\infty}_{n=1}$.
+Если $a_{n}$ --- последовательность, a $m_{n}$ --- строго возрастающая последовательность из $\N$, то последовательность $b_{n}=a_{m_{n}}$ называется подпоследовательностью $a_{n}$ и обозначается $a_{m_{n}}$
 
-Обозначается: $\{a_{m_n}\}$.
+$c_{n}$ --- подпоследовательность $b_{n}$ $\land$ $b_{n}$ --- подпоследовательность $a_{n}$ $\Rarr$ $c_{n}$ --- подпоследовательность $a_{n}$
 
-П: $\{a_2, a_4, a_6,...\}$ - подпосл-ть;
+\lemma
 
-\ \ \ \ $\{a_1, a_1, a_2, a_2, a_3, a_3,...\}$ - не является подпосл-тью.
+$a_{m_{n}}$ --- подпоследовательность $a_{n}$ $\Rarr$ $(\forall n\in\N)\;m_{n}\geq n$
 
-\begin{doublespace}
+\proof
 
-\end{doublespace}
-$\{a_n\}$ сама себе подпоследовательность, и вообще подпоследовательность образуется отбрасываем некоторого числа элементов. Это число конечное, бесконечное или равно нулю.
+$a_{m_{n}}$ --- подпоследовательность $a_{n}$ $\Rarr$ $m_{n}$ --- строго возрастающая последовательность из $\N$:
 
-Если $\{a_{m_{k_n}}\}$ является подпоследовательностью $\{a_{m_n}\}$, то $\{a_{m_{k_n}}\}$ является и подпосл-тью $\{a_n\}$.
+{\it Индукция:} $P(n)=(m_{n}\geq n)$
+\begin{enumerate}
+	\item{}$m_1\in\N\Rarr m_1\geq 1\Rarr P(1)$
+	\item{}$P(n)\Rarr P(n+1)$
 
-\begin{doublespace}
+	$m_{n}$ --- строго возрастающая:
+	\begin{align*}
+		m_{n+1}>m_{n}\land m_{n},m_{n+1}\in\N\Rarr m_{n+1}\geq m_{n}+1
+	\end{align*}
 
-\end{doublespace}
-\textbf{Лемма}
+	По $P(n)$:
+	\begin{align*}
+		m_{n}\geq n\Rarr m_{n+1}\geq m_{n}+1\geq n+1\Rarr P(n+1)\qed
+	\end{align*}
 
-Пусть $\{a_{m_n}\}^{\infty}_{n=1}$ подпоследовательность посл-ти $\{a_n\}^{\infty}_{n=1}$, тогда \forall $n:$ \ $m_n\geq n$.
-
-\proof (ММИ)
-
+\end{enumerate}
 
 
 \theorem
 
-Любая подпоследовательность $\{a_{m_n}\}$ сходящей последовательности $\{a_n\}$ сходится к тому же пределу, т. е. если \exists $\lim\limits_{n\to\infty}{a_n}=g$, то \forall \ $\{a_{m_n}\}:$ \ $\lim\limits_{n\to\infty}{a_{m_n}}=g$.
+$a_{m_{n}}$ --- подпоследовательность $a_{n}$
+\begin{align*}
+	a_{n}\to g\Rarr a_{m_{n}}\to g
+\end{align*}
 
 \proof
-
-Пусть \exists \ $g=\lim\limits_{n\to\infty}{a_n}$, тогда \forall $\varepsilon>0$ $\exists$ k, \forall $n>k: |a_n-g|<\varepsilon$.
-
-По лемме \forall $n:$ \ $m_n\geq n$ \implies \ \forall $\varepsilon>0$ $\exists$ k, \ \forall $m_n>k \ (m_n\geq n>k): |a_{m_n}-g|<\varepsilon$ \implies \ $\lim\limits_{n\to\infty}{a_{m_n}}=g$.
-
+\begin{align*}
+	a_{n}\to g\Rarr\forall\eps>0\;\exists k:(\forall n>k)\;|a_{n}-g|<\eps\land m_{n}\geq n\Rarr |a_{m_{n}}-g|<\eps\qed
+\end{align*}
 
 \end{document}

@@ -2,53 +2,53 @@
 
 \usepackage{defines}
 
-\usepackage{setspace}
-
-\usepackage{latexsym}
-
-\usepackage{amsfonts}
-
-\usepackage{enumerate}
-
 \begin{document}
 
 \tickettitle{16}{Принцип сходимости Коши-Больцано}
 
-$\{a_n\}$ сходится $\Leftrightarrow$ \ $\forall \varepsilon>0 \ \exists \ r \in \mathbb{N} $ | $\forall n>r:$ \ $|a_n-a_r|<\varepsilon$. (1)
+\theorem[(принцип сходимости Коши-Больцано)]
+\begin{align*}
+	\{a_n\}\text{ --- сходится}\Lrarr\forall\eps>0\;\exists r:(\forall n>r)\;|a_n-a_r|<\eps
+\end{align*}
 
-(1) - условие Коши
+\onlyif
 
-\proof
+Пусть $\exists\slimty a_n=g$:
+\begin{align*}
+	\forall\eps>0\;\exists r:(\forall n\geq r)\;|a_{n}-g|<\frac{\eps}{2}\land|a_{r}-g|<\frac{\eps}{2}
+\end{align*}
 
-\begin{enumerate}[I]
+Рассмотрим $|a_{n}-a_{r}|$:
+\begin{align*}
+	|a_{n}-a_{r}|=|(a_{n}-g)-(a_{r}-g)|\leq |a_{n}-g|+|a_{r}-g|<\frac{\eps}{2}+\frac{\eps}{2}<\eps\qed
+\end{align*}
 
-\item \onlyif:
+\enough
 
-Пусть \exists \ $\lim\limits_{n\to\infty}{a_n}=g$, тогда \forall $\varepsilon>0$ $\exists$ r, \forall $n\geq r: |a_n-g|<\frac{\varepsilon}{2}$.
+Пусть условие Коши выполнено:
+\begin{align*}
+	\llet\eps=1\;\exists r\in\N:(\forall n>r)\;|a_{n}-a_{r}|<\eps=1\Rarr |a_{n}|-|a_{r}|\leq|a_{n}-a_{r}|<1\Rarr |a_{n}|<1+|a_{r}|
+\end{align*}
 
-($|a_r-g|<\frac{\varepsilon}{2}$) \ \bigwedge \ ($\forall n>r: |a_n-g|<\frac{\varepsilon}{2}$).
+Покажем, что $\{a_{n}\}$ --- ограничена:
+\begin{align*}
+	M:=\max\{1+|a_{r}|,|a_1|,|a_2|,...,|a_{r}|\}\Rarr (\forall n\in\N)\;|a_{n}|\leq M\Rarr \{a_{n}\}\text{ --- ограничена}
+\end{align*}
 
-$|a_n-a_r|=|(a_n-g)+(g-a_r)|\leq |a_n-g|+|a_r-g|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$ $\implies \varepsilon>0 \ \exists \ r \in \mathbb{N} $ | $\forall n>r:$ \ $|a_n-a_r|<\varepsilon$.
+$\{a_n\}$ --- ограничена $\Rarr$ (по принципу выбора Больцано-Вейерштрасса) можно выделить\\
+сходящуюся подпоследовательность $\{a_{m_n}\}$
 
-\item \enough:
+Пусть $g:=\slimty a_{m_{n}}$, тогда $\forall\eps>0$:
+\begin{align*}
+	 & \exists k:(\forall n>k)\;|a_{m_{n}}-g|<\frac{\eps}{3}                              \\
+	 & \exists r:(\forall n>r)\;|a_{n}-a_{r}|<\frac{\eps}{3}                              \\
+	 & (\forall n\in\N)\;m_{n}\geq n\Rarr (\forall n>r)\;|a_{m_{n}}-a_{r}|<\frac{\eps}{3}
+\end{align*}
 
-Пусть условие Коши выполнено и $\varepsilon=1$, тогда \ $\exists \ r \in \mathbb{N} $ | $\forall n>r:$ \ $|a_n-a_r|<1$.
-
-$|a_n|-|a_r|\leq |a_n-a_r|<1$ $\implies$ $|a_n|<1+|a_r|$
-
-Пусть $M=max\{|a_1|, |a_2|, |a_3|,.., |a_{r-1}|, 1+|a_r|\}$ , тогда $\forall n\leq r:$ \ $|a_n|\leq M$, $\forall n>r:$ \ $|a_n|<1+|a_r|\leq M$ $\implies$ $\forall n: |a_n|\leq M$ $\implies \{a_n\}$ - ограничена (по определению).
-
-Т. к. $\{a_n\}$ ограничена, то по принципу выбора Больцано-Вейерштрасса $\exists$ \ $\{a_{m_n}\}$, к-ая сходится. Пусть $\lim\limits_{n\to\infty}{a_{m_n}}=g$ $\implies$ $\exists k$, $\forall n>k: |a_{m_n}-g|<\frac{\varepsilon}{3}$. (2)  
-
- Т. к. усл-ие Коши выполнено, то $\forall \varepsilon>0 \ \exists \ r \in \mathbb{N} $ | $\forall n>r:$ \ $|a_n-a_r|<\frac{\varepsilon}{3}$. (3)
-
- Т. к. $\forall n: m_n\geq n$, то из $|a_n-a_r|<\frac{\varepsilon}{3}$ следует $|a_{m_n}-a_r|<\frac{\varepsilon}{3}$ (4).
-
-Пусть во (2) $k>r$ \implies $\forall n>k$ выполн. (2), (3), (4).
-
-Рассмотрим $|a_n-g|=|(a_n-a_r)+(a_{m_n}-g)+(a_r-a_{m_n})|\leq |a_n-a_r|+|a_{m_n}-g|+|a_r-a_{m_n}|<\varepsilon$. Т. е. $\forall \varepsilon >0$ при $\forall n>k$ \implies $\lim\limits_{n\to\infty}{a_n}=g$, т. е. $\{a_n\}$  сходится.
-
-
-\end{enumerate}
+Рассмотрим $|a_n-g|$ при $n>\max\{r,k\}$:
+\begin{align*}
+	|a_{n}-g| & =|(a_{n}-a_{r})+(a_{r}-a_{m_{n}})+(a_{m_{n}}-g)|\leq                                                    \\
+	          & \leq|a_{n}-a_{r}|+|a_{r}-a_{m_{n}}|+|a_{m_{n}}-g|<\frac{\eps}{3}+\frac{\eps}{3}+\frac{\eps}{3}=\eps\qed
+\end{align*}
 
 \end{document}

@@ -2,78 +2,89 @@
 
 \usepackage{defines}
 
-\usepackage{latexsym}
-
-\usepackage{amsfonts}
-
 \begin{document}
 
 \tickettitle{10}{Предел последовательности модулей чисел: свойства пределов, обусловленные неравенствами; принцип сжатой переменной}
 
-\begin{enumerate}
+\theorem
+\begin{align*}
+	a_{n}\to g\Rarr\exists\slimty |a_{n}|=|g|
+\end{align*}
 
-\item Пусть \exists $\lim\limits_{n\to\infty}{a_n}$ \implies \ (\exists $\lim\limits_{n\to\infty}{|a_n|}$) \ \bigwedge \ ($\lim\limits_{n\to\infty}{|a_n|}=|\lim\limits_{n\to\infty}{a_n}|$).
+\proof
+\begin{align*}
+	a_{n}\to g\Rarr\forall\eps>0\;\exists k:(\forall n>k)\;|a_{n}-g|<\eps\Rarr
+	\begin{cases}
+		|a_{n}|-|g|\leq|a_{n}-g|<\eps \\
+		|g|-|a_{n}|\leq|a_{n}-g|<\eps
+	\end{cases}\Rarr ||a_{n}|-|g||<\eps\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	c_{n}\to g\land (\forall n\in\N)\;c_{n}\geq 0\Rarr g\geq 0
+\end{align*}
 
 \proof
 
-Пусть \exists \ $g=\lim\limits_{n\to\infty}{a_n}$, тогда \forall $\varepsilon>0$ $\exists$ k, \forall $n>k: |a_n-g|<\varepsilon$.
+Пусть $g<0$, тогда:
+\begin{align*}
+	 & \llet\eps=-g>0\;\exists k:(\forall n>k)\;|c_{n}-g|<-g \\
+	 & c_{n}\geq 0\land -g>0\Rarr |c_{n}-g|=c_{n}-g          \\
+	 & |c_{n}-g|<-g\Rarr c_{n}-g<-g\Rarr c_{n}<0
+\end{align*}
 
-\begin{equation*}
-\begin{cases}
-|a_n|-|g|\leq|a_n-g|<\varepsilon 
-\\                    
-|g|-|a_n|\leq |g-a_n|<\varepsilon
-\end{cases}
-\end{equation*}
+Пришли к противоречию, значит $g\geq 0\qed$
 
-\implies \ $\forall \varepsilon>0$ \exists \ k, \forall $n>k:$ \ $||a_n|-|g||<\varepsilon$ \Rightarrow \ $\lim\limits_{n\to\infty}{|a_n|}=|g|=|\lim\limits_{n\to\infty}{a_n}|$.
+\theorem
+\begin{align*}
+	a_{n}\to g\land b_{n}\to h\land (\forall n\in\N)\;a_{n}\geq b_{n}\Rarr g\geq h
+\end{align*}
 
-\item Пусть (\exists $\lim\limits_{n\to\infty}{c_n}$) \ \bigwedge \ ($\forall n:$ $c_n\geq 0$) \implies \  $\lim\limits_{n\to\infty}{c_n}\geq 0$.
+\proof
+\begin{align*}
+	\slimty a_{n}-b_{n}=g-h\land (\forall n\in\N)\;a_{n}-b_{n}\geq 0\Rarr g-h\geq 0\text{ (по предыдущей теореме)}\Rarr g\geq h\qed
+\end{align*}
 
-\proof (от противного)
-
-Пусть это не так и $\lim\limits_{n\to\infty}{c_n}=h<0$.
-
-Пусть $\varepsilon=-h>0$, тогда $\exists$ k, \forall $n>k: |c_n-h|<-h$. По условию $\forall n:$ $c_n\geq 0$ и -h>0, тогда $|c_n-h|=c_n-h$.
-
-Тогда $c_n-h<-h$ \ \Leftrightarrow \ $c_n<0$ - противоречие.
-
-\item Пусть (\exists $\lim\limits_{n\to\infty}{a_n}$, \exists $\lim\limits_{n\to\infty}{b_n}$) \ \bigwedge \ ($\forall n:$ $a_n\geq b_n$) \implies \ $\forall n:$ $\lim\limits_{n\to\infty}{a_n}\geq \lim\limits_{n\to\infty}{b_n}$.
+\theorem
+\begin{align*}
+	a_{n}\to g\land b_{n}\to h\land (\forall n\in\N)\;a_{n}> b_{n}\not\Rarr g> h
+\end{align*}
 
 \proof
 
-По условию $\forall n:$ $a_n\geq b_n$ \ \Leftrightarrow \ $a_n-b_n\geq 0$ $\Rightarrow$  по свойству 2 $\lim\limits_{n\to\infty}{(a_n-b_n)}\geq 0$.
+Пример: $a_{n}=\frac{2}{n}$, $b_{n}=\frac{1}{n}$
+\begin{align*}
+	(a_{n}\to 0=g)\land (b_{n}\to 0=h)\land (a_{n}>b_{n})\land g=h\qed
+\end{align*}
 
-По арифметическому св-ву: $\lim\limits_{n\to\infty}{(a_n-b_n)}=\lim\limits_{n\to\infty}{a_n}-\lim\limits_{n\to\infty}{b_n}\geq 0$ \ \implies \ $\forall n:$ $\lim\limits_{n\to\infty}{a_n}\geq \lim\limits_{n\to\infty}{b_n}$.
+\pagebreak
 
-\item Пусть (\exists $\lim\limits_{n\to\infty}{a_n}$, \exists $\lim\limits_{n\to\infty}{b_n}$) \ \bigwedge \ ($\forall n:$ $a_n>b_n$) \not \Rightarrow \ $\forall n:$ $\lim\limits_{n\to\infty}{a_n}> \lim\limits_{n\to\infty}{b_n}$.
-
-\proof
-
-Пусть (\exists $\lim\limits_{n\to\infty}{a_n}$, \exists $\lim\limits_{n\to\infty}{b_n}$) \ \bigwedge \ ($\forall n:$ $a_n>b_n$) \implies \ $\forall n:$ $\lim\limits_{n\to\infty}{a_n}> \lim\limits_{n\to\infty}{b_n}$.
-
-Пусть $a_n=\frac{2}{n}$, пусть $b_n=\frac{1}{n}$ \implies $\forall n:$ \ $a_n>b_n$ и $\lim\limits_{n\to\infty}{a_n}=\lim\limits_{n\to\infty}{b_n}=0$ - противоречие.
-
-\item (Принцип сжатой переменной) Пусть (\exists $\lim\limits_{n\to\infty}{a_n}$, \exists $\lim\limits_{n\to\infty}{b_n}$) \bigwedge \ ($\lim\limits_{n\to\infty}{a_n}=\lim\limits_{n\to\infty}{b_n}$) \bigwedge \ ($\forall n$ \ $a_n\leq c_n \leq b_n$) \ \implies \ (\exists $\lim\limits_{n\to\infty}{c_n}$) \ \bigwedge \ ($\lim\limits_{n\to\infty}{a_n}=\lim\limits_{n\to\infty}{b_n}=\lim\limits_{n\to\infty}{c_n}$).
-
-\proof 
-
-Пусть $g=\lim\limits_{n\to\infty}{a_n}=\lim\limits_{n\to\infty}{b_n}$, тогда \forall $\varepsilon>0$ $\exists$ k, \forall $n>k: 
-
-|a_n-g|<\varepsilon$ \ \Leftrightarrow \ $g-\varepsilon<a_n<\varepsilon+g$ \ \ \ $g-\varepsilon<a_n$ \ \Leftrightarrow \ $-\varepsilon<a_n-g$
-
-$|b_n-g|<\varepsilon$ \ \Leftrightarrow \ $g-\varepsilon<b_n<\varepsilon+g$ \ \ \ $b_n<\varepsilon+g$ \ \Leftrightarrow \ $b_n-g<\varepsilon$.
-
-Исходя из условия: $a_n-g\leq c_n-g\leq b_n-g$
-
-$-\varepsilon<a_n-g\leq c_n-g\leq b_n-g<\varepsilon$ \implies \forall $\varepsilon>0$ $\exists$ k, \forall $n>k: |c_n-g|<\varepsilon$  \ \implies \exists \ $\lim\limits_{n\to\infty}{c_n}=g$.
-
-\item Пусть \exists $\lim\limits_{n\to\infty}{|a_n|}=0$ \implies \ ($\lim\limits_{n\to\infty}{a_n}=0$).
+\theorem[(принцип сжатой переменной)]
+\begin{align*}
+	a_{n}\to g\land b_{n}\to g\land (\forall n\in\N)\;a_{n}\leq c_{n}\leq b_{n}\Rarr \exists\slimty c_{n}=g
+\end{align*}
 
 \proof
+\begin{align*}
+	a_{n}\to g\land b_{n}\to g
+	 & \Rarr\forall \eps>0\;\exists k:(\forall n>k)\;
+	\begin{cases}
+		|a_{n}-g|<\eps\Rarr g-\eps<a_{n} \\
+		|b_{n}-g|<\eps\Rarr b_{n}<g+\eps \\
+		a_{n}\leq c_{n}\leq b_{n}
+	\end{cases}\Rarr                                                                     \\
+	 & \Rarr g-\eps<a_{n}\leq c_{n}\leq b_{n}<g+\eps\Rarr |c_{n}-g|<\eps\Rarr \exists\slimty c_{n}=g\qed
+\end{align*}
 
-$\forall n:$ \ $-|a_n|\leq a_n \leq |a_n|$, $\lim\limits_{n\to\infty}{-|a_n|}=-1*\lim\limits_{n\to\infty}{|a_n|}=\lim\limits_{n\to\infty}{|a_n|}=0$ \implies по принципу сжатой переменной $\lim\limits_{n\to\infty}{a_n}=0$.
+\theorem
+\begin{align*}
+	\slimty |a_{n}|=0\Rarr \slimty a_{n}=0
+\end{align*}
 
-\end{enumerate}
+\proof
+\begin{align*}
+	\slimty |a_{n}|=0\land\slimty -|a_{n}|=0\land -|a_{n}|\leq a_{n}\leq |a_{n}|\Rarr \slimty a_{n}=0\qed
+\end{align*}
 
 \end{document}
