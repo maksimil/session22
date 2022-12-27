@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{63}{Дифференциалы высших порядков. Формула Лейбница для дифференциалов. Неинвариантность формы дифференциалов высших порядков.}
+
+\define{дифференциалов высших порядков}
+
+Дифференциал $dy$ функции $y=f(x)$ по отношению к приращению $h$ --- функция относительно $x$
+
+Дифференциалом этой функции в $x$ по отношению к тому же приращению $h$ --- дифференциал второго порядка функции $y=f(x)$ в $x$ по отношению к приращению $h$
+
+Обозначение: $d^{2}y$, $d^{2}f(x)$
+
+Дифференциал функции $d^{n-1}y$ --- дифференциал $n$-го порядка и обозначается $d^{n}y$
+
+$d^{n}y=d(d^{n-1}y)$
+
+\theorem
+\begin{align}
+	(\forall n\in\N)\;d^{n}y=y^{(n)}dx^{n} \label{63:formula}
+\end{align}
+
+\proof
+
+{\it Индукция:} $P(n)=(d^{n}y=y^{(n)}dx^{n})$
+\begin{enumerate}
+	\item{}$dy=y'dx\Rarr P(1)$
+	\item{}$P(n-1)\Rarr P(n)$
+	\begin{align*}
+		d^{n}y=d(d^{n-1}y)=d(y^{(n-1)}dx^{n-1})=y^{(n)}dxdx^{n-1}=y^{(n)}dx^{n}\Rarr P(n)\qed
+	\end{align*}
+\end{enumerate}
+
+{\it Замечание: }
+
+Из теоремы следует формула $f^{(n)}(x)=\frac{d^{n}y}{dx^{n}}$
+
+{\it Замечание: }
+
+Форма дифференциала второго порядка неинвариантна, то есть формула $\eqref{63:formula}$ не верна при $d^{2}x\neq 0$
+
+$y=f(x)$, $x=\varphi(t)$
+\begin{align*}
+	d^{2}y=d(dy)=d(f'_{x}\varphi'_{t}dt)=f''_{x^{2}}dx\varphi'_{t}dt+f'_{x}\varphi''_{t^{2}}dt^{2}=f''_{x^{2}}dx^{2}+f'_{x}d^{2}x\neq f''_{x^{2}}dx^{2}
+\end{align*}
+
+Из-за $d^{2}x\neq 0$ будут неинвариантны и формы порядков $>2$
+
+\theorem[(формула Лейбница для дифференциалов)]
+\begin{align*}
+	d^{n}(uv)=\sum_{k=0}^{n}C_{n}^{k}(d^{n-k}u)(d^{k}v)\text{, где }d^{0}u=u
+\end{align*}
+
+\proof
+\begin{align*}
+	d^{n}(uv)=(uv)^{(n)}dx^{n}=\sum_{k=0}^{n}C_{n}^{k}u^{(n-k)}v^{(k)}dx^{n}=\sum_{k=0}^{n}C_{n}^{k}(u^{(n-k)}dx^{n-k})(v^{(k)}dx^{k})=\sum_{k=0}^{n}C_{n}^{k}(d^{n-k}u)(d^{k}v)\qed
+\end{align*}
+
+\end{document}
