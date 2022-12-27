@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{67}{Приближенное вычисление функции с помощью формулы Тейлора, оценка погрешности.}
+
+\theorem
+
+Пусть $f(x)$ $n$ раз дифференцируема на $X$ и $x_0\in X$
+
+$\varphi(x)$ --- приближённое значение $f(x)$:
+\begin{align*}
+	\varphi(x):=f(x_0)+\sum_{k=1}^{n-1}\frac{(x-x_0)^{k}}{k!}f^{(k)}(x_0)
+\end{align*}
+
+Пусть $f^{(n)}(x)$ ограничена на $X$:
+\begin{align*}
+	\exists M:(\forall x\in X)\;|f^{(n)}(x)|\leq M
+\end{align*}
+
+Тогда:
+\begin{align*}
+	|f(x)-\varphi(x)|\leq M\frac{|x-x_0|^{n}}{n!}\text{ --- универсальная оценка погрешности}
+\end{align*}
+
+\proof
+
+По теореме Тейлора c остаточным членом в форме Лагранжа:
+\begin{align*}
+	 & (\forall x\in X)\;f(x)=f(x_0)+\sum_{k=1}^{n-1}\frac{(x-x_0)^{k}}{k!}f^{(k)}(x_0)+\frac{(x-x_0)^{n}}{n!}f^{(n)}(x_0+\theta(x-x_0)),\;\theta\in(0;1) \\
+	 & |f(x)-\varphi(x)|=\frac{|x-x_0|^{n}}{n!}|f^{(n)}(x_0+\theta(x-x_0))|                                                                               \\
+\end{align*}
+
+Оценим $f^{(n)}(x_0+\theta(x-x_0))$:
+\begin{align*}
+	x_0+\theta(x-x_0)\in X\Rarr |f^{(n)}(x_0+\theta(x-x_0))|\leq M
+\end{align*}
+
+Тогда:
+\begin{align*}
+	 & |f(x)-\varphi(x)|=\frac{|x-x_0|^{n}}{n!}|f^{(n)}(x_0+\theta(x-x_0))|\leq M\frac{|x-x_0|^{n}}{n!}\qed
+\end{align*}
+
+{\it Замечание:}
+\begin{align*}
+	\slimty\frac{|x-x_0|^{n}}{n!}=0
+\end{align*}
+
+\result
+
+Значение $f(x)$ можно заменять на $\varphi(x)$ с любой наперёд заданной точностью
+
+\end{document}
