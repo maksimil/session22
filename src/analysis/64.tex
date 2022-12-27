@@ -1,0 +1,67 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{64}{Вычисление высших производных обратной функции с помощью дифференциалов.}
+
+\theorem
+
+$y=f(x)$
+
+$g$ --- функция, обратная к $f$, $x=g(y)$
+\begin{align}
+	(\forall n\geq 2)\;d^{n}y=\left(R_{n}(y)+f'(x)g^{(n)}(y)\right)dy^{n}\label{64:form}
+\end{align}
+
+Причём $R_{n}(y)$ зависит только от производных $g$ порядка $<n$ и производных $f$ порядка $\leq n$
+
+\proof
+
+$g$ --- обратная к $f$ $\Rarr$ $y=f(x)=f(g(y))$
+
+{\it Индукция:} $P(n)$ --- верность формулы $\eqref{64:form}$ для $n$
+\begin{enumerate}
+	\item{}$P(2)$
+	\begin{align*}
+		 & d^{2}y=d(dy)=d(f'(x)g'(y)dy)=\left[f^{(2)}(x)(g'(y))^{2}+f'(x)g^{(2)}(y)\right]dy^{2} &  & R_2(y)=f^{(2)}(x)(g'(y))^{2}
+	\end{align*}
+	\item{}$P(n)\Rarr P(n+1)$
+	\begin{align*}
+		d^{n+1}y & =d(d^{n}y)=d\left[R_{n}(y)+f'(x)g^{(n)}(y)\right]dy^{n-1}= \left[R'_{n}(y)+f''(x)g'(y)g^{(n)}(y)+f'(x)g^{(n+1)}(y)\right]dy^{n}
+	\end{align*}
+
+	Определим $R_{n+1}(y)$:
+	\begin{align*}
+		R_{n+1}(y):=R'_{n}(y)+f''(x)g'(y)g^{(n)}(y)
+	\end{align*}
+
+	Заметим, что $R_{n+1}(y)$ зависит только от производных $g$ порядка $<n+1$ и\\
+	производных $f$ порядка $\leq n+1$
+
+	Тогда получаем:
+	\begin{align*}
+		d^{n+1}y=\left(R_{n+1}(y)+f'(x)g^{(n+1)}(y)\right)dy^{n+1}\Rarr P(n+1)\qed
+	\end{align*}
+\end{enumerate}
+
+\algorithm{вычисления высших производных обратной функции}
+
+{\it Задача:} найти $g^{(n)}(y)$
+
+\begin{enumerate}
+	\item{}Вычислим $d^{(m)}y$ для $m=\overline{1,n}$ и приведём их к форме $\eqref{64:form}$
+
+	$y$ --- независимая переменная $\Rarr$ $(\forall m\geq 2)\;d^{m}y=0$, тогда для $m\geq 2$
+	\begin{align}
+		R_{m}(y)+f'(x)g^{(m)}(y)=0\Rarr g^{(m)}(y)=\frac{-R_{m}(y)}{f'(g(y))}\label{64:gm}
+	\end{align}
+
+	\item{}Вычислим $g'(y)$ по формуле $g'(y)=\frac{1}{f'(g(y))}$, а $g^{(m)}(y)$ для $m=\overline{2,n}$ по формуле $\eqref{64:gm}$
+
+	Для каждого из этих шагов необходимы только производные $g$ до порядка $m-1$\\
+	и производные $f$ до порядка $m$
+\end{enumerate}
+
+\end{document}
