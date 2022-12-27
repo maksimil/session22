@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{65}{Дифференцирование по параметру.}
+
+\theorem
+
+Если $y=f(x)$ задана параметрически: $y=\psi(t)$, $x=\varphi(t)$, то
+\begin{align*}
+	y'_{x}=\frac{\psi'_{t}(t)}{\varphi'_{t}(t)}
+\end{align*}
+
+\proof
+\begin{align*}
+	\psi(t)=y=f(x)=f(\varphi(t))\Rarr \psi(t)=f(\varphi(t))\Rarr\psi'_{t}(t)=f'_{x}(x)\varphi'_{t}(t)
+	\Rarr f'_{x}(x)=\frac{\psi'_{t}(t)}{\varphi'_{t}(t)}\Rarr y'_{x}=\frac{\psi'_{t}(t)}{\varphi'_{t}(t)}\qed
+\end{align*}
+
+\theorem
+
+Если $y=f(x)$ задана параметрически: $y=\psi(t)$, $x=\varphi(t)$, то
+\begin{align*}
+	y''_{x}=\frac{\psi''_{t^{2}}(t)\varphi'_{t}(t)-\psi'_{t}(t)\varphi''_{t^{2}}(t)}{\varphi'_{t}(t)^{3}}
+\end{align*}
+
+\proof
+\begin{align*}
+	y''_{x}(x)=\frac{d}{dx}\frac{dy}{dx}=\frac{1}{dx}dy'_{x}=\frac{1}{\varphi'_{t}(t)dt}\left(dt\frac{dy'_{x}}{dt}\right)
+	=\frac{1}{\varphi'_{t}(t)}\left[\frac{\psi''_{t^{2}}(t)\varphi'_{t}(t)-\psi'_{t}(t)\varphi''_{t^{2}}(t)}{\varphi'_{t}(t)^{2}}\right]
+	=\frac{\psi''_{t^{2}}(t)\varphi'_{t}(t)-\psi'_{t}(t)\varphi''_{t^{2}}(t)}{\varphi'_{t}(t)^{3}}\qed
+\end{align*}
+
+\end{document}
