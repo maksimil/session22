@@ -6,163 +6,175 @@
 
 \tickettitle{44}{Критерий Эйзенштейна. Поиск целочисленных и рациональных корней.}
 
-\theorem[6.34. Критерий Эйзенштейна]
+\theorem[(критерий Эйзенштейна)]
 
-Пусть имеется полином $f(x)=a_n x^n+a_{n-1} x^{n-1}+\ldots +a_1 x+a_0$ над кольцом целых чисел $\mathbb{Z} [x]$.
-Если существует простое p такое, что
+Пусть $P(x)=a_n x^n+a_{n-1} x^{n-1}+...+a_1 x+a_0\in\Z[x]$
 
+Если $\exists$простое $p$:
 \begin{enumerate}
-	\item{} $\rceil p\diagdown a_n$;
-	\item{} $p\backslash a_i~~i=\overline{0, n-1}$;
-	\item{} $\rceil p^2\diagdown a_0$,
+	\item{} $\lnot p\setminus a_n$
+	\item{} $p\setminus a_i,\;i=\overline{0, n-1}$
+	\item{} $\lnot p^2\setminus a_0$
 \end{enumerate}
 
-то $f$ неприводим над полем рациональных чисел $\R$.
+то $P$ неприводим над $\Q$
 
 \proof
 
-От противного. Пусть $f$ приводим над $\R$. Согласно предыдущей
-теореме он приводим и над кольцом целых чисел $\mathbb{Z}$, т.е.
-
+Пусть $P\in\Z[x]$ приводим над $\Q$ $\Rarr$ $P$ --- приводим над $\Z$:
 \begin{align*}
-	(\exists S,Q\in Z[x])~f=SQ~\land ~d:=deg~S\geq 1~\land ~l:=deg~Q\geq 1.
+	 & (\exists S,Q\in\Z[x])\;P=SQ\land d:=deg~S\geq 1\land l:=deg~Q\geq 1 \\
+	 & S(x)=b_{d}x^{d}+...+b_0                                             \\
+	 & Q(x)=e_{l}x^{l}+...+e_0
 \end{align*}
 
-Пусть $S(x)=b_d x^d +\ldots+b_0$ и $Q(x)=e_l x^l+\ldots +e_0$.
-Приравниваем коэффициенты при одинаковых степенях в равенстве $f=SQ$, получим
+Без ограничения общности пусть $d\geq l$
 
+Рассмотрим коэфиценты $P=SQ$:
 \begin{align*}
-	 & a_0=b_0 e_0                    \\
-	 & a_1=b_0 e_1+b_1 e_0            \\
-	 & a_2=b_0 e_2+b_1 e_1+b_2 e_0    \\
-	 & \ldots                         \\
-	 & a_l=b_0 e_l+b_1 e_{l-1}+\ldots
+	 & a_0=b_0 e_0                                       \\
+	 & a_1=b_0 e_1+b_1 e_0                               \\
+	 & a_2=b_0 e_2+b_1 e_1+b_2 e_0                       \\
+	 & ...                                               \\
+	 & a_l=b_0 e_l+b_1 e_{l-1}+...+b_{l}e_0              \\
+	 & a_{l+1}=b_1 e_{l}+b_2 e_{l-1}+...+b_{l+1}e_0      \\
+	 & ...                                               \\
+	 & a_{d}=b_{d-l} e_{l}+b_{d-l+1}e_{l-1}+...+b_{d}e_0
 \end{align*}
-
-Рассмотрим первое равенство. Так как $p\diagdown a_0$, но $\rceil p^2\diagdown a_0$, то однo из двух чисел $b_0$ либо $e_0$ делится на $p$, а другое нет (простота).
-Пусть $\rceil p\diagdown b_0$. Из второго равенства получаем $p\diagdown e_1$, из третьего: $p\diagdown e_2$ и так $l$ раз, т.е. $p\diagdown e_l$.
-Но поскольку $a_n=b_d e_l$, это дает $p\diagdown a_n$.  Противоречие с п.1 отвергает приводимость $f$.\newpage
-
-\textbf{Поиск целочисленных и рациональных корней} \newline
-
-Если многочлен над кольцом целых чисел или над полем рациональных, то особый
-интерес представляют целочисленные и рациональные корни. Оказывается, узнать об
-их существовании и найти их можно конечным алгоритмом. Его основание составляют
-следующие три теоремы.
-
-\theorem[6.35]
-
-Если $\alpha\in\mathbb{Z}$, $S\in\mathbb{Z} [x]$ и $S(\alpha )=0$, то $\alpha $ --- делитель свободного члена многочлена $S$, т.е.
-$\alpha\diagdown S(0)$, и частное $Q(x)=S(x)/(x-\alpha )$ является целочисленным многочленом.
-
-\proof
-
-Делим $S(x)=a_n x^n+\ldots +a_0$ на $x-\alpha $ по схеме Горнера; получаем частное $Q(x)=b_{n-1} x^{n-1}+\ldots +b_0$.
-Приравниваем коэффициенты при одинаковых степенях в представлении $S(x)=(x-\alpha )Q(x)$, получаем
-
 \begin{align*}
-	 & b_{n-1}=a_n                    \\
-	 & b_{n-2}=a_{n-1}+\alpha b_{n-1} \\
-	 & b_{n-3}=a_{n-2}+\alpha b_{n-2} \\
-	 & \ldots
+	p\setminus a_0\land\lnot p^{2}\setminus a_0\land p\text{ --- простое}\Rarr (p\setminus b_0 \land \lnot p\setminus e_0)\lor (\lnot p\setminus b_0\land p\setminus e_0)
 \end{align*}
-
-Из этой схемы видно, что все $b_i,~~i=\overline{0, n-1}$, будут целыми, ибо $a_1,\ldots , a_n$ и $\alpha $ --- целые.
-В частности $b_0$ --- целое. Но $a_0 = -\alpha b_0 \Rarr \alpha\diagdown a_0~~\qed$ \newline
-
-\textbf{З а м е ч а н и е 11.1.} \newline
-
-Согласно теореме Виета, $a_0$ есть произведение корней, в которое входит, в частности, $\alpha $, но пока не доказано, что $b_0$ --- целое, это ничего не дает. \newline
-
-Теорема 6.35 открывает возможность найти все целые корни полинома путем проверки всех делителей свободного члена, т.е. за конечное число шагов. Однако при большом
-числе делителей свободного члена таких шагов, состоящих в вычислении значения многочлена, может оказаться чересчур много.
-
-Уменьшить вычислительные затраты позволяют следующие отсечения. Вначале вычисляют $S(1)$ и $S(-1)$, которые должны быть вычислены и без применения отсечений,
-так как $1$ и $-1$ --- делители любого свободного члена. Если $\alpha $ --- корень, то он должен удовлетворять разложению: $S(x) = (x-\alpha )Q(x)$ и $Q$, согласно теореме 6.35, целочисленный.
-Следовательно, $Q(1)$ --- целое число. А это значит, что $(1-\alpha)\diagdown S(1)$.
-
-$Q(-1)$ --- тоже целое. Поэтому $(1 + \alpha )\diagdown S(1)$. Поэтому корнем может быть только такое $\alpha $, для которого верно
-
-\begin{align}
-	\frac{S(0)}{\alpha }\in\mathbb{Z}~~\land ~~\frac{S(1)}{1-\alpha  }\in\mathbb{Z}~~\land ~~\frac{S(-1)}{1+\alpha }\in\mathbb{Z} \label{40:lt}
-\end{align}
-
-Вычислительные затраты на проверку $\eqref{40:lt}$ незначительны.
-Это $n$ сложений целых коэффициентов и одно деление суммы. Значительно выше затраты на вычисление значения
-полинома от аргументов, отличных от $0$ и $\pm 1$.
-
-Отсечение типа $\eqref{40:lt}$ может пополняться. Пусть, например, некоторое $\alpha_1$ удовлетворило $\eqref{40:lt}$, но проверка показала, что $S(\alpha_1)\neq 0$. Тогда добавляем отсечение $\frac{S(\alpha_1)}{\alpha_1-\alpha }\in\mathbb{Z}$. И т.д.
-
-Если же корень найден: $S(\alpha_1)=0$, то дальнейший поиск целых корней может идти различно.
 
 \begin{enumerate}
-	\item Если вычисление значения $S(\alpha_1)$ происходило по схеме Горнера, то далее оптимальным будет искать целые корни полинома $S_1(x):=S(x)\diagup (x-\alpha_1)$, коэффициенты которого уже вычислены в схеме Горнера.
-	      Проверяются, конечно, только те делители свободного члена полинома $S_1$, которые не были отвергнуты раньше. \\
-	      Если $\alpha_1$ продолжает быть делителем нового свободного
-	      члена, то он тоже проверяется, так как он может оказаться кратным корнем.
-	\item Если значение $S(\alpha_1)$ было вычислено не по схеме Горнера, то можно разделить $S(x)$ на $x-\alpha_1$ каким-то способом и далее поступать как в п.1. Но можно ограничиться
-	      делением свободного члена $s_0$ на $\alpha_1$ и проверять ранее не отвергнутые делители $s_0\diagup\alpha_1$
-	      подстановкой их в $S$. \\
-	      В обоих вариантах все предыдущие отсечения остаются в силе $\qed$
+	\item{}$p\setminus b_0\land\lnot p\setminus e_0$
+	\begin{align*}
+		 & p\setminus a_1\Rarr p\setminus b_0e_1+b_1e_0\Rarr p\setminus b_1 &  & p\setminus a_2\Rarr p\setminus b_2 &  & ... &  & p\setminus a_{d} \Rarr p\setminus b_{d}
+	\end{align*}
+	\begin{align*}
+		p\setminus b_{d}\land a_{n}=b_{d}e_{l}\Rarr p\setminus a_{n}\text{, что противоречит п.1}\Rarr P\text{ --- неприводим над $\Q\qed$}
+	\end{align*}
+
+	\item{}$\lnot p\setminus b_0\land p\setminus e_0$
+	\begin{align*}
+		 & p\setminus a_1\Rarr p\setminus b_0e_1+b_1e_0\Rarr p\setminus e_1 &  & p\setminus a_2\Rarr p\setminus e_2 &  & ... &  & p\setminus a_{l} \Rarr p\setminus e_{l}
+	\end{align*}
+	\begin{align*}
+		p\setminus e_{l}\land a_{n}=b_{d}e_{l}\Rarr p\setminus a_{n}\text{, что противоречит п.1}\Rarr P\text{ --- неприводим над $\Q\qed$}
+	\end{align*}
 \end{enumerate}
 
-\theorem[6.36.]
+\sectitle{Поиск целочисленных и рациональных корней}
 
-Все рациональные корни полинома
-
+\theorem
 \begin{align*}
-	S(x)=x^n+a_{n-1}x^{n-1}+\ldots +a_0,~~\{a_i\}^{n-1}_0\in\mathbb{Z},
+	\alpha\in\mathbb{Z}\land S\in\mathbb{Z}[x]\land S(\alpha )=0\Rarr\alpha\setminus S(0)\land Q(x)=S(x)/(x-\alpha )\in\Z[x]
 \end{align*}
-
-целые.
 
 \proof
 
-Пусть несократимая дробь $b/c$ является корнем полинома $S$.
+Поделим $S(x)=a_n x^n+...+a_0$ на $x-\alpha$ по схеме Горнера, получив частное $Q(x)=b_{n-1} x^{n-1}+...+b_0$
 
-Тогда
-
+Приравниваем коэффициенты при одинаковых степенях в представлении $S(x)=(x-\alpha)Q(x)$:
 \begin{align*}
-	0=\left(\frac{b}{c}\right)^n+a_{n-1} \left(\frac{b}{c}\right)^{n-1}+\ldots +a_0.
+	 & a_{n}=b_{n-1}                  &  & b_{n-1}=a_{n}                  \\
+	 & a_{n-1}=b_{n-2}-\alpha b_{n-1} &  & b_{n-2}=a_{n-1}+\alpha b_{n-1} \\
+	 & ...                            &  & ...                            \\
+	 & a_{1}=b_{0}-\alpha b_1         &  & b_0=a_1+\alpha b_1             \\
+	 & a_0=-\alpha b_0
+\end{align*}
+
+Из схемы видно, что $(\forall i=\overline{0,n-1})\;b_i\in\Z$, тк $(\forall i=\overline{1,n})\;a_i\in\Z$ и $\alpha\in\Z$ $\Rarr$ $Q\in\Z[x]$
+
+В частности, $b_0\in\Z\land a_0 = -\alpha b_0\in\Z \Rarr \alpha\setminus a_0\qed$
+
+\algorithm{отсечений}
+
+{\it Задача:} найти целые корни $S\in\Z[x]$
+
+\begin{enumerate}
+	\item{}Вычислим $S(1)$ и $S(-1)$
+	\begin{align*}
+		S(\alpha)=0\land\alpha\in\Z\Rarr S(x)=(\alpha-x)Q(x)\land Q\in\Z[x]\Rarr (\forall x\in\Z:S(x)\neq 0)\;(\alpha-x)\setminus S(x)
+	\end{align*}
+
+	На данном шаге имеем следущие отсечения:
+	\begin{align}
+		S(\alpha)=0\Rarr\alpha\setminus S(0)\land(\alpha-1)\setminus S(1)\land (\alpha+1)\setminus S(-1)\label{44:sec}
+	\end{align}
+	\item{}$\forall\gamma\in\Z:\gamma\setminus S(0)$
+	\begin{enumerate}[label*=\arabic*.]
+		\item{}Если в правой части $\eqref{44:sec}$ $\exists x:\lnot(\gamma-x)\setminus S(x)\Rarr S(\gamma)\neq 0$, перейдём к следущему\\
+		делителю $S(0)$ и вернёмся к этому шагу
+
+		Иначе --- перейдём к следущему шагу
+		\item{}Вычислим $S(\gamma)$:
+		\begin{enumerate}[label=(\alph*)]
+			\item{}$S(\gamma)\neq 0$, тогда добавим отсечение $(\alpha-\gamma)\setminus S(\gamma)$ к перечню $\eqref{44:sec}$
+			\item{}$S(\gamma)= 0$, тогда добавим $\gamma$ к найденным корням и:
+			\begin{enumerate}[label=(\roman*)]
+				\item{}Если вычисление $S(\gamma)$ происходило по схеме Горнера, то далее можно искать целые корни $S'(x):=S(x)/(x-\gamma)$
+
+				\item{}Если значение $S(\gamma)$ было вычислено не по схеме Горнера, то можно найти $S'(x):=S(x)/(x-\gamma)$ другим способом и продолжить (i),
+				но можно ограничиться делением $S(0)$ на $\gamma$ и проверять делители $S(0)/\gamma$
+			\end{enumerate}
+
+			Проверяются делители, не отвергнутые ранее, все отсечения сохраняются.
+
+			$\gamma$ проверяется ещё раз, тк он может быть кратным корнем.
+
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\theorem
+
+$S\in\Z[x]$ и старший коэфицент $S$ $=1$
+\begin{align*}
+	S(\alpha)=0\land\alpha\in\Q\Rarr\alpha\in\Z
+\end{align*}
+
+\proof
+
+Пусть несократимая дробь $b/c\in\Q$ является корнем полинома $S$:
+\begin{align*}
+	S\left(\frac{b}{c}\right)=\left(\frac{b}{c}\right)^n+a_{n-1} \left(\frac{b}{c}\right)^{n-1}+\ldots +a_0=0
 \end{align*}
 
 Умножим это равенство на $c^{n-1}$:
-
 \begin{align*}
-	0=\frac{b^n}{c}+a_{n-1} b^{n-1}+a_{n-2} b^{n-2} c+\ldots +a_0 c^{n-1}.
+	 & 0=\frac{b^n}{c}+a_{n-1} b^{n-1}+a_{n-2} b^{n-2} c+...+a_0 c^{n-1}\Rarr \frac{b^{n}}{c}\in\Z\Rarr c\setminus b^{n} \\
+	 & (b,c)=1\Rarr(b^{n},c)=1\land c\setminus b^{n}\Rarr c=1\Rarr b/c\in\Z\qed
 \end{align*}
 
-Отсюда видно, что число $b^n/c$ --- целое. Но $(b, c) = 1 \Rarr (b_n, c) = 1$.
-
-Это совместно с  $c\diagdown b^n$ только когда $c = 1~~\qed$ \newline
-
-Если коэффициент при старшей степени полинома отличен от 1, то могут быть не целые корни, но их тоже можно найти за конечное число шагов. \newpage
-
-\theorem[6.37.]
-
-Все рациональные корни полинома
-
+\theorem
 \begin{align*}
-	S(x)=a_n x^n+\ldots +a_0\in\mathbb{Z} [x],
+	 & S(x)=a_n x^n+\ldots +a_0\in\mathbb{Z} [x]                           \\
+	 & T(y)=y^n+a_{n-1} y^{n-1}+a_n a_{n-2} y^{n-2}+\ldots +a^{n-1}_n a_0.
 \end{align*}
-
-(как дробные, так и целые) являются целыми корнями полинома
-
 \begin{align*}
-	T(y)=y^n+a_{n-1} y^{n-1}+a_n a_{n-2} y^{n-2}+\ldots +a^{n-1}_n a_0.
+	T(y)=0\Lrarr S(y/a^{n})=0
 \end{align*}
-
-разделенными на $a_n$.
 
 \proof
 
-Ясно, что корни полинома $S$ совпадают с корнями полинома
-
+Корни $S$ совпадают с корнями $a_{n}^{n-1}S$:
 \begin{align*}
 	a^{n-1}_n S(x)=a^n_n x^n+a^{n-1}_n a_{n-1} x^{n-1}+\ldots +a^{n-1}_n a_0.
 \end{align*}
 
-Сделаем замену переменной $y = a_n x$. $T(y)=a^{n-1}_n S(x)$.
-Отсюда видно, что каждому корню $\beta_i$ полинома $T$ соответствует корень $\alpha_i=\beta_i/a_n$ полинома $S~~\qed$
+Сделаем замену переменной: $y: = a_n x$, $T(y):=a_{n}^{n-1}S(y/a_{n})$:
+\begin{align*}
+	T(y):=a_{n}^{n-1}S\left(\frac{y}{a_{n}}\right) & =a_{n}^{n}\left(\frac{y}{a_{n}}\right)^{n}+a_{n}^{n-1}a_{n-1}\left(\frac{y}{a_{n}}\right)^{n-1}+...+a_{n}^{n-1}a_0= \\
+	                                               & =y^{n}+a_{n-1}y^{n-1}+a_{n}a_{n-2}y^{n-2}+...+a^{n-1}a_0
+\end{align*}
+
+Тогда из определения $T$:
+\begin{align*}
+	T(y)=0\Lrarr S(y/a_{n})=0\qed
+\end{align*}
+
+{\it Замечание:}
+
+Для нахождения всех рациональных корней полинома $S$ можно найти все целые корни $T$ по алгоритму отсечений
 
 \end{document}
