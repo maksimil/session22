@@ -12,21 +12,21 @@ $f$, $g$ непрерывны и дифференцируемы $n$ раз в о
 
 \begin{align*}
 	\begin{cases}
-		f^{(m)}(a)=0,m=\overline{0,n-1} & f^{(n)}(a)\neq 0 \\
+		f^{(m)}(a)=0,m=\overline{0,n-1} &                  \\
 		g^{(m)}(a)=0,m=\overline{0,n-1} & g^{(n)}(a)\neq 0
 	\end{cases}\Rarr \slim{x\to a}\frac{f(x)}{g(x)}=\frac{f^{(n)}(a)}{g^{(n)}(a)}
 \end{align*}
 
 \proof
 \begin{align*}
-	 & f(x) = f(a) + \sum_{k=1}^{n-1}\frac{(x-a)^{k}}{k!}f^{(k)}(a)+R_f=R_f=\frac{(x-a)^{n}}{n!}f^{(n)}(a+\theta_f(x-a)),\;\theta_f\in(0;1)    \\
-	 & g(x) = g(a) + \sum_{k=1}^{n-1}\frac{(x-a)^{k}}{k!}g^{(k)}(a)+R_g=R_g=\frac{(x-a)^{n}}{n!}g^{(n)}(a+\theta_g(x-a)),\;\theta_g\in(0;1)    \\
-	 & \slim{x\to a}\frac{f(x)}{g(x)}=\slim{x\to a}\frac{f^{(n)}(a+\theta_f(x-a))}{g^{(n)}(a+\theta_g(x-a))}=\frac{f^{(n)}(a)}{g^{(n)}(a)}\qed
+	 & f(x) = f(a) + \sum_{k=1}^{n}\frac{(x-a)^{k}}{k!}f^{(k)}(a)+o((x-a)^{n})=\frac{(x-a)^{n}}{n!}f^{(n)}(a)+o((x-a)^{n})\Rarr                     \\
+	 & \Rarr\slim{x\to a}\frac{f(x)}{(x-a)^{n}}=\frac{f^{(n)}(a)}{n!}\text{, аналогично: }\slim{x\to a}\frac{g(x)}{(x-a)^{n}}=\frac{g^{(n)}(a)}{n!} \\
+	 & \slim{x\to a}\frac{f(x)}{g(x)}=\slim{x\to a}\frac{f(x)}{(x-a)^{n}}\slim{x\to a}\frac{(x-a)^{n}}{g(x)}=\frac{f^{(n)}(a)}{g^{(n)}(a)}\qed
 \end{align*}
 
 \theorem[Лопиталя 2.1]
 
-{\it Замечание: т. Лопиталя 1 рассматривает случай, когда $f$ определена в $a$}
+{\it Замечание: т. Лопиталя 1 рассматривает случай, когда $f$ и $g$ определены в $a$}
 
 $f$, $g$ определены и дифференцируемы на $(a;b)$
 \begin{align*}
@@ -55,36 +55,50 @@ $f$ и $g$ определены на $[x_1;x_2]$ и дифференцируем
 \pagebreak
 
 Ограничим полученную дробь:
+\begin{align*}
+	 & m(x_2):=\inf\left\{\frac{f'(z)}{g'(z)}\;|\;z\in(a;x_2)\right\} &  & M(x_2):=\sup\left\{\frac{f'(z)}{g'(z)}\;|\;z\in(a;x_2)\right\}
+\end{align*}
 \begin{align}
-	 & m(x_2):=\inf\left\{\frac{f'(z)}{g'(z)}\;|\;z\in(a;x_2)\right\}\notag     \\
-	 & M(x_2):=\sup\left\{\frac{f'(z)}{g'(z)}\;|\;z\in(a;x_2)\right\}\notag     \\
 	 & m(x_2)\leq\frac{f(x_2)-f(x_1)}{g(x_2)-g(x_1)}\leq M(x_2)\label{57:limit}
 \end{align}
 
 \begin{enumerate}
 	\item{}$\slim{x\to a+0}f(x)=\slim{x\to a+0}g(x)=0$
+
+	Возьмём $\slim{x_1\to a+0}$ по всем частям $\eqref{57:limit}$:
 	\begin{align*}
-		\slim{x_1\to a+0}\frac{f(x_2)-f(x_1)}{g(x_2)-g(x_1)}=\slim{x_1\to a+0}\frac{\frac{f(x_2)}{g(x_2)}-\frac{f(x_1)}{g(x_2)}}{1-\frac{g(x_1)}{g(x_2)}}=\frac{f(x_2)}{g(x_2)}
+		 & \slim{x_1\to a+0}m(x_2)\leq \slim{x_1\to a+0}\frac{f(x_2)-f(x_1)}{g(x_2)-g(x_1)}
+		=\slim{x_1\to a+0}\frac{\frac{f(x_2)}{g(x_2)}-\frac{f(x_1)}{g(x_2)}}{1-\frac{g(x_1)}{g(x_2)}}=\frac{f(x_2)}{g(x_2)} \leq \slim{x_1\to a+0}M(x_2)\Rarr \\
+		 & \Rarr m(x_2)\leq \frac{f(x_2)}{g(x_2)}\leq M(x_2)\text{ (тк $m(x_2)$ и $M(x_2)$ не зависят от $x_1$)}
 	\end{align*}
 
-	Тогда из $\eqref{57:limit}$ следует:
+	Тогда по принципу сжатой переменной:
 	\begin{align*}
-		 & m(x_2)\leq \frac{f(x_2)}{g(x_2)}\leq M(x_2)                                                                                   \\
-		 & \left(\slim{x_2\to a+0}m(x_2)=\slim{x_2\to a+0}\frac{f(x_2)}{g(x_2)}=L\right)\land\left(\slim{x_2\to a+0}M(x_2)=L\right)\Rarr \\
-		 & \Rarr\exists\slim{x_2\to a+0}\frac{f'(x_2)}{g'(x_2)}=L\text{ (по принципу сжатой переменной)}\qed
+		 & \left(\slim{x_2\to a+0}m(x_2)=\slim{x_2\to a+0}\frac{f(x_2)}{g(x_2)}=L\right)\land\left(\slim{x_2\to a+0}M(x_2)=L\right)
+		\Rarr\exists\slim{x_2\to a+0}\frac{f'(x_2)}{g'(x_2)}=L\qed
 	\end{align*}
 
 	\item{}$\slim{x\to a+0}|g(x)|=+\infty$
-	\begin{align*}
-		\frac{f(x_1)-f(x_2)}{g(x_1)-g(x_2)}=\frac{\frac{f(x_1)}{g(x_1)}-\frac{f(x_2)}{g(x_1)}}{1-\frac{g(x_2)}{g(x_1)}}
-	\end{align*}
 
-	Тогда из $\eqref{57:limit}$ следует:
+	Возьмём $\sliminf{x_1\to a+0}$ по всем частям $\eqref{57:limit}$:
 	\begin{align*}
-		 & m(x_2)\leq\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq M(x_2) \\
-		 & \left(\slim{x_2\to a+0}m(x_2)=L\right)\land\left(\slim{x_2\to a+0}M(x_2)=L\right)\Rarr
-		L\leq\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq L\Rarr         \\
-		 & \Rarr\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}=\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}=L\Rarr
+		 & \sliminf{x_1\to a+0}m(x_2)\leq \sliminf{x_1\to a+0}\frac{f(x_1)-f(x_2)}{g(x_1)-g(x_2)}
+		 =\sliminf{x_1\to a+0}\frac{\frac{f(x_1)}{g(x_1)}-\frac{f(x_2)}{g(x_1)}}{1-\frac{g(x_2)}{g(x_1)}}=\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)} 
+		 \leq \sliminf{x_1\to a+0}M(x_2)\Rarr \\
+		 & \Rarr m(x_2)\leq \sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq M(x_2)\text{ (тк $m(x_2)$ и $M(x_2)$ не зависят от $x_1$)}
+	\end{align*} 
+
+	Аналогично для $\slimsup{x_1\to a+0}$:
+	\begin{align}
+		m(x_2)\leq \sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq M(x_2)\label{57:inflimit}
+	\end{align}
+
+	Возьмём $\slim{x_2\to a+0}$ по всем частям $\eqref{57:inflimit}$:
+	\begin{align*}
+		&\slim{x_2\to a+0}m(x_2)\leq\slim{x_2\to a+0}\left(\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\right)
+		\leq\slim{x_2\to a+0}\left(\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\right)\leq \slim{x_2\to a+0}M(x_2)\Rarr\\
+		&\Rarr L\leq\sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}\leq L\Rarr
+		 \sliminf{x_1\to a+0}\frac{f(x_1)}{g(x_1)}=\slimsup{x_1\to a+0}\frac{f(x_1)}{g(x_1)}=L\Rarr
 		\exists\slim{x_1\to a+0}\frac{f(x_1)}{g(x_1)}=L\qed
 	\end{align*}
 \end{enumerate}
@@ -119,9 +133,9 @@ $(\forall x\in(b;a))\;g'(x)\neq 0$
 
 Перепишем теперь условие через $t$:
 \begin{align*}
-	 & \slim{x\to a-0}f(x)=0\Rarr\slim{t\to -a+0}f(t)=0\Rarr\slim{t\to -a+0}\ft(t)=0                                 \\
-	 & \slim{x\to a-0}g(x)=0\Rarr\slim{t\to -a+0}g(t)=0\Rarr\slim{t\to -a+0}\gt(t)=0                                 \\
-	 & (\forall x\in(b;a))\;g'(x)\neq 0,\;g(x)\neq 0\Rarr (\forall t\in(-a;-b))\;\gt'(t)=-g(-t)\neq 0,\;\gt(t)\neq 0
+	 & \slim{x\to a-0}f(x)=0\Rarr\slim{t\to -a+0}f(t)=0\Rarr\slim{t\to -a+0}\ft(t)=0    \\
+	 & \slim{x\to a-0}g(x)=0\Rarr\slim{t\to -a+0}g(t)=0\Rarr\slim{t\to -a+0}\gt(t)=0    \\
+	 & (\forall x\in(b;a))\;g'(x)\neq 0\Rarr (\forall t\in(-a;-b))\;\gt'(t)=-g'(-t)\neq 0
 \end{align*}
 
 Тогда по т. Лопиталя 2.1:
@@ -184,14 +198,14 @@ $(\forall x\in(a;+\infty))\;g'(x)\neq 0$
 \begin{align*}
 	 & \slim{x\to +\infty}f(x)=0\Rarr\slim{t\to 0+0}f\left(\frac{1}{t}\right)=0\Rarr\slim{t\to 0+0}\ft(t)=0 \\
 	 & \slim{x\to +\infty}g(x)=0\Rarr\slim{t\to 0+0}g\left(\frac{1}{t}\right)=0\Rarr\slim{t\to 0+0}\gt(t)=0 \\
-	 & (\forall x\in(a;+\infty))\;g'(x)\neq 0,\;g(x)\neq 0\Rarr
-	\left(\forall t\in\left(0;\frac{1}{a}\right)\right)\;\gt'(t)=-\frac{1}{t^{2}}g'\left(\frac{1}{t}\right)\neq 0,\;\gt(t)\neq 0
+	 & (\forall x\in(a;+\infty))\;g'(x)\neq 0\Rarr
+	\left(\forall t\in\left(0;\frac{1}{a}\right)\right)\;\gt'(t)=-\frac{1}{t^{2}}g'\left(\frac{1}{t}\right)\neq 0
 \end{align*}
 
 Тогда по т. Лопиталя 2.1:
 \begin{align*}
 	 & \exists\slim{x\to +\infty}\frac{f'(x)}{g'(x)}=\slim{t\to 0+0}\frac{\ft'(t)}{\gt'(t)}\Rarr
-	\exists\slim{t\to +\infty}\frac{\ft(t)}{\gt(t)}=\slim{t\to 0+0}\frac{\ft'(t)}{\gt'(t)}\Rarr  \\
+	\exists\slim{t\to 0+0}\frac{\ft(t)}{\gt(t)}=\slim{t\to 0+0}\frac{\ft'(t)}{\gt'(t)}\Rarr  \\
 	 & \Rarr\exists\slim{x\to +\infty}\frac{f(x)}{g(x)}=\slim{t\to 0+0}\frac{\ft(t)}{\gt(t)}
 	=\slim{t\to 0+0}\frac{\ft'(t)}{\gt'(t)}=\slim{x\to+\infty}\frac{f'(x)}{g'(x)}\qed
 \end{align*}
