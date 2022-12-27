@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{68}{Иррациональное число e.}
+
+\theorem
+\begin{align*}
+	e=\slimty\sum_{k=0}^{n}\frac{1}{k!}
+\end{align*}
+
+\proof
+
+Найдём разложение $f(x)=e^{x}$ по формуле Маклорена
+
+\begin{enumerate}
+	\item{}Найдём $f^{(n)}(0)$:
+	\begin{align*}
+		f^{(n)}(x)=e^{x}\Rarr f^{(n)}(0)=1
+	\end{align*}
+	\item{}Найдём разложение:
+	\begin{align*}
+		e^{x} & =f(x_0)+\sum_{k=1}^{n}\frac{(x-x_0)^{k}}{k!}f^{(k)}(x_0)+\frac{(x-x_0)^{n+1}}{(n+1)!}f^{(n+1)}(x_0+\theta(x-x_0))= \\
+		      & =\sum_{k=0}^{n}\frac{x^{k}}{k!}+\frac{x^{n+1}}{(n+1)!}e^{\theta x},\;\theta\in(0;1)
+	\end{align*}
+\end{enumerate}
+
+\newcommand\ep{\widetilde{e}}
+
+Тогда можно найти приближённое значение $e$:
+\begin{align}
+	 & \ep_{n}:=\sum_{k=0}^{n}\frac{1}{k!} &  & R_{n}:=\frac{e^{\theta}}{(n+1)!},\;\theta\in(0;1) &  & e=e^{1}=\ep_{n}+R_{n}\label{68:taylor_e}
+\end{align}
+
+И оценить погрешность:
+\begin{align}
+	 & |\ep_{n}-e|=|R_{n}|=\frac{|e^{\theta}|}{(n+1)!}<\frac{e}{(n+1)!}<\frac{3}{(n+1)!} &  & \frac{1}{(n+1)!}<R_{n}<\frac{e}{(n+1)!}<\frac{3}{(n+1)!}\label{68:rlims}
+\end{align}
+\begin{align*}
+	 & \slimty|\ep_{n}-e|=\slimty\frac{3}{(n+1)!}=0                                                                                \\
+	 & \slimty|\ep_{n}-e|=\left|\left(\slimty\ep_{n}\right)-e\right|=0\Rarr e=\slimty\ep_{n}=\slimty\sum_{k=0}^{n}\frac{1}{k!}\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+
+Число $e$ иррационально
+
+\proof
+
+Пусть $e$ --- рационально $\Rarr$ $\exists m,n\in\N:e=\frac{m}{n}$
+\begin{align*}
+	e=\frac{m}{n}\in\Q\Rarr n!e=(n-1)!m\in\N
+\end{align*}
+
+Воспользуется $\eqref{68:taylor_e}$:
+\begin{align*}
+	n!e=\sum_{k=0}^{n}\frac{n!}{k!}+n!R_{n}\in\N\land (\forall k\leq n)\;\frac{n!}{k!}\in\N\Rarr n!R_{n}\in\N
+\end{align*}
+
+Теперь воспользуемся оценкой $\eqref{68:rlims}$:
+\begin{align*}
+	 & \frac{1}{(n+1)!}<R_{n}<\frac{3}{(n+1)!}\Rarr\frac{n!}{(n+1)!}<n!R_{n}<\frac{3n!}{(n+1)!}\Rarr \frac{1}{n+1}<n!R_{n}<\frac{3}{n+1} \\
+	 & \llet n=2\Rarr \frac{1}{3}<n!R_{n}<1\text{, но }n!R_{n}\in\N
+\end{align*}
+
+Пришли к противоречию, значит, таких $m$ и $n$ не существует и $e$ --- иррационально$\qed$
+
+\end{document}
