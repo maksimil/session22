@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{41}{Приводимость полиномов}
+
+\define
+
+Полином $P$ называется приводимым над кольцом $K$, если:
+\begin{align*}
+	\exists S,Q\in K[x]:\deg S\geq 1\land \deg Q\geq 1\land P=SQ
+\end{align*}
+
+Приводимость над $\Cx$ любого полинома при $\deg>1$ следует из ОТА
+
+Над $\R$ приводим любой полином $\deg>2$ и могут быть неприводимы полиномы $\deg=2$ вида $ax^2 + bx +c$, когда $b^2 - 4ac < 0$
+
+Над $\Q$ могут быть неприводимы полиномы сколь угодно высоких степеней
+
+\theorem
+\begin{align*}
+	d, n\in\N\land\sqrt[d]{n}\notin \N \Rarr \nexists p, q\in \N:(p,q) = 1\land \sqrt[d]{n} = p/q
+\end{align*}
+
+\proof
+
+Пусть $\sqrt[d]{n} = p/q$, $p,q\in\N$:
+\begin{align*}
+	n=\frac{p^{d}}{q^{d}}\in\Z & \Rarr q^{d}\setminus p^{d}\Rarr q\setminus p^{d} \Rarr q\setminus p^{d-1}p\land (p,q)=1 \\
+	                           & \Rarr q\setminus p^{d-1}\land(p,q)=1\Rarr...\Rarr q\setminus p\land(p,q)=1\Rarr q=1
+\end{align*}
+
+Тогда $p/q\in\N$, что противоречит условию, значит, таких $p$ и $q$ не существует$\qed$
+\end{document}
