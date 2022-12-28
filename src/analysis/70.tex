@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{70}{Определение и свойства неопределенного интеграла. Таблица неопределенных интегралов.}
+
+\define{первообразной}
+
+$f(x)$ --- определена на $(a;b)$
+
+$F$ --- первообразная $f$, если $(\forall x\in(a;b))\;F'(x)=f(x)$
+
+$\exists F'(a+0)=f(a+0)\land\exists F'(b-0)=f(b-0)$
+
+\theorem
+
+$f$ --- непрерывна на $(a;b)$ $\Rarr$ $\exists$первообразная $f$ на $(a;b)$
+
+\proof
+
+Даётся без доказательства
+
+\theorem
+
+$f$ --- определена на $(a;b)$, $F$ --- её первообразная
+\begin{align*}
+	G=F+c,\;c=\const\Lrarr G\text{ --- первообразная $f$}
+\end{align*}
+
+\onlyif
+\begin{align*}
+	G=F+c\Rarr G'=F'=f\Rarr G\text{ --- первообразная $f$}\qed
+\end{align*}
+
+\enough
+
+Рассмотрим $U=G-F$:
+\begin{align*}
+	U=G-F\Rarr U'=G'-F'=f-f=0\Rarr U=\const\Rarr G=F+c,\;c=\const\qed
+\end{align*}
+
+\define{неопределенного интеграла}
+
+$f$ --- определена на $(a;b)$, $F$ --- её первообразная
+
+Совокупность всех функций вида $F(x)+c$, где $c=\const$, называется неопределенным\\
+интегралом $f(x)$ на $(a;b)$
+
+Обозначение:
+\begin{align*}
+	\int f(x)dx               & =F(x)+c & d\int dF   & =d\int f(x)dx=d(F(x)+c)=dF                     \\
+	\left(\int f(x)dx\right)' & =f(x)   & \int d(dF) & =\int d(f(x)dx)=\int (f'(x)dx)dx=f(x)dx+c=dF+c
+\end{align*}
+
+{\it Замечание:}
+
+Функции могут иметь первообразную, не выражаемую через элементарные функции.
+
+Такие интегралы называются неберущимеся и относятся к классу неэлементарных функций.
+
+\pagebreak
+
+\sectitle{Алгебраические свойства неопределённого интеграла}
+
+\theorem
+\begin{align*}
+	(\forall \alpha,\beta\in\R)\;\int\alpha f(x)+\beta g(x)dx=\alpha\int f(x)dx+\beta\int g(x)dx
+\end{align*}
+
+\proof
+
+Продифференцируем правую часть:
+\begin{align*}
+	 & I(x):=\alpha\int f(x)dx+\beta\int g(x)dx                                                         \\
+	 & I'(x)=\alpha\left(\int f(x)dx\right)'+\beta\left(\int g(x)dx\right)'=\alpha f(x)+\beta g(x)\Rarr \\
+	 & \Rarr I(x)\text{ --- первообразная $\alpha f(x)+\beta g(x)$}\qed
+\end{align*}
+
+\theorem
+
+$F$ --- первообразная $f$
+\begin{align*}
+	(\forall a,b\in\R:a\neq 0)\;\int f(ax+b)dx=\frac{1}{a}F(ax+b)+c
+\end{align*}
+
+\proof
+
+Продифференцируем правую часть:
+\begin{align*}
+	 & I(x):=\frac{1}{a}F(ax+b)+c                                                          \\
+	 & I'(x)=\frac{1}{a}aF'(ax+b)=f(ax+b)\Rarr I(x)\text{ --- первообразная $f(ax+b)$}\qed
+\end{align*}
+
+\sectitle{Таблица неопределенных интегралов}
+\begin{align*}
+	 & \int 0dx=c                                         &  & \int\frac{dx}{\cos^{2}(x)}=\tg(x)+c                                                &  & \int\sh(x)dx=\ch(x)+c                \\
+	 & \int dx=x+c                                        &  & \int\frac{dx}{\sin^{2}(x)}=-\ctg(x)+c                                              &  & \int\ch(x)dx=\sh(x)+c                \\
+	 & \int x^{a}dx=\frac{x^{a+1}}{a+1}+c,\;a\neq -1      &  & \int\frac{dx}{\sqrt{x^{2}+m}}=\ln|x+\sqrt{x^{2}+m}|,\;m\neq 0                      &  & \int\frac{dx}{\ch^{2}(x)}=\th(x)+c   \\
+	 & \int \frac{1}{x}dx=\ln|x|+c                        &  & \int\frac{dx}{\sqrt{a^{2}-x^{2}}}=\arcsin\left(\frac{x}{a}\right)+c,\;|x|<a        &  & \int\frac{dx}{\sh^{2}(x)}=-\cth(x)+c \\
+	 & \int e^{x}dx=e^{x}+c                               &  & \int\frac{dx}{\sqrt{a^{2}-x^{2}}}=\arccos\left(\frac{x}{a}\right)+c,\;|x|<a                                                  \\
+	 & \int a^{x}dx=\frac{a^{x}}{\ln a}+c,\;a>0,\;a\neq 1 &  & \int\frac{dx}{x^{2}+a^{2}}=\frac{1}{a}\arctg\left(\frac{x}{a}\right)+c,\;a\neq 0                                             \\
+	 & \int \sin(x)dx=-\cos(x)+c                          &  & \int\frac{dx}{x^{2}+a^{2}}=-\frac{1}{a}\arcctg\left(\frac{x}{a}\right)+c,\;a\neq 0                                           \\
+	 & \int \cos(x)dx=\sin(x)+c                           &  & \int\frac{dx}{x^{2}-a^{2}}=\frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+c,\;a\neq 0
+\end{align*}
+
+\end{document}
