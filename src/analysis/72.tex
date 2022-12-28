@@ -1,9 +1,102 @@
 \documentclass{article}
 
 \usepackage{defines}
-
 \begin{document}
 
 \tickettitle{72}{Неопределенный интеграл: интегрирование по частям. Примеры.}
+
+\theorem[(формула интегрирования по частям)]
+
+$u$, $v$ --- дифференцируемы на $(a;b)$
+
+\begin{align*}
+	\exists \int v(x)u'(x)dx\Rarr \exists\int u(x)v'(x)dx=u(x)v(x)-\int v(x)u'(x)dx
+\end{align*}
+
+\proof
+
+Рассмотрим $u(x)v(x)$:
+\begin{align*}
+	 & (u(x)v(x))'=u'(x)v(x)+u(x)v'(x)\Rarr\int (u(x)v(x))'dx=\int u'(x)v(x)dx+\int u(x)v'(x)dx\Rarr       \\
+	 & \Rarr u(x)v(x)=\int u'(x)v(x)dx+\int u(x)v'(x)dx\Rarr\int u(x)v'(x)dx=u(x)v(x)-\int v(x)u'(x)dx\qed
+\end{align*}
+
+{\it Другими словами:}
+\begin{align*}
+	\int udv=uv-\int vdu
+\end{align*}
+
+\theorem[(обобщённая формула интегрирования по частям)]
+\begin{align*}
+	\int u(x)v^{(n+1)}(x)dx=\sum_{k=0}^{n}(-1)^{k}u^{(k)}(x)v^{(n-k)}(x)+(-1)^{n+1}\int u^{(n+1)}(x)v(x)dx
+\end{align*}
+
+\proof
+
+{\it Индукция:} $P(n)$ --- верность теоремы для $n$
+\begin{enumerate}
+	\item{}$P(0)$
+	\begin{align*}
+		\int u(x)v'(x)dx=u(x)v(x)-\int u'(x)v(x)dx
+	\end{align*}
+	\item{}$P(n-1)\Rarr P(n)$
+	\begin{align*}
+		\int u(x)v^{(n+1)}(x)dx
+		 & =\int u(x)(v'(x))^{(n)}dx=\sum_{k=0}^{n-1}(-1)^{k}u^{(k)}(x)(v'(x))^{(n-1-k)}+(-1)^{n}\int u^{(n)}(x)v'(x)dx= \\
+		 & =\sum_{k=0}^{n-1}(-1)^{k}u^{(k)}(x)v^{(n-k)}(x)+(-1)^{n}u^{(n)}(x)v(x)-(-1)^{n}\int u^{(n+1)}v(x)dx=          \\
+		 & =\sum_{k=0}^{n}(-1)^{k}u^{(k)}(x)v^{(n-k)}(x)+(-1)^{n+1}\int u^{(n+1)}(x)v(x)dx\qed
+	\end{align*}
+\end{enumerate}
+
+\pagebreak
+
+{\it Пример}
+\begin{align*}
+	I
+	 & =\int x\arctg(x)dx=\int \left(\frac{x^{2}}{2}\right)'\arctg(x)dx=\frac{x^{2}}{2}\arctg(x)-\int \frac{2x^{2}}{1+x^{2}}dx=           \\
+	 & =\frac{x^{2}}{2}\arctg(x)-2\int\frac{x^{2}+1-1}{1+x^{2}}dx=\frac{x^{2}}{2}\arctg(x)-2\left(\int dx-\int\frac{1}{1+x^{2}}dx\right)= \\
+	 & =\frac{x^{2}}{2}\arctg(x)-2x+\arctg(x)+c
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	I
+	 & =\int \frac{\arctg(x)}{1+x^{2}}dx=\int \arctg'(x)\arctg(x)dx=\arctg^{2}(x)-\int\arctg(x)\arctg'(x)dx=                 \\
+	 & =\arctg^{2}(x)-\int \frac{\arctg(x)}{1+x^{2}}dx=\arctg^{2}(x)-I\Rarr I=\arctg^{2}(x)-I\Rarr I=\frac{\arctg^{2}(x)}{2}
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	I_{m}
+	 & =\int x^{\alpha}\ln^{m}(x)dx,\;\alpha\in\R\land\alpha\neq -1=\int \left(\frac{x^{\alpha+1}}{\alpha+1}\right)'\ln^{m}(x)dx=             \\
+	 & =\left(\frac{x^{\alpha+1}}{\alpha+1}\right)\ln^{m}(x)-\int \left(\frac{x^{\alpha+1}}{\alpha+1}\right)\ln^{m}(x)'dx
+	=\left(\frac{x^{\alpha+1}}{\alpha+1}\right)\ln^{m}(x)-\int \left(\frac{x^{\alpha+1}}{\alpha+1}\right)\left(\frac{m\ln^{m-1}}{x}\right)dx= \\
+	 & =\left(\frac{x^{\alpha+1}}{\alpha+1}\right)\ln^{m}(x)-\frac{m}{\alpha+1}\int x^{\alpha}\ln^{m-1}(x) dx
+	=\left(\frac{x^{\alpha+1}}{\alpha+1}\right)\ln^{m}(x)-\frac{m}{\alpha+1}I_{m-1}\text{ --- рекуррентная форма }
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	I
+	 & =\int x^{n}e^{cx}dx,\;c\neq 0=\int x^{n}\left(\frac{e^{cx}}{c^{n+1}}\right)^{(n+1)}dx
+	=\sum_{k=0}^{n}(-1)^{k}(x^{n})^{(k)}\left(\frac{e^{cx}}{c^{n+1}}\right)^{(n-k)}+(-1)^{n+1}\int \left(x^{n}\right)^{(n+1)}\left(\frac{e^{cx}}{c^{n+1}}\right)dx=                       \\
+	 & =\sum_{k=0}^{n}(-1)^{k}(x^{n})^{(k)}\left(\frac{e^{cx}}{c^{n+1}}\right)^{(n-k)}+\kappa=\sum_{k=0}^{n}(-1)^{k}\frac{n!}{(n-k)!}x^{n-k}\frac{e^{cx}}{c^{k+1}}+\kappa,\;\kappa=\const
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	 & I=\int x^{\alpha}\ln^{m}(x)dx,\;\alpha\in\R\land\alpha\neq -1                                                           \\
+	 & x=e^{t}\Rarr dx=e^{t}dt\land t=\ln(x)                                                                                   \\
+	 & I=\int e^{(\alpha+1) t}t^{m}dt=\sum_{k=0}^{m}(-1)^{k}\frac{m!}{(m-k)!}t^{m-k}\frac{e^{(\alpha+1)t}}{(\alpha+1)^{k+1}}+c
+	=\sum_{k=0}^{m}(-1)^{k}\frac{m!}{(m-k)!}\ln^{m-k}(x)\frac{x^{\alpha+1}}{(\alpha+1)^{k+1}}+c
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	I
+	  & =\int e^{x}\sin(x)dx=\int (e^{x})''\sin(x)dx=\sin(x)(e^{x})'-\cos(x)e^{x}+\int e^{x}\sin''(x)dx= \\
+	  & =\sin(x)e^{x}-\cos(x)e^{x}-\int e^{x}\sin(x)dx=\sin(x)e^{x}-\cos(x)e^{x}-I                       \\
+	I & =(\sin(x)-\cos(x))e^{x}-I\Rarr I=e^{x}\frac{\sin(x)-\cos(x)}{2}+c
+\end{align*}
 
 \end{document}
