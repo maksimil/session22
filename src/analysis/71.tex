@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{71}{Неопределенный интеграл. Интегрирование методом подстановки.}
+
+\theorem
+
+$f$ --- определена на $(a;b)$ $\land$ $F$ --- её первообразная
+
+$\varphi$ --- дифференцируема на $(c;d)$ $\land$ $\varphi'$ --- непрерывна на $(c;d)$ $\land$ $\varphi((c;d))\subset(a;b)$
+
+Тогда на $(c;d)$:
+\begin{align*}
+	\int f(\varphi(t))\varphi'(t)dt=F(\varphi(t))+c
+\end{align*}
+
+\proof
+
+Продифференцируем правую часть:
+\begin{align*}
+	 & I(x):=	F(\varphi(t))+c                                             \\
+	 & I'(x)=F'(\varphi(t))\varphi'(t)=f(\varphi(t))\varphi'(t)\Rarr      \\
+	 & \Rarr I(x)\text{ --- первообразная $f(\varphi(t))\varphi'(t)$}\qed
+\end{align*}
+
+\sectitle{Интегрирование методом подстановки}
+
+\hd{Способ 1: $x=\varphi(t)$}
+\begin{align*}
+	\int f(x)dx=\int f(\varphi(t))\varphi'(t)dt=\int g(t)dt=G(t)+c=G(\varphi^{-1}(x))+c
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	 & F(x)=\int\frac{dx}{\sqrt{x}+1}                                                              \\
+	 & x=t^{2}\Rarr t=\sqrt{x} \land dx=2tdt                                                       \\
+	 & \begin{aligned}
+		   F(x)
+		    & =\int\frac{2t}{t+1}dt=2\int\frac{t+1-1}{t+1}dt=2\left(\int dt-\int\frac{dt}{t+1}\right)= \\
+		    & =2(t+\ln|t+1|)+c=2(\sqrt{x}+\ln|\sqrt{x}+1|)+c
+	   \end{aligned}
+\end{align*}
+
+\hd{Способ 2: $f(x)=g(\omega(x))\omega'(x)$}
+\begin{align*}
+	\int f(x)dx=\int g(\omega(x))\omega'(x)dx=G(\omega(x))+c
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	 & F(x)=\int\sin^{2}(x)\cos(x)dx                                \\
+	 & t=\sin(x)\Rarr dt=\cos(x)dx                                  \\
+	 & F(x)=\int t^{2}dt=\frac{1}{3}t^{3}+c=\frac{\sin^{3}(x)}{3}+c
+\end{align*}
+
+\end{document}
