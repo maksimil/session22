@@ -6,9 +6,16 @@
 
 \tickettitle{62}{Первый дифференциал функции в точке, его свойства. Инвариантность~формы~первого~дифференциала}
 
-\define{определение первого дифференциала функции в точке}
+\define{первого дифференциала функции в точке}
 
 Дифференциалом или первым дифференциалом $y=f(x)$ в точке $x$ по отношению к приращению $h$ называется $f'(x)h$ и обозначается как $dy$ или $df(x)$
+
+\textbf{Геометрический смысл дифференциала}
+
+Дифференциал в некоторой точке \textbf{---} это главная линейная часть  приращения функции
+
+$d_x(f(x), h)$ \textbf{---} дифференциал относительно приращения $h$ и переменной $x$
+
 
 Если $f(x)=x$, то $f'(x)=1$ $\Rarr$ $df(x)=dx=h=\Delta x$
 
@@ -33,24 +40,24 @@ $y=f(x)$, $z=g(x)$
 
 $y=f(x)$, $z=g(x)$
 \begin{align*}
-	d\left(\frac{y}{z}\right)=\frac{zdy-ydz}{z^{2}}
+	d\left(\frac{y}{z}\right)=\frac{z \cdot dy-y \cdot dz}{z^{2}}
 \end{align*}
 
 \proof
 \begin{align*}
-	d\left(\frac{y}{z}\right)=\left(\frac{y}{z}\right)'dx =\frac{y'z-yz'}{z^{2}}dx=\frac{zdy-ydz}{z^{2}}\qed
+	d\left(\frac{y}{z}\right)=\left(\frac{y}{z}\right)'dx =\frac{y'z-yz'}{z^{2}}dx=\frac{z \cdot dy-y \cdot dz}{z^{2}}\qed
 \end{align*}
 
 \theorem
 
 $y=f(x)$, $z=g(x)$
 \begin{align*}
-	d(yz)=zdy+ydz
+	d(yz)=z \cdot dy+y \cdot dz
 \end{align*}
 
 \proof
 \begin{align*}
-	d(yz)=(yz)'dx=(y'z+yz')dx=zdy+ydz\qed
+	d(yz)=(yz)'dx=(y'z+yz')dx=z \cdot dy+y \cdot dz\qed
 \end{align*}
 
 \pagebreak
@@ -65,7 +72,7 @@ $dy$ --- главная часть $\Delta y$
 
 Рассмотрим $\Delta y-dy$:
 \begin{align*}
-	 & \frac{\Delta y-dy}{dx}=\frac{f(x+\Delta x)-f(x)-f'(x)\Delta x}{\Delta x}=\frac{f(x+\Delta x)-f(x)}{\Delta x}-f'(x)\xrightarrow{\Delta x\to 0}0\Rarr \\
+	 & \frac{\Delta y-dy}{dx}=\frac{f(x+\Delta x)-f(x)-f'(x)\Delta x}{\Delta x}=\frac{f(x+\Delta x)-f(x)}{\Delta x}-f'(x)\xrigh)tarrow{\Delta x\to 0}0 \text{ (по условию теоремы)}\Rarr \\
 	 & \Rarr\Delta y-dy=o(\Delta x)\Rarr \Delta y=dy+o(\Delta x)\qed
 \end{align*}
 
@@ -77,11 +84,13 @@ $z=g(y)$, $y=f(x)$
 	 & dz=g_{y}'dy=g_{y}'f_{x}'dx\label{62:form_2}
 \end{align}
 
-$\eqref{62:form_1}$ и $\eqref{62:form_2}$ равны, те $g'_{x}dx=g'_{y}dy$
+$\eqref{62:form_1}$ и $\eqref{62:form_2}$ равны, те $g'_{x}dx=g'_{y}dy$ 
+
+(Иными словами вид дифференциала всегда один и тот же: $dy=f'(x)dx$)
 
 \proof
 
-Рассмотрим $\eqref{62:form_1}$:
+При условии $f_{x}'dx = dy$ рассмотрим $\eqref{62:form_1}$ :
 \begin{align*}
 	dz=g_{x}'dx=g(f(x))'dx=g_{y}'f_{x}'dx=g_{y}'dy=\eqref{62:form_2}\qed
 \end{align*}

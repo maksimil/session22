@@ -2,16 +2,18 @@
 
 \usepackage{defines}
 
+\usepackage{mathtools, ulem}
+
 \begin{document}
 
 \tickettitle{56}{Теорема Тейлора, остаточные члены разложения функции в формах Лагранжа, Коши и Пеано.}
 
 \theorem{Тейлора}
 
-$f$ --- $n$ раз дифференцируема на $X$ и $a,b\in X$:
-\begin{align}
-	 & f(b)=f(a)+\sum_{k=1}^{n-1}\frac{(b-a)^{k}}{k!}f^{(k)}(a)+R_n\label{56:formula}
-\end{align}
+$f$ --- $n$ раз дифференцируема на $[a;b]$
+\begin{align*}
+	 & f(b)=f(a)+\sum_{k=1}^{n-1}\frac{(b-a)^{k}}{k!}f^{(k)}(a)+R_n
+\end{align*}
 \begin{align*}
 	 & h:=b-a                                                                                                                  \\
 	 & R_n=\frac{h^n}{n!}f^{(n)}(a+\theta h),\;\theta\in(0;1)\text{ --- остаточный член в форме Лагранжа }                     \\
@@ -25,6 +27,7 @@ $f$ --- $n$ раз дифференцируема на $X$ и $a,b\in X$:
 \begin{align*}
 	g_n(x):=f(b)-f(x)-\sum_{k=1}^{n-1}\frac{(b-x)^{k}}{k!}f^{(k)}(x)
 \end{align*}
+Продифференцируем выражение:
 \begin{align*}
 	g_n'(x)
 	 & =-f'(x)-\sum_{k=1}^{n-1}\left[-\frac{(b-x)^{k-1}}{(k-1)!}f^{(k)}(x)+\frac{(b-x)^{k}}{k!}f^{(k+1)}(x)\right]=                                                                                                                          \\
@@ -76,12 +79,5 @@ $f$ --- $n$ раз дифференцируема на $X$ и $a,b\in X$:
 	\slim{b\to a}\frac{r}{h^{n}}=\slim{b\to a}\frac{\alpha}{n!}\cdot\frac{h^{n}}{h^{n}}=\frac{1}{n!}\slim{b\to a}\alpha=0\Rarr r=o(h^{n})
 	\Rarr R_n=\frac{f^{(n)}(a)}{n!}h^{n}+o(h^{n})\text{ (форма Пеано)}\qed
 \end{align*}
-
-{\it Замечание:}
-
-Формула $\eqref{56:formula}$ называется формулой Тейлора
-
-Формула $\eqref{56:formula}$ при $x_0=0$ называется формулой Маклорена
-
 
 \end{document}
