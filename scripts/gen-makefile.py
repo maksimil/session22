@@ -31,7 +31,7 @@ endif
 
 default: all
 
-all: analysis-all geometry-all algebra-all
+all: analysis-all geometry-all algebra-all archives-all
 
 .PHONY: all-parallel
 all-parallel:
@@ -41,6 +41,16 @@ all-parallel:
 	make geometry-all -j
 	@echo "\\e[34m--- Building algebra-parallel ---\\e[0m"
 	make algebra-all -j
+	@echo "\\e[34m--- Building archives-parallel ---\\e[0m"
+	make archives-all -j
+
+archives-all: $(OUT_DIR)/all.zip $(OUT_DIR)/all.tar.gz
+
+$(OUT_DIR)/all.zip: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
+	cd $(OUT_DIR); zip -r9 all.zip analysis/ algebra/ geometry/
+
+$(OUT_DIR)/all.tar.gz: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
+	cd $(OUT_DIR); tar -cf all.tar analysis/ algebra/ geometry/; gzip -9 all.tar
 
 .PHONY: clean
 clean:
