@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\usepackage{enumitem}
+
+\usepackage{enumerate}
+
+\usepackage{amsfonts}
+
+\begin{document}
+
+\tickettitle{2}{Классификация отображений и бинарные отношения}
+
+\define{отображения}
+
+$\llet$ объявлено отображение $f$ записью $A \ \overset{f}{\mapsto} B$ \ или $f: A\mapsto B$ (читается: (имеется) отображение f из (множества) A в (множество) B.) Множество A --- область задания отображения $f$. Множество
+B --- область значений отображения $f$. Конкретному $x \in A$ отображение $f$ сопоставляет конкретный $y \in B$: $y=f(x)$, где $y$ --- образ элемента $x$, а $x$ --- прообраз элемента $y$.
+
+\define{естественного расширения отображения}
+
+Естественное расширение отображения $f: A\mapsto B$, это отображение $\widetilde{f}$, заданное на множестве подмножеств множества A формулой $$\widetilde{f}(\alpha):=\setdef{y}{y=f(x), x \in \alpha},$$ где $\alpha \subseteq A$.
+
+Обозначение: $\widetilde{f}: 2^A \mapsto 2^B$.
+
+Если $z \in 2^a$, то $\widetilde{f}(z)$ --- образ множества $z$, а $z$ --- прообраз множества $\widetilde{f}(z)$.
+
+$$\textbf{Разновидности отображений}$$
+\begin{enumerate}
+    \item Инъекция --- это “взаимно однозначное отображение в ...”. $$f \text{--- инъекция} \Lrarr (\forall x \in A) \ y \in A\backslash \{x\} \Rarr f(x)\neq f(y).$$
+
+    П:
+    \begin{align*}  
+         A & =\left[-\frac{\pi}{2}, \frac{\pi}{2}\right] & A & =\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]
+        \\
+        \sin{A} & \mapsto \mathbb{R}' - \text{инъекция} & \sin{A} & =[-1, 1] - \text{расширение}
+    \end{align*}
+    \item Сюръекция --- это “отображение на ...”. $$f \text{ --- сюръекция} \Lrarr (\forall y \in B) \ (\exists x \in A) \ y=f(x)$$
+    Область задания: $A$
+    
+    Область значений: $B':=f(A)$.
+    
+    П:
+    \begin{align*}
+        & A=[-\pi, \pi] \\
+        & B=[-1, 1] \\
+        & \sin[-\pi, \pi]=[-1, 1]
+    \end{align*}
+
+    \item Биекция --- (сюръективная инъекция, инъективная сюръекция) — это “взаимно однозначное отображение на...”. $$f \text{ --- биекция} \Lrarr (\forall y \in B) \ (\exists ! x \in A) \ y=f(x)$$
+
+    П:
+    \begin{align*}
+        & A=\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\
+        & B=(-1, 1) \\
+        & \sin \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)=(-1, 1)
+    \end{align*}
+
+    \item Не является  ни инъекцией, ни сюръекцией, ни биекцией.
+    
+    П: $sin: \mathbb{R}' \mapsto \mathbb{R}'$
+    
+\define{бинарных отношений}
+
+Отображение декартова квадрата $M \times M$ в двоичное множество $\Lambda$ называют бинарным отношением: $$\beta : M\times M \mapsto \Lambda$$
+
+Обозначение: $aRb$ или $R(a, b)$
+
+Булева алгебра - частный случай бинарных отношений: $M=\Lambda$
+
+$$\text{Бинарные отношения могут иметь свойства:}$$
+\begin{enumerate}[1)]
+    \item рефлексивность: $aRa$ --- истина $\forall a$;
+    \item антирефлексивность: $aRa$ --- ложь $\forall a$;
+    \item симметрия: $aRb \Lrarr bRa \ \forall a, b$;
+    \item ассиметрия $aRb \Lrarr \rceil bRa \ \forall a, b$
+    \item антисимметрия: $a\neq b \Rarr \ (aRb \Lrarr \rceil bRa)$;
+    \item транзитивность: $(aRb \land bRc \Rarr aRc) \ \forall a, b, c$.   
+\end{enumerate}
+
+\begin{enumerate}[1]
+    \item Отношение строгого порядка: транзитивность $\land$ асимметричность. \\ Обозначения: $<, >, \succ, \prec$.
+    \item Отношение нестрогого порядка: транзитивность $\land$ антисимметричность $\land$ рефлексивность. \\ Обозначения: $\ge, \geqslant, \le, \leqslant, \succeq, \preceq$.
+    \item Отношение эквивалентности: симметрия $\land$ транзитивность $\land$ рефлексивность. \\ Обозначения: $\Rarr, \sim, \equiv, =$.
+\end{enumerate}
+
+Произведение бинарных отношений: $$RS:=\setdef{(a, c)}{(\exists b \in M): aRb \land bRc}$$
+
+\theorem 
+
+Произведение бинарных отношений обладае ассоциативностью: $$(QR)S=Q(RS)$$
+
+
+
+
+    
+\end{enumerate}
+
+\end{document}

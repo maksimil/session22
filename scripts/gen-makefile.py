@@ -50,7 +50,7 @@ $(OUT_DIR)/all.zip: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(O
 	cd $(OUT_DIR); zip -r9 all.zip analysis/ algebra/ geometry/
 
 $(OUT_DIR)/all.tar.gz: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
-	cd $(OUT_DIR); tar -cf all.tar analysis/ algebra/ geometry/; gzip -9 all.tar
+	cd $(OUT_DIR); tar -cf all.tar analysis/ algebra/ geometry/; gzip -f9 all.tar
 
 .PHONY: clean
 clean:
