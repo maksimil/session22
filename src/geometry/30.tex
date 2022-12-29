@@ -2,137 +2,159 @@
 
 \usepackage{defines}
 
-\usepackage{pgfplots}
-
-\usepackage{tikz}
-
-\usepackage{amsmath}
-
-\usepackage{enumerate}
-
 \begin{document}
 
-\tickettitle{30}{Понятие эллипса. Понятия эксцентриситета, фокального радиуса, директрисы. Теорема, связывающая фокальный радиус и расстояние до директрисы. Уравнение эллипса в полярных
-координатах}
+\tickettitle{30}{Понятие эллипса. Понятия эксцентриситета, фокального радиуса, директрисы. Теорема,~связывающая~фокальный~радиус~и~расстояние~до~директрисы. Уравнение~эллипса~в~полярных~координатах}
 
 \tikzset{
-  outer dot/.style = {scale=4.5*sqrt(\pgflinewidth)},
-  inner dot/.style = {scale=sqrt(\pgflinewidth),#1},inner dot/.default={black},
-  point/.style={insert path={ node[outer dot]{.} node[inner dot=#1]{.}}}
+	outer dot/.style = {scale=4.5*sqrt(\pgflinewidth)},
+	inner dot/.style = {scale=sqrt(\pgflinewidth),#1},inner dot/.default={black},
+	point/.style={insert path={ node[outer dot]{.} node[inner dot=#1]{.}}}
 }
-
-\define{эллипса}
-
-Эллипс --- это	геометрическое	место	точек,	для	каждой	из	которых	отношение	расстояния $r$ до некоторой фиксированной точки	$F_1$ (фокуса) к расстоянию	$d$ до некоторой фиксированной	прямой (директрисы)	есть	величина постоянная	и меньше единицы: $$\varepsilon=\frac{r}{d}<1$$
 
 \define{эксцентриситета}
 
-Эксцентриситет эллипса $\varepsilon$ --- отношение половины фокусного расстояния к длине большой полуоси: $$\varepsilon = \frac{c}{a}$$
-
-$0 \leq \varepsilon <1$, т. к. $2a>2c$
-\begin{align*} 
-    & \varepsilon=\sqrt{1-\frac{b^2}{a^2}}, \ \ \frac{b}{a}=\sqrt{1-\varepsilon^2}
+Эксцентриситет эллипса $\varepsilon$ --- отношение половины фокусного расстояния к длине большой полуоси: $$\varepsilon := \frac{c}{a}$$
+\begin{align*}
+	 & 2a>2c\Rarr\eps\in [0;1) &  & \varepsilon=\sqrt{1-\frac{b^2}{a^2}} &  & \frac{b}{a}=\sqrt{1-\varepsilon^2}
 \end{align*}
 
-\define{фокальных радиусов}
 
-Фокальные радиусы эллипса $r_1$ и $r_2$ --- отрезки, соединяющие любую точку эллипса $M (x, y)$ с его фокусами.
+\begin{minipage}{0.6\linewidth}
+	\define{фокальных радиусов}
 
-$r_1=d(F_1, M)=a+\frac{xc}{a}=a+\varepsilon x$
+	Фокальные радиусы эллипса $r_1$ и $r_2$ --- отрезки, соединяющие любую точку эллипса $M (x, y)$ с его фокусами.
+	\begin{align*}
+		\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1\Rarr y^{2}
+		 & =b^{2}-x^{2}\frac{b^{2}}{a^{2}}=a^{2}-c^{2}-x^{2}\frac{a^{2}-c^{2}}{a^{2}}= \\
+		 & =a^{2}-c^{2}-x^{2}+x^{2}\frac{c^{2}}{a^{2}}
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\coordinate (M) at (1.2, 0.81) node[point, anchor=south] at (M) {$M(x,y)$};
+		\draw [->, thin] (-2.5,0) -- (2.5,0) node[above] {$x$};
+		\draw [->, thin] (0,-1.5) -- (0,1.5) node[left] {$y$};
+		\draw [dashed] ellipse (2.0 and 1.0);
+		\draw [thin, red, text=black] (-1.5, 0) node[below]{$F_1$} node[point]{} -- node[above, text=red]{$r_1$} (M);
+		\draw [thin, red, text=black] (1.5, 0) node[below]{$F_2$} node[point]{}  -- node[right, text=red]{$r_2$} (M);
+		\draw (0, 0) node[below right]{$O$} node[point]{};
+		\draw (M) node[point]{};
+	\end{tikzpicture}
+	\captionof{figure}{Фокальные радиусы}
+\end{minipage}
 
-$r_2=d(F_2, M)=a-\frac{xc}{a}=a-\varepsilon x$
-\begin{flushright}
-    \begin{tikzpicture}[>=stealth]
-        \draw [->, thin] (-2.5,0) -- (2.5,0);
-        \draw[->, thin] (0,-1.5) -- (0,1.5); 
-        \draw[dashed] ellipse (2.0 and 1.0);
-        \draw[thin, red, text=black] (-1.5, 0) node[below]{$F_1$} node[point]{} -- node[above]{$r_1$} (1.2, 0.81) node[above]{$M(x, y)$};
-        \draw[thin, red, text=black] (1.5, 0) node[below]{$F_2$} node[point]{}  -- node[right]{$r_2$} (1.2, 0.81) node[point]{} ;
-        \draw (0, 0) node[below right]{$O$} node[point]{};
-    \end{tikzpicture}
-\end{flushright}
+\begin{align*}
+	r_1 & =d(F_1, M)=\sqrt{(x+c)^{2}+y^{2}}=\sqrt{x^{2}+2xc+c^{2}+a^{2}-c^{2}-x^{2}+x^{2}\frac{c^{2}}{a^{2}}}=                        \\
+	    & =\sqrt{a^{2}+2xc+x^{2}\frac{c^{2}}{a^{2}}}=\left|a+\frac{xc}{a}\right|=|a+\eps x|=a+\eps x\text{, тк }\eps<1\land |x|\leq a \\
+	r_2 & =d(F_2, M)=\sqrt{(x-c)^{2}+y^{2}}=\sqrt{a^{2}-2xc+x^{2}\frac{c^{2}}{a^{2}}}=\left|a-\frac{xc}{a}\right|=|a-\eps x|=a-\eps x
+\end{align*}
 
-\define{директрис}
+\begin{minipage}{0.6\linewidth}
+	\define{директрис}
 
-Директрисы --- прямые $x=\pm \frac{a}{\varepsilon}$
-\begin{flushright}
-    \begin{tikzpicture}[>=stealth]
-            \draw [->, thin] (-3.0,0) -- (3.0,0);
-            \draw[->, thin] (0,-1.5) -- (0,1.5); 
-            \draw[dashed] ellipse (2.0 and 1.0);
-            \draw[thin, green, text=black](-2.2, 0) -- node[above]{$p$} (-1.5, 0);
-            \draw[thin, green, text=black](1.5, 0) -- node[above]{$p$} (2.2, 0);
-            \draw (-1.5, 0) node[below]{$F_1$};
-            \draw (1.5, 0) node[below]{$F_2$};
-            \draw[thin, red] (-2.2, -1.5) -- (-2.2, 1.5) node[left, black]{$x=-\frac{a}{c}$};
-            \draw[thin, red] (2.2, -1.5) -- (2.2, 1.5) node[right, black]{$x=\frac{a}{c}$};
-            \draw  (1.5, 0) node[point]{};
-            \draw (-1.5, 0) node[point]{};
-            \draw (0, 0) node[below right]{$O$} node[point]{};
-    \end{tikzpicture}
-\end{flushright}
+	Директрисы --- прямые $x=\pm \frac{a}{\varepsilon}$
 
-\define{фокального параметра}
+	\define{фокального параметра}
 
-Фокальный параметр $p$ --- расстояние от фокуса до соответствующей ему дирекстриссы.
+	Фокальный параметр $p$ --- расстояние от фокуса до соответствующей ему дирекстриссы.
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\draw [->, thin] (-3.0,0) -- (3.0,0) node[above] {$x$};
+		\draw[->, thin] (0,-1.5) -- (0,1.5) node[left] {$y$};
+		\draw[dashed] ellipse (2.0 and 1.0);
+		\draw[thick, blue](-2.2, 0) -- node[above, xshift=0.3em]{$p$} (-1.5, 0);
+		\draw[thick, blue](1.5, 0) -- node[above, xshift=-0.3em]{$p$} (2.2, 0);
+		\draw (-1.5, 0) node[below]{$F_1$};
+		\draw (1.5, 0) node[below]{$F_2$};
+		\draw[thin, red] (-2.2, -1.5) -- (-2.2, 1.5) node[left, black]{$x=-\frac{a}{\eps}$};
+		\draw[thin, red] (2.2, -1.5) -- (2.2, 1.5) node[right, black]{$x=\frac{a}{\eps}$};
+		\draw  (1.5, 0) node[point]{};
+		\draw (-1.5, 0) node[point]{};
+		\draw (0, 0) node[below right]{$O$} node[point]{};
+	\end{tikzpicture}
+	\captionof{figure}{Директрисы}
+\end{minipage}
 
-\theorem 
+\pagebreak
 
-$$\varepsilon=\frac{r}{d}$$
+\theorem
+\begin{align*}
+	\varepsilon=\frac{r}{d}
+\end{align*}
+
 $\varepsilon$ --- эксцентриситет эллипса
 
 $r$ --- расстояние от точки до фокуса
 
 $d$ --- расстояние от точки до директрисы, соответствующей фокусу
 
-\proof 
+\proof
 
-\begin{align*}
-    \frac{r}{d}=\frac{a-\varepsilon x}{|x-\frac{a}{\varepsilon}|}=\frac{a-\varepsilon x}{\frac{a-\varepsilon x}{\varepsilon}} \stackrel{\text{т. к. директрисса левее точки M}} = \frac{a-\varepsilon x}{a-\varepsilon x}*\varepsilon
-\end{align*}
+\begin{minipage}{0.6\linewidth}
+	\begin{align*}
+		\frac{r}{d}=\frac{a-\eps x}{|x-\frac{a}{\eps}|}=\eps\frac{a-\eps x}{|a-\eps x|} = \eps\qed
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\draw [->, thin] (-3.0,0) -- (3.0,0) node[above] {$x$};
+		\draw[->, thin] (0,-1.5) -- (0,1.5) node[left] {$y$};
+		\draw[dashed] ellipse (2.0 and 1.0);
+		\draw (-1.5, 0) node[below]{$F_1$};
+		\draw [thin, red, text=black](1.2, 0.81) node[above]{$M$}-- node[above, text=red]{$d$} (2.2, 0.81);
+		\draw [thin, blue, text=black] (1.2, 0.81) node[point]{} -- node[right, text=blue]{$r$} (1.5, 0);
+		\draw (1.5, 0) node[below]{$F_2$};
+		\draw[thin] (2.2, -1.5) -- (2.2, 1.5) node[right, black]{$x=\frac{a}{\eps}$};
+		\draw  (1.5, 0) node[point]{};
+		\draw (-1.5, 0) node[point]{};
+		\draw (0, 0) node[below right]{$O$} node[point]{};
+	\end{tikzpicture}
+	\captionof{figure}{}
+\end{minipage}
 
-\begin{flushright}
-  
-    \begin{tikzpicture}[>=stealth]
-            \draw [->, thin] (-3.0,0) -- (3.0,0);
-            \draw[->, thin] (0,-1.5) -- (0,1.5); 
-            \draw[dashed] ellipse (2.0 and 1.0);
-            \draw (-1.5, 0) node[below]{$F_1$};
-            \draw [thin, red, text=black](1.2, 0.81) node[above]{$M$}-- node[above]{$d$} (2.2, 0.81);
-            \draw [thin, red, text=black] (1.2, 0.81) node[point]{} -- node[right]{$r$} (1.5, 0);
-            \draw (1.5, 0) node[below]{$F_2$ (c, 0)};
-            \draw[thin] (2.2, -1.5) -- (2.2, 1.5) node[right, black]{$x=\frac{a}{c}$};
-            \draw  (1.5, 0) node[point]{};
-            \draw (-1.5, 0) node[point]{};
-            \draw (0, 0) node[below right]{$O$} node[point]{};
-    \end{tikzpicture}   
-\end{flushright} 
-\begin{center}
-  Уравнение эллипса в полярных координатах
-\end{center}
-\begin{enumerate}[$\bullet$]
-    \item Полюс в фокусе $F_1$
-    \item Полярная ось $\uparrow \uparrow \overrightarrow{F_1F_2}$
-\end{enumerate}
-\begin{flushright}
-    \begin{tikzpicture}[>=stealth]
-            \draw [->, thin, purple] (-3.0,0) -- (3.0,0);
-            \draw[->, thin] (0,-1.5) -- (0,1.5); 
-            \draw[dashed] ellipse (2.0 and 1.0);
-            \draw[thin, red] (-1.5, 0) node[below, black]{$F_1$} node[point]{} -- node[above left]{$\rho$} (1.2, 0.81);
-            \draw[thin] (2.2, -1.5) -- (2.2, 1.5);
-            \draw[thin] (-2.2, -1.5) -- (-2.2, 1.5);
-            \draw[thin, blue, text=black](-2.2, 0.81) node[left]{$M_y$} node[point]-- (1.2, 0.81) node[above]{$M(\rho, \varphi)$};
-            \draw[dashed](1.2, 0.81) node[point]{} -- (1.2, 0) node[below]{$M_x$} node[point]{};
-            \draw  (-2.2, 0) node[below left]{$J_1$};
-            \draw  (1.5, 0) node[point]{} node[above]{$F_2$};
-            \draw (0, 0) node[below right]{$O$} node[point]{};
-    \end{tikzpicture}
-\end{flushright}
-$\llet M(\rho, \varphi)$
+\define{эллипса 2}
+
+Эллипс --- геометрическое	место	точек, для каждой	из которых отношение расстояния $r$ до некоторой фиксированной точки $F_1$ (фокуса) к расстоянию $d$ до некоторой фиксированной	прямой (директрисы)	есть величина постоянная и меньше единицы: $$\varepsilon=\frac{r}{d}<1$$
+
+\sectitle{Уравнение эллипса в полярных координатах}
+
+\vspace{1em}
+
+\begin{minipage}{0.6\linewidth}
+	\begin{enumerate}
+		\item Полюс в фокусе $F_1$
+		\item Полярная ось $\uparrow \uparrow \overrightarrow{F_1F_2}$
+	\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\draw [->, thin] (-3.0,0) -- (3.0,0) node[above] {$x$};
+		\draw [->, thin] (0,-1.5) -- (0,1.5) node[left] {$y$};
+		\draw [dashed] ellipse (2.0 and 1.0);
+		\draw [thin, red, text=black] (-1.5, 0) node[below]{$F_1$} node[point]{} -- node[left, yshift=0.3em, text=red]{$\rho$} (1.2, 0.81);
+		\draw [thin] (2.2, -1.5) -- (2.2, 1.5);
+		\draw [thin] (-2.2, -1.5) -- (-2.2, 1.5);
+		\draw [thin, blue, text=black] (-2.2, 0.81) node[left]{$M_y$} node[point]{} -- node[above, text=blue, xshift=-2em] {$d$} (1.2, 0.81) node[above]{$M(\rho, \varphi)$};
+		\draw [dashed] (1.2, 0.81) node[point]{} -- (1.2, 0) node[below]{$M_x$} node[point]{};
+		\draw (-2.2, 0) node[below left]{$J_1$};
+		\draw (1.5, 0) node[point]{} node[above]{$F_2$};
+		\draw (0, 0) node[below right]{$O$} node[point]{};
+	\end{tikzpicture}
+	\captionof{figure}{Эллипс в полярных координатах}
+\end{minipage}
+
+Рассмотрим $M(\rho, \varphi)$ на эллипсе:
 \begin{align*}
-    & r=|\overrightarrow{F_1M}|=\rho \\    & d=|\overrightarrow{M_yM}|=|\overrightarrow{J_1F_1}+\overrightarrow{F_1M_x}|=|\overrightarrow{J_1F_1}|+\overrightarrow{F_1M_x}=p+\rho \cos\varphi \\
-    & \varepsilon=\frac{r}{d}=\frac{\rho}{p+\rho \cos\varphi} \Rarr \rho=\frac{p\varepsilon}{1-\varepsilon \cos{\varphi}}
+	r    & =|\overrightarrow{F_1M}|=\rho                                                              \\
+	d    & =|\overrightarrow{M_yM}|=\mes_{Ox}\lvec{M_{y}M}=\mes_{Ox}(\lvec{J_1F_1}+\lvec{F_1M_{x}})=  \\
+	     & =\mes_{Ox}\lvec{J_1F_1}+\mes_{Ox}\lvec{F_1M_{x}}=p+\rho\cos\varphi                         \\
+	\eps & =\frac{r}{d}=\frac{\rho}{p+\rho \cos\varphi} \Rarr \rho=\frac{p\eps}{1-\eps \cos{\varphi}}
 \end{align*}
 
 \end{document}
