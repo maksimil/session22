@@ -2,8 +2,6 @@
 
 \usepackage{defines}
 
-\usepackage{tikz, pgfplots, caption}
-
 \begin{document}
 
 \tickettitle{60}{Точка перегиба функции. Теорема о точках перегиба $n$ раз дифференцируемой функции.}
@@ -12,15 +10,17 @@
 
 \begin{minipage}{0.7\linewidth}
 	\raggedright
-	$\llet y = f(x)$ дифференцируема в точке $ c$, тогда $ c$ --- точка перегиба графика $y=f(x)$, если в некоторой достаточно малой окрестности $c$ все точки
+	Пусть $y = f(x)$ дифференцируема в точке $ c$, тогда $ c$ --- точка перегиба графика $y=f(x)$, если в некоторой достаточно малой окрестности $c$ все точки
 	при $x<c$ лежат по одну сторону от касательной, а $x>c$ --- по другую (\figref{60:recurve}).
-	\begin{enumerate}
-		\item{}$f$ имеет в $c$ точку перегиба $\land$ $\exists f'(x)$ в окрестности $c$\\
-		$\Rarr$ $f'$ имеет в $c$ локальный экстремум.
-		\item{}$f$ имеет в $c$ точку перегиба $\land$ $\exists f''(c)$ $\Rarr$ $f''(c)=0$.
-        \item{} Если в $c \exists$ конечная $f''(x)$, то необходимо, чтобы $f''(x) = 0$, для перегиба в $с$. Это необходимое условие, но оно не является достаточным.
-        \item{} Если в некоторой окрестности $c \exists f''(x)$, за исключением, может быть, самой $c$. При этом $f(x)$ ---непрерывна и имеет в $c$ касательную, тогда если $f''(x)$ имеет разные знаки слева и справа от $c$, тогда в $c$ есть перегиб.` 
-	\end{enumerate}
+
+	$f$ имеет в $c$ точку перегиба $\land$ $\exists f'(x)$ в окрестности $c$\\
+	$\Rarr$ $f'$ имеет в $c$ локальный экстремум.
+
+	$f$ имеет в $c$ точку перегиба $\land$ $\exists f''(c)$ $\Rarr$ $f''(c)=0$, это условие необходимо, но не достаточно. $f''(c)=0$ $\Rarr$ $c$ --- точка,\\
+	подозрительная на перегиб
+
+	Если в некоторой окрестности $c$ $\exists f''(x)$, за исключением, может быть, самой $c$,
+	при этом $f(x)$ ---непрерывна и имеет в $c$ касательную, тогда если $f''(x)$ имеет разные знаки слева и справа от $c$, то в $c$ есть перегиб
 \end{minipage}%
 \begin{minipage}{0.3\linewidth}
 	\centering
@@ -64,30 +64,30 @@ $f$ --- $n$ раз дифференцируема в окрестности $a$,
 	 & \Rarr f(c+h)=f(c)+hf'(c)+\frac{h^{n}}{n!}f^{(n)}(c+\theta h)
 \end{align*}
 
-$n=2m-1,\;m\in\N$
 \begin{enumerate}
 	\item{}$f^{(n)}(c)>0$
 	\begin{align*}
 		 & \begin{cases}
-			   n=2m-1       & \Rarr \sgn(h^{n})=\sgn(h)   \\
-			   f^{(n)}(c)>0 & \Rarr f^{(n)}(c+\theta h)>0
+			   n\text{ --- нечётно} & \Rarr \sgn(h^{n})=\sgn(h)   \\
+			   f^{(n)}(c)>0         & \Rarr f^{(n)}(c+\theta h)>0
 		   \end{cases}\Rarr sgn\left(\frac{h^{n}}{n!}f^{(n)}(c+\theta h)\right)=\sgn(h)\Rarr \\
-		 & \Rarr \begin{cases}
-			         f(c+h)>f(c)+hf'(c) & \text{ при $h>0$ } \\
-			         f(c+h)<f(c)+hf'(c) & \text{ при $h<0$ } \\
-		         \end{cases}\Rarr c \text{ --- точка перегиба }
+		 & \Rarr
+		\begin{cases}
+			f(c+h)>f(c)+hf'(c) & \text{ при } h\in(0;\eps)  \\
+			f(c+h)<f(c)+hf'(c) & \text{ при } h\in(-\eps;0) \\
+		\end{cases}\Rarr c \text{ --- точка перегиба}\qed
 	\end{align*}
 	\item{}$f^{(n)}(c)<0$
 	\begin{align*}
 		 & \begin{cases}
-			   n=2m-1       & \Rarr \sgn(h^{n})=\sgn(h)   \\
-			   f^{(n)}(c)<0 & \Rarr f^{(n)}(c+\theta h)<0
+			   n\text{ --- нечётно} & \Rarr \sgn(h^{n})=\sgn(h)   \\
+			   f^{(n)}(c)<0         & \Rarr f^{(n)}(c+\theta h)<0
 		   \end{cases}\Rarr sgn\left(\frac{h^{n}}{n!}f^{(n)}(c+\theta h)\right)=-\sgn(h)\Rarr \\
-		 & \Rarr \begin{cases}
-			         f(c+h)>f(c)+hf'(c) & \text{ при $h<0$ } \\
-			         f(c+h)<f(c)+hf'(c) & \text{ при $h>0$ } \\
-		         \end{cases}\Rarr c \text{ --- точка перегиба }
+		 & \Rarr
+		\begin{cases}
+			f(c+h)>f(c)+hf'(c) & \text{ при } h\in(-\eps;0) \\
+			f(c+h)<f(c)+hf'(c) & \text{ при } h\in(0;\eps)  \\
+		\end{cases}\Rarr c \text{ --- точка перегиба}\qed
 	\end{align*}
- Если $f'(c) = 0$, то $c$ подозрительная на $extr$
 \end{enumerate}
 \end{document}

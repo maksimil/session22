@@ -12,9 +12,9 @@ $c$ --- стационарная точка $f$ означает $f'(c)=0$
 
 \theorem
 
-$f$ --- $n$ раз дифференцируема в окрестности $a$, и $f^{(n)}$ --- непрерывна в этой окрестности
+$f$ --- $n$ раз дифференцируема в окрестности $c$, и $f^{(n)}$ --- непрерывна в этой окрестности
 \begin{align*}
-	(\forall m=\overline{1,n-1})\;f^{(m)}(a)=0 \land f^{(n)}(a)\neq 0\Rarr
+	(\forall m=\overline{1,n-1})\;f^{(m)}(c)=0 \land f^{(n)}(c)\neq 0\Rarr
 	\text{$c$ --- локальный экстремум $f$, если $n$ --- чётно}
 \end{align*}
 
@@ -31,23 +31,23 @@ $f$ --- $n$ раз дифференцируема в окрестности $a$,
 	 & \Rarr f(c+h)=f(c)+\frac{h^{n}}{n!}f^{(n)}(c+\theta h)
 \end{align*}
 
-$n=2m,\;m\in\N$
+$h\neq 0$
 \begin{enumerate}
 	\item{}$f^{(n)}(c)>0$
 	\begin{align*}
 		 & \begin{cases}
-			   n=2m         & \Rarr h^{n}>0               \\
-			   f^{(n)}(c)>0 & \Rarr f^{(n)}(c+\theta h)>0
-		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)>0\Rarr     \\
-		 & \Rarr f(c+h)>f(c)\Rarr c \text{ --- точка локального минимума }
+			   n\text{ --- чётно} & \Rarr h^{n}>0               \\
+			   f^{(n)}(c)>0       & \Rarr f^{(n)}(c+\theta h)>0
+		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)>0\Rarr                                                  \\
+		 & \Rarr (\forall h\in(-\eps;\eps)\setminus\{0\})\;f(c+h)>f(c)\Rarr c \text{ --- точка локального минимума}\qed
 	\end{align*}
 	\item{}$f^{(n)}(c)<0$
 	\begin{align*}
 		 & \begin{cases}
-			   n=2m         & \Rarr h^{n}>0               \\
-			   f^{(n)}(c)<0 & \Rarr f^{(n)}(c+\theta h)<0
-		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)<0\Rarr      \\
-		 & \Rarr f(c+h)<f(c)\Rarr c \text{ --- точка локального максимума }
+			   n\text{ --- чётно} & \Rarr h^{n}>0               \\
+			   f^{(n)}(c)<0       & \Rarr f^{(n)}(c+\theta h)<0
+		   \end{cases}\Rarr \frac{h^{n}}{n!}f^{(n)}(c+\theta h)<0\Rarr                                                    \\
+		 & \Rarr (\forall h\in(-\eps;\eps)\setminus\{0\})\; f(c+h)<f(c)\Rarr c \text{ --- точка локального максимума}\qed
 	\end{align*}
 \end{enumerate}
 

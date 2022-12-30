@@ -6,10 +6,9 @@
 
 \tickettitle{54}{Приращение дифференцируемой функции. Теорема о дифференцировании суперпозиции.}
 
-\define{приращения дифференцируемой функции}
+\define{приращения}
 
-$\llet f(x)$ - дифференцируемая функция, тогда $\Delta f(x) = f(x+h) - f(x)$  --- приращение(первая разность) f(x) в $x_0$ при приращении h аргумента x.
-
+$\Delta f(x) = f(x+h) - f(x)$  --- приращение (первая разность) $f(x)$ в $x_0$ при приращении $h$ аргумента $x$
 
 \define{дифференцируемости}
 
@@ -40,32 +39,59 @@ $f$ --- дифференцируема, значит $\Delta y=A\Delta x+o(\Delt
 \end{align*}
 
 \theorem
-
-$\llet f(x)$ имеет конечную $f'(x)$ в $x$ (иными словами дифференцируема в этой точке), тогда приращение $\Delta f = f'(x) h  +\alpha (h) h$, где $\slim{h\to 0}\alpha (h) = 0$ (1).
-
-(1) имеет место для всех достаточно малых h.
+\begin{align*}
+	\exists f'(x)\in\R\Rarr \Delta f(x)=f'(x)h+\alpha(h)h,\;\slim{h\to 0}\alpha(h)=0
+\end{align*}
 
 \proof
 
-По условию $\exists$ конечная $f'(x) \Rarr \exists$ $\slim{h\to 0}\frac{\Delta f}{h} = f'(x)$
+Определим $\alpha(h)$:
+\begin{align*}
+	\alpha(h):=\frac{\Delta f(x)}{h}-f'(x)\Rarr \Delta f(x) = f'(x)h+\alpha(h)h
+\end{align*}
 
-$\llet \alpha (h) = \cfrac{\Delta f}{h} - f'(x)$, тогда $\Delta f = f'(x)h + \alpha(h) h \Rarr \slim{h\to 0}\alpha (h) = 0\qed$
+Покажем, что $\alpha(h)\to 0$:
+\begin{align*}
+	\slim{h\to 0}\alpha(h)=\left(\slim{h\to 0}\frac{\Delta f(x)}{h}\right)-f'(x)=f'(x)-f'(x)=0\qed
+\end{align*}
+
+\pagebreak
 
 \theorem
 
-$\llet f(x) = g(\phi(x))$ --- суперпозиция(сложная функция). $\llet \phi (x)$ --- дифференцируема в $x_0$, $g(\phi)$ --- дифференцируема в $\phi (x_0)$, тогда $f(x)$ --- дифференцируема в $x_0$ : $\cfrac{d f(x)}{dx} = \cfrac{d g}{d \phi} \cdot \cfrac{d \phi}{d x}$
+$f(x) = g(\phi(x))$ --- суперпозиция (сложная функция)
+
+$\phi (x)$ --- дифференцируема в $x_0$
+
+$g(t)$ --- дифференцируема в $\phi (x_0)$
+\begin{align*}
+	f'(x)=g'(\phi(x))\phi'(x)
+\end{align*}
 
 \proof
 
-Т.к. $g$ и $\phi$ - непрерывны в $\phi(x_0)$ и $x_0$ соответственно,тогда запишем, чему равны приращения $\phi(x)$ и $g$ соответственно:
+$g$ --- дифференцируема в $\phi(x_0)$
 \begin{align*}
-	 & \Delta \phi = \phi(x_0+h) - \phi(x_0)                   \\
-	 & \Delta g = g(\phi + \Delta \phi) - g(\phi)              \\
-	 & \slim{h\to 0}\Delta \phi = 0, \slim{h\to 0}\Delta g = 0
+	 & t=\phi(x),\;t_0=\phi(x_0)                                               \\
+	 & \Delta g(t_0) = g(t_0 + \Delta t) - g(t_0) =g'(t_0)\Delta t+o(\Delta t)
 \end{align*}
 
-Тогда по предыдущей теореме $\Delta g(\phi) = g'(\phi)\Delta g +\alpha (\Delta \phi) \Delta \phi$, при $&\slim{\Delta \phi\to 0}\alpha (\Delta \phi) = 0$
+Рассмотрим $f'(x)$:
+\begin{align*}
+	f'(x) & =\slim{\Delta x\to 0}\frac{g(\phi(x_0+\Delta x))-g(\phi(x_0))}{\Delta x}=\slim{\Delta x\to 0}\frac{g(\phi(x_0)+\Delta \phi(x_0))-g(\phi(x_0))}{\Delta x}= \\
+	      & =\slim{\Delta x\to 0}\frac{g'(\phi(x_0))\Delta \phi(x_0)+o(\Delta\phi(x_0))}{\Delta x}
+	=\slim{\Delta x\to 0}\frac{g'(\phi(x_0))\Delta \phi(x_0)+o(\Delta\phi(x_0))}{\Delta \phi(x_0)}\frac{\Delta\phi(x_0)}{\Delta x}
+\end{align*}
 
-Рассмотрим $f'(x) = \slim{h\to 0}\frac{\Delta f}{h} = \slim{h\to 0}\frac{\Delta g(f)}{h} = \slim{h\to 0}\frac{\Delta g(f)}{\Delta \phi}\cdot\cfrac{\Delta\phi}{h} = \slim{\Delta \phi\to 0}[g'(\phi) + \alpha (\Delta \phi)] \cdot \slim{h\to 0}\frac{\Delta \phi}{h} = g'(\phi) \cdot \phi'(x) \qed$
+$\phi$ --- непрерывна в $x_0$
+\begin{align*}
+	 & \Delta \phi(x_0)=\phi(x_0+\Delta x)-\phi(x_0)                                                               \\
+	 & \slim{\Delta x\to 0}\Delta\phi(x_0)=0\Rarr \slim{\Delta x\to 0}\frac{o(\Delta\phi(x_0))}{\Delta\phi(x_0)}=0
+\end{align*}
+
+Вернёмся к $f'(x)$:
+\begin{align*}
+	f'(x) & =\slim{\Delta x\to 0}\left(g'(\phi(x_0))+\frac{o(\Delta\phi(x_0))}{\Delta \phi(x_0)}\right)\slim{\Delta x\to 0}\frac{\Delta\phi(x_0)}{\Delta x}=g'(\phi(x_0))\phi'(x_0)\qed
+\end{align*}
 
 \end{document}

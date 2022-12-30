@@ -7,75 +7,219 @@
 \tickettitle{53}{Теорема о производной константы. Теорема о производной монотонной и строго~монотонной~функции. Достаточный признак монотонности функции.}
 
 \theorem
+
+$f$ --- дифференцируема на промежутке $X$
 \begin{align*}
-	f(x) = const \Leftrightarrow f'(x) = 0
+	(\forall x\in X)\;f(x) = const \Leftrightarrow (\forall x\in X)\;f'(x) = 0
 \end{align*}
 
 \onlyif
 \begin{align*}
-	f(x)=c\Rarr\slim{h\to 0}\frac{f(x+h)-f(x)}{h}=\slim{h\to 0}\frac{c-c}{h}=\slim{h\to 0}\frac{0}{h}=0\Rarr f'(x)=0\qed
+	(\forall x\in X)\;f(x)=c\Rarr\slim{h\to 0}\frac{f(x+h)-f(x)}{h}=\slim{h\to 0}\frac{c-c}{h}=\slim{h\to 0}\frac{0}{h}=0\Rarr f'(x)=0\qed
 \end{align*}
 
 \enough
-1) Следствие 1 из теореме Лагранжа(буквально формулировка)
 
+$f$ непрерывна и дифференцируема на промежутке $X$, применим теорему Лагранжа:
+\begin{align*}
+	(\forall a,b\in\R)\;\exists\gamma\in(a;b):f(b)-f(a)=f'(\gamma)(b-a)=0\Rarr f(b)=f(a)\Rarr f(x)=\const\qed
+\end{align*}
 
 \theorem
 
-$f$ --- дифференцируема на $(a;b)$
+$f$ --- дифференцируема на промежутке $X$
 
-$(\forall x\in(a;b))\;f'(x)\geq 0$ $\Lrarr$ $f$ --- монотонно возрастающая на $(a;b)$
+$(\forall x\in X\;f'(x)\geq 0$ $\Lrarr$ $f$ --- монотонно возрастающая на $X$
 
-$(\forall x\in(a;b))\;f'(x)\leq 0$ $\Lrarr$ $f$ --- монотонно убывающая на $(a;b)$
+$(\forall x\in X)\;f'(x)\leq 0$ $\Lrarr$ $f$ --- монотонно убывающая на $X$
 
 
 \onlyif
 
 Без ограничения общности пусть $f'(x)\geq 0$
 
-Возьмём $x_1,x_2\in(a;b)$:
+Возьмём $x_1,x_2\in X$:
 \begin{align*}
-	\llet a<x_1<x_2<b\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)\geq 0\Rarr f(x_2)\geq f(x_1)\qed
+	\llet x_1<x_2\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)\geq 0\Rarr f(x_2)\geq f(x_1)\qed
 \end{align*}
 
 \enough
 
-Без ограничения общности пусть $f$ --- монотонно возрастающая на $(a;b)$
+Без ограничения общности пусть $f$ --- монотонно возрастающая на $X$
 \begin{align*}
-	 & (f(x+h)\geq f(x)\text{ при $h>0$})\land (f(x+h)\leq f(x)\text{ при $h<0$})\Rarr \frac{f(x+h)-f(x)}{h}\geq 0\Rarr \\
+	 & \begin{cases}
+		   f(x+h)\geq f(x) & \text{ при $h>0$} \\
+		   f(x+h)\leq f(x) & \text{ при $h<0$}
+	   \end{cases}
+	\Rarr \frac{f(x+h)-f(x)}{h}\geq 0\Rarr                      \\
 	 & \Rarr f'(x)=\slim{h\to 0}\frac{f(x+h)-f(x)}{h}\geq 0\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+
+$f$ --- дифференцируема на промежутке $X$
+
+$(\forall x\in X)\;f'(x)>0$ $\Rarr$ $f$ --- строго монотонно возрастающая на $X$
+
+$(\forall x\in X)\;f'(x)<0$ $\Rarr$ $f$ --- строго монотонно убывающая на $X$
+
+\proof
+
+Без ограничения общности пусть $f'(x)> 0$
+
+Возьмём $x_1,x_2\in X$:
+\begin{align*}
+	\llet x_1<x_2\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)> 0\Rarr f(x_2)> f(x_1)\qed
 \end{align*}
 
 \theorem
 
-$f$ --- дифференцируема на $(a;b)$
+$f$ --- непрерывна на промежутке $X$
 
-$(\forall x\in(a;b))\;f'(x)>0$ $\Rarr$ $f$ --- строго монотонно возрастающая на $(a;b)$
+$f$ --- дифференцируема на $X\setminus A$, где $A\subset X$ --- конечное и крайние точки $X\notin A$
 
-$(\forall x\in(a;b))\;f'(x)<0$ $\Rarr$ $f$ --- строго монотонно убывающая на $(a;b)$
+$(\forall x\in X\setminus A)\;f'(x)\geq 0$ $\Lrarr$ $f$ --- монотонно возрастающая на $X$
 
-\onlyif
+$(\forall x\in X\setminus A)\;f'(x)\leq 0$ $\Lrarr$ $f$ --- монотонно убывающая на $X$
 
-Без ограничения общности пусть $f'(x)> 0$
-
-Возьмём $x_1,x_2\in(a;b)$:
-\begin{align*}
-	\llet a<x_1<x_2<b\Rarr \exists\gamma\in(x_1,x_2):f(x_2)-f(x_1)=f'(\gamma)(x_2-x_1)> 0\Rarr f(x_2)> f(x_1)\qed
-\end{align*}
-
-\enough
-
-Без ограничения общности пусть $f$ --- строго монотонно возрастающая на $(a;b)$
-\begin{align*}
-	 & (f(x+h) > f(x)\text{ при $h>0$})\land (f(x+h) < f(x)\text{ при $h<0$})\Rarr \frac{f(x+h)-f(x)}{h} > 0\Rarr \\
-	 & \Rarr f'(x)=\slim{h\to 0}\frac{f(x+h)-f(x)}{h} > 0\qed
-\end{align*}
-
-\theorem 
-
-$\llet$ f'(x) > 0 (< 0) везде на промежутке $X$, за исключением разве лишь конечного числа точек, тогда f(x) - строго монотонная на $X$
 
 \proof
 
-Доказательство является прямым следствием предшествующих теорем $\qed$
+$A$ --- конечно и $n:=|A|$, пронумеруем его элементы по возрастанию:
+\begin{align*}
+	 & a_{i}\in A,\;i=\overline{1,n} &  & a_{i}<a_{i+1},\;i=\overline{1,n-1}
+\end{align*}
+
+{\it Индукция:} $P(n)$ --- верность теоремы для $|A|=n$
+\begin{enumerate}
+	\item{}$P(0)$ --- предыдущие теоремы
+	\item{}$P(n)\Rarr P(n+1)$
+
+	Разделим $X$ элементом $a_{n+1}$:
+	\begin{align*}
+		 & X_{L}:=\setdef{x\in X}{x<a_{n+1}} &  & X_{R}:=\setdef{x\in X}{x> a_{n+1}} &  & X_{L}\cup\{a_{n+1}\}\cup X_{R}=X
+	\end{align*}
+
+	\onlyif
+
+	Без ограничения общности пусть $f'(x)\geq 0$
+
+	$f$ --- непрерывна на $X_{L}$ и дифференцируема на $X_{L}\setminus (A\setminus \{a_{n+1}\})$, тогда\\
+	по $P(n)$ $f$ --- монотонно возрастающая на $X_{L}$
+
+	$f$ --- дифференцируема на $X_{R}$ $\Rarr$ $f$ --- монотонно возрастающая на $X_{R}$
+
+	Возьмём $x_1\in X_{L}$, $x_2\in (x_1;a_{n+1})$:
+	\begin{align*}
+		 & x_1<x_2\land x_1,x_2\in X_{L}\Rarr f(x_1)\leq f(x_2)
+	\end{align*}
+
+	Возьмём $\slim{x_2\to a_{n+1}-0}$ по обоим частям неравенства $f(x_1)\leq f(x_2)$, тогда по непрерывности:
+	\begin{align*}
+		 & \slim{x_2\to a_{n+1}-0}f(x_1)\leq \slim{x_2\to a_{n+1}-0}f(x_2)\Rarr (\forall x_1\in X_{L})\;f(x_1)\leq f(a_{n+1})
+	\end{align*}
+
+	Аналогично: $(\forall x_1\in X_{R})\;f(a_{n+1})\leq f(x_1)$
+
+	\pagebreak
+
+	Возьмём $x_1,x_2\in X:x_1<x_2$ и рассмотрим, где они могут лежать
+	\begin{enumerate}
+		\item{}$x_1,x_2\in X_{L}\Rarr f(x_1)\leq f(x_2)$
+		\item{}$x_1\in X_{L},x_2=a_{n+1}\Rarr f(x_1)\leq f(x_2)$
+		\item{}$x_1\in X_{L},x_2\in X_{R}\Rarr f(x_1)\leq f(a_{n+1})\leq f(x_2)\Rarr f(x_1)\leq f(x_2)$
+		\item{}$x_1=a_{n+1},x_2\in X_{R}\Rarr f(x_1)\leq f(x_2)$
+		\item{}$x_1,x_2\in X_{R}\Rarr f(x_1)\leq f(x_2)$
+	\end{enumerate}
+
+	Можно прийти к следущему выводу:
+	\begin{align*}
+		(\forall x_1,x_2\in X)\;x_1<x_2\Rarr f(x_1)\leq f(x_2)\qed
+	\end{align*}
+
+	\enough
+
+	Без ограничения общности пусть $f$ --- монотонно возрастающая
+
+	$f$ --- монотонно возрастающая на $X$ $\Rarr$ $f$ ---  монотонно возрастающая на $X_{L}\subset X$ и $X_{R}\subset X$
+
+	$f$ --- непрерывна на $X_{L}$ и дифференцируема на $X_{L}\setminus (A\setminus \{a_{n+1}\})$, тогда\\
+	по $P(n)$ $(\forall x\in X_{L}\setminus (A\setminus\{a_{n+1}\}))\;f'(x)\geq 0$
+
+	$f$ --- дифференцируема на $X_{R}$ $\Rarr$ $(\forall x\in X_{R})\;f'(x)\geq 0$
+	\begin{align*}
+		 & X_{L}\setminus(A\setminus\{a_{n+1}\})\cup X_{R}=X_{L}\setminus A\cup X_{R}\setminus A=(X_{L}\cup X_{R})\setminus A=X\setminus a_{n+1}\setminus A=X\setminus A\Rarr \\
+		 & \Rarr (\forall x\in X\setminus A)\;f'(x)\geq 0\qed
+	\end{align*}
+
+\end{enumerate}
+
+
+\theorem
+
+$f$ --- непрерывна на промежутке $X$
+
+$f$ --- дифференцируема на $X\setminus A$, где $A\subset X$ --- конечное и крайние точки $X\notin A$
+
+$(\forall x\in X\setminus A)\;f'(x)>0$ $\Rarr$ $f$ --- строго монотонно возрастающая на $X$
+
+$(\forall x\in X\setminus A)\;f'(x)<0$ $\Rarr$ $f$ --- строго монотонно убывающая на $X$
+
+\proof
+
+Без ограничения общности пусть $f'(x)>0$
+
+$A$ --- конечно и $n:=|A|$, пронумеруем его элементы по возрастанию:
+\begin{align*}
+	 & a_{i}\in A,\;i=\overline{1,n} &  & a_{i}<a_{i+1},\;i=\overline{1,n-1}
+\end{align*}
+
+{\it Индукция:} $P(n)$ --- верность теоремы для $|A|=n$
+\begin{enumerate}
+	\item{}$P(0)$ --- предыдущие теоремы
+	\item{}$P(n)\Rarr P(n+1)$
+
+	Разделим $X$ элементом $a_{n+1}$:
+	\begin{align*}
+		 & X_{L}:=\setdef{x\in X}{x<a_{n+1}} &  & X_{R}:=\setdef{x\in X}{x> a_{n+1}} &  & X_{L}\cup\{a_{n+1}\}\cup X_{R}=X
+	\end{align*}
+
+	\pagebreak
+
+	$f$ --- непрерывна на $X_{L}$ и дифференцируема на $X_{L}\setminus (A\setminus \{a_{n+1}\})$, тогда\\
+	по $P(n)$ $f$ --- строго монотонно возрастающая на $X_{L}$
+
+	$f$ --- дифференцируема на $X_{R}$ $\Rarr$ $f$ --- строго монотонно возрастающая на $X_{R}$
+
+	Возьмём $x_1\in X_{L}$, $x_2\in (x_1;a)$ и $x_3\in(x_2;a)$:
+	\begin{align*}
+		 & x_1<x_2<x_3\land x_1,x_2,x_3\in X_{L}\Rarr f(x_1)<f(x_2)<f(x_3)
+	\end{align*}
+
+	Возьмём $\slim{x_3\to a_{n+1}-0}$ по обоим частям неравенства $f(x_2)<f(x_3)$, тогда по непрерывности:
+	\begin{align*}
+		 & \slim{x_3\to a_{n+1}-0}f(x_2)\leq \slim{x_3\to a_{n+1}-0}f(x_{3})\Rarr f(x_2)\leq f(a_{n+1})\Rarr \\
+		 & \Rarr f(x_1)<f(x_2)\leq f(a_{n+1})\Rarr (\forall x_1\in X_{L})\;f(x_1)<f(a_{n+1})
+	\end{align*}
+
+	Аналогично: $(\forall x_1\in X_{R})\;f(a_{n+1})<f(x_1)$
+
+	Возьмём $x_1,x_2\in X:x_1<x_2$ и рассмотрим, где они могут лежать
+	\begin{enumerate}
+		\item{}$x_1,x_2\in X_{L}\Rarr f(x_1)<f(x_2)$
+		\item{}$x_1\in X_{L},x_2=a_{n+1}\Rarr f(x_1)<f(x_2)$
+		\item{}$x_1\in X_{L},x_2\in X_{R}\Rarr f(x_1)<f(a_{n+1})<f(x_2)\Rarr f(x_1)<f(x_2)$
+		\item{}$x_1=a_{n+1},x_2\in X_{R}\Rarr f(x_1)<f(x_2)$
+		\item{}$x_1,x_2\in X_{R}\Rarr f(x_1)<f(x_2)$
+	\end{enumerate}
+
+	Можно прийти к следущему выводу:
+	\begin{align*}
+		(\forall x_1,x_2\in X)\;x_1<x_2\Rarr f(x_1)<f(x_2)\qed
+	\end{align*}
+
+\end{enumerate}
+
 \end{document}

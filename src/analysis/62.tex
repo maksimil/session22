@@ -10,17 +10,15 @@
 
 Дифференциалом или первым дифференциалом $y=f(x)$ в точке $x$ по отношению к приращению $h$ называется $f'(x)h$ и обозначается как $dy$ или $df(x)$
 
-\textbf{Геометрический смысл дифференциала}
-
-Дифференциал в некоторой точке \textbf{---} это главная линейная часть  приращения функции
-
 $d_x(f(x), h)$ \textbf{---} дифференциал относительно приращения $h$ и переменной $x$
-
 
 Если $f(x)=x$, то $f'(x)=1$ $\Rarr$ $df(x)=dx=h=\Delta x$
 
 $dy=f'(x)dx$ $\Rarr$ $f'(x)=\frac{dy}{dx}$
 
+\hd{Геометрический смысл дифференциала}
+
+Дифференциал в некоторой точке --- линейная часть  приращения функции
 
 \sectitle{Свойства первого дифференциала}
 
@@ -72,27 +70,26 @@ $dy$ --- главная часть $\Delta y$
 
 Рассмотрим $\Delta y-dy$:
 \begin{align*}
-	 & \frac{\Delta y-dy}{dx}=\frac{f(x+\Delta x)-f(x)-f'(x)\Delta x}{\Delta x}=\frac{f(x+\Delta x)-f(x)}{\Delta x}-f'(x)\xrigh)tarrow{\Delta x\to 0}0 \text{ (по условию теоремы)}\Rarr \\
+	 & \frac{\Delta y-dy}{\Delta x}=\frac{f(x+\Delta x)-f(x)-f'(x)\Delta x}{\Delta x}
+	=\frac{f(x+\Delta x)-f(x)}{\Delta x}-f'(x)\xrightarrow{\Delta x\to 0}0 \text{ (по условию теоремы)}\Rarr \\
 	 & \Rarr\Delta y-dy=o(\Delta x)\Rarr \Delta y=dy+o(\Delta x)\qed
 \end{align*}
 
 \theorem[об инвариантности формы первого дифференциала]
 
 $z=g(y)$, $y=f(x)$
-\begin{align}
-	 & dz=g_{x}'dx\label{62:form_1}                \\
-	 & dz=g_{y}'dy=g_{y}'f_{x}'dx\label{62:form_2}
-\end{align}
+\begin{align*}
+	dz=g'_{x}(x)dx=g'_{y}(y)dy
+\end{align*}
 
-$\eqref{62:form_1}$ и $\eqref{62:form_2}$ равны, те $g'_{x}dx=g'_{y}dy$ 
-
-(Иными словами вид дифференциала всегда один и тот же: $dy=f'(x)dx$)
+Иными словами, не имеет значения по какой переменной берётся дифференциал
 
 \proof
 
-При условии $f_{x}'dx = dy$ рассмотрим $\eqref{62:form_1}$ :
+Рассмотрим $g'_{y}dy$ :
 \begin{align*}
-	dz=g_{x}'dx=g(f(x))'dx=g_{y}'f_{x}'dx=g_{y}'dy=\eqref{62:form_2}\qed
+	% dz=g_{x}'dx=g(f(x))'dx=g_{y}'f_{x}'dx=g_{y}'dy=\eqref{62:form_2}\qed
+	g'_{y}(y)dy=g'_{y}(f(x))f'(x)dx=g'_{x}(x)dx\qed
 \end{align*}
 
 \end{document}

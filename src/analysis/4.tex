@@ -14,28 +14,41 @@ $f:A\leftrightarrow B$ означает, что $f:A\to B$ взаимно-одн
 
 $A\sim B$ означает, что множества эквивалентны.
 
+\define{истинной части}
+
+$A$ --- истинная часть $B$, если $A\subset B\land A\sim B$
+
+{\it Пример:}
+
+$(0;1)$ --- истинная часть $\R$
+\begin{align*}
+	 & f:(0;1)\leftrightarrow\R            &  & (0;1)\subset\R \\
+	 & f(x)=\tg\left(\frac{x\pi}{2}\right) &  & (0;1)\sim\R
+\end{align*}
+
 \theorem
 
 $\R$ несчётно
 
 \proof
 \begin{enumerate}
-	\item{}$\R\sim(0;1)$, т.к. $\exists f:(0;1)\leftrightarrow\R$ при $f(x)=\tg(\frac{x\pi}{2})$ ( $(0,1) $ --- истинная часть $\R$ ). Значит, из $(0;1)\nsim\N$ будет следовать $\R\nsim\N$.
+	\item{}$\R\sim(0;1)$, значит, из $(0;1)\nsim\N$ будет следовать $\R\nsim\N$.
 	\item{}Докажем $(0;1)\nsim\N$.
 
-	Пусть существует перечень $S=\setdef{a_n}{\forall n\in\N}$ (перечень бесконечных десятичных дробей):
+	Пусть существует перечень бесконечных десятичных дробей $S=\setdef{a_n}{\forall n\in\N}$:
 	\begin{align*}
 		 & a_1=0,a_{11}a_{12}a_{13}a_{14}... \\
 		 & a_2=0,a_{21}a_{22}a_{23}a_{24}... \\
-		 & ... \\
-          & a_n=0,a_{n1}a_{n2}a_{n3}a_{n4}... 
+		 & ...                               \\
+		 & a_n=0,a_{n1}a_{n2}a_{n3}a_{n4}... \\
+		 & ...
 	\end{align*}
 
 	Построим тогда $\beta\in(0;1)\land\beta\notin S$:
 	\begin{align*}
 		 & \beta=0,\beta_1\beta_2\beta_3\beta_4\beta_5...                               \\
 		 & \beta_n\neq a_{nn}\land \beta_n\neq 9\land\beta_n\neq 0\;\forall n\in\N\Rarr \\
-		 & \Rarr \beta\neq a_n\;\forall n\in\N \land  0<\beta<1\Rarr                      \\
+		 & \Rarr \beta\neq a_n\;\forall n\in\N \land  0<\beta<1\Rarr                    \\
 		 & \Rarr \beta\notin S\land \beta\in(0;1)
 	\end{align*}
 
@@ -46,10 +59,12 @@ $\R$ несчётно
 
 \end{enumerate}
 
-\theorem
+\theorem[Кантора-Бернштейна]
 \begin{align*}
 	(\exists\text{инъекция }f:A\to B',\;B'\subset B)\land(\exists\text{инъекция }g:B\to A',\;A'\subset A)\Rarr A\sim B
 \end{align*}
+
+\pagebreak
 
 \define{мощности множества}
 
@@ -66,7 +81,7 @@ $f$ и $g$ --- инъекции
 \begin{enumerate}
 	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\exists g:B\to A,\;A'\subset A)\Rarr m(A)=m(B)$
 	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr m(A)<m(B)$
-	\item{}$(\nexists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr$ $m(A)$ и $m(B)$ несравнимы
+	\item{}$(\nexists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr$ $m(A)$ и $m(B)$ несравнимы,
 \end{enumerate}
 
 

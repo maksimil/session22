@@ -8,9 +8,9 @@
 
 \tickettitle{56}{Теорема Тейлора, остаточные члены разложения функции в формах Лагранжа, Коши и Пеано.}
 
-\theorem{Тейлора}
+\theorem[Тейлора]
 
-$f$ --- $n$ раз дифференцируема на $[a;b]$
+$f$ --- $n$ раз дифференцируема на $[a;b]$ или $[b;a]$
 \begin{align*}
 	 & f(b)=f(a)+\sum_{k=1}^{n-1}\frac{(b-a)^{k}}{k!}f^{(k)}(a)+R_n
 \end{align*}
@@ -41,7 +41,7 @@ $f$ --- $n$ раз дифференцируема на $[a;b]$
 	 & =-\frac{(b-x)^{n-1}}{(n-1)!}f^{(n)}(x)
 \end{align*}
 
-Заметим: $R_n=g_n(a)\land g_n(b)=0$. Тогда по т. Лагранжа:
+Заметим: $g_n(a)=R_{n}\land g_n(b)=0$. Тогда по т. Лагранжа:
 \begin{align*}
 	 & \frac{g_n(b)-g_n(a)}{b-a}=g_n'(a+\theta'h),\;\theta'\in(0;1)\Rarr \frac{-R_n}{b-a}=g_n'(a+\theta'h)=-\frac{(b-a-\theta'h)^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)\Rarr \\
 	 & \Rarr \frac{R_n}{h}=\frac{(h-\theta'h)^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)=\frac{h^{n-1}(1-\theta')^{n-1}}{(n-1)!}f^{(n)}(a+\theta'h)\Rarr                         \\
