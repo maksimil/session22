@@ -6,4 +6,133 @@
 
 \tickettitle{75}{Интегрирование иррациональных и тригонометрических выражений.}
 
+\define{рационального выражения от 2х аргументов}
+\begin{align*}
+	 & P_{n}(y,z)=\sum_{i=0}^{n}\sum_{j=0}^{n-i}a_{ij}y^{i}z^{j} &  & \exists i:a_{i(n-i)}\neq 0
+\end{align*}
+
+$P_{n}$ --- многочлен от аргументов $y$ и $z$ степени $n$
+
+$R(y,z)=P(y,z)/Q(y,z)$ ($P$, $Q$ --- полиномы) --- рациональная дробь от 2х аргументов
+
+Если $R(y,z),R_1(t),R_2(t),R_3(t)$ --- рациональные функции, то\\
+$R[R_1(t),R_2(t)]R_3(t)$ --- рациональная функция
+
+\theorem
+
+$R(\sin(x),\cos(x))$ интегрируема в элементарных функциях
+
+\proof
+\begin{align*}
+	 & I=\int R(\sin(x),\cos(x))dx                                                        \\
+	 & t=\tg\left(\frac{x}{2}\right),\;x=2\arctg(t)\Rarr dx=\frac{2}{1+t^{2}}dt           \\
+	 & \sin(x)=\frac{2t}{1+t^{2}}\quad\cos(x)=\frac{1-t^{2}}{1+t^{2}}                     \\
+	 & I=\int R\left(\frac{2t}{1+t^{2}},\frac{1-t^{2}}{1+t^{2}}\right)\frac{2}{1+t^{2}}dt
+\end{align*}
+
+Таким образом, $I$ был сведен к интегралу рациональной функции $\Rarr$ $R(\sin(x),\cos(x))$ --- интегрируема в элементарных функциях$\qed$
+
+{\it Пример}
+\begin{align*}
+	 & I=\int\frac{dx}{1+a\cos(x)},\;a>0\land a \neq 1                                                   \\
+	 & t=\tg\left(\frac{x}{2}\right)\Rarr dx=\frac{2}{1+t^{2}}dt                                         \\
+	 & \cos(x)=\frac{1-t^{2}}{1+t^{2}}                                                                   \\
+	 & I=\int\frac{1}{1+a\frac{1-t^{2}}{1+t^{2}}}\frac{2}{1+t^{2}}dt=2\int\frac{1}{1+t^{2}+a(1-t^{2})}dt \\
+	 & =2\int\frac{1}{(1-a)t^{2}+(1+a)}dt=\frac{2}{1-a}\int\frac{1}{t^{2}+\frac{1+a}{1-a}}dt             \\
+	 & c:=\frac{1+a}{1-a}                                                                                \\
+	 & b:=\sqrt{\left|c\right|},\;b^{2}=\left|c\right|,\;b\neq 0
+\end{align*}
+
+\pagebreak
+
+Рассмотрим 2 случая:
+\begin{enumerate}
+	\item{}$c\geq 0\Lrarr a\in(0;1)$
+	\begin{align*}
+		 & c=|c|=b^{2}                                                                                         \\
+		 & I=\frac{2}{1-a}\int\frac{1}{t^{2}+b^{2}}dt=\frac{2}{1-a}\frac{1}{b}\arctg\left(\frac{t}{b}\right)+c \\
+		 & b=\sqrt{\frac{1+a}{1-a}}                                                                            \\
+		 & I=\frac{2}{\sqrt{1-a^{2}}}\arctg\left(t\sqrt{\frac{1-a}{1+a}}\right)+c
+		=\frac{2}{\sqrt{1-a^{2}}}\arctg\left(\tg\left(\frac{x}{2}\right)\sqrt{\frac{1-a}{1+a}}\right)+c
+	\end{align*}
+	\item{}$c< 0\Lrarr a\in(1;+\infty)$
+	\begin{align*}
+		 & c=-|c|=-b^{2}                                                                            \\
+		 & I=\frac{2}{1-a}\int\frac{1}{t^{2}-b^{2}}dt=\frac{1}{2b}\ln\left|\frac{t-b}{t+b}\right|+c
+		=\frac{1}{2b}\ln\left|\frac{\tg(x/2)-b}{\tg(x/2)+b}\right|+c
+	\end{align*}
+\end{enumerate}
+
+\theorem
+
+Дробно-линейная иррациональность:
+
+$\displaystyle R\left(x,\sqrt[n]{\frac{ax+b}{cx+d}}\right)$, $a,b,c,d\in\R:ad-bc\neq 0,n\in\N$ --- интегрируема в элементарных функциях
+
+\proof
+\begin{align*}
+	 & I=\int R\left(x,\sqrt[n]{\frac{ax+b}{cx+d}}\right)dx                                                                      \\
+	 & t=\sqrt[n]{\frac{ax+b}{cx+d}}\Rarr t^{n}=\frac{ax+b}{cx+d}\Rarr cxt^{n}+dt^{n}=ax+b\Rarr x=\frac{dt^{n}-b}{a-ct^{n}}\Rarr \\
+	 & \Rarr dx=\frac{(a-ct^{n})ndt^{n-1}+(dt^{n}-b)cnt^{n-1}}{(a-ct^{n})^{2}}dt=\frac{nt^{n-1}(ad-bc)}{(a-ct^{n})^{2}}dt        \\
+	 & I=\int R\left(\frac{dt^{n}-b}{a-ct^{n}},t\right)\frac{nt^{n-1}(ad-bc)}{(a-ct^{n})^{2}}dt\qed
+\end{align*}
+
+{\it Пример}
+\begin{align*}
+	 & I=\int\sqrt{\frac{1+x}{1-x}}\frac{dx}{1-x}                                                    \\
+	 & a=1,\;b=1,\;c=-1,\;d=1,\;ad-bc=2,\;n=2                                                        \\
+	 & t=\sqrt{\frac{1+x}{1-x}}\Rarr dx=\frac{2t\cdot 2}{(1+t^{2})^{2}}dt=\frac{4t}{(1+t^{2})^{2}}dt \\
+	 & x=\frac{t^{2}-1}{1+t^{2}}\Rarr 1-x=\frac{1+t^{2}-t^{2}+1}{1+t^{2}}=\frac{2}{1+t^{2}}          \\
+	 & I=\int t\frac{1+t^{2}}{2}\frac{4t}{(1+t^{2})^{2}}dt=2\int\frac{t^{2}}{1+t^{2}}dt
+	=2\int\frac{1+t^{2}-1}{1+t^{2}}dt=2\left[\int dt-\int\frac{1}{1+t^{2}}dt\right]=                 \\
+	 & =2[t-\arctg(t)]+c=2\sqrt{\frac{1+x}{1-x}}-2\arctg\sqrt{\frac{1+x}{1-x}}+c
+\end{align*}
+
+\pagebreak
+
+\theorem
+
+Квадратная иррациональность:
+
+$\displaystyle R(x,\sqrt{ax^{2}+bx+c})$, $a,b,c\in\R$ --- интегрируема в элементарных функциях
+
+$ax^{2}+bx+c$ не имеет равных корней
+
+\proof
+\begin{enumerate}
+	\item{}$ax^{2}+bx+c$ не имеет вещественных корней
+
+	$ax^{2}+bx+c$ --- подкоренное выражение $\Rarr$ $ax^{2}+bx+c>0$ $\Rarr$ $a>0$
+
+	Первая подстановка Эйлера:
+	\begin{align*}
+		 & t=\sqrt{ax^{2}+bx+c}+x\sqrt{a}\Rarr t-x\sqrt{a}=\sqrt{ax^{2}+bx+c}                                                                   \\
+		 & ax^{2}+bx+c=t^{2}+ax^{2}-2xt\sqrt{a}\Rarr bx+c=t^{2}-2xt\sqrt{a}\Rarr x=\frac{t^{2}-c}{b+2t\sqrt{a}}                                 \\
+		 & dx=\frac{(b+2t\sqrt{a})2t-(t^{2}-c)2\sqrt{a}}{(b+2t\sqrt{a})^{2}}dt=\frac{2\sqrt{a}t^{2}+2bt+2c\sqrt{a}}{(b+2t\sqrt{a})^{2}}dt
+		=2\frac{\sqrt{a}t^{2}+bt+c\sqrt{a}}{(b+2t\sqrt{a})^{2}}dt                                                                               \\
+		 & \sqrt{ax^{2}+bx+c}=t-x\sqrt{a}=t-\frac{t^{2}-c}{b+2t\sqrt{a}}\sqrt{a}=\frac{bt+2t^{2}\sqrt{a}-t^{2}\sqrt{a}+c\sqrt{a}}{b+2t\sqrt{a}}
+		=\frac{t^{2}\sqrt{a}+bt+c\sqrt{a}}{b+2t\sqrt{a}}
+	\end{align*}
+	\begin{align*}
+		I=\int R(x,\sqrt{ax^{2}+bx+c})dx=\int R\left(\frac{t^{2}-c}{b+2t\sqrt{a}},\frac{t^{2}\sqrt{a}+bt+c\sqrt{a}}{b+2t\sqrt{a}}\right)2\frac{\sqrt{a}t^{2}+bt+c\sqrt{a}}{(b+2t\sqrt{a})^{2}}dt\qed
+	\end{align*}
+	\item{}$ax^{2}+bx+c$ имеет вещественные корни $x_1$ и $x_2$, причём $x_1\neq x_2$
+	\begin{align*}
+		ax^{2}+bx+c=a(x-x_1)(x-x_2)
+	\end{align*}
+
+	Вторая подстановка Эйлера:
+	\begin{align*}
+		 & t=\frac{\sqrt{a(x-x_1)(x-x_2)}}{x-x_1}                                                           \\
+		 & t(x-x_1)=\sqrt{a(x-x_1)(x-x_2)}\Rarr t^{2}(x-x_1)^{2}=a(x-x_1)(x-x_2)\Rarr                       \\
+		 & \Rarr t^{2}(x-x_1)=a(x-x_2)\Rarr xt^{2}-x_1t^{2}=ax-x_2a\Rarr x=\frac{x_1t^{2}-x_2a}{t^{2}-a}    \\
+		 & dx=\frac{2x_1t(t^{2}-a)-2t(x_1t^{2}-x_2a)}{(t^{2}-a)^{2}}dt=\frac{2a(x_2-x_1)t}{(t^{2}-a)^{2}}dt \\
+		 & \sqrt{ax^{2}+bx+c}=t(x-x_1)=t\left(\frac{x_1t^{2}-x_2a}{t^{2}-a}-x_1\right)
+		=t\frac{x_1t^{2}-x_2a-x_1t^{2}+x_1a}{t^{2}-a}=\frac{a(x_1-x_2)t}{t^{2}-a}
+	\end{align*}
+	\begin{align*}
+		I=\int R(x,\sqrt{ax^{2}+bx+c})=\int R\left(\frac{x_1t^{2}-x_2a}{t^{2}-a},\frac{a(x_1-x_2)t}{t^{2}-a}\right)\frac{2a(x_2-x_1)t}{(t^{2}-a)^{2}}dt\qed
+	\end{align*}
+\end{enumerate}
+
 \end{document}
