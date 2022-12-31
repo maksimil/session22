@@ -4,6 +4,64 @@
 
 \begin{document}
 
-\tickettitle{76}{Интегрирование биномиальных дифференциалов. Теорема Чебышева. Понятие об эллиптических интегралах.}
+\tickettitle{76}{Интегрирование биномиальных дифференциалов. Теорема Чебышева. Понятие~об~эллиптических~интегралах.}
+
+\define{биномиального дифференциала}
+
+$x^{m}(b+ax^{n})^{p}dx$, $m,n,p\in\Q$ --- биномиальный дифференциал
+
+\theorem[Чебышева]
+
+Биномиальные дифференциалы интегрируемы в элементарных функциях только в следущих случаях:
+\begin{align*}
+	 & p\in\Z &  & \frac{m+1}{n}\in\Z &  & \frac{m+1}{n}+p\in\Z
+\end{align*}
+
+\proof
+\begin{enumerate}
+	\item{}$p\in\Z\Rarr$ $x^{m}(b+ax^{n})^{p}$ принимает форму дробно-линейной иррациональности $R(x,\sqrt[r]{x})\qed$
+	\item{}$\frac{m+1}{n}\in\Z\Rarr n\neq 0$
+	\begin{align*}
+		 & z=x^{n}\Rarr x=z^{\frac{1}{n}}                                                                                  \\
+		 & dx=\frac{1}{n}z^{\frac{1}{n}-1}dz                                                                               \\
+		 & I=\int x^{m}(b+ax^{n})^{p}dx=\int z^{\frac{m}{n}}(b+az)^{p}\frac{1}{n}z^{\frac{1}{n}-1}dz
+		=\frac{1}{n}\int z^{\frac{m+1}{n}-1}(b+az)^{p}dz                                                                   \\
+		 & p=\frac{k}{s},\;k\in\Z,s\in\N                                                                                   \\
+		 & \frac{m+1}{n}\in\Z\Rarr I=\frac{1}{n}\int R(z,\sqrt[s]{b+az})dz\text{ --- дробно-линейная иррациональность}\qed
+	\end{align*}
+	\item{}$\frac{m+1}{n}+p\in\Z\Rarr n\neq 0$
+	\begin{align*}
+		 & z=x^{n}\Rarr x=z^{\frac{1}{n}}                                                                                                             \\
+		 & dx=\frac{1}{n}z^{\frac{1}{n}-1}dz                                                                                                          \\
+		 & I=\int x^{m}(b+ax^{n})^{p}dx=\int z^{\frac{m}{n}}(b+az)^{p}\frac{1}{n}z^{\frac{1}{n}-1}dz=\frac{1}{n}\int z^{\frac{m+1}{n}-1}(b+az)^{p}dz= \\
+		 & =\frac{1}{n}\int z^{\frac{m+1}{n}-1}\frac{z^{p}}{z^{p}}(b+az)^{p}dz=\frac{1}{n}\int z^{\frac{m+1}{n}+p-1}\left(\frac{b+az}{z}\right)^{p}dz\\
+		 & p=\frac{k}{s},\;k\in\Z,s\in\N                                                                                   \\
+		 &\frac{m+1}{n}+p\in\Z\Rarr I=\frac{1}{n}\int R\left(z, \sqrt[s]{\frac{b+az}{z}}\right)dz\text{ --- дробно-линейная иррациональность}\qed
+	\end{align*}
+\end{enumerate}
+
+\define{эллиптических интегралов}
+\begin{align}
+	&\int R\left(x,\sqrt{ax^{3}+bx^{2}+cx+d}\right)dx\label{76:form_1}\\
+	&\int R\left(x,\sqrt{ax^{4}+b^{3}+cx^{2}+dx+e}\right)dx\label{76:form_2}
+\end{align}
+
+Интегралы вида $\eqref{76:form_1}$ и $\eqref{76:form_2}$ называются эллиптическими, если они не интегрируемы\\
+в элементарных функциях. В противном случае они называются псевдоэллиптическими
+
+\theorem
+
+Интерал $\eqref{76:form_1}$ можно свести к $\eqref{76:form_2}$
+
+\proof
+\begin{align*}
+	&ax^{3}+bx^{2}+cx+d=a(x-x_0)(x^{2}+px+q)\\
+	&x-x_0=\pm t^{2},\;t\geq 0\\
+	&a(x-x_0)(x^{2}+px+q)=\pm at^{2}((x_0\pm t^{2})^{2}+p(x_0\pm t^{2})+q)=\\
+	&=\pm at^{2}(t^{4}\pm (p+2x_0)t^{2}+x_0^{2}+px_0+q)\\
+	&\sqrt{ax^{3}+bx^{2}+cx+d}=\sqrt{\pm at^{2}(t^{4}\pm (p+2x_0)t^{2}+x_0^{2}+px_0+q)}=\\
+	&=t\sqrt{\pm a(t^{4}\pm (p+2x_0)t^{2}+x_0^{2}+px_0+q)}\\
+	&R_1\left(x,\sqrt{ax^{3}+bx^{2}+cx+d}\right)=R_2\left(t,\sqrt{\pm a(t^{4}\pm (p+2x_0)t^{2}+x_0^{2}+px_0+q)}\right)\qed
+\end{align*}
 
 \end{document}
