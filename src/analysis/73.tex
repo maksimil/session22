@@ -6,4 +6,174 @@
 
 \tickettitle{73}{Интегрирование рациональных выражений и правильных дробей.}
 
+\define{рационального выражения}
+
+Пусть $P$, $Q$ --- многочлены с вещественными коэфицентами, тогда выражение $\frac{P(x)}{Q(x)}$ называется рациональной дробью с вещественными коэфицентами
+
+Если $\deg P<\deg Q$, то дробь --- правильная, иначе --- неправильная
+
+Неправильную дробь можно разложить на сумму многочлена и правильной дроби
+
+\define{приводимого полинома}
+
+Полином $Q$ приводим, если:
+\begin{align*}
+	\exists P,S:Q=PS\land \deg P\geq 1\land \deg S\geq 1
+\end{align*}
+
+Где $P,S,Q$ --- полиномы с вещественными коэфицентами
+
+Из основной теоремы алгебры следует, что любой полином $\deg>2$ приводим
+
+\define{простых дробей}
+
+Простыми дробями называются дроби вида:
+\begin{align*}
+	 & \frac{A}{(x-p)^{k}},\;k\in\N &  & \frac{Ax+B}{(x^{2}+px+q)^{m}},\;m\in\N
+\end{align*}
+
+Где $A,B,p,q\in\R$
+
+При этом $x^{2}+px+q$ не имеет вещественных корней
+
+Другими словами: $f/g^{k}$ --- простая дробь, если $\deg f<\deg g$ и $g$ --- неприводимый со старшим коэфицентом $=1$
+
+\theorem
+
+Любая правильная рациональная дробь $\frac{P(x)}{Q(x)}$, где старший коэфицент $Q=1$ может быть представлена в виде суммы простых дробей
+
+\proof
+
+Разложим $Q$ на произведение $\mu$ неприводимых полиномов:
+\begin{align*}
+	 & Q=\prod_{k=1}^{\mu}g_{i}^{k_{i}},\;k_{i}\in\N &  & i\neq j\Rarr g_{i}\neq g_{j} &  & g_{i}\text{ --- неприводимый}
+\end{align*}
+
+Старший коэфицент $Q=1$ $\Rarr$ старшие коэфиценты $g_{i}=1$
+
+\newcommand\Qp{\widetilde{Q}}
+Возьмём $g_{1}^{k_1}$:
+\begin{align*}
+	 & \Qp:=\prod_{k=2}^{\mu}g_{i}^{k_{i}} &  & Q=\Qp g_{1}^{k_1}
+\end{align*}
+
+\pagebreak
+
+Применим следущий алгоритм к $\Qp$ и $g_1^{k_1}$ (алгоритм Евклида):
+\begin{align*}
+	\text{Делим $\Qp$ на $g_1^{k}$ с остатком: }   & \Qp=Q_0g_1^{k_1}+R_1       &  & \deg R_1<\deg g_1^{k_1} \\
+	\text{Делим $g_1^{k_1}$ на $R_1$ с остатком: } & g_1^{k_1}=Q_1R_1+R_2       &  & \deg R_2<\deg R_1       \\
+	                                               & R_1=Q_2R_2+R_3             &  & \deg R_3<\deg R_2       \\
+	                                               & ...                                                     \\
+	                                               & R_{k-1}=Q_{k}R_{k}+R_{k+1} &  & \deg R_{k+1}<\deg R_{k} \\
+	                                               & R_{k}=Q_{k+1}R_{k+1}       &  & R_{k+1}\setminus R_{k}
+\end{align*}
+
+Алгоритм заканчивается, когда $R_{k+1}$ делит $R_{k}$ без остатка ($R_{k+1}\setminus R_{k}$)
+
+Алгоритм конечный, тк $\deg R_{k+1}$ на каждом шаге уменьшается, значит в конце концов $\deg R_{k+1}$ достигнет $0$ $\Rarr R_{k+1}=\const\Rarr R_{k+1}\setminus R_{k}$
+\begin{align*}
+	 & R_{k+1}\setminus R_{k}\land R_{k-1}=Q_{k}R_{k}+R_{k+1}\Rarr R_{k+1}\setminus R_{k-1}\Rarr R_{k+1}\setminus R_{k-2}\Rarr...                            \\
+	 & ...\Rarr R_{k+1}\setminus \Qp\land R_{k+1}\setminus g_1^{k_1}\Rarr R_{k+1}=:c=\const\text{ (по построению $\Qp$ и $g_1^{k_1}$ не имеют общих корней)}
+\end{align*}
+
+$R_{k+1}$ по $k+1$ шагу можно выразить через $R_{k-1}$ и $R_{k}$.
+
+Аналогично можно выразить $R_{k}$,  $R_{k-1}$ и тд...
+
+Можно прийти к следущему выводу:
+\begin{align*}
+	 & \exists U,V:c=R_{k+1}=cU\Qp+cVg_1^{k_1}\Rarr U\Qp+Vg_1^{k_1}=1                         \\
+	 & \frac{P}{Q}=\frac{PU\Qp+PVg_1^{k_1}}{g_1^{k_1}\Qp}=\frac{PV}{\Qp}+\frac{PU}{g_1^{k_1}}
+\end{align*}
+
+Обозначим $PU$ как $f_1$:
+\begin{align*}
+	 & f_1:=PU &  & \frac{P}{Q}=\frac{PV}{\Qp}+\frac{f_1}{g_1^{k_1}}
+\end{align*}
+
+Применив эти шаги к $PV/\Qp$ и $g_2^{k_2}$, $g_3^{k_3}$, ..., $g_{\mu-1}^{k_{\mu-1}}$ получим:
+\begin{align*}
+	\frac{P}{Q}=\sum_{i=1}^{\mu}\frac{f_{i}}{g_{i}^{k_{i}}}
+\end{align*}
+
+Применим следущий алгоритм к $f_{i}$
+\begin{align*}
+	 & f_{i}=D_{1}g_{i}+A_{i0}=(D_2g_{i}+A_{i1})g_{i}+A_{i0}=D_2g_{i}^{2}+A_{i1}g_{i}+A_{i0}=\sum_{j=0}^{k}A_{ij}g_{i}^{j} &  & \deg A_{ij}<\deg g_{i}
+\end{align*}
+
+Алгоритм конечен, тк состоит только из $k$ шагов
+\begin{align*}
+	 & \frac{P}{Q}=\sum_{i=1}^{\mu}\frac{f_{i}}{g_{i}^{k_{i}}}=\sum_{i=1}^{\mu}\sum_{j=0}^{k_{i}}\frac{A_{ij}g_{i}^{j}}{g_{i}^{k_{i}}}
+	=\sum_{i=0}^{\mu}\sum_{j=0}^{k_{i}}\frac{A_{ij}}{g_{i}^{k_{i}-j}}=\left(\sum_{i=0}^{\mu}A_{ik_{i}}\right)+\sum_{i=0}^{\mu}\sum_{j=0}^{k_{i}-1}\frac{A_{ij}}{g_{i}^{k_{i}-j}} \\
+	 & S:=\sum_{i=0}^{\mu}A_{ik_{i}}
+\end{align*}
+
+\pagebreak
+
+Пусть $S\neq 0$:
+\begin{align*}
+	\frac{P}{Q}=S+...\Rarr P=QS+...\Rarr \deg P=\deg Q+\deg S\Rarr \deg P\geq \deg Q\text{, но }\deg P<\deg Q\Rarr S=0
+\end{align*}
+
+$\deg A_{ij}<\deg g_{i}$ и $g_{i}$ --- неприводимый со старшим коэфицентом $=1$ $\Rarr$ $A_{ij}/g_{i}^{k_{i}-j}$ --- простая дробь
+
+Тогда:
+\begin{align*}
+	\frac{P}{Q}=\sum_{i=0}^{\mu}\sum_{j=0}^{k_{i}-1}\frac{A_{ij}}{g_{i}^{k_{i}-j}}\qed
+\end{align*}
+
+\sectitle{Интегралы простых дробей}
+
+\begin{enumerate}
+	\item{}
+	\begin{align*}
+		\int \frac{A}{x-a}dx=A\ln|x-a|+c
+	\end{align*}
+	\item{}
+	\begin{align*}
+		\int \frac{A}{(x-a)^{m}},\;m>1=\frac{-A}{(m-1)(x-a)^{m-1}}+c
+	\end{align*}
+	\item{}
+	\begin{align*}
+		 & I=\int \frac{Mx+N}{x^{2}+px+q}dx,\;p^{2}-4q<0                                                                                                   \\
+		 & x^{2}+px+q=\left(x^{2}+px+\frac{p^{2}}{4}\right)+\left(q-\frac{p^{2}}{4}\right)=\left(x+\frac{p}{2}\right)^{2}+\left(q-\frac{p^{2}}{4}\right)   \\
+		 & t:=x+\frac{p}{2}\Rarr x=t-\frac{p}{2},\;dx=dt                                                                                                   \\
+		 & a^{2}:=q-\frac{p^{2}}{4},\;q-\frac{p^{2}}{4}>0                                                                                                  \\
+		 & I=\int \frac{Mt - \frac{Mp}{2}+N}{t^{2}+a^{2}}dt=\frac{M}{2}\int \frac{2t}{t^{2}+a^{2}}dt+\left(N-\frac{Mp}{2}\right)\int\frac{dt}{t^{2}+a^{2}} \\
+		 & \varphi:=t^{2}+a^{2}\Rarr d\varphi=2tdt                                                                                                         \\
+		 & K=\int \frac{2t}{t^{2}+a^{2}}dt=\int\frac{d\varphi}{\varphi}=\ln|\varphi|+c=\ln|t^{2}+a^{2}|+c=\ln|x^{2}+px+q|+c                                \\
+		 & J_1=\int\frac{dt}{t^{2}+a^{2}}=\frac{1}{a}\arctg\left(\frac{t}{a}\right)+c=\frac{1}{a}\arctg\left(\frac{2x+p}{2a}\right)+c                      \\
+		 & I=\frac{M}{2}K+\left(N-\frac{Mp}{2}\right)J_1
+	\end{align*}
+	\item{}
+	\begin{align*}
+		 & I=\int \frac{Mx+N}{(x^{2}+px+q)^{m}}dx,\;p^{2}-4q<0,m>1                                                                                                           \\
+		 & x^{2}+px+q=\left(x^{2}+px+\frac{p^{2}}{4}\right)+\left(q-\frac{p^{2}}{4}\right)=\left(x+\frac{p}{2}\right)^{2}+\left(q-\frac{p^{2}}{4}\right)                     \\
+		 & t:=x+\frac{p}{2}\Rarr x=t-\frac{p}{2},\;dx=dt                                                                                                                     \\
+		 & a^{2}:=q-\frac{p^{2}}{4},\;q-\frac{p^{2}}{4}>0                                                                                                                    \\
+		 & I=\int \frac{Mt - \frac{Mp}{2}+N}{(t^{2}+a^{2})^{m}}dt=\frac{M}{2}\int \frac{2t}{(t^{2}+a^{2})^{m}}dt+\left(N-\frac{Mp}{2}\right)\int\frac{dt}{(t^{2}+a^{2})^{m}} \\
+		 & \varphi:=t^{2}+a^{2}\Rarr d\varphi=2tdt                                                                                                                           \\
+		 & K=\int \frac{2t}{(t^{2}+a^{2})^{m}}dt=\int\frac{d\varphi}{\varphi^{m}}=\frac{-1}{(m-1)\varphi^{m-1}}=\frac{-1}{(m-1)(x^{2}+px+q)^{m-1}}                           \\
+		 & J_{m}=\int\frac{dt}{(t^{2}+a^{2})^{m}}\text{ (билет 71)}                                                                                                          \\
+		 & I=\frac{M}{2}K+\left(N-\frac{Mp}{2}\right)J_{m}
+	\end{align*}
+\end{enumerate}
+
+\theorem
+
+Если интеграл можно свести к интегралу от рациональной дроби, то его можно вычислить через элементарные функции
+
+\proof
+
+Рациональную дробь можно выразить как сумму простых дробей, а простые дроби интегрируемы в элементарных функциях$\qed$
+
+\hd{Формула Остроградского}
+\begin{align*}
+	\int\frac{P(x)}{Q(x)}dx=\int\frac{P_1(x)}{Q_1(x)}dx+\int\frac{P_2(x)}{Q_2(x)}dx
+\end{align*}
+
+$P_1(x)/Q_1(x)$ --- рациональная часть интеграла
+
+$Q=Q_1Q_2$, $\deg P<\deg Q$
 \end{document}
