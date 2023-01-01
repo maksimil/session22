@@ -14,24 +14,20 @@ jobs:
       # Checkout
       - uses: actions/checkout@main
 
-      # Docker build
-      - name: Build a docker image
-        run: docker build . -t session --cache-from session
-
+      # # Docker build
+      # - name: Build a docker image
+      #   run: docker build . -t session --cache-from session
+      #
       - run: mkdir $GITHUB_WORKSPACE/session-build
-
-      - name: Run a docker build
-        run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
-
+      #
+      # - name: Run a docker build
+      #   run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
+      #
       # Release
-      - name: Tag the commit
-        run: |
-          git tag v-$GITHUB_SHA HEAD
-          git push origin v-$GITHUB_SHA
-
       - name: Release
         uses: ncipollo/release-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           artifacts: "session-build/archives/*"
+          tag: $($GITHUB_SHA)
