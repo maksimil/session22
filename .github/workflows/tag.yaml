@@ -11,6 +11,7 @@ jobs:
       contents: write
 
     steps:
+      - uses: actions/checkout@main
       - name: Tag a commit
         run: git tag v-{{ github.ref }}
       - name: Push
