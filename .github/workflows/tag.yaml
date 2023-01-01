@@ -1,0 +1,17 @@
+name: Tag
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Tag a commit
+        run: git tag v-{{ github.ref }}
+      - name: Push
+        run: git push
