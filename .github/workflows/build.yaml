@@ -30,4 +30,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           artifacts: "session-build/archives/*"
-          tag: $($GITHUB_SHA)
+          tag: tag
