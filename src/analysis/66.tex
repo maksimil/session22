@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{66}{Конечные разности.}
+
+\define{первой разности}
+
+$\Delta f(x) = f(x+h) - f(x)$  --- первая разность (приращение) $f(x)$ в $x_0$ при приращении $h$ аргумента $x$
+
+\define{$n$-й разности}
+
+$n$-я разность --- первая разность от $(n-1)$-й разности
+\begin{align*}
+	 & \Delta^{n}f(x)=\Delta[\Delta^{n-1}f(x)]                                                          \\
+	 & \Delta^{2}f(x)=\Delta[\Delta f(x)]=\Delta[f(x+\Delta x)-f(x)]=f(x+2\Delta x)-2f(x+\Delta x)+f(x)
+\end{align*}
+
+\theorem
+\begin{align*}
+	\Delta^{n}f(x)=\sum_{k=0}^{n}(-1)^{k}C_{n}^{k}f(x+(n-k)\Delta x)
+\end{align*}
+
+\proof
+
+{\it Индукция:} $P(n)$ --- верность формулы для $n$
+\begin{enumerate}
+	\item{}$P(1)$
+	\begin{align*}
+		\Delta f(x)=(-1)^{0}C_{1}^{0}f(x+(1-0)\Delta x)+(-1)^{1}C_{1}^{1}f(x+(1-1)\Delta x)=f(x+\Delta x)-f(x)
+	\end{align*}
+	\item{}$P(n)\Rarr P(n+1)$
+	\begin{align*}
+		 & \Delta^{n+1}f(x)=\Delta[\Delta^{n}f(x)]=\Delta\left[\sum_{k=0}^{n}(-1)^{k}C_{n}^{k}f(x+(n-k)\Delta x)\right]= \\
+		 & =\sum_{k=0}^{n}(-1)^{k}C_{n}^{k}f(x+(n+1-k)\Delta x)-\sum_{k=0}^{n}(-1)^{k}C_{n}^{k}f(x+(n-k)\Delta x)=       \\
+		 & =f(x+(n+1)\Delta x)-(-1)^{n}f(x)+                                                                             \\
+		 & +\sum_{k=1}^{n}(-1)^{k}C_{n}^{k}f(x+(n+1-k)\Delta x)-\sum_{k=0}^{n-1}(-1)^{k}C_{n}^{k}f(x+(n-k)\Delta x)
+	\end{align*}
+	\begin{align*}
+		 & \sum_{k=1}^{n}(-1)^{k}C_{n}^{k}f(x+(n+1-k)\Delta x)-\sum_{k=0}^{n-1}(-1)^{k}C_{n}^{k}f(x+(n-k)\Delta x)=                 \\
+		 & =\sum_{k=1}^{n}(-1)^{k}C_{n}^{k}f(x+(n+1-k)\Delta x)-\sum_{k=1}^{n}(-1)^{k-1}C_{n}^{k-1}f(x+(n+1-k)\Delta x)=            \\
+		 & =\sum_{k=1}^{n}(-1)^{k}(C_{n}^{k}+C_{n}^{k-1})f(x+(n+1-k)\Delta x)=\sum_{k=1}^{n}(-1)^{k}C_{n+1}^{k}f(x+(n+1-k)\Delta x)
+	\end{align*}
+	\begin{align*}
+		 & \Delta^{n+1}f(x) =f(x+(n+1)\Delta x)-(-1)^{n}f(x)+\sum_{k=1}^{n}(-1)^{k}C_{n+1}^{k}f(x+(n+1-k)\Delta x)=                  \\
+		 & =(-1)^{0}C_{n+1}^{0}f(x+(n+1)\Delta x)+\sum_{k=1}^{n}(-1)^{k}C_{n+1}^{k}f(x+(n+1-k)\Delta x)+(-1)^{n+1}C_{n+1}^{n+1}f(x)= \\
+		 & =\sum_{k=0}^{n+1}(-1)^{k}C_{n}^{k}f(x+(n+1-k)\Delta x)\qed
+	\end{align*}
+\end{enumerate}
+
+\theorem
+
+$f$ --- непрерывна на $[x_0;x_0+n\Delta x]$
+
+$f$ --- дифференцируема на $(x_0;x_0+n\Delta x)$ до порядка $n$
+\begin{align*}
+	\Delta^{n}f(x_0)=f^{(n)}(\gamma_{n})\Delta x^{n},\;\gamma_{n}\in(x_0;x_0+n\Delta x)
+\end{align*}
+
+\proof
+
+{\it Индукция:} $P(n)$ --- верность формулы для $n$
+\begin{enumerate}
+	\item{}$P(1)$
+	\begin{align*}
+		\Delta f(x_0)=f(x_0+\Delta x)-f(x_0)
+	\end{align*}
+
+	$f$ непрерывна на $[x_0;x_0+\Delta x]$ и дифференцируема на $(x_0;x_0+\Delta x)$, по т. Лагранжа:
+	\begin{align*}
+		\Delta f(x_0)=f'(\gamma_{1})\Delta x,\;\gamma_1\in (x_0;x_0+\Delta x)
+	\end{align*}
+
+	\item{}$P(n-1)\Rarr P(n)$
+	\begin{align*}
+		\Delta^{n} f(x_0)
+		 & =\Delta[\Delta^{n-1}f(x_0)]=\Delta[f^{(n-1)}(\gamma_{n-1})\Delta x^{n-1}]= \\
+		 & =[f^{(n-1)}(\gamma_{n-1}+\Delta x)-f^{(n-1)}(\gamma_{n-1})]\Delta x^{n-1}
+	\end{align*}
+	\begin{align*}
+		x_0<\gamma_{n-1}<\gamma_{n-1}+\Delta x<x_0+n\Delta x\Rarr [\gamma_{n-1};\gamma_{n-1}+n\Delta x]\subset (x_0;x_0+n\Delta x)
+	\end{align*}
+
+	$f^{(n-1)}$ --- непрерывна на $(x_0;x_0+n\Delta x)$ $\Rarr$ $f^{(n-1)}$ --- непрерывна и\\
+	дифференцируема на $[\gamma_{n-1};\gamma_{n-1}+\Delta x]$
+	\begin{align*}
+		 & \Delta f^{(n-1)}(\gamma_{n-1})=f^{(n)}(\gamma_{n})\Delta x,\;\gamma_{n}\in(\gamma_{n-1};\gamma_{n-1}+\Delta x)\subset (x_0;x_0+n\Delta x)
+	\end{align*}
+	\begin{align*}
+		\Delta^{n}f(x_0)
+		 & =\Delta[\Delta^{n-1}f(x_0)]=\Delta[f^{(n-1)}(\gamma_{n-1})\Delta x^{n-1}]=                                              \\
+		 & =[\Delta f^{(n-1)}(\gamma_{n-1})]\Delta x^{n-1}=f^{(n)}(\gamma_{n})\Delta x^{n},\;\gamma_{n}\in (x_0;x_0+n\Delta x)\qed
+	\end{align*}
+\end{enumerate}
+
+\pagebreak
+
+\theorem
+
+$f$ --- непрерывна и дифференцируема до порядка $n$ в окрестности $x_0$
+
+$f^{(n)}$ --- непрерывна в $x_0$
+\begin{align*}
+	f^{(n)}(x_0)=\slim{\Delta x\to 0}\frac{\Delta^{n}f(x_0)}{\Delta x^{n}}
+\end{align*}
+
+\proof
+\begin{align*}
+	 & \Delta^{n}f(x_0)=f^{(n)}(x_0+\theta n\Delta x)\Delta x^{n},\;\theta\in(0;1)                                                  \\
+	 & \slim{\Delta x\to 0}\frac{\Delta^{n}f(x_0)}{\Delta x^{n}}=\slim{\Delta x\to 0}f^{(n)}(x_0+\theta n\Delta x)=f^{(n)}(x_0)\qed
+\end{align*}
+\end{document}
