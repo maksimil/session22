@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Tag a commit
-        run: git tag v-$GITHUB_SHA
+        run: git tag v-$GITHUB_SHA HEAD
       - name: Push
-        run: git push
+        run: git push origin v-$GITHUB_SHA
