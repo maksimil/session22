@@ -15,8 +15,23 @@ jobs:
       - uses: actions/checkout@main
 
       # Docker build
+      - name: Load docker cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: build-cache.tar
+          key: ${{ runner.os }}-build-cache
+
+      - name: Docker load
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: docker load -i build-cache.tar
+
       - name: Build a docker image
-        run: docker build . -t session
+        run: docker build . -t session --cache-from session
+
+      - name: Docker save
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: docker save session -o build-cache.tar
 
       - run: mkdir $GITHUB_WORKSPACE/session-build
 
