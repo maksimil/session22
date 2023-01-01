@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    perminssions:
+      contents: write
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@main
+
+      # Docker build
+      - name: Build a docker image
+        run: docker build . -t session
+
+      - run: mkdir $GITHUB_WORKSPACE/session-build
+
+      - name: Run a docker build
+        run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
+
+      # Release
+      - name: Release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          artifacts: $GITHUB_WORKSPACE/session-build/all.tar.gz
