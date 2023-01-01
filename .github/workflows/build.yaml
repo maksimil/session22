@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    tags: ["v*"]
+    branches: [main]
 
 jobs:
   build:
@@ -24,6 +24,11 @@ jobs:
         run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
 
       # Release
+      - name: Tag the commit
+        run: |
+          git tag v-$GITHUB_SHA HEAD
+          git push origin v-$GITHUB_SHA
+
       - name: Release
         uses: ncipollo/release-action@v1
         env:
