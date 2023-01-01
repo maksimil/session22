@@ -44,13 +44,15 @@ all-parallel:
 	@echo "\\e[34m--- Building archives-parallel ---\\e[0m"
 	make archives-all -j
 
-archives-all: $(OUT_DIR)/all.zip $(OUT_DIR)/all.tar.gz
+archives-all: $(OUT_DIR)/archives/all.zip $(OUT_DIR)/archives/all.tar.gz $(OUT_DIR)/archives/algebra.zip $(OUT_DIR)/archives/algebra.tar.gz $(OUT_DIR)/archives/analysis.zip $(OUT_DIR)/archives/analysis.tar.gz $(OUT_DIR)/archives/geometry.zip $(OUT_DIR)/archives/geometry.tar.gz
 
-$(OUT_DIR)/all.zip: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
-	cd $(OUT_DIR); zip -r9 all.zip analysis/ algebra/ geometry/
+$(OUT_DIR)/archives/all.zip: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
+	mkdir -p $(OUT_DIR)/archives
+	cd $(OUT_DIR); zip -r9 archives/all.zip analysis/ algebra/ geometry/
 
-$(OUT_DIR)/all.tar.gz: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
-	cd $(OUT_DIR); tar -cf all.tar analysis/ algebra/ geometry/; gzip -f9 all.tar
+$(OUT_DIR)/archives/all.tar.gz: $(OUT_DIR)/algebra/book.pdf $(OUT_DIR)/analysis/book.pdf $(OUT_DIR)/geometry/book.pdf
+	mkdir -p $(OUT_DIR)/archives
+	cd $(OUT_DIR); tar -cf archives/all.tar analysis/ algebra/ geometry/; gzip -f9 archives/all.tar
 
 .PHONY: clean
 clean:
@@ -95,6 +97,15 @@ $(OUT_DIR)/{subject}/book.pdf: src/book.tex $(OBJ_DIR)/{subject}/book-list.tex
 $(OBJ_DIR)/{subject}/book-list.tex: {ticket_list}
 	mkdir -p $(OBJ_DIR)/{subject}
 	python ./scripts/gen-book-list.py {subject} $(OBJ_DIR)/{subject}/book-list.tex
+
+$(OUT_DIR)/archives/{subject}.zip: $(OUT_DIR)/{subject}/book.pdf
+	mkdir -p $(OUT_DIR)/archives
+	cd $(OUT_DIR); zip -r9 archives/{subject}.zip {subject}/
+	cp $(OUT_DIR)/{subject}/book.pdf $(OUT_DIR)/archives/{subject}-book.pdf
+
+$(OUT_DIR)/archives/{subject}.tar.gz: $(OUT_DIR)/{subject}/book.pdf
+	mkdir -p $(OUT_DIR)/archives
+	cd $(OUT_DIR); tar -cf archives/{subject}.tar {subject}/; gzip -f9 archives/{subject}.tar
 """
 
 subject_target=subject_all_target+book_target
