@@ -1,0 +1,175 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{31}{Число $e$ как предел функции. Замечательные пределы, неопределенности вида $1^{\infty}$, $0^{0}$, $\infty^{0}$.}
+
+\theorem
+\begin{align*}
+	\slim{x\to 0}(1+x)^{\frac{1}{x}}=e
+\end{align*}
+
+\proof
+
+Возьмём $\{n_{k}\}\subset\N:\slimty n_{k}=+\infty$
+\begin{align*}
+	 & E(n):=\left(1+\frac{1}{n}\right)^{n},\;\slimty E(n)=e                                           \\
+	 & \forall r\;\exists k:(\forall m>k)\;n_{m}>r                                                     \\
+	 & \forall\eps>0\;\exists r:(\forall n>r)\;|E(n)-e|<\eps\land\exists k:(\forall m>k)\;n_{m}>r      \\
+	 & \Rarr\forall\eps>0\;\exists k:(\forall m>k)\;|E(n_{m})-e|<\eps\Rarr \slim{k\to\infty}E(n_{m})=e
+\end{align*}
+
+Возьмём теперь $\{x_{k}\}\subset(0;1):\slim{k\to\infty}x_{k}=0$
+
+Тогда определим $\{n_{k}\}\subset\N$:
+\begin{align*}
+	 & n_{k}:=\left\lfloor\frac{1}{x_{k}}\right\rfloor\Rarr n_{k}\leq \frac{1}{x_{k}}<n_{k}+1        \\
+	 & \forall r>0\;\exists k:(\forall m>k)\;0<x_{m}<\frac{1}{r}\Rarr r<\frac{1}{x_{m}}<n_{m}+1\Rarr \\
+	 & \Rarr\slim{k\to\infty}n_{k}=+\infty\Rarr \slim{k\to\infty}E(n_{k})=e
+\end{align*}
+\begin{align*}
+	n_{k}\leq\frac{1}{x_{k}}<n_{k}+1
+	 & \Rarr \frac{1}{n_{k}+1}<x_{k}\leq\frac{1}{n_{k}}\Rarr 1+\frac{1}{n_{k}+1}<1+x_{k}\leq 1+\frac{1}{n_{k}}\Rarr        \\
+	 & \Rarr \left(1+\frac{1}{n_{k}+1}\right)^{n_{k}}<(1+x_{k})^{\frac{1}{x_{k}}}<\left(1+\frac{1}{n_{k}}\right)^{n_{k}+1}
+\end{align*}
+\begin{align*}
+	 & \slim{k\to\infty}\left(1+\frac{1}{n_{k}+1}\right)^{n_{k}}=\slim{k\to\infty}\left(1+\frac{1}{n_{k}+1}\right)^{n_{k}+1}\slim{k\to\infty}\left(1+\frac{1}{n_{k}+1}\right)^{-1}=e \\
+	 & \slim{k\to\infty}\left(1+\frac{1}{n_{k}}\right)^{n_{k}+1}=\slim{k\to\infty}\left(1+\frac{1}{n_{k}}\right)^{n_{k}}\slim{k\to\infty}\left(1+\frac{1}{n_{k}}\right)=e
+\end{align*}
+
+Тогда по принципу сжатой переменной:
+\begin{align*}
+	\slim{k\to\infty}(1+x_{k})^{\frac{1}{x_{k}}}=e\Rarr \slim{x\to 0+0}(1+x)^{\frac{1}{x}}=e
+\end{align*}
+
+\pagebreak
+
+Рассмотрим теперь предел для $y\to 0-0$ с помощью замены $x=-y$
+\begin{align*}
+	 & \slim{y\to 0-0}(1+y)^{\frac{1}{y}}=\slim{x\to 0+0}(1-x)^{-\frac{1}{x}}=
+	\slim{x\to 0+0}\left(\frac{1}{1-x}\right)^{\frac{1}{x}}=\slim{x\to 0+0}\left(\frac{1-x+x}{1-x}\right)^{\frac{1}{x}}             \\
+	 & =\slim{x\to 0+0}\left(1+\frac{x}{1-x}\right)^{\frac{1}{x}-1+1}=\slim{x\to 0+0}\left(1+\frac{x}{1-x}\right)^{\frac{1-x}{x}+1} \\
+\end{align*}
+
+Сделаем замену:
+\begin{align*}
+	 & z=\frac{x}{1-x}\Rarr\slim{x\to 0+0}z=0+0                                                         \\
+	 & \slim{y\to 0-0}(1+y)^{\frac{1}{y}}=\slim{x\to 0+0}\left(1+\frac{x}{1-x}\right)^{\frac{1-x}{x}+1}
+	=\slim{z\to 0+0}(1+z)^{\frac{1}{z}+1}=\slim{z\to 0+0}(1+z)^{\frac{1}{z}}\slim{z\to 0+0}(1+z)=e
+\end{align*}
+
+Тогда можно сделать вывод:
+\begin{align*}
+	\slim{x\to 0+0}(1+x)^{\frac{1}{x}}=e\land\slim{x\to 0-0}(1+x)^{\frac{1}{x}}=e\Rarr\slim{x\to 0}(1+x)^{\frac{1}{x}}=e\qed
+\end{align*}
+
+\sectitle{Замечательные пределы}
+\begin{enumerate}
+	\item{}
+	\begin{enumerate}[label=\theenumi.\arabic*.]
+		\setcounter{enumii}{-1}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}\frac{\sin(x)}{x}=1\text{ (по билету 30) }
+		\end{align*}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}\frac{\tg(x)}{x}=\slim{x\to 0}\frac{\tg(x)}{x}=\slim{x\to 0}\frac{1}{\cos(x)}\slim{x\to 0}\frac{\sin(x)}{x}=1
+		\end{align*}
+		\item{}
+		\begin{align*}
+			 & L=\slim{x\to 0}\frac{\arcsin(x)}{x} \\
+			 & x=\sin(y)\Rarr x\to 0\sim y\to 0    \\
+			 & L=\slim{y\to 0}\frac{y}{\sin(y)}=1
+		\end{align*}
+		\item{}
+		\begin{align*}
+			 & L=\slim{x\to 0}\frac{\arctg(x)}{x} \\
+			 & x=\tg(y)\Rarr x\to 0\sim y\to 0    \\
+			 & L=\slim{y\to 0}\frac{y}{\tg(y)}=1
+		\end{align*}
+	\end{enumerate}
+
+	\pagebreak
+
+	\item{}
+	\begin{enumerate}[label=\theenumi.\arabic*.]
+		\setcounter{enumii}{-1}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}(1+x)^{\frac{1}{x}}=e
+		\end{align*}
+		\item{}
+		\begin{align*}
+			 & L=\slim{x\to \infty}\left(1+\frac{1}{x}\right)^{x} \\
+			 & z=\frac{1}{x}\Rarr z\to 0\sim x\to\infty           \\
+			 & L=\slim{z\to 0}(1+z)^{\frac{1}{z}}=e
+		\end{align*}
+	\end{enumerate}
+
+	\item{}
+	\begin{enumerate}[label=\theenumi.\arabic*.]
+		\setcounter{enumii}{-1}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}\frac{\log_{a}(x+1)}{x}=\slim{x\to 0}\log_{a}\left[\left(1+x\right)^{\frac{1}{x}}\right]=\log_{a}e=\frac{1}{\ln a}
+		\end{align*}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}\frac{\ln(x+1)}{x}=\frac{1}{\ln e}=1
+		\end{align*}
+	\end{enumerate}
+
+	\item{}
+	\begin{enumerate}[label=\theenumi.\arabic*.]
+		\setcounter{enumii}{-1}
+		\item{}
+		\begin{align*}
+			 & L=\slim{x\to 0}\frac{a^{x}-1}{x}             \\
+			 & y=a^{x}-1\Rarr y\to 0\sim x\to 0             \\
+			 & L=\slim{y\to 0}\frac{y}{\log_{a}(y+1)}=\ln a
+		\end{align*}
+		\item{}
+		\begin{align*}
+			\slim{x\to 0}\frac{e^{x}-1}{x}=\ln e=1
+		\end{align*}
+	\end{enumerate}
+
+	\item{}
+	\begin{enumerate}[label=\theenumi.\arabic*.]
+		\setcounter{enumii}{-1}
+		\item{}
+		\begin{align*}
+			 & L=\slim{x\to 0}\frac{(1+x)^{\mu}-1}{x}                                                                \\
+			 & y=(1+x)^{\mu}-1\Rarr y\to 0\sim x\to 0                                                                \\
+			 & L=\slim{x\to 0}\frac{y}{x}=\slim{x\to 0}\frac{y}{\ln(y+1)}\frac{\ln(y+1)}{\ln(x+1)}\frac{\ln(x+1)}{x}
+			=\slim{y\to 0}\frac{y}{\ln(y+1)}\slim{x\to 0}\frac{\ln(y+1)}{\ln(x+1)}\slim{x\to 0}\frac{\ln(x+1)}{x}=   \\
+			 & =\slim{x\to 0}\frac{\ln(y+1)}{\ln(1+x)}=\slim{x\to 0}\frac{\ln((1+x)^{\mu}-1+1)}{\ln(1+x)}
+			=\slim{x\to 0}\frac{\mu\ln(1+x)}{\ln(1+x)}=\mu
+		\end{align*}
+	\end{enumerate}
+\end{enumerate}
+
+\pagebreak
+
+\sectitle{Раскрытие неопределенностей со степенями}
+
+Раскрытие происходит через сведение к неопределенности вида $0\cdot\infty$
+\begin{enumerate}
+	\item{}$u\to 1$, $v\to \infty$
+	\begin{align*}
+		1^{\infty}=u^{v}=e^{v\ln u}=e^{\infty\cdot 0}
+	\end{align*}
+	\item{}$u\to 0$, $v\to 0$
+	\begin{align*}
+		0^{0}=u^{v}=e^{v\ln u}=e^{0\cdot\infty}
+	\end{align*}
+	\item{}$u\to\infty$, $v\to 0$
+	\begin{align*}
+		\infty^{0}=u^{v}=e^{v\ln u}=e^{0\cdot\infty}
+	\end{align*}
+\end{enumerate}
+
+\end{document}
