@@ -15,14 +15,14 @@ jobs:
       - uses: actions/checkout@main
 
       # Docker build
-      # - name: Build a docker image
-      #   run: docker build . -t session --cache-from session
-      #
-      # - run: mkdir $GITHUB_WORKSPACE/session-build
-      #
-      # - name: Run a docker build
-      #   run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
-      #
+      - name: Build a docker image
+        run: docker build . -t session
+
+      - run: mkdir $GITHUB_WORKSPACE/session-build
+
+      - name: Run a docker build
+        run: docker run -v $GITHUB_WORKSPACE/session-build:/root/src/out session
+
       # Release
       - name: Release
         uses: ncipollo/release-action@v1
