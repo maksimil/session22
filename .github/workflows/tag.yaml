@@ -1,0 +1,18 @@
+name: Tag
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@main
+        with:
+          ssh-key: ${{ secrets.COMMIT_KEY }}
+      - run: git tag $(date +v-%Y-%d-%m-%H-%M-%S)
+      - run: git push --tags
