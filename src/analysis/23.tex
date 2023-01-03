@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{23}{Точка сгущения множества, последовательность, сходящаяся к точке сгущения множества. Определение предела функции на языке последовательностей.}
+
+\define{окрестности}
+
+$V_{\eps}(a),\;\eps>0$ --- окрестность $a\in\overline\R$
+\begin{align*}
+	 & V_{\eps}(a):=(a-\eps;a+\eps),\;a\in\R &  & V_{\eps}(+\infty):=(\eps;+\infty) &  & V_{\eps}(-\infty)=(-\infty;-\eps)
+\end{align*}
+
+$\dot{V}_{\eps}(a):=V_{\eps}(a)\setminus\{a\}$ --- проколотая окрестность
+
+{\it Определение предела на языке окрестностей:}
+\begin{align*}
+	\slimty a_{n}=g\in\overline\R\Lrarr\forall\eps>0\;\exists k:(\forall n>k)\;a_{n}\in V_{\eps}(g)
+\end{align*}
+
+\define{точки сгущения множества}
+
+$a\in\overline\R$ --- точка сгущения множества $X\subset\R$, если
+\begin{align*}
+	\forall\eps>0\;\exists x\in X:x\in \dot{V}_{\eps}(a)
+\end{align*}
+
+$a\in X$ --- изолированная точка множества $X\subset\R$, если
+\begin{align*}
+	\exists\eps>0:\dot{V}_{\eps}(a)\cap X=\eset
+\end{align*}
+
+\theorem
+\begin{align*}
+	a\text{ --- точка сгущения }X\Rarr\exists\text{последовательность }\{a_{n}\}:((\forall n\in\N)\;a_{n}\neq a\land \slimty a_{n}=a)
+\end{align*}
+
+Построим такую последовательность:
+\begin{align*}
+	 & \llet\eps=1\;\exists a_1\in X:a_1\neq a\land |a-a_1|<\eps=1                                       \\
+	 & \llet\eps=\frac{|a-a_1|}{2}<\frac{1}{2}\;\exists a_2\in X:a_2\neq a\land |a-a_2|<\eps<\frac{1}{2} \\
+	 & ...
+\end{align*}
+\begin{align*}
+	(\forall n\in\N)\;|a-a_{n}|<\frac{1}{2^{n}}\Rarr\slimty a_{n}=a\land(\forall n\in\N)\;a_{n}\neq a\qed
+\end{align*}
+
+\define{предела функции на языке последовательностей (по Гейне)}
+
+Пусть функция $f$ определена в некоторой проколотой окрестности $\dot{S}(a)$ точки $a\in\overline\R$
+
+$g\in\overline\R$ называется пределом функции $f$ в $a$, если
+\begin{align*}
+	\forall\text{последовательность }\{x_{n}\}:((\forall n\in\N)\;x_{n}\in\dot{S}(a)\land\slimty x_{n}=a)\;\slimty f(x_{n})=g
+\end{align*}
+
+\end{document}
