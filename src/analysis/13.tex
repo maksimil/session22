@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{13}{Монотонная ограниченная последовательность. Лемма о вложенных промежутках}
+
+\theorem
+
+$\{a_{n}\}$ --- ограничена сверху и возрастающая $\Rarr$ она сходится, причём $\slimty a_{n}=\sup\{a_{n}\}$
+
+$\{a_{n}\}$ --- ограничена снизу и убывающая $\Rarr$ она сходится, причём $\slimty a_{n}=\inf\{a_{n}\}$
+
+\proof
+
+Без ограничения общности пусть $\{a_{n}\}$ ограничена сверху и возрастающая
+
+$\{a_{n}\}$ --- ограничена сверху $\Rarr$ множество её значений $Z:=\setdef{a_{n}}{n\in\N}$ ограничено сверху, тогда:
+\begin{align*}
+	 & \exists\sup Z=:g\Rarr \forall\eps>0\;\exists k\in\N:g-\eps<a_{k}\leq g<g+\eps\Rarr \\
+	 & \Rarr(\forall n>k)\;g-\eps<a_{k}\leq a_{n}\leq g<g+\eps\Rarr|a_{n}-g|<\eps\qed
+\end{align*}
+
+\define{системы вложенных отрезков}
+
+Система (множество) отрезков $\{[a_n;b_n]\}$ называется системой вложенных отрезков, если
+\begin{align*}
+	(\forall n\in\N)\;[a_{n+1};b_{n+1}]\subset[a_{n};b_{n}]
+\end{align*}
+
+\lemma[о вложенных отрезках]
+
+Для всякой системы вложенных отрезков $\{[a_n,b_n]\}$ верно, что $\bigcap\limits_{n=1}^{\infty}[a_{n};b_{n}]\neq\eset$
+
+Причём если $\slimty b_{n}-a_{n}=0$, то это пересечение состоит из единственной точки
+
+\proof
+
+По условию:
+\begin{align*}
+	 & (\forall n\in\N)\;a_1\leq a_{n}\leq b_{n}\leq b_1\Rarr(\forall n\in\N)\;a_{n}\leq b_1\Rarr \{a_{n}\}\text{ --- ограничена сверху} \\
+	 & (\forall n\in\N)\;a_{n}\leq a_{n+1}\leq b_{n+1}\leq b_{n}\Rarr \{a_{n}\}\text{ --- возрастающая }                                 \\
+	 & \Rarr \exists\slimty a_{n}=\sup\{a_{n}\}=:a                                                                                       \\
+	 & \text{Аналогично: }\exists\slimty b_{n}=\inf\{b_{n}\}=:b                                                                          \\
+	 & (\forall n\in\N)\;a_{n}\leq b_{n}\Rarr a\leq b
+\end{align*}
+
+Найдём $\bigcap\limits_{n=1}^{\infty}[a_{n};b_{n}]$
+\begin{align*}
+	 & (\forall n\in\N)\;[a_{n+1};b_{n+1}]\subset[a_{n};b_{n}]\Rarr [a_{n+1};b_{n+1}]\cap[a_{n};b_{n}]=[a_{n+1};b_{n+1}]\Rarr \bigcap_{n=1}^{k}[a_{n};b_{n}]=[a_{k};b_{k}] \\
+	 & \bigcap_{n=1}^{\infty}[a_{n};b_{n}]=\slim{k\to\infty}\bigcap_{n=1}^{k}[a_{n};b_{n}]=\slim{k\to\infty}[a_{k};b_{k}]=[a;b]\neq\eset\text{ (тк $a\leq b$)}             \\
+	 & \text{Если }\slimty b_{n}-a_{n}=0\Rarr a=b\Rarr [a;b]=\{a\}\qed
+\end{align*}
+
+\end{document}
+
