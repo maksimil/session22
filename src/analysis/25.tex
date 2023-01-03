@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{25}{Предел суперпозиции функции}
+
+\define{суперпозиции}
+
+Пусть $f:X\to Y$ и $g:Y\to Z$
+
+$h:X\to Z$, $h(x)=g(f(x))$ --- суперпозиция (сложная функция) функций $g$ и $f$
+
+Обозначение: $h=g \circ f$
+
+\theorem
+
+$\exists\slim{x\to x_0}g(x)=y_0\land\exists\slim{y\to y_0}f(y)=L$
+
+$y_0$ --- точка сгущения области определения $f$
+
+$g(x)\neq y_0$ в $\dot{S}$ --- проколотой окрестности $x_0$
+
+Тогда $\exists\slim{x\to x_0}f(g(x))=g$
+
+\proof
+
+Возьмём произвольную $\{x_{n}\}\subset\dot{S}$, сходящуюся к $x_0$, по определению предела
+\begin{align*}
+	 & \slimty g(x_{n})=y_0 &  & (\forall n\in\N)\;x_{n}\in\dot{S}\Rarr g(x_{n})\neq y_0
+\end{align*}
+
+Тогда последовательность $\{g(x_{n})\}$ тоже соответсвует определению предела
+\begin{align*}
+	 & \slimty g(x_{n})=y_0\land(\forall n\in\N)\;g(x_{n})\neq y_0\Rarr \slimty f(g(x_{n}))=L\Rarr                               \\
+	 & \Rarr\forall\{x_{n}\}((\forall n\in\N)\;x_{n}\in\dot{S}\land x_{n}\to x_0)f(g(x_{n}))=L\Rarr \slim{x\to x_0}f(g(x))=L\qed
+\end{align*}
+
+\end{document}

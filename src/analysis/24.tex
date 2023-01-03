@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{24}{Правосторонний и левосторонний пределы функции в точке. Свойства пределов функций}
+
+\define{правостороннего и левостороннего пределов функции в точке}
+
+Пусть функция $f$ определена на $(a;x_0)$
+
+$g\in\overline\R$ называется пределом  $f$ в точке $x_0$ слева, если
+\begin{align*}
+	\forall\{x_{n}\}:((\forall n\in\N)\;x_{n}\in(a;x_0)\land\slimty x_{n}=x_0)\;\slimty f(x_{n})=g
+\end{align*}
+
+Обозначение: $\slim{x\to x_0-0}f(x)=g$ или $f(x_0-0)=g$
+
+Пусть функция $f$ определена на $(x_0;a)$
+
+$g\in\overline\R$ называется пределом  $f$ в точке $x_0$ справа, если
+\begin{align*}
+	\forall\{x_{n}\}:((\forall n\in\N)\;x_{n}\in(x_0;a)\land\slimty x_{n}=x_0)\;\slimty f(x_{n})=g
+\end{align*}
+
+Обозначение: $\slim{x\to x_0+0}f(x)=g$ или $f(x_0+0)=g$
+
+\theorem
+
+$f$ определена на $X:=(a;x_0)\cup(x_0;b)$
+\begin{align*}
+	\slim{x\to x_0+0}f(x)=g\land\slim{x\to x_0-0}f(x)=g\Lrarr\slim{x\to x_0}f(x)=g
+\end{align*}
+
+\onlyif
+
+Возьмём последовательность $\{x_{n}\}\subset X$, сходящуюся к $g$
+
+$\{x_{a_{n}}\}$ --- подпоследовательность всех $x_{n}<x_0$
+
+$\{x_{b_{n}}\}$ --- подпоследовательность всех $x_{n}>x_0$
+\begin{align*}
+	 & \slim{x\to x_0-0}f(x)=g\Rarr \slimty f(x_{a_{n}})=g &  & \slim{x\to x_0+0}f(x)=g\Rarr\slimty f(x_{b_{n}})=g
+\end{align*}
+
+Иными словами:
+\begin{align*}
+	\forall\eps>0\;\exists k:(\forall m>k)\;|f(x_{a_{m}})-g|<\eps\land|f(x_{b_{m}})-g|<\eps\Rarr (\forall n>\max\{a_{m},b_{m}\})\;|f(x_{n})-g|<\eps\qed
+\end{align*}
+
+\enough
+
+Определение предела по Гейне распространяется в том числе и на последовательности из $(a;x_0)\subset X$ и $(x_0;a)\subset X\qed$
+
+\sectitle{Свойства пределов функций}
+
+Арифметические свойства, свойства, связанные с операциями сравнения и принцип сжатой переменной доказываются через поледовательности
+
+Аналогично эти свойства доказываются и для односторонних пределов
+
+\end{document}
+

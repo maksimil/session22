@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{27}{Определение предела функции по Коши. Эквивалентонсть двух определений предела.}
+
+\define{предел функции по Коши}
+
+Пусть функция $f$ определена на проколотой окрестности $\dot{S}(x_0)$ точки $x_0$.
+
+$g\in\R$ называется пределом функции $f$ в точке $x_0$, если
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x\in\dot{S}(x_0))\;0<|x-x_0|<\delta\Rarr|f(x)-g|<\eps
+\end{align*}
+
+\theorem
+
+Определения предела по Гейне и по Коши эквивалентны
+
+\proof
+
+Пусть $f$ определена на проколотой окрестности $\dot{S}$ точки $x_0$
+
+Обозначим определение по Гейне буквой Г, а по Коши --- K
+
+\begin{enumerate}
+	\item{}K $\Rarr$ Г
+
+	Возьмём произвольную $\{x_{n}\}\subset\dot{S}$, $x_{n}\to x_0$
+
+	По Коши
+	\begin{align*}
+		\forall\eps>0\;\exists\delta>0:(\forall x\in\dot{S})\;0<|x-x_0|<\delta\Rarr |f(x)-g|<\eps
+	\end{align*}
+
+	Тогда для такого $\delta$
+	\begin{align*}
+		\exists k:(\forall n>k)\;0<|x_{n}-x_0|<\delta\Rarr |f(x_{n})-g|<\eps\Rarr \slimty f(x_{n})=g\qed
+	\end{align*}
+
+	\item{}Г $\Rarr$ K
+
+	Предположим, что определение Коши не выполнено
+	\begin{align*}
+		 & \lnot(\forall\eps>0\;\exists\delta:(\forall x\in\dot{S})\;0<|x-x_0|<\delta\Rarr |f(x)-g|<\eps)\Rarr \\
+		 & \exists\eps>0:(\forall \delta>0)\;\exists x\in\dot{S}\cap(x_0-\delta;x_0+\delta):|f(x)-g|\geq\eps
+	\end{align*}
+
+	Тогда построим $\{x_{n}\}\subset\dot{S}:x_{n}\to x_0\land f(x_{n})\not\to g$
+	\begin{align*}
+		 & \forall n\in\N\llet\delta =\frac{1}{n}\;\exists x_n\in\dot{S}\cap(x_0-\frac{1}{n};x_0+\frac{1}{n}):|f(x_{n})-g|\geq\eps\Rarr \\
+		 & (\forall n\in\N)\;|x_{n}-x_0|<\frac{1}{n}\Rarr x_{n}\to x_0 \Rarr f(x_{n})\to g\text{ (по Гейне), но } |f(x_{n})-g|\geq\eps
+	\end{align*}
+
+	Пришли к противоречию, значит определение Коши выполнено$\qed$
+\end{enumerate}
+\end{document}

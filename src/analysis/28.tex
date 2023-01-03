@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{28}{Критерий Коши существования предела функции. Определение предела на языке "окрестностей".}
+
+\theorem[(критерий Коши)]
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x',x''\in (a-\delta;a+\delta))\;|f(x')-f(x'')|<\eps\Lrarr\exists\slim{x\to a}f(x)
+\end{align*}
+
+\onlyif
+
+Возьмём произвольную $\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a$
+
+По условию
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x',x''\in (a-\delta;a+\delta))\;|f(x')-f(x'')|<\eps
+\end{align*}
+
+Для такого $\delta$
+\begin{align*}
+	\exists k:(\forall n>k)\;|x_{n}-a|<\delta\land |x_{k}-a|<\delta\Rarr |f(x_{n})-f(x_{k})|<\eps
+\end{align*}
+
+Тогда для $\{x_{n}\}$ выполнен критерий Коши $\Rarr$ $\exists\slimty f(x_{n})$
+
+$\{x_{n}\}$ --- произвольная $\Rarr$ $\exists\slim{x\to a}f(x)\qed$
+
+\enough
+
+По определению предела
+\begin{align*}
+	 & \exists\slim{x\to a}f(x)=:g                                                                                                          \\
+	 & \forall\eps>0\;\exists\delta>0:(\forall x',x''\in (a-\delta;a+\delta))\;|f(x')-g|<\frac{\eps}{2}\land |f(x'')-g|<\frac{\eps}{2}\Rarr \\
+	 & \Rarr |f(x')-f(x'')|=|(f(x')-g)-(f(x'')-g)|=|f(x')-g|+|f(x'')-g|<\eps\qed
+\end{align*}
+
+\define{предела на языке окрестностей}
+
+$\slim{x\to a}f(x)=g$, $a,g\in\overline\R$
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:f(\dot{V}_{\delta}(x_0))\subset V_{\eps}(g)
+\end{align*}
+
+\end{document}

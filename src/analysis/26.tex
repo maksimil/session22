@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{26}{Условие существования конечного предела функции}
+
+\theorem
+
+$f$ --- возрастающая на $X$
+
+$a\in\overline\R$ --- точка сгущения $X$ и $a=\sup X$, если $X$ ограничено сверху и $a=+\infty$ иначе
+\begin{align*}
+	f(X)\text{ --- ограничено сверху}\Rarr\exists\slim{x\to a-0}f(x)\in\R
+\end{align*}
+
+Аналогично для убывающей и ограниченной снизу $f$
+
+Аналогично ещё два случая, но с $a=\inf X$ или $-\infty$
+
+\proof
+
+Возьмём возрастающую последовательность $\{x_{n}\}\subset X\setminus\{a\}$, сходящуюся к $a$
+\begin{align*}
+	 & f(X)\text{ --- ограничено сверху}\Rarr \{f(x_{n})\}\text{ --- ограничена сверху }                                                       \\
+	 & f, \{x_{n}\}\text{ --- возрастающие}\Rarr(\forall n\in\N)\;x_{n+1}\geq x_{n}\land(\forall x_1,x_2\in X:x_1<x_2)\;f(x_1)\leq f(x_2)\Rarr \\
+	 & \Rarr (\forall n\in\N)\;f(x_{n+1})\geq f(x_{n})\Rarr \exists\slimty f(x_{n})=:g\land (\forall n\in\N)\;f(x_{n})\leq g
+\end{align*}
+
+Возьмём теперь произвольную последовательность $\{z_{n}\}\subset X\setminus\{a\}$, сходящуюся к $a$
+\begin{align*}
+	 & \forall\eps>0\;\exists k:|f(x_{k})-g|<\eps\Rarr 0\leq g-f(x_{k})<\eps                           \\
+	 & \llet\eta=|x_{k}-a|\;\exists N:(\forall n>N)\;|z_{n}-a|<\eta=|x_{k}-a|\Rarr                     \\
+	 & \Rarr a-z_{n}<a-x_{k}\Rarr z_{n}>x_{k}\Rarr f(z_{n})\geq f(x_{k})\Rarr                          \\
+	 & \Rarr 0\leq g-f(z_{n})\leq g-f(x_{k})<\eps\Rarr\slimty f(z_{n})=g\Rarr\slim{z\to a-0}f(z)=g\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\exists\slim{x\to a}f(x)\Lrarr\forall\{x_{n}\}((\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\exists\slimty f(x_{n})
+\end{align*}
+
+\onlyif
+
+По определению$\qed$
+
+\enough
+
+Возьмём $\{x_{n}\}$ и $\{x'_{n}\}$
+\begin{align*}
+	 & (\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a \Rarr\exists\slimty f(x_{n})=:g &  & (\forall n\in\N)\;x'_{n}\neq a\land x'_{n}\to a\Rarr\exists\slimty f(x'_{n})=:g'
+\end{align*}
+
+Возьмём теперь $\{z_{n}\}:=\{x_1,x'_{1},x_2,x'_{2},...\}$, по условию $f(z_{n})\to g_{z}$
+
+$\{f(x_{n})\}$ и $\{f(x'_{n})\}$ --- подпоследовательности $\{f(z_{n})\}$ $\Rarr g=g_{z}\land g'=g_{z}\Rarr g=g'$
+
+То есть любая последовательность сходится к одному и тому же пределу $\Rarr$ $\exists\slim{x\to a}f(x)\qed$
+
+\end{document}
