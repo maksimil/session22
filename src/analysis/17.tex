@@ -1,0 +1,176 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{17}{Расходимость последовательности к бесконечности}
+
+\define
+
+Последовательность $\{a_n\}$ расходится к $+\infty$ ($\slimty a_{n}=+\infty$), если
+\begin{align*}
+	\forall r\in\R\;\exists k:(\forall n>k)\;a_{n}>r
+\end{align*}
+
+Последовательность $\{a_n\}$ расходится к $-\infty$ ($\slimty a_{n}=-\infty$), если
+\begin{align*}
+	\forall r\in\R\;\exists k:(\forall n>k)\;a_{n}<r
+\end{align*}
+
+\theorem
+
+$\{a_{n}\}$ --- возрастающая и не ограничена сверху $\Rarr$ $\slimty a_{n}=+\infty$
+
+$\{a_{n}\}$ --- убывающая и не ограничена снизу $\Rarr$ $\slimty a_{n}=-\infty$
+
+\proof
+
+Без ограничения общности пусть $\{a_{n}\}$ --- возрастающая и не ограничена сверху
+
+$\{a_{n}\}$ --- не ограничена сверху, значит
+\begin{align*}
+	\lnot (\exists r:(\forall k\in\N)\;a_{k}\leq r)\Rarr \forall r\;\exists k\in\N: a_{k}> r\Rarr (\forall n>k)\;a_{n}\geq a_{k}>r\Rarr\slimty a_{n}=+\infty\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=\pm\infty\land(\forall n\in\N)\;a_{n}\neq 0\Rarr\slimty\frac{1}{a_{n}}=0
+\end{align*}
+
+\proof
+\begin{align*}
+	\forall\eps>0\llet r=\frac{1}{\eps}>0\;\exists k:(\forall n>k)\;a_{n}>r\lor a_{n}<-r\Rarr|a_{n}|>r\Rarr \left|\frac{1}{a_{n}}\right|<\frac{1}{r}=\eps\Rarr\slimty \frac{1}{a_{n}}=0\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	 & \slimty a_{n}=+\infty\land \{b_{n}\}\text{ --- ограничена снизу}\Rarr \slimty a_{n}+b_{n}=+\infty  \\
+	 & \slimty a_{n}=-\infty\land \{b_{n}\}\text{ --- ограничена сверху}\Rarr \slimty a_{n}+b_{n}=-\infty
+\end{align*}
+
+\proof
+
+Без ограничения общности рассмотрим только первый случай
+
+$\{b_{n}\}$ --- ограничена снизу $\Rarr\exists m:(\forall n\in\N)\;b_{n}>m$
+\begin{align*}
+	\forall r\;\exists k:(\forall n>k)\;a_{n}>r-m\Rarr a_{n}+m>r\Rarr a_{n}+b_{n}>a_{n}+m>r\Rarr\slimty a_{n}+b_{n}=+\infty\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+\begin{align*}
+	 & \slimty a_{n}=+\infty\land (\forall n\in\N)\;b_{n}\geq a_{n}\Rarr \slimty b_{n}=+\infty \\
+	 & \slimty a_{n}=-\infty\land (\forall n\in\N)\;b_{n}\leq a_{n}\Rarr \slimty b_{n}=-\infty
+\end{align*}
+
+\proof
+
+Без ограничения общности рассмотрим только первый случай
+\begin{align*}
+	\forall r\;\exists k:(\forall n>k)\;a_{n}>r\Rarr b_{n}\geq a_{n}>r\Rarr \slimty b_{n}=+\infty\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=+\infty\land\exists c>0:(\forall n\in\N)\;b_{n}>c\Rarr \slimty a_{n}b_{n}=+\infty
+\end{align*}
+
+\proof
+\begin{align*}
+	\forall r\;\exists k:(\forall n>k)\;a_{n}>\frac{r}{c}\Rarr a_{n}c>r\Rarr a_{n}b_{n}>a_{n}c>r\Rarr\slimty a_{n}b_{n}=+\infty\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=\pm\infty\land(\forall n\in\N)\;a_{n}\neq 0\land \{b_{n}\}\text{ --- ограничена}\Rarr \slimty \frac{b_{n}}{a_{n}}=0
+\end{align*}
+
+\proof
+
+$\{b_{n}\}$ --- ограничена $\Rarr\exists M>0:(\forall n\in\N)\;|b_{n}|<M$
+\begin{align*}
+	\forall\eps>0\;\llet r=\frac{1}{\eps}>0\;\exists k:(\forall n>k)\;|a_{n}|>rM\Rarr \left|\frac{1}{a_{n}}\right|<\frac{1}{rM}\Rarr \left|\frac{b_{n}}{a_{n}}\right|<\left|\frac{M}{a_{n}}\right|<\frac{1}{r}=\eps\Rarr\slimty \frac{b_{n}}{a_{n}}=0\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=+\infty\Lrarr \slimty -a_{n}=-\infty
+\end{align*}
+
+\proof
+\begin{align*}
+	\forall r\;\exists k:(\forall n>k)\;a_{n}>r\Lrarr -a_{n}<-r\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=+\infty\land\slimty b_{n}=+\infty\Rarr \slimty a_{n}+b_{n}=+\infty
+\end{align*}
+
+\proof
+\begin{align*}
+	\forall r\;\exists k:(\forall n>k)\;a_{n}>\frac{r}{2}\land b_{n}>\frac{r}{2}\Rarr a_{n}+b_{n}>r\Rarr \slimty a_{n}+b_{n}=+\infty\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=+\infty\land\slimty b_{n}=+\infty\Rarr \slimty a_{n}b_{n}=+\infty
+\end{align*}
+
+\proof
+\begin{align*}
+	\forall r>0\;\exists k:(\forall n>k)\;a_{n}>\sqrt{r}\land b_{n}>\sqrt{r}\Rarr a_{n}b_{n}>r\Rarr \slimty a_{n}b_{n}=+\infty\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=+\infty\land \slimty b_{n}=b\in\R\land b\neq 0\Rarr \slimty a_{n}b_{n}=
+	\begin{cases}
+		+\infty, & b>0 \\
+		-\infty, & b<0
+	\end{cases}
+\end{align*}
+
+\proof
+
+Без ограничения общности пусть $b>0$
+
+Ограничим $b_{n}$ снизу, взяв $\eps=\frac{b}{2}$
+\begin{align*}
+	\llet\eps=\frac{b}{2}\;\exists k:(\forall n>k)\;|b_{n}-b|<\eps=\frac{b}{2}\Rarr -\frac{b}{2}<b_{n}-b\Rarr b_{n}>\frac{b}{2}>0
+\end{align*}
+\begin{align*}
+	\forall r>0\;\exists k'>k:(\forall n>k')\;a_{n}>\frac{2r}{b}\Rarr a_{n}b_{n}>a_{n}\frac{b}{2}>r\Rarr\slimty a_{n}b_{n}=+\infty\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	\slimty a_{n}=a\in\R\land a\neq 0\land\slimty b_{n}=0\land (\forall n\in\N)\;b_{n}>0\Rarr \slimty \frac{a_{n}}{b_{n}}=
+	\begin{cases}
+		+\infty, & a>0 \\
+		-\infty, & a<0
+	\end{cases}
+\end{align*}
+
+\proof
+
+Покажем, что $\slimty\frac{1}{b_{n}}=+\infty$
+\begin{align*}
+	\forall r>0\;\llet\eps=\frac{1}{r}>0\;\exists k:(\forall n>k)\;0<b_{n}<\eps=\frac{1}{r}\Rarr \frac{1}{b_{n}}>r\Rarr\slimty\frac{1}{b_{n}}=+\infty
+\end{align*}
+
+Тогда по предыдущей теореме:
+\begin{align*}
+	\slimty \frac{a_{n}}{b_{n}}=\slimty a_{n}\frac{1}{b_{n}}=
+	\begin{cases}
+		+\infty, & a>0 \\
+		-\infty, & a<0
+	\end{cases}\qed
+\end{align*}
+
+\end{document}
