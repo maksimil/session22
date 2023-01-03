@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{6}{Приближение вещественных чисел рациональными.}
+
+\theorem
+\begin{align*}
+	\forall a\in\R,\eps\in\Q:\eps>0\;\exists q_1,q_2\in\Q:q_1\leq a\leq q_2\land q_2-q_1<\eps
+\end{align*}
+
+\proof
+\begin{enumerate}
+	\item{}$a\geq 0$
+
+	По аксиоме Архимеда
+	\begin{align*}
+		\exists n\in\N:\frac{1}{\eps}<n\Rarr \frac{1}{\eps}<10^{n}\Rarr 10^{-n}<\eps
+	\end{align*}
+
+	Представим $a$ в виде бесконечной десятичной дроби:
+	\begin{align*}
+		 & a=\alpha_0,\alpha_1\alpha_2\alpha_3...\alpha_{n}...                                \\
+		 & q_1:=\alpha_0,\alpha_1\alpha_2\alpha_3...\alpha_{n}\Rarr q_1\leq a                 \\
+		 & q_2:=\alpha_0,\alpha_1\alpha_2\alpha_3...(\alpha_{n}+1)=q_1+10^{-n}\Rarr a\leq q_2 \\
+		 & q_2-q_1=10^{-n}<\eps\qed
+	\end{align*}
+
+	\item{}$a<0$
+	\begin{align*}
+		 & (-a)\in\R\land (-a)>0\Rarr \forall\eps\in\Q:\eps>0\;\exists q_1,q_2\in\Q:q_1\leq -a\leq q_2\land q_2-q_1<\eps\Rarr \\
+		 & \Rarr (-q_2)\leq a\leq (-q_1)\land (-q_1)-(-q_2)<\eps\qed
+	\end{align*}
+\end{enumerate}
+
+\theorem
+\begin{align*}
+	\forall a,b\in\R:a<b\;\exists q\in\Q:a<q<b
+\end{align*}
+
+\proof
+
+Достаточно рассмотреть случай $a \geq 0\land b \geq 0$, тк случай $a \leq 0\land b \leq 0$ сводится к первому,\\
+а случай $b < 0\land a > 0$ тривиален — достаточно положить $q = 0$
+
+Рассмотрим десятичные представления чисел $a$ и $b$, в которых отсутствует $9$ в периоде
+\begin{align*}
+	 & a=\alpha_0,\alpha_1\alpha_2\alpha_3... &  & b=\beta_0,\beta_1\beta_2\beta_3...
+\end{align*}
+\begin{align*}
+	b>a\Rarr\exists k\geq 0:
+	\begin{cases}
+		\alpha_{i}=\beta_{i} & i=\overline{0,k-1} \\
+		\alpha_{k}<\beta_{k}
+	\end{cases}
+\end{align*}
+
+Не все $\alpha_{i}=9$ для $i\geq k+1$, тогда определим $p$ как наименьший такой индекс:
+\begin{align*}
+	p:=\min\setdef{i\geq k+1}{\alpha_{i}\neq 9}
+\end{align*}
+
+Тогда определим $q$:
+\begin{align*}
+	 & a=\alpha_0,\alpha_1\alpha_2...\alpha_{k}9...9\alpha_{p}\alpha_{p+1}...\quad \alpha_{p}\leq 8 \\
+	 & q:=\alpha_0,\alpha_1\alpha_2...\alpha_{k}9...9(\alpha_{p}+1)\Rarr q>a                        \\
+	 & \beta_{k}>\alpha_{k}\Rarr b>q\qed
+\end{align*}
+
+\theorem
+
+$x_1,x_2\in\R$
+\begin{align*}
+	\forall\eps\in\Q:\eps>0\;\exists q_1,q_2\in\Q:q_1\leq x_1\leq q_2\land q_1\leq x_2\leq q_2\land q_2-q_1<\eps\Rarr x_1=x_2
+\end{align*}
+
+\proof
+
+Пусть $x_1\neq x_2$
+
+Без ограничения общности пусть $x_2>x_1$
+
+По предыдущей теореме $\exists p_1,p_2\in\Q:x_1<p_1<p_2<x_2$
+
+Возьмём тогда $\eps=p_2-p_1$
+\begin{align*}
+	 & \llet \eps=p_2-p_1>0\;\exists q_1,q_2\in\Q:q_1\leq x_1<x_2\leq q_2\land q_2-q_1<\eps\Rarr q_1<p_1<p_2<q_2\land q_2-q_1<p_2-p_1 \\
+	 & q_1<p_1<p_2<q_2\Rarr q_2-q_1>p_2-p_1
+\end{align*}
+
+Пришли к противоречию, значит $x_1=x_2\qed$
+
+\end{document}
