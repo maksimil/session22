@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{34}{Определение равномерной непрерывности функции. Теорема Кантора}
+
+\define{равномерной непрерывности функции}
+
+Функция $f$  называется равномерно непрерывной на промежутке $X$, если
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x_1,x_2\in X)\;|x_1-x_2|<\delta\Rarr |f(x_1)-f(x_2)|<\eps
+\end{align*}
+
+\theorem[Кантора]
+
+$f$ --- непрерывна на $[a;b]$ $\Rarr$ $f$ --- равномерно непрерывна на $[a;b]$
+
+\proof
+
+Предположим обратное
+\begin{align*}
+	 & \lnot(\forall\eps>0\;\exists\delta>0:(\forall x_1,x_2\in [a;b])\;|x_1-x_2|<\delta\Rarr |f(x_1)-f(x_2)|<\eps)\Rarr \\
+	 & \Rarr\exists\eps>0:\forall\delta>0\;\exists x_1,x_2\in [a;b]:|x_1-x_2|<\delta\land|f(x_1)-f(x_2)|\geq\eps
+\end{align*}
+
+Построим последовательности $\{x_{n}\}$ и  $\{x'_{n}\}$
+\begin{align}
+	\forall n\in\N\;\llet\delta=\frac{1}{n}\;\exists x_{n},x'_{n}\in [a;b]:|x_{n}-x'_{n}|<\delta=\frac{1}{n}\land|f(x_{n})-f(x'_{n})|\geq\eps\label{34:constr}
+\end{align}
+
+$\{x_{n}\}\subset[a;b]\Rarr\{x_{n}\}$ --- ограничена, тогда по принципу выбора Больцано-Вейерштрасса существует подпоследовательность $\{x_{k_{n}}\}:\exists\slimty x_{k_{n}}=:x_0$
+
+Причём $\{x_{n}\}\subset[a;b]$ значит $x_0\in[a;b]$ $\Rarr$ $f$ --- непрерывна в $x_0$
+
+По построению
+\begin{align*}
+	|x_{k_{n}}-x'_{k_{n}}|<\frac{1}{n}\Rarr\slimty|x_{k_{n}}-x'_{k_{n}}|=0\Rarr\slimty x_{k_{n}}-\slimty x'_{k_{n}}=0\Rarr\slimty x'_{k_{n}}=x_0
+\end{align*}
+
+По непрерывности $f$
+\begin{align*}
+	 & \slimty x_{k_{n}}=x_0\Rarr\slimty f(x_{k_{n}})=f(x_0)   \\
+	 & \slimty x'_{k_{n}}=x_0\Rarr\slimty f(x'_{k_{n}})=f(x_0)
+\end{align*}
+
+Последовательности $\{f(x_{k_{n}})\}$ и $\{f(x'_{k_{n}})\}$ сходятся к одному пределу, что противоречит $\eqref{34:constr}$
+
+Пришли к противоречию, значит $f$ --- равномерно непрерывна на $[a;b]\qed$
+
+\end{document}

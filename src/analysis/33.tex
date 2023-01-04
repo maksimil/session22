@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{33}{Непрерывность суперпозиции функций}
+
+\theorem
+
+$\phi(x)$ --- определена на $X$ и непрерывна в $x_0\in X$
+
+$f(y)$ --- определена на $\phi(X)$ и непрерывна в $\phi(x_0)$
+
+Тогда $f(\phi(x))$ --- непрерывна в $x_0$
+
+\proof
+
+Пусть $y_0:=\phi(x_0)$ и $z_0:=f(y_0)$
+
+В силу непрерывности $f$ в $y_0$
+\begin{align*}
+	\forall\eps>0\;\exists\delta_{y}>0:(\forall y\in(y_0-\delta_{y};y_0+\delta_{y}))\;|z_0-f(y)|< \eps
+\end{align*}
+
+Для такой $\delta_{y}$ по непрерывности $\phi$ в $x_0$
+\begin{align*}
+	\exists\delta_{x}>0:(\forall x\in(x_0-\delta_{x};x_0+\delta_{x}))\;|y_0-\phi(x)|<\delta_{y}\Rarr |z_0-f(\phi(x))|<\eps\Rarr\slim{x\to x_0}f(\phi(x))=f(\phi(x_0))\qed
+\end{align*}
+
+\end{document}
