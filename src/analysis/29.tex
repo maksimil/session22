@@ -31,8 +31,7 @@ $\slimty f(x_{n})$ --- частичный предел в точке $a$
 	 & V:=\setdeff{\sliminf{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a}
 \end{align*}
 \begin{align*}
-	 & (\forall u\in U,v\in V)\;v\leq u                                                                                                             \\
-	 & \sup U =g\land\inf V=g\Rarr (\forall u\in U,v\in V)\;g\leq v\leq u\leq g\Rarr U=V=\{g\}\Rarr                                                 \\
+	 & \sup U =g\land\inf V=g\Rarr (\forall u\in U\cup V)\;g\leq u\leq g\Rarr U=V=\{g\}\Rarr                                                        \\
 	 & \Rarr (\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\slimsup{n\to\infty}f(x_{n})=g\land\sliminf{n\to\infty}f(x_{n})=g\Rarr \\
 	 & \Rarr\slimty f(x_{n})=g\Rarr\slim{x\to a}f(x)=g\qed
 \end{align*}
@@ -43,8 +42,8 @@ $\slimty f(x_{n})$ --- частичный предел в точке $a$
 	 & V:=\setdeff{\sliminf{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a}
 \end{align*}
 \begin{align*}
-	&(\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\slimty f(x_{n})=g\Rarr \slimsup{n\to\infty}f(x_{n})=g\land\sliminf{n\to\infty}f(x_{n})=g\Rarr\\
-	&\Rarr U=V=\{g\}\Rarr\slimsup{x\to a}f(x)=\sup U=g\land\sliminf{x\to a}f(x)=\inf V=g\qed
+	 & (\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\slimty f(x_{n})=g\Rarr \slimsup{n\to\infty}f(x_{n})=g\land\sliminf{n\to\infty}f(x_{n})=g\Rarr \\
+	 & \Rarr U=V=\{g\}\Rarr\slimsup{x\to a}f(x)=\sup U=g\land\sliminf{x\to a}f(x)=\inf V=g\qed
 \end{align*}
 
 \end{document}
