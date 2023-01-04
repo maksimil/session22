@@ -18,6 +18,11 @@
 	\forall r\in\R\;\exists k:(\forall n>k)\;a_{n}<r
 \end{align*}
 
+Последовательность $\{a_n\}$ расходится к $\infty$ ($\slimty a_{n}=\infty$), если
+\begin{align*}
+	\slimty |a_{n}|=+\infty
+\end{align*}
+
 \theorem
 
 $\{a_{n}\}$ --- возрастающая и не ограничена сверху $\Rarr$ $\slimty a_{n}=+\infty$
@@ -35,13 +40,15 @@ $\{a_{n}\}$ --- не ограничена сверху, значит
 
 \theorem
 \begin{align*}
-	\slimty a_{n}=\pm\infty\land(\forall n\in\N)\;a_{n}\neq 0\Rarr\slimty\frac{1}{a_{n}}=0
+	\slimty a_{n}=\infty\land(\forall n\in\N)\;a_{n}\neq 0\Rarr\slimty\frac{1}{a_{n}}=0
 \end{align*}
 
 \proof
 \begin{align*}
-	\forall\eps>0\llet r=\frac{1}{\eps}>0\;\exists k:(\forall n>k)\;a_{n}>r\lor a_{n}<-r\Rarr|a_{n}|>r\Rarr \left|\frac{1}{a_{n}}\right|<\frac{1}{r}=\eps\Rarr\slimty \frac{1}{a_{n}}=0\qed
+	\forall\eps>0\llet r=\frac{1}{\eps}>0\;\exists k:(\forall n>k)\;|a_{n}|>r\Rarr \left|\frac{1}{a_{n}}\right|<\frac{1}{r}=\eps\Rarr\slimty \frac{1}{a_{n}}=0\qed
 \end{align*}
+
+\pagebreak
 
 \theorem
 \begin{align*}
@@ -57,8 +64,6 @@ $\{b_{n}\}$ --- ограничена снизу $\Rarr\exists m:(\forall n\in\N)
 \begin{align*}
 	\forall r\;\exists k:(\forall n>k)\;a_{n}>r-m\Rarr a_{n}+m>r\Rarr a_{n}+b_{n}>a_{n}+m>r\Rarr\slimty a_{n}+b_{n}=+\infty\qed
 \end{align*}
-
-\pagebreak
 
 \theorem
 \begin{align*}
@@ -85,7 +90,7 @@ $\{b_{n}\}$ --- ограничена снизу $\Rarr\exists m:(\forall n\in\N)
 
 \theorem
 \begin{align*}
-	\slimty a_{n}=\pm\infty\land(\forall n\in\N)\;a_{n}\neq 0\land \{b_{n}\}\text{ --- ограничена}\Rarr \slimty \frac{b_{n}}{a_{n}}=0
+	\slimty a_{n}=\infty\land(\forall n\in\N)\;a_{n}\neq 0\land \{b_{n}\}\text{ --- ограничена}\Rarr \slimty \frac{b_{n}}{a_{n}}=0
 \end{align*}
 
 \proof
@@ -94,6 +99,8 @@ $\{b_{n}\}$ --- ограничена $\Rarr\exists M>0:(\forall n\in\N)\;|b_{n}|
 \begin{align*}
 	\forall\eps>0\;\llet r=\frac{1}{\eps}>0\;\exists k:(\forall n>k)\;|a_{n}|>rM\Rarr \left|\frac{1}{a_{n}}\right|<\frac{1}{rM}\Rarr \left|\frac{b_{n}}{a_{n}}\right|<\left|\frac{M}{a_{n}}\right|<\frac{1}{r}=\eps\Rarr\slimty \frac{b_{n}}{a_{n}}=0\qed
 \end{align*}
+
+\pagebreak
 
 \theorem
 \begin{align*}
@@ -114,8 +121,6 @@ $\{b_{n}\}$ --- ограничена $\Rarr\exists M>0:(\forall n\in\N)\;|b_{n}|
 \begin{align*}
 	\forall r\;\exists k:(\forall n>k)\;a_{n}>\frac{r}{2}\land b_{n}>\frac{r}{2}\Rarr a_{n}+b_{n}>r\Rarr \slimty a_{n}+b_{n}=+\infty\qed
 \end{align*}
-
-\pagebreak
 
 \theorem
 \begin{align*}
@@ -147,6 +152,8 @@ $\{b_{n}\}$ --- ограничена $\Rarr\exists M>0:(\forall n\in\N)\;|b_{n}|
 \begin{align*}
 	\forall r>0\;\exists k'>k:(\forall n>k')\;a_{n}>\frac{2r}{b}\Rarr a_{n}b_{n}>a_{n}\frac{b}{2}>r\Rarr\slimty a_{n}b_{n}=+\infty\qed
 \end{align*}
+
+\pagebreak
 
 \theorem
 \begin{align*}

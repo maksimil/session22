@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{29}{Частичные пределы функции}
+
+\newcommand{\setdeff}[2]{\left\{#1\;|\;#2\right\}}
+
+\define{частичного предела функции}
+
+Пусть $\{x_{n}\}: x_{n}\to a\land(\forall n\in\N)\;x_{n}\neq a$
+
+$\slimty f(x_{n})$ --- частичный предел в точке $a$
+
+Среди всех таких пределов существует наибольший и наименьший:
+\begin{align*}
+	 & \slimsup{x\to a}f(x):=\sup\setdeff{\slimsup{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a} \\
+	 & \sliminf{x\to a}f(x):=\inf\setdeff{\sliminf{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a}
+\end{align*}
+
+\theorem
+\begin{align*}
+	\exists\slimsup{x\to a}f(x)=g\land\exists\sliminf{x\to a}f(x)=g\Lrarr\exists\slim{x\to a}f(x)=g
+\end{align*}
+
+\onlyif
+\begin{align*}
+	 & U:=\setdeff{\slimsup{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a} &
+	 & V:=\setdeff{\sliminf{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a}
+\end{align*}
+\begin{align*}
+	 & (\forall u\in U,v\in V)\;v\leq u                                                                                                             \\
+	 & \sup U =g\land\inf V=g\Rarr (\forall u\in U,v\in V)\;g\leq v\leq u\leq g\Rarr U=V=\{g\}\Rarr                                                 \\
+	 & \Rarr (\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\slimsup{n\to\infty}f(x_{n})=g\land\sliminf{n\to\infty}f(x_{n})=g\Rarr \\
+	 & \Rarr\slimty f(x_{n})=g\Rarr\slim{x\to a}f(x)=g\qed
+\end{align*}
+
+\enough
+\begin{align*}
+	 & U:=\setdeff{\slimsup{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a} &
+	 & V:=\setdeff{\sliminf{n\to\infty}f(x_{n})}{\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a}
+\end{align*}
+\begin{align*}
+	&(\forall\{x_{n}\}:(\forall n\in\N)\;x_{n}\neq a\land x_{n}\to a)\slimty f(x_{n})=g\Rarr \slimsup{n\to\infty}f(x_{n})=g\land\sliminf{n\to\infty}f(x_{n})=g\Rarr\\
+	&\Rarr U=V=\{g\}\Rarr\slimsup{x\to a}f(x)=\sup U=g\land\sliminf{x\to a}f(x)=\inf V=g\qed
+\end{align*}
+
+\end{document}

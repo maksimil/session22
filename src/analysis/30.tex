@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{30}{Бесконечно малые и бесконечно большие функции. $\lim\sin(x)/x$}
+
+\define{бесконечно малых и бесконечно больших функций}
+
+Функция $\alpha(x)$ называется бесконечно малой при $x\to a$, если
+\begin{align*}
+	\slim{x\to a} \alpha(x)=0
+\end{align*}
+
+Функция $\alpha(x)$ называется бесконечно большой при $x\to a$, если
+\begin{align*}
+	\slim{x\to a} \alpha(x)=\infty
+\end{align*}
+
+Их классификация аналогична с бесконечно малыми и бесконечно большими величинами
+
+\theorem
+
+$\slim{x\to a}f(x)=0\land\slim{x\to a}g(x)=0$
+\begin{align*}
+	f\sim g\Lrarr f(x)-g(x)=o(g(x))\land f(x)-g(x)=o(f(x))
+\end{align*}
+
+\onlyif
+\begin{align*}
+	 & \slim{x\to a}\frac{f(x)-g(x)}{f(x)}=1-\slim{x\to a}\frac{g(x)}{f(x)}=1-1=0\Rarr f(x)-g(x)=o(f(x))     \\
+	 & \slim{x\to a}\frac{f(x)-g(x)}{g(x)}=\slim{x\to a}\frac{f(x)}{g(x)}-1=1-1=0\Rarr f(x)-g(x)=o(g(x))\qed
+\end{align*}
+
+\enough
+\begin{align*}
+	\slim{x\to a}\frac{f(x)}{g(x)}=\slim{x\to a}\frac{f(x)-g(x)+g(x)}{g(x)}=\slim{x\to a}\frac{f(x)-g(x)}{g(x)}+\slim{x\to a}\frac{g(x)}{g(x)}=0+1=1\Rarr f(x)\sim g(x)\qed
+\end{align*}
+
+\theorem
+\begin{align*}
+	f\sim f_1\land g\sim g_1\Rarr \slim{x\to a}\frac{f(x)}{g(x)}=\slim{x\to a}\frac{f_1(x)}{g_1(x)}
+\end{align*}
+
+\proof
+\begin{align*}
+	\slim{x\to a}\frac{f(x)}{g(x)}=\slim{x\to a}\frac{f_1(x)}{f(x)}\slim{x\to a}\frac{f(x)}{g(x)}\slim{x\to a}\frac{g(x)}{g_1(x)}=
+	\slim{x\to a}\frac{f_1(x)}{f(x)}\frac{f(x)}{g(x)}\frac{g(x)}{g_1(x)}=\slim{x\to a}\frac{f_1(x)}{g_1(x)}\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+\begin{align*}
+	\slim{x \to 0} \frac{\sin x}x =1
+\end{align*}
+
+\proof
+
+Рассмотрим случай $x\in (0;\frac{\pi}{2})$
+
+\begin{minipage}{0.6\linewidth}
+	\begin{enumerate}
+		\item{}Рассмотрим единичную окружность с центром в $O$
+		\item{}$A$ и $B$ лежат на окружности и $\angle AOB=x$
+		\item{}$C: C\in OB\land CA\perp OA$
+	\end{enumerate}
+	\begin{align*}
+		 & S_1=S_{\triangle OAB}=\frac{1}{2}OA\cdot OB\cdot\sin(x)=\frac{\sin(x)}{2} \\
+		 & S_2=S_{\text{сектор } OAB}=\pi r^{2}\frac{x}{2\pi}=\frac{x}{2}            \\
+		 & S_3=S_{\triangle COA}=\frac{1}{2}OA\cdot AC=\frac{\tg(x)}{2}              \\
+		 & S_1<S_2<S_3
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\coordinate (O) at (0,0) node[anchor=south] at (O) {$O$};
+		\draw (O) node[point]{};
+		\coordinate (A) at (2,0) node[anchor=west] at (A) {$A$};
+		\draw (A) node[point]{};
+		\coordinate (C) at (2,2) node[anchor=south] at (C) {$C$};
+		\draw (C) node[point]{};
+		\coordinate (B) at (1.42,1.42) node[anchor=south] at (B) {$B$};
+		\draw (B) node[point]{};
+
+		\draw (O) -- (A);
+		\draw (O) -- (C);
+		\draw (A) -- (C);
+		\draw (A) -- (B);
+
+		\draw [domain=-45:90, dashed] plot ({2*cos(\x)},{2*sin(\x)});
+	\end{tikzpicture}
+	\captionof{figure}{$\sin(x)/x$}
+\end{minipage}
+
+Из геометрических рассуждений получаем следущее при $x\in(0;\frac{\pi}{2})$
+\begin{align*}
+	\frac{1}{2} \sin x < \frac{1}{2} x< \frac{1}{2} \tg x\Rarr\sin x < x < \tg x
+\end{align*}
+
+Учитывая, что $\sin(x)>0$ разделим каждый из членов неравенства на $\sin(x)$
+\begin{align*}
+	1<\frac{x}{\sin(x)}<\frac{1}{\cos(x)}\Rarr \cos(x)<\frac{\sin(x)}{x}<1\Rarr 0<1-\frac{\sin(x)}{x}<1-\cos(x)
+\end{align*}
+\begin{align*}
+	1-\cos(x) =1-\left(1-2\sin^{2}\left(\frac{x}{2}\right)\right)= 2\sin^2\left(\frac{x}{2}\right)<2\sin \left(\frac{x}{2}\right)<2\frac{x}{2}=x
+\end{align*}
+\begin{align*}
+	0< 1 - \frac{\sin x}x<1-\cos(x)<x\Rarr \left|1-\frac{\sin(x)}{x}\right|<|x|
+\end{align*}
+
+Покажем теперь, что эта оценка выполняется и для $x\in(-\frac{\pi}{2};0)$
+\begin{align*}
+	\llet t:=-x\Rarr t\in\left(0;\frac{\pi}{2}\right)\Rarr \left|1-\frac{\sin(t)}{t}\right|<|t|\Rarr\left|1-\frac{\sin(-x)}{-x}\right|<|-x|\Rarr\left|1-\frac{\sin(x)}{x}\right|<|x|
+\end{align*}
+
+Таким образом, оценка выполняется для $x\in(-\frac{\pi}{2};0)\cup(0;\frac{\pi}{2})$
+
+Можно прийти к выводу
+\begin{align*}
+	 & \forall\eps>0\;\exists\delta=\min\left\{\frac{\eps}{2},\frac{\pi}{2}\right\}:(\forall x\in\R)\;0<|x|<\delta\Rarr|x|<\frac{\eps}{2}\Rarr \\
+	 & \Rarr \left|1-\frac{\sin(x)}{x}\right|<|x|<\frac{\eps}{2}<\eps\Rarr\slim{x\to 0}\frac{\sin(x)}{x}=1\qed
+\end{align*}
+
+\end{document}

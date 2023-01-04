@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{32}{Непрерывность функции в точке, непрерывность справа и слева в точке, непрерывность функции на множестве. Определение непрерывности на языке "$\eps-\delta$". Примеры.}
+
+\define{непрерывности функции в точке}
+
+$f$ ---  определена в окрестности $x_0\in\R$
+
+$f$ называется непрерывной в $x_0$, если
+\begin{align*}
+	\slim{x \to x_0}f(x)=f(x_0)
+\end{align*}
+
+{\it Альтернативные определения}
+\begin{align*}
+	 & \slim{x\to x_0}f(x)-f(x_0)=0 &  & \slim{h\to 0}f(x+h)-f(x)=0
+\end{align*}
+
+\define{непрерывности справа и слева в точке}
+
+$f$ ---  определена на $(a;x_0]$
+
+$f$ называется непрерывной в $x_0$ слева, если
+\begin{align*}
+	\slim{x\to x_0-0}f(x)=f(x_0)
+\end{align*}
+
+$f$ --- определена на $[x_0;a)$
+
+$f$ называется непрерывной в $x_0$ справа, если
+\begin{align*}
+	\slim{x\to x_0+0}f(x)=f(x_0)
+\end{align*}
+
+\define{непрерывность функции на множестве}
+
+$f$ --- определена на промежутке $X$ с концами $a$ и $b$ ($a<b$)
+
+$f$ называется непрерывной на этом промежутке, если она непрерывна в каждой его внутренней точке и
+если точка $a \in X$, то под непрерывностью в ней понимают непрерывность справа,
+если точка $b \in X$, то под непрерывностью в ней понимают непрерывность слева
+
+\define{непрерывности на языке "$\eps-\delta$"\par}
+
+$f$ --- непрерывна в $x_0\in\R$, если
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x\in\R:|x-x_0|<\delta)\;|f(x)-f(x_0)|<\eps
+\end{align*}
+
+\theorem
+
+$f$, $g$ --- непрерывны на $X$
+
+$f\pm g$, $fg$ --- непрерывны на $X$ и $f/g$ --- непрерывна на $X\setminus\setdef{x\in X}{g(x)=0}$
+
+\proof
+
+По алгебраическим свойствам предела$\qed$
+
+\pagebreak
+
+\sectitle{Примеры непрерывных функций}
+
+\begin{enumerate}
+	\item{}Многочлены
+
+	\theorem
+
+	$f(x)=x^{n},\;n\in\N$ --- непрерывна на $\R$
+
+	\proof
+
+	{\it Индукция:} $T(n)$ --- верность теоремы для $n$
+	\begin{enumerate}
+		\item{}$T(1)$
+		\begin{align*}
+			\slim{x\to x_0}f(x)=\slim{x\to x_0}x=x_0\Rarr T(1)
+		\end{align*}
+		\item{}$T(n)\Rarr T(n+1)$
+		\begin{align*}
+			\slim{x\to x_0}f(x)=\slim{x\to x_0}x^{n+1}=\slim{x\to x_0}x^{n}\slim{x\to x_0}x=x_0^{n}x_0=x_0^{n+1}\Rarr T(n+1)\qed
+		\end{align*}
+	\end{enumerate}
+
+	\theorem
+
+	Многочлен степени $n$ непрерывен на $\R$
+
+	\proof
+	\begin{align*}
+		 & P_{n}(x)=\sum_{k=0}^{n}a_{k}x^{k} &  & \slim{x\to x_0}P_{n}(x)=\slim{x\to x_0}\sum_{k=0}^{n}a_{k}x^{k}=
+		\sum_{k=0}^{n}a_{k}\slim{x\to x_0}x^{k}=\sum_{k=0}^{n}a_{k}x_0^{k}=P_{n}(x_0)\qed
+	\end{align*}
+
+	\item{}Рациональные выражения
+
+	\theorem
+
+	$P_{n}/Q_{m}$ --- рациональное выражение, где $P_{n}$ --- многочлен степени $n$, $Q_{m}$ --- многочлен степени $m$
+
+	$P_{n}/Q_{m}$ --- непрерывно на $\R\setminus\setdef{x\in\R}{Q_{m}(x)=0}$
+
+	\proof
+	\begin{align*}
+		\slim{x\to x_0}\frac{P_{n}(x)}{Q_{m}(x)}=\frac{\slim{x\to x_0}P_{n}(x)}{\slim{x\to x_0}Q_{m}(x)}=\frac{P_{n}(x_0)}{Q_{m}(x_0)}\qed
+	\end{align*}
+
+	\item{}Тригонометрические функции
+
+	\theorem
+
+	$f(x)=\sin(x)$ ---  непрерывна на $\R$
+
+	\proof
+	\begin{align*}
+		 & |\sin(x+h)-\sin(x)|=2\left|\sin\frac{h}{2}\right|\cdot\left|\cos\left(x+\frac{h}{2}\right)\right|\leq 2\left|\sin\frac{h}{2}\right|\xrightarrow{h\to 0} 0\Rarr \\
+		 & \Rarr|\sin(x+h)-\sin(x)|\xrightarrow{h\to 0} 0
+	\end{align*}
+
+	\pagebreak
+
+	Аналогично непрерывен и $\cos(x)$
+
+	$\tg(x), \ctg(x)$ --- непрерывны на своих областях определения по алгебраическим\\
+	свойствам предела
+
+	\item{}$e^{x}$
+
+	\theorem
+
+	$e^{x}$ --- непрерывна на $\R$
+
+	\proof
+	\begin{align*}
+		\slim{h\to 0}(e^{x+h}-e^{x})=\left(\slim{h\to 0}e^{x}e^{h}\right)-e^{x}=e^{x}\left(\slim{h\to 0}e^{h}\right)-e^{x}=0\qed
+	\end{align*}
+
+\end{enumerate}
+
+\end{document}
