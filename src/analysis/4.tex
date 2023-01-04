@@ -22,8 +22,8 @@ $A$ --- истинная часть $B$, если $A\subset B\land A\sim B$
 
 $(0;1)$ --- истинная часть $\R$
 \begin{align*}
-	 & f:(0;1)\leftrightarrow\R            &  & (0;1)\subset\R \\
-	 & f(x)=\tg\left(\frac{x\pi}{2}\right) &  & (0;1)\sim\R
+	 & f:(0;1)\leftrightarrow\R                &  & (0;1)\subset\R \\
+	 & f(x)=\tg\left(x\pi+\frac{\pi}{2}\right) &  & (0;1)\sim\R
 \end{align*}
 
 \theorem
@@ -79,10 +79,12 @@ $m(A)=m(B)$ означает, что мощности $A$ и $B$ равны.
 
 $f$ и $g$ --- инъекции
 \begin{enumerate}
-	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\exists g:B\to A,\;A'\subset A)\Rarr m(A)=m(B)$
-	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr m(A)<m(B)$
-	\item{}$(\nexists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A,\;A'\subset A)\Rarr$ $m(A)$ и $m(B)$ несравнимы,
+	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\exists g:B\to A',\;A'\subset A)\Rarr m(A)=m(B)$
+	\item{}$(\exists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A',\;A'\subset A)\Rarr m(A)<m(B)$
+	\item{}$(\nexists f:A\to B',\;B'\subset B)\land(\nexists g:B\to A',\;A'\subset A)\Rarr$ $m(A)$ и $m(B)$ несравнимы,\\
+	такого быть не может
 \end{enumerate}
 
+Шкала мощностей множеств не ограничена
 
 \end{document}
