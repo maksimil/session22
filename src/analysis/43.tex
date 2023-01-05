@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{43}{Модуль непрерывности функции}
+
+\define{модуля непрерывности функции}
+
+$f$ определена и непрерывна на $X$ и $\forall x \in X$ --- точка сгущения
+
+Модуль непрерывности функции $f$ на $X$ определён для $\delta>0$
+\begin{align*}
+	\omega (f, \delta):=\sup\left\{|f(x_1)-f(x_2)|\;\big|\;\forall x_1,x_2\in X:|x_1-x_2|\leq\delta\right\}
+\end{align*}
+
+$\omega (f, \delta) \geq 0$ и неубывающая относительно $\delta$ на $\delta\in(0;+\infty)$
+
+\theorem
+
+$f$ --- равномерно непрерывна на $X \Lrarr \slim{\delta \to 0 + 0} \omega (f,\delta) = 0$
+
+\onlyif
+
+$f$ --- равномерно непрерывна на $X$
+\begin{align*}
+	\forall \eps > 0\;\exists \delta (\eps) > 0:(\forall x', x'' \in X)\;|x' - x''| < \delta(\eps)\Rarr|f(x') - f(x'')| < \eps
+\end{align*}
+
+Тогда из определения $\omega(f,\delta)$ следует
+\begin{align*}
+	\forall \delta \in (0, \delta (\eps))\; \omega (f, \delta) < \eps\Rarr\slim{\delta\to 0+0}\omega(f,\delta)=0\qed
+\end{align*}
+
+\enough
+
+По определению предела
+\begin{align*}
+	\forall \eps>0\;\exists \delta(\eps)>0:\forall \delta\in(0;\delta(\eps))\;\omega(f,\delta)<\eps
+\end{align*}
+
+По определению модуля непрерывности
+\begin{align*}
+	\omega(f,\delta)<\eps\Rarr(\forall x_1,x_2\in X:|x_1-x_2|\leq\delta<\delta(\eps))\;|f(x_1)-f(x_2)|<\eps\qed
+\end{align*}
+
+\end{document}

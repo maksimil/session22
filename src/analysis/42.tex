@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{42}{Колебание функции. Следствие из теоремы Кантора.}
+
+\define{колебания функции}
+
+$f$ --- непрерывна и ограничена на $X$
+
+$\omega := \sup\left\{|f(x_1)-f(x_2)|\;\big|\;x_1,x_2\in X\right\}=\sup f(X)- \inf f(X)$ --- колебание функции на $X$
+
+\theorem[(следствие из теоремы Кантора)]
+
+$f$ -- непрерывна на $[a,b]$
+
+Тогда $\forall \eps>0$ $\exists \delta > 0:$ для любого разбиения $[a,b]$ на отрезки $[x_{k};x_{k+1}]$ ($a = x_0<x_1<...<x_n = b$),\\
+в котором выполняется $\max\setdef{x_{k+1}-x_{k}}{k=\overline{0,n-1}} < \delta$ верно и $(\forall k=\overline{0,n-1})\;\omega_k < \varepsilon$,
+где $\omega_k:=\sup f([x_{k};x_{k+1}])-\inf f([x_{k};x_{k+1}])$
+
+\proof
+
+$f(x)$ --- непрерывна на $[a,b] \Rarr f(x)$ --- равномерно непрерывна на $[a,b]$
+\begin{align*}
+	\forall\eps>0\;\exists\delta>0:(\forall x_1,x_2\in[a;b])\;|x_1-x_2|<\delta\Rarr |f(x_1)-f(x_2)|<\frac{\eps}{3}
+\end{align*}
+
+Возьмём произвольное разбиение $[a;b]$ на $n$ частей, удовлетворяющее $\max\setdef{x_{k+1}-x_{k}}{k=\overline{0,n-1}}<\delta$
+
+Покажем, что $\omega_k < \varepsilon\;\forall k = \overline{0,n-1}$
+\begin{align*}
+	 & M_{k}:=\sup f([x_{k};x_{k+1}])\Rarr\exists x'\in[x_{k};x_{k+1}]:M_{k}-\frac{\eps}{3}<f(x')\Rarr M_{k}<f(x')+\frac{\eps}{3}        \\
+	 & m_{k}:=\inf f([x_{k};x_{k+1}])\Rarr\exists x''\in[x_k, x_{k+1}]:f(x'')<m_{k}+\frac{\eps}{3}\Rarr f(x'')-\frac{\varepsilon}{3}<m_k \\
+	 & \omega_k = M_k - m_k < f(x') + \frac{\eps}{3} - f(x'') + \frac{\eps}{3} < |f(x') - f(x'')| + \frac{2\eps}{3} < \eps \qed
+\end{align*}
+
+\end{document}

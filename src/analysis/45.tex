@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{45}{Точки разрывов монотонных функции}
+
+\theorem
+
+$f$ определена и монотонна на $[a,b] \Rightarrow \forall x_0 \in [a,b)\;\exists \slim{x \to x_0 + 0} f(x) \land \forall x_0\in(a;b]\;\exists \slim{x \to x_0 - 0} f(x)$
+
+\proof
+
+Необходимо доказать:
+\begin{enumerate}
+	\item{}$\forall x_0 \in [a,b)\; \exists \slim{x \to x_0 + 0} f(x)$
+				\item{}$\forall x_0 \in (a;b]\; \exists \slim{x \to x_0 - 0} f(x)$
+\end{enumerate}
+
+Без ограничения общности рассмотрим только первый случай при неубывающей $f$
+\begin{align*}
+	 & x_0<b \Rightarrow Z:=\setdef{f(x)}{x\in(x_0;b]} \ne \eset                                                 \\
+	 & f\text{ --- неубывающая} \Rarr (\forall x\in (x_0;b])\;f(x_0)\leq f(x)\Rarr Z\text{ --- ограничено снизу}
+\end{align*}
+
+Значит $\exists\inf Z=:\gamma$
+
+Докажем, что $\gamma = \slim{x \to c + 0} f(x)$
+
+По свойству $\inf$
+\begin{align*}
+	\forall \eps>0\;\exists \delta>0:\gamma \leq f(x_0 + \delta) < \gamma + \varepsilon
+\end{align*}
+
+$f$ -- неубывающая, значит
+\begin{align*}
+	\forall x \in (x_0; x_0+\delta) : \gamma-\eps<\gamma\leq f(x)\leq f(x_0+\delta) < \gamma + \eps\Rarr |f(x)-\gamma|<\eps\Rarr\exists\slim{x\to x_0+0}f(x)=\gamma\qed
+\end{align*}
+
+Аналогично доказывается второй случай и случаи с невозрастающей $f$
+
+\theorem
+
+Если $f$ определена и монотонна на $[a,b]$, то $f$ может иметь на $[a;b]$ только разрывы 1-го рода
+
+\proof
+
+По предыдущей теореме $\forall x_0 \in [a,b)\;\exists \slim{x \to x_0 + 0} f(x) \land \forall x_0\in(a;b]\;\exists \slim{x \to x_0 - 0} f(x)$
+
+То есть все односторонние пределы существуют, значит разрывы могут быть только первого рода$\qed$
+
+\pagebreak
+
+\result
+
+В условиях предыдущей теоремы $f$ имеет не более чем счётное множество точек разрыва
+
+\proof
+
+Без ограничения общности пусть $f$ --- неубывающая
+
+Достаточно доказать, что множество точек разрыва на $(a;b)$ счётно
+
+Обозначим это множество буквой $W$
+\begin{align*}
+	(\forall x\in W)\;f(x-0)<f(x+0)\Rarr\exists r(x)\in\Q:f(x-0)<r(x)<f(x+0)
+\end{align*}
+
+$f$ --- неубывающая
+\begin{align*}
+	 & (\forall x_1,x_2\in W:x_1<x_2)\;f(x_1-0)<r(x_1)<f(x_1+0)\leq f(x_2-0)<r(x_2)<f(x_2+0) \\
+	 & \Rarr r(x_1)<r(x_2)\Rarr r\text{ --- инъекция }
+\end{align*}
+
+Таким образом $r:W\to r(W)$ --- биекция, то есть $W\sim$ подмножеству счётного множества $\Q$
+
+Тогда $W$ --- не более чем счётное множество$\qed$
+
+\end{document}

@@ -6,38 +6,6 @@
 
 \tickettitle{54}{Приращение дифференцируемой функции. Теорема о дифференцировании суперпозиции.}
 
-\define{приращения}
-
-$\Delta f(x) = f(x+h) - f(x)$  --- приращение (первая разность) $f(x)$ в $x_0$ при приращении $h$ аргумента $x$
-
-\define{дифференцируемости}
-
-Если приращение функции $y=f(x)$ в точке $x_0$ представимо в виде $\Delta y=A\Delta x+o(\Delta x)$, то она дифференцируема в этой точке.
-
-$A\Delta x$, $dy$ --- дифференциал $f$ в $x_0$.
-
-$f(x)=x\Rarr dy=\Delta x\Rarr dx=\Delta x$
-
-\theorem
-\begin{align*}
-	f\text{ --- дифференцируема в $x_0$} \Lrarr \exists f'(x_0)\land dy=f'(x_0)dx
-\end{align*}
-
-\onlyif
-
-$f$ --- дифференцируема, значит $\Delta y=A\Delta x+o(\Delta x)$
-\begin{align*}
-	 & \slim{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\slim{\Delta x\to 0}\frac{A\Delta x+o(\Delta x)}{\Delta x}=A\Rarr \exists f'(x_0)=A \Rarr \\
-	 & \Rarr \Delta y=f'(x_0)\Delta x+o(\Delta x)\Rarr dy=f'(x_0)dx\qed
-\end{align*}
-
-\enough
-\begin{align*}
-	 & \exists f'(x_0)\Rarr \exists\slim{\Delta x\to 0}\frac{\Delta y}{\Delta x}
-	\Rarr \frac{\Delta y}{\Delta x}=f'(x_0)+\eps(\Delta x)\text{, где }\slim{\Delta x\to 0}\eps(\Delta x)=0\Rarr               \\
-	 & \Rarr \Delta y=f'(x_0)\Delta x+\eps(\Delta x)\Delta x=f'(x_0)\Delta x+o(\Delta x)\Rarr f\text{ --- дифференцируема}\qed
-\end{align*}
-
 \theorem
 \begin{align*}
 	\exists f'(x)\in\R\Rarr \Delta f(x)=f'(x)h+\alpha(h)h,\;\slim{h\to 0}\alpha(h)=0
@@ -54,8 +22,6 @@ $f$ --- дифференцируема, значит $\Delta y=A\Delta x+o(\Delt
 \begin{align*}
 	\slim{h\to 0}\alpha(h)=\left(\slim{h\to 0}\frac{\Delta f(x)}{h}\right)-f'(x)=f'(x)-f'(x)=0\qed
 \end{align*}
-
-\pagebreak
 
 \theorem
 

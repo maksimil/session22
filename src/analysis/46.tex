@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{46}{Производная функции. Непрерывность и дифференцируемость функции.}
+
+\define{производной функции}
+
+$f$ определена на $(a;b)$ и $x_0\in(a;b)$
+
+Если $\exists\slim{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$, то он называется производной $f$ в $x_0$ и обозначается $f'(x_0)$
+
+{\it Замечание:}
+
+Не любая непрерывная функция имеет производную
+
+\define{приращения}
+
+$\Delta f(x) = f(x+h) - f(x)$  --- приращение (первая разность) $f(x)$ в $x_0$ при приращении $h$ аргумента $x$
+
+\define{дифференцируемости}
+
+Если приращение функции $y=f(x)$ в точке $x_0$ представимо в виде $\Delta y=A\Delta x+o(\Delta x)$, то она дифференцируема в этой точке.
+
+$A\Delta x$, $dy$ --- дифференциал $f$ в $x_0$.
+
+$f(x)=x\Rarr dy=\Delta x\Rarr dx=\Delta x$
+
+\theorem
+\begin{align*}
+	f\text{ --- дифференцируема в $x_0$} \Lrarr \exists f'(x_0)\land dy=f'(x_0)dx
+\end{align*}
+
+\onlyif
+
+$f$ --- дифференцируема, значит $\Delta y=A\Delta x+o(\Delta x)$
+\begin{align*}
+	 & \slim{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\slim{\Delta x\to 0}\frac{A\Delta x+o(\Delta x)}{\Delta x}=A\Rarr \exists f'(x_0)=A \Rarr \\
+	 & \Rarr \Delta y=f'(x_0)\Delta x+o(\Delta x)\Rarr dy=f'(x_0)dx\qed
+\end{align*}
+
+\enough
+\begin{align*}
+	 & \exists f'(x_0)\Rarr \exists\slim{\Delta x\to 0}\frac{\Delta y}{\Delta x}
+	\Rarr \frac{\Delta y}{\Delta x}=f'(x_0)+\eps(\Delta x)\text{, где }\slim{\Delta x\to 0}\eps(\Delta x)=0\Rarr               \\
+	 & \Rarr \Delta y=f'(x_0)\Delta x+\eps(\Delta x)\Delta x=f'(x_0)\Delta x+o(\Delta x)\Rarr f\text{ --- дифференцируема}\qed
+\end{align*}
+
+\define{односторонних производных}
+
+Если $\exists\slim{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}$, то он называется правосторонней производной $f$ в $x_0$ и обозначается $f'_{+}(x_0)$
+
+Если $\exists\slim{x\to x_0-0}\frac{f(x)-f(x_0)}{x-x_0}$, то он называется левосторонней производной $f$ в $x_0$ и обозначается $f'_{-}(x_0)$
+
+{\it Замечание:}
+
+Даже такие производные непрерывная функция может не иметь
+
+\pagebreak
+
+{\it Замечание:}
+
+Когда мы говорим, что $f$ дифференцируема на $[a;b]$, это означает, что функция дифференцируема\\
+в $\forall x_0 \in (a;b)$ и имеет односторонние производные на концах промежутка
+
+
+\theorem
+
+Если $f$ дифференцируема в $x_0$, то она непрерывна в $x_0$
+
+\proof
+
+В $x_0$ функция имеет производную, значит
+\begin{align*}
+	\slim{h\to 0}f(x_0+h)-f(x_0)=\slim{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}h=\slim{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}\slim{h\to 0}h=f'(x_0)\cdot 0=0
+\end{align*}
+
+Тогда $f$  непрерывна в $x_0\qed$
+
+\end{document}
