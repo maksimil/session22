@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{44}{Классификация разрывов функции}
+
+\define{точки разрыва функции}
+
+$f$ --- определена в проколотой окрестности $a$
+
+Если $f$ --- не определена в $a$ или $f$ --- определена и не непрерывна в $a$,\\
+то $f$ --- разрывна в $a$ и $a$ --- точка разрыва $f$
+
+
+\define{классификации разрывов}
+
+$f$ --- определена на $[\alpha;\beta]$ или $[\alpha;\beta]\setminus\{a\}$ и $a$ --- точка разрыва $a$
+
+\begin{enumerate}
+	\item $\exists \slim{x\to a+0}f(x)\land\exists \slim{x\to a-0}f(x)\land\slim{x \to a + 0} f(x) = \slim{x \to a - 0} f(x) $, то $a$ --- точка устранимого разрыва
+	\item $\exists \slim{x \to a + 0} f(x)\land \exists \slim{x \to a - 0} f(x) \land\slim{x \to a + 0} f(x) \neq \slim{x \to a - 0} f(x)$, то $a$ --- точка разрыва 1-ого рода
+	      % \item $(\nexists \lim_{x \to a + 0} f(x) \wedge \nexists \lim_{x \to a - 0} f(x)) \vee (\lim_{x \to a + 0} f(x) = \pm \infty) \vee (\lim_{x \to a - 0} f(x) = \pm \infty)$, $(\cdot)a$ --- разрыв 2-го рода.
+	\item Если $a$ --- точка неустранимого разрыва не первого рода, то $a$ --- точка разрыва 2-го рода
+\end{enumerate}
+
+Под существованием предела имеется в виду существование конечного предела
+
+При $a = \alpha \lor a= \beta$ терминология аналогичная, но только с одним из односторонних пределов
+
+{\it Примеры}
+
+\begin{enumerate}
+	\item $f(x)=\frac{\sin(x)}{x}$ имеет устранимый разрыв в $0:\slim{x\to 0+0}f(x)=\slim{x\to 0-0}f(x)$ и $f$ не определена в $0$
+	\item $f(x) = \sgn(x)$ имеет разрыв 1-го рода в $0:\slim{x \to 0 + 0} f(x) = 1 \land \slim{x \to 0 - 0} f(x) = -1$
+	\item $f(x) = \frac{1}{x}$ имеет разрыв 2-го рода в $0:\slim{x \to 0 \pm 0} f(x) = \pm \infty$
+\end{enumerate}
+
+\end{document}

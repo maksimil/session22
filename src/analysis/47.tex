@@ -1,0 +1,173 @@
+\documentclass{article}
+
+\usepackage{defines}
+
+\begin{document}
+
+\tickettitle{47}{Арифметические свойства производных. Примеры: таблица производных. {\it Билет не просмотрен Ксюшей, но проверен Артёмом}}
+
+\theorem
+
+$y=f(x)$ и $z=g(x)$ --- дифференцируемая функции
+\begin{align*}
+	\frac{d}{dx} (y \pm z) = \frac{dy}{dx} \pm \frac{dz}{dx}
+\end{align*}
+
+\proof
+\begin{align*}
+	 & \frac{d}{dx}(y\pm z)=\lim_{h \to 0} \frac{[f(x+h) \pm g(x+h)] - [f(x) \pm g(x)]}{h}=                                    \\
+	 & = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \pm \lim_{h \to 0} \frac{g(x+h) - g(x)}{h} = \frac{dy}{dx}\pm\frac{dz}{dx}\qed
+\end{align*}
+
+\result
+\begin{align*}
+	c=\const\Rarr\frac{d}{dx}(y\pm c)=\frac{dy}{dx}
+\end{align*}
+
+\theorem
+
+$y=f(x)$ и $z=g(x)$ --- дифференцируемые функции
+\begin{align*}
+	\frac{d}{dx} (y \cdot z) = z \cdot \frac{dy}{dx} + y \cdot \frac{dz}{dx}
+\end{align*}
+
+\proof
+\begin{align*}
+	 & \frac{d}{dx} (y \cdot z) = \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x)g(x)}{h} =                                  \\
+	 & =\lim_{h \to 0} \frac{f(x+h) \cdot (g(x+h) - g(x))}{h} + \lim_{h \to 0} \frac{(f(x+h) - f(x)) \cdot g(x)}{h} = \\
+	 & =\slim{h\to 0}f(x+h)\lim_{h \to 0} \frac{g(x+h) - g(x)}{h} + g(x)\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\end{align*}
+
+\result
+\begin{align*}
+	c=\const\Rarr\frac{d}{dx}(cy)=c\frac{dy}{dx}
+\end{align*}
+
+По непрерывности $f$
+\begin{align*}
+	 & \frac{d}{dx} (y \cdot z) =f(x)\lim_{h \to 0} \frac{(g(x+h) - g(x))}{h} + g(x)\lim_{h \to 0} \frac{(f(x+h) - f(x))}{h}= \\
+	 & =f(x)g'(x)+f'(x)g(x)=z \cdot \frac{dy}{dx} + y \cdot \frac{dz}{dx}\qed
+\end{align*}
+
+\pagebreak
+
+\theorem
+
+$z=g(x)$ --- дифференцируемая функция и $g(x)\neq 0$
+\begin{align*}
+	\frac{d}{dx}\left(\frac{1}{z}\right)=-\frac{1}{z^{2}}\frac{dz}{dx}
+\end{align*}
+
+\proof
+\begin{align*}
+	 & \frac{d}{dx} \left(\frac{1}{z}\right) = \lim_{h \to 0} \frac{1}{h} \left(\frac{1}{g(x+h)} - \frac{1}{g(x)}\right)=\lim_{h \to 0}\frac{g(x)-g(x+h)}{g(x+h)g(x)h}= \\
+	 & =-\lim_{h \to 0}\frac{1}{g(x+h)g(x)}\slim{h\to 0}\frac{g(x+h)-g(x)}{h}=-\frac{1}{g^{2}(x)}g'(x)=-\frac{1}{z^{2}}\frac{dz}{dx}\qed
+\end{align*}
+
+\theorem
+
+$y=f(x)$ и $z=g(x)$ --- дифференцируемые функции и $g(x)\neq 0$
+\begin{align*}
+	\frac{d}{dx}\left(\frac{y}{z}\right)=\frac{1}{z^2} \left(z \cdot \frac{dy}{dx} - y \cdot \frac{dz}{dx}\right)
+\end{align*}
+
+\proof
+\begin{align*}
+	\frac{d}{dx} \left(y \cdot \frac{1}{z}\right) = y \frac{d}{dx} \left(\frac{1}{z}\right) + \frac{1}{z} \frac{dy}{dx} = y \left(-\frac{1}{z^2} \cdot \frac{dz}{dx}\right) + \frac{1}{z} \frac{dy}{dx} = \frac{1}{z^2} \cdot \left(z \cdot \frac{dy}{dx} - y \cdot \frac{dz}{dx}\right)\qed
+\end{align*}
+
+\pagebreak
+
+\sectitle{Таблица производных}
+
+\begin{enumerate}
+	\item $\sqsupset y = c, \ c = const \Rightarrow \lim_{h \to 0} \frac{c-c}{h} = 0 \Rightarrow (c)' = 0$
+
+	\item $\sqsupset y = x, \ x \in \R \Rightarrow \lim_{h \to 0} \frac{(x+h)-x}{h} = 1 \Rightarrow (x)' = 1$
+
+	\item $\sqsupset y = x^n, \ n \in \N, \ \forall x \quad \Delta x \Rightarrow y + \Delta y = {(x + \Delta x)}^n = x^n + (n-1) \cdot x^{n-1} \cdot \Delta x + \frac{n \cdot (n-1)}{1 \cdot 2} \cdot x^{n-2} \cdot \Delta x^2 + ... + \Delta x^n \newline$ \\
+	      $\frac{\Delta y}{\Delta x} = (n-1) \cdot x^{n-1} + \frac{n \cdot (n-1)}{1 \cdot 2} \cdot x^{n-2} \cdot \Delta x + ... + \Delta x^{n-1}$ \\
+	      Рассмотрим $\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = (n-1) \cdot x^{n-1}$
+
+	\item $\sqsupset y = x^{\mu}, \ \mu \in \R$. Её область определения зависит от $\mu$. Если $\mu \in \mathbb{Z}$, то это рациональная функция; если $\mu$ - дробное число, то появляются радикалы. \\
+	      $\sqsupset \mu = \frac{1}{m}, \ m \in \N$ \\
+	      $y = x^{\frac{1}{m}} = \sqrt[m]{x} \ \Rightarrow \ $ если $m$ - нечётное, то $x \in \R$; если $m$ - чётное, то $x \geq 0. \newline$ \\
+	      Если $\mu$ - иррациональное число, то $x > 0$. Значение $x = 0$ только когда $\mu > 0 \newline$ \\
+	      Рассмотрим $\frac{\Delta y}{\Delta x} = \frac{{(x + \Delta x)}^{\mu} - x^{\mu}}{\Delta x} = \frac{\frac{1}{x} \cdot {(x + \Delta x)}^{\mu} - x^{\mu - 1}}{\frac{\Delta x}{x}} = x^{\mu - 1} \cdot \frac{ {(1 + \frac{\Delta x}{x})}^{\mu} - 1 }{\frac{\Delta x}{x}}$ \\
+	      $\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = x^{\mu - 1} \cdot \lim_{\Delta x \to 0} \frac{ {(1 + \frac{\Delta x}{x})}^{\mu} - 1 }{\frac{\Delta x}{x}} = \mu \cdot x^{\mu - 1}$
+	      \begin{align*}
+		      \sqsupset x = 0, \mu > 0 \ \Rightarrow \ f'_{\Delta x = h} (0) = \lim_{h \to 0} \frac{h^{\mu}}{h} =
+		      \begin{cases}
+			      0, \       & \mu > 1 \\
+			      1, \       & \mu = 1 \\
+			      \infty, \  & \mu < 1
+		      \end{cases}
+	      \end{align*}
+
+	\item $\frac{d}{dx} (a_0 + a_1x + a_2x^2 + ... + a_nx^n) = a_1 + 2a_2x + ... + na_nx^{n-1} \ \ ,x \in \R$
+
+	\item $\sqsupset y = \sin{x}, \ x \in \R \ \Rightarrow \ \frac{dy}{dx} = \lim_{h \to 0} \frac{\sin{(x+h)} - \sin{x}}{h} = \lim_{h \to 0} \frac{2}{h} \cdot \sin{\frac{h}{2}} \cdot \cos{(x + \frac{h}{2})} =$ \\
+	      $= \lim_{h \to 0} \frac{\sin{\frac{h}{2}}}{\frac{h}{2}} \cdot \lim_{h \to 0} \cos{(x + \frac{h}{2})}= \cos{x}$
+
+	\item $\sqsupset y = \cos{x}, \ x \in \R \ \Rightarrow \ \ \frac{dy}{dx} = \lim_{h \to 0} \frac{\cos{(x+h)} - \cos{x}}{h} = \lim_{h \to 0} \frac{-2}{h} \cdot \sin{\frac{h}{2}} \cdot \sin{(x + \frac{h}{2})} = -\lim_{h \to 0} \frac{\sin{\frac{h}{2}}}{\frac{h}{2}} \cdot \lim_{h \to 0} \sin{(x + \frac{h}{2})}= -\sin{x}$
+
+	\item $y = \tg x, \ x \in \R, \ \ \tg x = \frac{\sin{x}}{\cos{x}} \Rightarrow \frac{dy}{dx} = \frac{ (\sin{x})' \cdot \cos{x} - (\cos{x})' \cdot \sin{x} }{\cos^2{x}} = \frac{1}{\cos^2{x}}$
+
+	\item $y = \ctg x, \ x \in \R, \ \ \ctg x = \frac{\cos{x}}{\sin{x}} \Rightarrow \frac{dy}{dx} = \frac{ (\cos{x})' \cdot \sin{x} - (\sin{x})' \cdot \cos{x} }{\sin^2{x}}= \frac{-1}{{\sin{x}}^2}$
+
+	\item $\sqsupset y_1 = \ln x, \ x > 0, \ \ y_2 = \log_{a} x, \ a > 0, a \neq 1, x > 0 \Rightarrow \frac{1}{h} \cdot (\ln (x+h) - \ln x) = \frac{x}{h} \cdot \frac{1}{x} \cdot (\ln (1+\frac{h}{x})) = \frac{1}{x} \cdot \frac{x}{h} \cdot \ln (1+\frac{h}{x})$ \\
+	      $\frac{dy_1}{dx} = \frac{1}{x} \cdot \lim_{h \to 0} \ln {(1 + \frac{h}{x})}^{\frac{x}{h}} = \frac{1}{x} \cdot \ln_{h \to 0} {(1+\frac{h}{x})}^{\frac{x}{h}} = \frac{1}{x} \cdot \ln e = \frac{1}{x}$ \\
+	      $y_2 = \log_{a} x = \frac{\ln x}{\ln a} \Rightarrow \frac{dy_2}{dx} = \frac{1}{\ln a} \cdot \frac{d(\ln x)}{dx} = \frac{1}{\ln a \cdot x}$
+
+	\item $\sqsupset y = e^x, \ x \in (-\infty, +\infty)$ \\
+	      $\ln y = x \cdot \ln e \ \Rightarrow \ x = \ln y \ \Rightarrow \ \frac{dx}{dy} = \frac{1}{y}$ \\
+	      По теореме производной обратной функции $\frac{dy}{dx} = y = e^x$
+
+	\item $\sqsupset y = a^x, \ a > 0, \ x \in (-\infty, +\infty)$ \\
+	      $\ln y = x \cdot \ln a \ \Rightarrow \ x = \frac{\ln y}{\ln a}, \ \frac{dx}{dy} = \frac{1}{y \cdot \ln a} \ \Rightarrow$ \\
+	      $\Rightarrow \ $ по теореме производной обратной функции: $\frac{dy}{dx} = y \cdot \ln a = a^x \cdot \ln a$
+
+	\item $\sqsupset y = \arcsin{x}$ \\
+	      \begin{align*}
+		      \begin{cases}
+			      x \in [-1, 1] \\
+			      y \in [-\frac{\pi}{2}, \frac{\pi}{2}]
+		      \end{cases}
+	      \end{align*}
+	      $x = \sin{y} \Rightarrow \frac{dx}{dy} = \cos{y}$ \\
+	      $\frac{dy}{dx} = \frac{1}{\cos{y}} = \frac{1}{\cos{(\arcsin{x})}} = \frac{1}{\cos{(\arccos{\sqrt{1-x^2}})}} = \frac{1}{\sqrt{1-x^2}}$
+
+	\item $\sqsupset y = \arccos{x}$
+	      \begin{align*}
+		      \begin{cases}
+			      x \in [-1, 1] \\
+			      y \in [0, \pi ]
+		      \end{cases}
+	      \end{align*}
+	      $x = \cos{y} \Rightarrow \frac{dx}{dy} = \sin{y}$ \\
+	      $\frac{dy}{dx} = \frac{1}{\sin{y}} = \frac{1}{\sin{(\arccos{x})}} = -\frac{1}{\sqrt{1-x^2}}$
+
+	\item $\sqsupset y = \arctg{x}$ \\
+	      \begin{align*}
+		      \begin{cases}
+			      x \in (-\infty, +\infty) \\
+			      y \in (-\frac{\pi}{2}, \frac{\pi}{2})
+		      \end{cases}
+	      \end{align*}
+	      $x = \tg y \ \Rightarrow \ \frac{dx}{dy} = \frac{1}{\cos^2{y}}$  \\
+	      $\frac{dy}{dx} = \cos^2{y} = \frac{1}{1+\tg^2{y}} = \frac{1}{1+x^2}$
+
+	\item $\sqsupset y = \arcctg{x}$
+	      \begin{align*}
+		      \begin{cases}
+			      x \in (-\infty, +\infty) \\
+			      y \in (0, \pi)
+		      \end{cases}
+	      \end{align*}
+	      $x = \ctg y \ \Rightarrow \ \frac{dx}{dy} = \frac{-1}{\sin^2{y}}$  \\
+	      $\frac{dy}{dx} = -\sin^2{y} = \frac{-1}{1+\ctg^2{y}} = -\frac{1}{1+x^2}$
+\end{enumerate}
+
+
+
+\end{document}
